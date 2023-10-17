@@ -1,0 +1,22 @@
+---
+import { Image } from "astro:assets";
+import Kanagawa from "../../public/kanagawa.png";
+import Navbar from "../components/Navbar.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Kazyel | Contact">
+  <Navbar />
+  <section
+    class="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden"
+  >
+    <Image
+      src={Kanagawa}
+      alt="Kanagawa Wave"
+      class="absolute bottom-0 -z-10 w-full bg-cover opacity-20 mix-blend-multiply grayscale"
+      quality={100}
+      width={1920}
+      height={100}
+    />
+  </section>
+</Layout>
