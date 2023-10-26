@@ -10,6 +10,7 @@ export default {
         "off-w": "#f3e5d7",
         "acc-yellow": "#d58430",
         "acc-yellow-2": "#f09e46",
+        darkest: "#1f1a15",
       },
     },
   },

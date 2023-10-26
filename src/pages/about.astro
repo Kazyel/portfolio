@@ -7,12 +7,12 @@ import JSSvg from "../../public/javascript.svg";
 import TSSvg from "../../public/typescript.svg";
 
 import { Image } from "astro:assets";
-import Navbar from "../components/Navbar.astro";
+import Navbar from "../components/Navbar.tsx";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Kazyel | About me">
-  <Navbar />
+  <Navbar aboutActive={true} />
 
   <section
     class="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden text-center"
@@ -43,12 +43,12 @@ import Layout from "../layouts/Layout.astro";
           </div>
           <Image
             src={Isa}
-            class="aspect-square rounded-[50%] object-cover p-2 border border-stone-700"
+            class="aspect-square rounded-[50%] border border-stone-700 object-cover p-2"
             width={324}
             height={324}
             alt="isa linda"
           />
-          <p class="text-off-w text-left">
+          <p class="text-left text-off-w">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati
             ullam ad quam nisi, itaque corrupti vitae totam placeat, amet
             voluptatum consequatur repudiandae modi nihil asperiores sapiente,
@@ -129,3 +129,4 @@ import Layout from "../layouts/Layout.astro";
     />
   </section>
 </Layout>
+ ../components/Navbar.tsx

@@ -1,7 +1,7 @@
 ---
 import Kanagawa from "../../public/kanagawa.png";
 import { Image } from "astro:assets";
-import Navbar from "../components/Navbar.astro";
+import Navbar from "../components/Navbar.tsx";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -11,12 +11,12 @@ import Layout from "../layouts/Layout.astro";
   <section
     class="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden"
   >
-    <div
+    <div 
       transition:animate="fade"
       class="flex flex-col items-center text-center leading-snug"
     >
       <h1 class="mb-10 text-[4rem] font-extrabold text-acc-yellow">
-        <span
+        <span 
           class="to-acc-yellow-2 bg-gradient-to-l from-acc-yellow bg-clip-text text-transparent"
           >Hey, wanderer!
         </span>
@@ -85,3 +85,4 @@ import Layout from "../layouts/Layout.astro";
     e.stopPropagation();
   });
 </script>
+../components/Navbar.tsx

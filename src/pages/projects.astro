@@ -1,12 +1,12 @@
 ---
 import Kanagawa from "../../public/kanagawa.png";
 import { Image } from "astro:assets";
-import Navbar from "../components/Navbar.astro";
+import Navbar from "../components/Navbar.tsx";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Kazyel | Projects">
-  <Navbar />
+  <Navbar projectsActive={true} />
   <section
     class="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden"
   >
@@ -20,3 +20,4 @@ import Layout from "../layouts/Layout.astro";
     />
   </section>
 </Layout>
+ ../components/Navbar.tsx

@@ -1,15 +1,34 @@
 ---
 import Kanagawa from "../../public/kanagawa.png";
+import { Skills as SkillsArray } from "../constants/index";
 import { Image } from "astro:assets";
-import Navbar from "../components/Navbar.astro";
+import Navbar from "../components/Navbar.tsx";
 import Layout from "../layouts/Layout.astro";
+import SkillCard from "../components/SkillCard";
 ---
 
 <Layout title="Kazyel | My Skills">
-  <Navbar />
+  <Navbar skillsActive={true} />
   <section
     class="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden"
   >
+    <div
+      transition:animate="fade"
+      class="row-auto mt-16 grid w-[1368px] grid-flow-row grid-cols-4 items-center gap-10"
+    >
+      {
+        SkillsArray.map(({ img, skill, alt, text, className }) => (
+          <SkillCard
+            client:load
+            img={img}
+            skill={skill}
+            alt={alt}
+            text={text}
+            className={className}
+          />
+        ))
+      }
+    </div>
     <Image
       src={Kanagawa}
       alt="Kanagawa Wave"
