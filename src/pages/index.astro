@@ -1,19 +1,19 @@
 ---
-import Navbar from "../components/Navbar.tsx";
+import Navbar from "../components/navbar/Navbar.tsx";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Kazyel">
-  <Navbar client:only />
+  <Navbar client:load />
 
   <section
-    class="relative flex min-h-screen w-full max-sm:px-8 flex-col items-center justify-center overflow-hidden"
+    class="relative flex min-h-screen w-full max-xl:fixed  max-sm:px-8 flex-col items-center justify-center overflow-hidden"
   >
     <div
       transition:animate="fade"
       class="flex flex-col items-center text-center leading-snug"
     >
-      <h1 class="mb-10 text-4xl sm:text-[4rem] font-extrabold text-acc-yellow">
+      <h1 class="mb-10 text-[4rem] max-sm:text-[2.75rem] max-lg:text-[3rem] font-extrabold text-acc-yellow">
         <span
           class="bg-gradient-to-l from-acc-yellow to-acc-yellow-2 bg-clip-text text-transparent"
           >Hey, wanderer!
@@ -24,7 +24,7 @@ import Layout from "../layouts/Layout.astro";
         I'm Mateus Mascarelo,
       </h2>
       <h2
-        class="text-3xl sm:text-[3.25rem] font-extrabold text-off-w transition-all duration-300 hover:drop-shadow-[0px_0px_25px_#f3e5d755]"
+        class="text-[3rem] max-sm:text-3xl max-md:text-4xl font-extrabold text-off-w transition-all duration-300 hover:drop-shadow-[0px_0px_25px_#f3e5d755]"
       >
         A Front-end Web Developer!
       </h2>

@@ -6,15 +6,15 @@ import PythonSvg from "../../public/python.svg";
 import GoLangSvg from "../../public/go.svg"
 import DataSvg from "../../public/data.svg"
 
-import { Skills as SkillsArray } from "../constants/index";
+import { Skills as SkillsArray } from "../utils/data";
 import { Image } from "astro:assets";
-import Navbar from "../components/Navbar.tsx";
+import Navbar from "../components/navbar/Navbar.tsx";
 import Layout from "../layouts/Layout.astro";
 import SkillCard from "../components/SkillCard";
 ---
 
 <Layout title="Kazyel | My Skills">
-  <Navbar skillsActive={true} />
+  <Navbar skillsActive={true} client:load />
   <section
     class="relative flex min-h-screen w-full flex-col items-center justify-center"
   >

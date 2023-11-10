@@ -1,13 +1,6 @@
 import { useState } from "react";
 import Dragon from "../assets/dragon.png";
-
-type SkillProps = {
-  img: ImageMetadata;
-  skill: string;
-  text: string;
-  alt: string;
-  className?: string;
-};
+import type { SkillProps } from "../utils/types";
 
 const SkillCard = ({ img, skill, text, alt, className }: SkillProps) => {
   const [isHovered, setIsHovered] = useState<boolean>(false);

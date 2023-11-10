@@ -1,10 +1,10 @@
 ---
-import Navbar from "../components/Navbar.tsx";
+import Navbar from "../components/navbar/Navbar.tsx";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Kazyel | Projects">
-  <Navbar projectsActive={true} />
+  <Navbar projectsActive={true} client:load />
   <section
     class="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden"
   >

@@ -1,68 +1,33 @@
 import { useState } from "react";
-
-type NavbarProps = {
-  aboutActive?: boolean | undefined;
-  skillsActive?: boolean | undefined;
-  projectsActive?: boolean | undefined;
-  contactActive?: boolean | undefined;
-};
+import NavbarLinks from "./NavbarLinks";
+import type { NavbarProps } from "../../utils/types";
 
 const Navbar = ({
   aboutActive,
   skillsActive,
   projectsActive,
   contactActive,
+  mobile,
 }: NavbarProps) => {
-  const links = [
-    {
-      title: "About",
-      href: "/about",
-      isActive: aboutActive,
-    },
-    {
-      title: "Skills",
-      href: "/skills",
-      isActive: skillsActive,
-    },
-    {
-      title: "Projects",
-      href: "/projects",
-      isActive: projectsActive,
-    },
-    {
-      title: "Contact",
-      href: "/contact",
-      isActive: contactActive,
-    },
-  ];
-
-  const navStyleOff =
-    "after:ease after:absolute after:bottom-[-2px] after:left-0 after:w-0 after:border-white after:transition-all after:duration-[250ms] hover:after:w-full hover:after:border-b";
-  const navStyleOn = "text-stone-500 font-medium";
-
   const [isActive, setIsActive] = useState(false);
+  const handleDropdown = () => {
+    setIsActive((prev) => !prev);
+  };
 
   return (
     <nav
       id="navbar"
-      className="fixed z-10 mt-8 flex h-fit items-center justify-between px-9 py-4 text-off-w  max-sm:w-full sm:min-w-[676px] sm:px-0"
+      className="fixed z-10 mt-8 flex items-center justify-between px-9 py-4 text-off-w max-sm:w-full max-xl:border-b max-xl:border-stone-700 max-xl:bg-darkest max-xl:pb-6 max-xl:pt-6 sm:min-w-[676px] max-xl:sticky max-xl:top-0 max-xl:mt-0 sm:px-0 max-xl:w-full sm:max-xl:justify-evenly"
     >
       <a href="/" className="border-l-2 px-2 text-2xl font-bold">
         Kazyel
       </a>
-
-      <ul className="flex items-center gap-4 max-sm:hidden">
-        {links.map((link) => (
-          <li key={link.title} className="relative">
-            <a
-              className={link.isActive ? navStyleOn : navStyleOff}
-              href={link.href}
-            >
-              {link.title}
-            </a>
-          </li>
-        ))}
-      </ul>
+      <NavbarLinks
+        aboutActive={aboutActive}
+        contactActive={contactActive}
+        projectsActive={projectsActive}
+        skillsActive={skillsActive}
+      />
       <div className="flex gap-4">
         <svg
           xmlns="http://www.w3.org/2c000/svg"
@@ -93,11 +58,7 @@ const Navbar = ({
           ></path>
         </svg>
         <div className="relative flex sm:hidden">
-          <div
-            onClick={() => {
-              setIsActive((prev) => !prev);
-            }}
-          >
+          <div onClick={handleDropdown}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -114,8 +75,14 @@ const Navbar = ({
             </svg>
           </div>
           {isActive ? (
-            <div className="absolute top-12 h-[72px] w-[72px] bg-black">
-              teste
+            <div className="top-[72px] absolute right-0 flex rounded-lg border border-stone-700 bg-darkest">
+              <NavbarLinks
+                aboutActive={aboutActive}
+                contactActive={contactActive}
+                projectsActive={projectsActive}
+                skillsActive={skillsActive}
+                mobile={true}
+              />
             </div>
           ) : (
             ""
