@@ -18,7 +18,7 @@ const SkillCard = ({ img, skill, text, alt, className }: SkillProps) => {
 
   return (
     <div
-      className="bg-darkest ease relative h-[324px] w-[324px] overflow-hidden rounded-lg border border-stone-700 p-6 text-off-w transition-all duration-200 hover:border-stone-600"
+      className="ease relative col-span-1 w-full overflow-hidden rounded-lg border border-stone-700 bg-darkest p-5 text-off-w transition-all duration-200 hover:border-stone-600"
       onMouseEnter={() => {
         hoverHandler();
       }}

@@ -1,32 +1,30 @@
 ---
-import Kanagawa from "../../public/kanagawa.png";
-import { Image } from "astro:assets";
 import Navbar from "../components/Navbar.tsx";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Kazyel">
-  <Navbar />
+  <Navbar client:only />
 
   <section
-    class="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden"
+    class="relative flex min-h-screen w-full max-sm:px-8 flex-col items-center justify-center overflow-hidden"
   >
-    <div 
+    <div
       transition:animate="fade"
       class="flex flex-col items-center text-center leading-snug"
     >
-      <h1 class="mb-10 text-[4rem] font-extrabold text-acc-yellow">
-        <span 
-          class="to-acc-yellow-2 bg-gradient-to-l from-acc-yellow bg-clip-text text-transparent"
+      <h1 class="mb-10 text-4xl sm:text-[4rem] font-extrabold text-acc-yellow">
+        <span
+          class="bg-gradient-to-l from-acc-yellow to-acc-yellow-2 bg-clip-text text-transparent"
           >Hey, wanderer!
         </span>
          👋
       </h1>
-      <h2 class="text-[2.75rem] font-light text-off-w">
+      <h2 class="text-2xl sm:mb-8 sm:text-[2.75rem] font-light text-off-w">
         I'm Mateus Mascarelo,
       </h2>
       <h2
-        class="text-[3.25rem] font-extrabold text-off-w transition-all duration-300 hover:drop-shadow-[0px_0px_25px_#f3e5d755]"
+        class="text-3xl sm:text-[3.25rem] font-extrabold text-off-w transition-all duration-300 hover:drop-shadow-[0px_0px_25px_#f3e5d755]"
       >
         A Front-end Web Developer!
       </h2>
@@ -56,14 +54,6 @@ import Layout from "../layouts/Layout.astro";
         </a>
       </div>
     </div>
-    <Image
-      src={Kanagawa}
-      alt="Kanagawa Wave"
-      class="absolute bottom-0 -z-10 w-full bg-cover opacity-20 mix-blend-multiply grayscale"
-      quality={100}
-      width={1920}
-      height={100}
-    />
   </section>
 </Layout>
 
@@ -85,4 +75,3 @@ import Layout from "../layouts/Layout.astro";
     e.stopPropagation();
   });
 </script>
-../components/Navbar.tsx
