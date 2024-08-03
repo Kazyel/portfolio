@@ -10,22 +10,22 @@ const NavbarLinks = ({
   const links = [
     {
       title: "About",
-      href: "/about",
+      href: "/portfolio/about",
       isActive: aboutActive,
     },
     {
       title: "Skills",
-      href: "/skills",
+      href: "/portfolio/skills",
       isActive: skillsActive,
     },
     {
       title: "Projects",
-      href: "/projects",
+      href: "/portfolio/projects",
       isActive: projectsActive,
     },
     {
       title: "Contact",
-      href: "/contact",
+      href: "/portfolio/contact",
       isActive: contactActive,
     },
   ];
