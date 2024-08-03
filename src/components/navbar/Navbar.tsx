@@ -19,7 +19,7 @@ const Navbar = ({
       id="navbar"
       className="fixed z-10 mt-8 flex items-center justify-between px-9 py-4 text-off-w max-sm:w-full max-xl:border-b max-xl:border-stone-700 max-xl:bg-darkest max-xl:pb-6 max-xl:pt-6 sm:min-w-[676px] max-xl:sticky max-xl:top-0 max-xl:mt-0 sm:px-0 max-xl:w-full sm:max-xl:justify-evenly"
     >
-      <a href="/" className="border-l-2 px-2 text-2xl font-bold">
+      <a href="/portfolio" className="border-l-2 px-2 text-2xl font-bold">
         Kazyel
       </a>
 
