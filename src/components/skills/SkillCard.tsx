@@ -3,7 +3,7 @@ import type { SkillProps } from "../../utils/types";
 
 const SkillCard = ({ img, skill, text, alt, className }: SkillProps) => {
   return (
-    <div className="ease relative col-span-1 w-full overflow-hidden rounded-lg border border-stone-700 bg-darkest p-5 text-off-w transition-all duration-200 hover:border-stone-600 group">
+    <div className="ease group relative col-span-1 w-full overflow-hidden rounded-lg border border-stone-700 bg-darkest p-5 text-off-w transition-all duration-200 hover:border-stone-600 xl:max-w-[328px]">
       <img
         src={img.src}
         alt={alt}
@@ -17,7 +17,7 @@ const SkillCard = ({ img, skill, text, alt, className }: SkillProps) => {
         src={Dragon.src}
         alt="Dragon PNG Background"
         className={
-          "ease absolute -right-24 -top-12 invert transition-all duration-200 opacity-[0.02] group-hover:opacity-[0.04]"
+          "ease absolute -right-24 -top-12 opacity-[0.02] invert transition-all duration-200 group-hover:opacity-[0.04]"
         }
       />
     </div>

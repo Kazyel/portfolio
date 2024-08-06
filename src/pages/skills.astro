@@ -1,10 +1,8 @@
 ---
 import PostgreSvg from "../../public/postgres.svg";
-import GitSvg from "../../public/git.png";
+import GoLangSvg from "../../public/go.svg";
+import DataSvg from "../../public/data.svg";
 import DockerSvg from "../../public/docker.svg";
-import PythonSvg from "../../public/python.svg";
-import GoLangSvg from "../../public/go.svg"
-import DataSvg from "../../public/data.svg"
 
 import { Skills as SkillsArray } from "../utils/data";
 import { Image } from "astro:assets";
@@ -14,62 +12,35 @@ import SkillCard from "../components/skills/SkillCard.tsx";
 ---
 
 <Layout title="Kazyel | My Skills">
-  <Navbar skillsActive={true} client:load />
-  <section
-    class="relative flex flex-col items-center justify-center"
-  >  
+  <Navbar skillsActive={true} client:only />
+  <section class="relative flex flex-col items-center justify-center">
     <div
       transition:animate="fade"
-      class="mt-4 p-8 xl:mb-9 px-9 grid w-[clamp(768px,100%,1368px)] grid-row-2 grid-cols-4 items-end gap-10"
+      class="mt-9 xl:mb-9 px-9 grid xl:w-[clamp(768px,100%,1368px)] grid-row-2 grid-cols-4 items-end gap-24"
     >
       {/* Skills */}
-      <h3 class="text-2xl font-semibold text-acc-yellow-2 -mb-6">Main Skills</h3>
-      <div class="grid-cols-4 col-span-full grid gap-8">
-        {
-          SkillsArray.map(tags => (
-            <SkillCard
-              client:load
-              {...tags}            
-              />
-          ))
-        }
-      </div>
-
-      {/* The Basics */}
-      <div
-        class="col-span-1 flex h-full flex-col border-r -mr-[6px] border-stone-700"
-      >
-        <h3 class="text-2xl font-semibold text-acc-yellow-2">The Basics</h3>
-        <div class="pt-6">
-          <div class="flex flex-col gap-6">
-            <div class="flex items-center gap-3 text-off-w">
-              <Image
-                src={PythonSvg}
-                alt="Docker Logo"
-                class="aspect-square w-12"
-              />
-              <p class="font-bold">Logic and Problem Solving</p>
-            </div>
-
-            <div class="flex items-center gap-3 text-off-w">
-              <Image
-                src={GitSvg}
-                alt="GitHub Logo"
-                class="aspect-square w-12"
-              />
-              <p class="font-bold">Source Control</p>
-            </div>
-          </div>
+      <div class="col-span-full flex flex-col justify-center items-center">
+        <h3 class="text-3xl max-w-[200px] font-bold text-acc-yellow-2 mb-6">
+          Main Skills
+        </h3>
+        <div
+          class="flex justify-center flex-wrap max-xl:grid-cols-2 max-sm:grid-cols-1 col-span-full max-xl:grid gap-8"
+        >
+          {SkillsArray.map((tags) => <SkillCard client:load {...tags} />)}
         </div>
       </div>
 
       {/* Learning Right Now */}
-      <div class="col-span-3 flex flex-col gap-1 text-off-w h-full">
-        <h3 class="text-2xl font-semibold text-acc-yellow-2">
-          Learning right now!🔥
+      <div
+        class="col-span-4 max-xl:col-span-full flex flex-col justify-center items-center gap-2 text-off-w h-full mb-9"
+      >
+        <h3 class="text-3xl font-bold text-acc-yellow-2">
+          Learning right now!
         </h3>
-        
-        <div class="grid grid-cols-3 justify-center gap-3 pt-6">
+
+        <div
+          class="grid grid-cols-4 max-lg:flex max-lg:flex-col justify-center gap-6 pt-6"
+        >
           <div class="col-span-1 flex flex-col items-center gap-2">
             <div class="flex w-full items-center gap-2">
               <Image src={GoLangSvg} alt="NextSvg" class="h-12 w-12" />
@@ -99,7 +70,7 @@ import SkillCard from "../components/skills/SkillCard.tsx";
           <div class="col-span-1 flex flex-col items-center gap-2">
             <div class="flex w-full items-center gap-2">
               <Image src={DataSvg} alt="NextSvg" class="h-12 w-12 invert" />
-              <h3 class="font-semibold text-lg">Data Structures & Algorithms</h3>
+              <h3 class="font-semibold text-lg">DSA</h3>
             </div>
             <p class="font-light">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis
@@ -109,6 +80,18 @@ import SkillCard from "../components/skills/SkillCard.tsx";
             </p>
           </div>
 
+          <div class="col-span-1 flex flex-col items-center gap-2">
+            <div class="flex w-full items-center gap-2">
+              <Image src={DockerSvg} alt="NextSvg" class="h-12 w-12" />
+              <h3 class="font-semibold text-xl">Docker</h3>
+            </div>
+            <p class="font-light">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis
+              non ipsa dolore repudiandae alias mollitia at nostrum quae quam
+              quidem illo placeat, maiores magnam velit enim, ea odio, quasi
+              rerum?
+            </p>
+          </div>
         </div>
       </div>
     </div>

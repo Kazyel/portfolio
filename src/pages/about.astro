@@ -4,21 +4,24 @@ import CssSvg from "../../public/css.svg";
 import TSSvg from "../../public/typescript.svg";
 
 import { Image } from "astro:assets";
-import Navbar from "../components/navbar/Navbar.tsx";   
+import Navbar from "../components/navbar/Navbar.tsx";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Kazyel | About me">
-  <Navbar aboutActive={true} client:load />
+  <Navbar aboutActive={true} client:only />
   <section>
     <div
       transition:animate="fade"
-      class="grid pt-4 px-9 relative grid-cols-9 max-xl:flex max-xl:flex-col max-sm:w-full"
+      class="grid mt-12 relative grid-cols-9 max-xl:flex max-xl:flex-col max-sm:w-full"
     >
-
       <!-- About Me -->
-      <div class="col-span-3 self-start top-0 pt-9 sticky flex justify-center gap-12 max-xl:flex-col">
-        <div class="flex w-[324px] flex-col items-center gap-8 max-sm:w-[300px] md:max-xl:w-[500px]">
+      <div
+        class="col-span-3 self-start top-0 xl:pt-9 max-xl:mb-12 sticky max-xl:static flex justify-center items-center w-full gap-12 flex-col"
+      >
+        <div
+          class="flex w-[324px] flex-col items-center gap-8 max-sm:w-[300px] md:max-xl:w-[500px]"
+        >
           <div class="flex justify-center gap-3">
             <h2 class="text-2xl font-semibold text-acc-yellow">Yo, it's me!</h2>
             <svg
@@ -52,31 +55,33 @@ import Layout from "../layouts/Layout.astro";
       </div>
 
       <!-- Experience -->
-      <div class="col-span-3 ml-9 pt-9 p-4 flex items-center justify-center flex-col">
+      <div
+        class="col-span-3 max-w-[500px] xl:ml-9 pt-9 p-4 flex items-center justify-center flex-col"
+      >
         <div
           class="relative border-l-4 border-stone-700 py-6 pl-6 text-justify text-off-w max-sm:w-[312px] max-sm:ml-4 max-sm:px-8 max-xl:text-left group"
         >
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque
-            itaque aliquid labore provident. Officia totam illum commodi,
-            natus sit assumenda, vero facilis recusandae nemo enim nostrum
-            delectus, placeat dolorum suscipit?
+            itaque aliquid labore provident. Officia totam illum commodi, natus
+            sit assumenda, vero facilis recusandae nemo enim nostrum delectus,
+            placeat dolorum suscipit?
           </p>
           <p class="absolute -top-2 font-semibold text-off-w">2024</p>
-          
+
           <div
-          class="absolute -left-[10px] -top-1 h-4 w-4 rounded-full bg-stone-700 group-hover:bg-acc-yellow transition-all duration-200"
-        >
-        </div>
+            class="absolute -left-[10px] -top-1 h-4 w-4 rounded-full bg-stone-700 group-hover:bg-acc-yellow transition-all duration-200"
+          >
+          </div>
         </div>
         <div
           class="relative border-l-4 border-stone-700 py-6 pl-6 text-justify text-off-w max-sm:w-[312px] max-sm:ml-4 max-sm:px-8 max-xl:text-left group"
         >
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque
-            itaque aliquid labore provident. Officia totam illum commodi,
-            natus sit assumenda, vero facilis recusandae nemo enim nostrum
-            delectus, placeat dolorum suscipit?
+            itaque aliquid labore provident. Officia totam illum commodi, natus
+            sit assumenda, vero facilis recusandae nemo enim nostrum delectus,
+            placeat dolorum suscipit?
           </p>
 
           <div
@@ -90,13 +95,13 @@ import Layout from "../layouts/Layout.astro";
         >
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque
-            itaque aliquid labore provident. Officia totam illum commodi,
-            natus sit assumenda, vero facilis recusandae nemo enim nostrum
-            delectus, placeat dolorum suscipit?
+            itaque aliquid labore provident. Officia totam illum commodi, natus
+            sit assumenda, vero facilis recusandae nemo enim nostrum delectus,
+            placeat dolorum suscipit?
           </p>
-          
+
           <div
-            class="absolute -left-[10px] -top-1 h-4 w-4 rounded-full bg-stone-700 group-hover:bg-acc-yellow transition-all duration-200" 
+            class="absolute -left-[10px] -top-1 h-4 w-4 rounded-full bg-stone-700 group-hover:bg-acc-yellow transition-all duration-200"
           >
           </div>
           <p class="absolute -top-2 font-semibold text-off-w">2022</p>
@@ -104,18 +109,21 @@ import Layout from "../layouts/Layout.astro";
       </div>
 
       <!-- Skills -->
-      <div class="col-span-3 self-start pt-9 top-0 sticky flex flex-col items-center gap-12 max-xl:my-20">
+      <div
+        class="col-span-3 self-start xl:pt-9 top-0 sticky max-xl:static flex flex-col w-full items-center gap-12 max-xl:my-20"
+      >
         <p class="text-2xl font-semibold text-acc-yellow">Some skills</p>
         <div class="flex xl:flex-col max-xl:flex-row gap-6">
           <Image src={ReactSvg} width={82} height={82} alt="React Icon" />
           <Image src={CssSvg} width={82} height={82} alt="React Icon" />
           <Image src={TSSvg} width={82} height={82} alt="React Icon" />
         </div>
-        
+
         <a href="/portfolio/skills" class="relative cursor-pointer text-off-w"
           ><span
             class="after:ease after:absolute after:bottom-[-2px] after:left-0 after:w-0 after:border-white after:transition-all after:duration-[250ms] hover:after:w-full hover:after:border-b"
-            >More +</span>
+            >More +</span
+          >
         </a>
       </div>
     </div>
