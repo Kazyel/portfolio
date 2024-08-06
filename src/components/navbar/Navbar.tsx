@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import NavbarLinks from "./NavbarLinks";
 import type { NavbarProps } from "../../utils/types";
 
@@ -18,7 +18,7 @@ const Navbar = (activeBar: NavbarProps) => {
 
     setTimeout(() => {
       linksRef.current?.classList.add("max-sm:hidden");
-    }, 100);
+    }, 150);
   };
 
   const handleOutsideClick = (e: MouseEvent) => {
@@ -33,8 +33,12 @@ const Navbar = (activeBar: NavbarProps) => {
       return;
     }
   };
-
-  globalRef.current?.addEventListener("click", handleOutsideClick);
+  useEffect(() => {
+    globalRef.current?.addEventListener("click", handleOutsideClick);
+    return () => {
+      globalRef.current?.removeEventListener("click", handleOutsideClick);
+    };
+  });
 
   return (
     <nav
@@ -99,7 +103,7 @@ const Navbar = (activeBar: NavbarProps) => {
 
           {/* Dropdown */}
           <div
-            className="absolute right-0 top-[58px] rounded border border-stone-700 bg-darkest opacity-0 transition-all duration-150 ease-in"
+            className="absolute right-0 top-[58px] z-50 rounded border border-stone-700 bg-darkest opacity-0 transition-all duration-150 ease-in"
             ref={dropdownRef}
           >
             <NavbarLinks {...activeBar} mobile={true} ref={linksRef} />
