@@ -33,6 +33,7 @@ const Navbar = (activeBar: NavbarProps) => {
       return;
     }
   };
+
   useEffect(() => {
     globalRef.current?.addEventListener("click", handleOutsideClick);
     return () => {

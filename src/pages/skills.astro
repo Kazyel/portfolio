@@ -1,8 +1,8 @@
 ---
-import PostgreSvg from "../../public/postgres.svg";
-import GoLangSvg from "../../public/go.svg";
-import DataSvg from "../../public/data.svg";
-import DockerSvg from "../../public/docker.svg";
+import PostgreSvg from "../assets/postgres.svg";
+import GoLangSvg from "../assets/go.svg";
+import DataSvg from "../assets/data.svg";
+import DockerSvg from "../assets/docker.svg";
 
 import { Skills as SkillsArray } from "../utils/data";
 import { Image } from "astro:assets";
@@ -12,7 +12,7 @@ import SkillCard from "../components/skills/SkillCard.tsx";
 ---
 
 <Layout title="Kazyel | My Skills">
-  <Navbar skillsActive={true} client:only />
+  <Navbar skillsActive={true} client:only="react" />
   <section class="relative flex flex-col items-center justify-center">
     <div
       transition:animate="fade"

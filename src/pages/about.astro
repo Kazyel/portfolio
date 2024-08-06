@@ -1,7 +1,7 @@
 ---
-import ReactSvg from "../../public/react.svg";
-import CssSvg from "../../public/css.svg";
-import TSSvg from "../../public/typescript.svg";
+import ReactSvg from "../assets/react.svg";
+import CssSvg from "../assets/css.svg";
+import TSSvg from "../assets/typescript.svg";
 
 import { Image } from "astro:assets";
 import Navbar from "../components/navbar/Navbar.tsx";
@@ -9,7 +9,7 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Kazyel | About me">
-  <Navbar aboutActive={true} client:only />
+  <Navbar aboutActive={true} client:only="react" />
   <section>
     <div
       transition:animate="fade"

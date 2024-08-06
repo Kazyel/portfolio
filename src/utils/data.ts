@@ -1,9 +1,9 @@
-import TSSvg from "../../public/typescript.svg";
-import CssSvg from "../../public/css.svg";
-import ReactSvg from "../../public/react.svg";
-import NodeSvg from "../../public/node.svg";
-import GitSvg from "../../public/git.png";
-import PythonSvg from "../../public/python.svg";
+import TSSvg from "../assets/typescript.svg";
+import CssSvg from "../assets/css.svg";
+import ReactSvg from "../assets/react.svg";
+import NodeSvg from "../assets/node.svg";
+import GitSvg from "../assets/git.png";
+import PythonSvg from "../assets/python.svg";
 
 // Add here more skills if needed
 
