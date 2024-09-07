@@ -1,78 +1,50 @@
 ---
-import Navbar from "../components/navbar/Navbar.tsx";
-import Layout from "../layouts/Layout.astro";
+// Components 
+import Layout from "@/layouts/Layout.astro";
+import Navbar from "@/components/navbar/Navbar.tsx";
+
+// Images
+import { Image } from "astro:assets";
+import KanagawaWave from "@/assets/kanagawa.png";
+
+// Sections
+import Landing from "@/components/landing/Landing.astro";
+import About from "@/components/about/About.astro";
+import Projects from "@/components/projects/Projects.astro";
+import Contact from "@/components/contact/Contact.astro";
 ---
 
 <Layout title="Kazyel">
-  <Navbar client:only="react" />
+  <!-- Navbar -->
+  <div id="navbar" class="max-xl:sticky backdrop-blur-lg top-0 z-10">
+    <Navbar client:only="react"/>
+  </div>
 
-  <section
-    class="relative flex flex-1 w-full max-sm:px-8 flex-col items-center justify-center overflow-hidden"
-  >
-    <div
-      transition:animate="fade"
-      class="flex flex-col items-center text-center leading-snug"
-    >
-      <h1
-        class="mb-10 text-[4rem] max-sm:text-[2.75rem] max-lg:text-[3rem] font-extrabold text-acc-yellow"
-      >
-        <span
-          class="bg-gradient-to-l from-acc-yellow to-acc-yellow-2 bg-clip-text text-transparent"
-          >Hey, web wanderer!
-        </span>
-      </h1>
-      <h2 class="text-3xl sm:mb-8 sm:text-[3.75rem] font-light text-off-w">
-        I'm Mateus Mascarelo,
-      </h2>
-      <h2
-        class="text-[4rem] max-sm:text-3xl max-md:text-4xl font-extrabold text-off-w transition-all duration-300 hover:drop-shadow-[0px_0px_25px_#f3e5d755]"
-      >
-        A Front-end Web Developer!
-      </h2>
-      <div
-        class="mt-24 flex items-center justify-center text-center text-off-w"
-      >
-        <a
-          href="/portfolio/about"
-          id="journey"
-          class="ease flex cursor-pointer gap-2 text-xl font-semibold transition-all duration-300"
-        >
-          So, let's start this journey?<svg
-            id="arrowSvg"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.15"
-            stroke="currentColor"
-            class="ease h-7 w-7 cursor-pointer text-acc-yellow transition-all duration-300"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"
-            ></path>
-          </svg>
-        </a>
-      </div>
-    </div>
-  </section>
+  <div id="landing-section" class="relative max-xl:px-10 flex py-20 flex-col justify-center items-center">
+    <!-- Landing -->
+    <Landing />
+    <Image
+      src={KanagawaWave}
+      alt="Kanagawa Wave"
+      class="absolute bottom-0 -z-10 w-full opacity-5 grayscale max-md:hidden"
+      quality={100}
+    />
+  </div>
+
+  <!-- About Me -->
+  <About />
+
+  <!-- Projects -->
+  <Projects />
+
+  <!-- Contact -->
+  <Contact />
 </Layout>
 
-<script type="module">
-  const arrowSvg = document.querySelector("#arrowSvg");
-  const journeyStart = document.querySelector("#journey");
-
-  journeyStart?.addEventListener("mouseover", (e) => {
-    arrowSvg?.classList.add("translate-x-1");
-    arrowSvg?.classList.add("fill-acc-yellow");
-
-    e.stopPropagation();
-  });
-
-  journeyStart?.addEventListener("mouseleave", (e) => {
-    arrowSvg?.classList.remove("translate-x-1");
-    arrowSvg?.classList.remove("fill-acc-yellow");
-
-    e.stopPropagation();
-  });
-</script>
+<style scoped>
+  .blend {
+    mix-blend-mode: difference;
+    backdrop-filter: blur(10px);
+    backdrop-filter: opacity(0.5);
+  }
+</style>

@@ -22,17 +22,9 @@ const { title } = Astro.props;
     <ViewTransitions />
   </head>
 
-  <body>
-    <main class="relative flex min-h-screen flex-col items-center font-mont">
+  <body id="body">
+    <main class="relative font-mont flex flex-col">
       <slot />
-      <Image
-        src={Kanagawa}
-        alt="Kanagawa Wave"
-        class="absolute bottom-0 -z-10 w-full bg-cover opacity-20 mix-blend-multiply grayscale max-md:hidden"
-        quality={100}
-        width={1920}
-        height={100}
-      />
     </main>
   </body>
 </html>
