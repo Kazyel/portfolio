@@ -37,7 +37,7 @@ const Navbar = () => {
   return (
     <nav
       id="navbar"
-      className="mt-4 flex items-center justify-around px-9 py-4 text-off-w max-xl:mt-0 max-xl:justify-between  max-xl:w-full max-xl:border-b max-xl:border-stone-700 max-xl:py-4 sm:min-w-[676px] z-10"
+      className="mt-8 mb-[-64px] h-[32px] flex items-center justify-around  text-off-w max-xl:my-0 max-xl:h-auto max-xl:px-5 max-xl:justify-between  max-xl:w-full max-xl:border-b max-xl:border-stone-700 max-xl:py-4 sm:min-w-[676px] z-10"
     >
         <a ref={navbarLogo} href="/portfolio" className="border-l-2 px-2 text-2xl font-bold text-off-w border-off-w">
           Kazyel
