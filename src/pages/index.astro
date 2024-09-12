@@ -16,7 +16,7 @@ import Contact from "@/components/contact/Contact.astro";
 
 <Layout title="Kazyel">
   <!-- Navbar -->
-  <div id="navbar" class="max-xl:sticky backdrop-blur-lg top-0 z-10">
+  <div id="navbar" class="max-xl:sticky backdrop-blur-md top-0 z-10">
     <Navbar client:only="react"/>
   </div>
 
@@ -40,11 +40,3 @@ import Contact from "@/components/contact/Contact.astro";
   <!-- Contact -->
   <Contact />
 </Layout>
-
-<style scoped>
-  .blend {
-    mix-blend-mode: difference;
-    backdrop-filter: blur(10px);
-    backdrop-filter: opacity(0.5);
-  }
-</style>

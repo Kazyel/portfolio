@@ -1,43 +1,39 @@
-import { useRef } from "react";
+import { useRef, type RefObject } from "react";
 
 const Navbar = () => {
   const navbarLogo = useRef<HTMLAnchorElement>(null);
   const languageIcon = useRef<SVGSVGElement>(null);
 
-  const options = {
-    rootMargin: "0px 0px -100% 0px",
+  const addAndRemoveClassName = (ref: RefObject<any>, addString: string[], removeString: string[]) => {
+    for (const className of addString) {
+      ref.current.classList.add(className);
+    }
+
+    for (const className of removeString) {
+      ref.current.classList.remove(className);
+    }
   };
 
-  const callback = (entries: IntersectionObserverEntry[]) => {
-    console.log(entries);
+  const intersectionCallback = (entries: IntersectionObserverEntry[]) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        navbarLogo.current?.classList.remove("text-off-w");
-        navbarLogo.current?.classList.remove("border-off-w");
-        navbarLogo.current?.classList.add("text-black");
-        navbarLogo.current?.classList.add("border-black");
-
-        languageIcon.current?.classList.remove("stroke-off-w");
-        languageIcon.current?.classList.add("stroke-black");
-      } else {
-        navbarLogo.current?.classList.remove("text-black");
-        navbarLogo.current?.classList.remove("border-black");
-        navbarLogo.current?.classList.add("text-off-w")
-        navbarLogo.current?.classList.add("border-off-w")
-
-        languageIcon.current?.classList.remove("stroke-black");
-        languageIcon.current?.classList.add("stroke-off-w");
+        addAndRemoveClassName(navbarLogo, ["text-black", "border-black"], ["text-off-w", "border-off-w"]);
+        addAndRemoveClassName(languageIcon, ["stroke-black"], ["stroke-off-w"]);
+        return;
       }
+
+      addAndRemoveClassName(navbarLogo, ["text-off-w", "border-off-w"], ["text-black", "border-black"]);
+      addAndRemoveClassName(languageIcon, ["stroke-off-w"], ["stroke-black"]);
     });
   };
 
-  const observer = new IntersectionObserver(callback, options);
+  const observer = new IntersectionObserver(intersectionCallback, { rootMargin: "0px 0px -100% 0px" });
   observer.observe(document.querySelector("#about-section")!) 
 
   return (
     <nav
       id="navbar"
-      className="mt-8 mb-[-64px] h-[32px] flex items-center justify-around  text-off-w max-xl:my-0 max-xl:h-auto max-xl:px-5 max-xl:justify-between  max-xl:w-full max-xl:border-b max-xl:border-stone-700 max-xl:py-4 sm:min-w-[676px] z-10"
+      className="mt-8 mb-[-64px] h-[32px] flex items-center justify-around  text-off-w max-xl:my-0 max-xl:h-auto max-xl:px-5 max-xl:justify-between max-xl:w-full max-xl:border-b max-xl:border-stone-700 max-xl:py-4 sm:min-w-[676px] z-10"
     >
         <a ref={navbarLogo} href="/portfolio" className="border-l-2 px-2 text-2xl font-bold text-off-w border-off-w">
           Kazyel
