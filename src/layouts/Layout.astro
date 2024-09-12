@@ -1,8 +1,4 @@
 ---
-import { Image } from "astro:assets";
-import { ViewTransitions } from "astro:transitions";
-import Kanagawa from "../assets/kanagawa.png";
-
 interface Props {
   title: string;
 }
@@ -19,7 +15,6 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/portfolio/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <ViewTransitions />
   </head>
 
   <body id="body">
