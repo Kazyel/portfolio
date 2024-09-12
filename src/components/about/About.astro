@@ -10,37 +10,43 @@ import Dragon from "@/assets/dragon.png";
     <!-- About Me -->
     <div
       id="about-me"
-      class="col-span-3 max-xl:pt-20 max-xl:mb-12 flex h-full flex-col xl:items-end items-center justify-center xl:pr-28"
+      class="col-span-3 max-xl:pt-20 max-xl:mb-12 flex h-full flex-col xl:items-end items-center justify-center xl:pr-16 2xl:pr-28"
     >
       <div
-        class="flex max-xl:max-w-md max-w-sm 2xl:max-w-lg flex-col items-center gap-8 max-sm:w-[300px]"
+        class="flex max-xl:max-w-[768px] max-xl:p-4 2xl:max-w-lg flex-col max-xl:flex-row max-sm:flex-col items-center gap-10 max-sm:w-[324px] xl:max-w-xl"
       >
-        <div class="flex justify-center gap-3">
-          <h2 class="text-2xl 2xl:text-4xl font-semibold text-acc-yellow">Yo, it's me!</h2>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="h-8 w-8 2xl:h-10 2xl:w-10 text-acc-yellow"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M15.75 17.25L12 21m0 0l-3.75-3.75M12 21V3"></path>
-          </svg>
+        <div>
+          <div class="flex justify-center gap-3">
+            <h2 class="text-2xl 2xl:text-4xl font-semibold text-acc-yellow">Yo, it's me!</h2>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="h-8 w-8 2xl:h-10 2xl:w-10 text-acc-yellow"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.75 17.25L12 21m0 0l-3.75-3.75M12 21V3"></path>
+            </svg>
+          </div>
+
+          <div class="grid grid-cols-2 grid-rows-2 place-items-center mt-4">
+            <Image src={Dragon} width={750} height={750} alt="Dragon" class="opacity-100 top-0 col-span-full row-span-full"/> 
+
+            <Image
+              src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
+              class="aspect-square rounded-[50%] border-[6px] border-black object-cover xl:w-[368px] max-xl:w-[258px] max-sm:w-[224px] col-span-full row-span-full"
+              width={320}
+              height={320}
+              alt="Placeholder"
+            />
+          </div>
         </div>
 
-        <Image
-          src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
-          class="aspect-square rounded-[50%] border-2 border-black object-cover p-2 xl:w-[368px] xl:h-[368px]"
-          width={320}
-          height={320}
-          alt="Placeholder"
-        />
-
-        <p class="text-stone-700 font-medium text-lg lg:text-xl 2xl:text-xl ">
+        <p class="text-stone-700 font-medium text-lg lg:text-xl 2xl:text-xl border-l-4 border-acc-yellow pl-6 max-xl:max-w-xs max-sm:max-w-full max-sm:text-base">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati
           ullam ad quam nisi, itaque corrupti vitae totam placeat, amet
           voluptatum consequatur repudiandae modi nihil asperiores sapiente,
@@ -51,10 +57,10 @@ import Dragon from "@/assets/dragon.png";
 
     <!-- Experience -->
     <div
-      class="col-span-3 xl:pl-0 px-12 pt-9 max-xl:pt-10 flex items-center justify-center flex-col xl:max-w-xl 2xl:max-w-2xl h-full"
+      class="col-span-3 xl:pl-12 xl:pr-0 2xl:p-0 pt-4 px-12 max-xl:pt-10 flex items-center justify-center flex-col xl:max-w-xl 2xl:max-w-2xl h-full"
     >
       <div
-        class="relative border-l-4 border-stone-700 py-6 pl-6 text-justify text-off-w max-xl:text-left group max-xl:max-w-2xl flex"
+        class="relative border-l-4 border-stone-700 py-6 pl-6 text-justify text-off-w max-xl:text-left group max-xl:max-w-2xl flex hover:border-acc-yellow transition-all duration-200"
       >
         <p class="text-stone-700 font-medium xl:text-lg mt-2">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque
@@ -70,25 +76,26 @@ import Dragon from "@/assets/dragon.png";
         >
         </div>
       </div>
-      <div
-        class="relative border-l-4 border-stone-700 py-6 pl-6 text-justify text-off-w max-xl:text-left group max-xl:max-w-2xl"
-      >
-        <p class="text-stone-700 font-medium xl:text-lg mt-2">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque
-          itaque aliquid labore provident. Officia totam illum commodi, natus
-          sit assumenda, vero facilis recusandae nemo enim nostrum delectus,
-          placeat dolorum suscipit?
-        </p>
 
-        <div
-          class="absolute -left-[10px] -top-1 h-4 w-4 rounded-full bg-stone-700 group-hover:bg-acc-yellow transition-all duration-200"
+      <div
+          class="relative border-l-4 border-stone-700 py-6 pl-6 text-justify text-off-w max-xl:text-left group max-xl:max-w-2xl  hover:border-acc-yellow transition-all duration-200"
         >
-        </div>
-        <p class="absolute -top-2 font-bold text-black text-xl 2xl:text-2xl">2023</p>
+          <p class="text-stone-700 font-medium xl:text-lg mt-2">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque
+            itaque aliquid labore provident. Officia totam illum commodi, natus
+            sit assumenda, vero facilis recusandae nemo enim nostrum delectus,
+            placeat dolorum suscipit?
+          </p>
+
+          <div
+            class="absolute -left-[10px] -top-1 h-4 w-4 rounded-full bg-stone-700 group-hover:bg-acc-yellow transition-all duration-200"
+          >
+          </div>
+          <p class="absolute -top-2 font-bold text-black text-xl 2xl:text-2xl">2023</p>
       </div>
 
       <div
-        class="relative border-l-4 border-stone-700 pl-6 pt-6 text-justify text-off-w max-xl:text-left group max-xl:max-w-2xl"
+        class="relative border-l-4 border-stone-700 pl-6 py-6 text-justify text-off-w max-xl:text-left group max-xl:max-w-2xl  hover:border-acc-yellow transition-all duration-200"
       >
         <p class="text-stone-700 font-medium xl:text-lg mt-2">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque
@@ -103,8 +110,25 @@ import Dragon from "@/assets/dragon.png";
         </div>
         <p class="absolute -top-2 font-bold text-black text-xl 2xl:text-2xl">2022</p>  
       </div>
+
+      <div
+        class="relative border-l-4 border-stone-700 pl-6 pt-6 text-justify text-off-w max-xl:text-left group max-xl:max-w-2xl  hover:border-acc-yellow transition-all duration-200"
+      >
+        <p class="text-stone-700 font-medium xl:text-lg mt-2">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque
+          itaque aliquid labore provident. Officia totam illum commodi, natus
+          sit assumenda, vero facilis recusandae nemo enim nostrum delectus,
+          placeat dolorum suscipit?
+        </p>
+
+        <div
+          class="absolute -left-[10px] -top-1 h-4 w-4 rounded-full bg-stone-700 group-hover:bg-acc-yellow transition-all duration-200"
+        >
+        </div>
+        <p class="absolute -top-2 font-bold text-black text-xl 2xl:text-2xl">2021</p>  
+      </div>
+    </div>
+
     </div>
   </div>
-
-  <Image src={Dragon} width={750} height={750} alt="Dragon" class="absolute bottom-[-200px] right-[-150px] opacity-10 rotate-[10deg] max-xl:hidden"/> 
 </section>
