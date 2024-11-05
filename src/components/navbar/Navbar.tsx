@@ -21,6 +21,7 @@ const Navbar = () => {
   const intersectionCallback = (entries: IntersectionObserverEntry[]) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
+        console.log(1);
         addAndRemoveClassName(
           navbarLogo,
           ["text-black", "border-black"],

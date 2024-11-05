@@ -1,8 +1,6 @@
 ---
-import { Image } from "astro:assets";
-import Dragon from "@/assets/dragon.png";
-
 import Experience from "./Experience.astro";
+import MyInfo from "./MyInfo.astro";
 ---
 
 <section id="about-section" class="relative overflow-hidden">
@@ -14,64 +12,8 @@ import Experience from "./Experience.astro";
             id="about-me"
             class="col-span-3 max-xl:pt-20 max-xl:mb-12 flex h-full flex-col xl:items-end items-center justify-center xl:pr-16 2xl:pr-28"
         >
-            <div
-                class="flex max-xs:max-w-[320px] max-sm:max-w-[380px] max-lg:max-w-[650px] max-xl:max-w-[768px] max-xl:p-4 2xl:max-w-lg flex-col max-xl:flex-row max-sm:flex-col items-center gap-10 xl:max-w-xl"
-            >
-                <div>
-                    <div class="flex justify-center gap-3 xl:pb-8">
-                        <h2
-                            class="text-2xl 2xl:text-4xl font-semibold text-acc-yellow"
-                        >
-                            Yo, it's me!
-                        </h2>
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke-width="2"
-                            stroke="currentColor"
-                            class="h-8 w-8 2xl:h-10 2xl:w-10 text-acc-yellow"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M15.75 17.25L12 21m0 0l-3.75-3.75M12 21V3"
-                            ></path>
-                        </svg>
-                    </div>
-
-                    <div
-                        class="grid grid-cols-2 grid-rows-2 place-items-center mt-4"
-                    >
-                        <Image
-                            src={Dragon}
-                            width={750}
-                            height={750}
-                            alt="Dragon"
-                            class="opacity-100 top-0 col-span-full row-span-full"
-                        />
-
-                        <Image
-                            src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
-                            class="aspect-square rounded-[50%] border-[6px] border-black object-cover xl:w-[368px] max-lg:w-[228px] max-xl:w-[258px] col-span-full row-span-full"
-                            width={300}
-                            height={300}
-                            alt="Placeholder"
-                        />
-                    </div>
-                </div>
-
-                <p
-                    class="text-stone-700 relative font-medium text-lg italic 2xl:text-xl max-lg:text-base max-xl:text-lg border-l-4 border-acc-yellow pl-6 max-lg:max-w-[275px] max-xl:max-w-[300px] max-sm:max-w-full about-text"
-                >
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Obcaecati ullam ad quam nisi, itaque corrupti vitae totam
-                    placeat, amet voluptatum consequatur repudiandae modi nihil
-                    asperiores sapiente, ab odio eos. Cum?
-                </p>
-            </div>
+            <MyInfo />
         </div>
-
         <!-- Experience -->
         <div
             class="col-span-3 xl:pl-12 xl:pr-0 pt-4 px-12 max-xl:pt-10 flex items-center justify-center flex-col xl:max-w-xl 2xl:max-w-2xl h-full"
@@ -95,18 +37,3 @@ import Experience from "./Experience.astro";
         </div>
     </div>
 </section>
-
-<style scoped>
-    @media (min-width: 1600px) {
-        .about-text::before {
-            content: "学";
-            position: absolute;
-            left: -75px;
-            top: 55px;
-            font-size: 3rem;
-            font-style: normal;
-            font-weight: bold;
-            color: black;
-        }
-    }
-</style>
