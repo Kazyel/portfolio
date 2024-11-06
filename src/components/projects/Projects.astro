@@ -1,19 +1,48 @@
 ---
 import ProjectsCard from "./ProjectsCard.astro";
+
+import { Image } from "astro:assets";
+import GitHubSVG from "@/assets/github-mark-white.svg";
+import HiganFlower from "@/assets/higan.png";
 ---
 
 <section
     id="projects-section"
     class="relative bg-stone-900 flex min-h-screen w-full flex-col items-center justify-center overflow-hidden p-10 xl:p-20"
 >
-    <div class="flex w-full h-full flex-col justify-center items-center">
-        <div class="px-20 pt-10 h-full">
-            <!-- Title -->
-            <div class="flex flex-col border-red-800 border-l-8 pl-8">
-                <h2 class="text-7xl font-extrabold text-red-800">Projects</h2>
-                <p class="text-off-w pt-4 italic text-lg">
-                    A collection of personal projects that I'm very proud of.
-                </p>
+    <div class="flex z-10 w-full h-full flex-col justify-center items-center">
+        <div class="px-20 h-full">
+            <div
+                class="flex justify-between items-center w-full border-red-800 border-l-8 pl-8"
+            >
+                <!-- Title -->
+                <div class="flex flex-col">
+                    <h2 class="text-7xl font-extrabold text-red-800">
+                        Projects
+                    </h2>
+                    <p class="text-off-w pt-4 italic text-lg">
+                        A collection of personal projects that I'm very proud
+                        of.
+                    </p>
+                </div>
+
+                <!-- GitHub -->
+                <div class="flex gap-3 items-center group">
+                    <div class="relative">
+                        <a
+                            href="https://github.com/Kazyel"
+                            class="cursor-pointer text-off-w/50 hover:underline group-hover:underline-offset-2 group-hover:text-off-w/75 text-sm italic font-light transition-all duration-200"
+                            >View all projects on my GitHub
+                        </a>
+                    </div>
+                    <Image
+                        src={GitHubSVG}
+                        alt="GitHub logo"
+                        width={32}
+                        height={32}
+                        class="cursor-pointer w-8 h-8 opacity-30 group-hover:opacity-65 transition-all duration-200"
+                    />
+                </div>
             </div>
 
             <!-- Projects -->
@@ -33,4 +62,16 @@ import ProjectsCard from "./ProjectsCard.astro";
             </div>
         </div>
     </div>
+
+    <Image
+        src={HiganFlower}
+        alt="Higan flower"
+        class="absolute w-[700px] h-[800px] left-28 bottom-0 aspect-square opacity-25 mix-blend-color-burn max-xl:hidden"
+    />
+
+    <Image
+        src={HiganFlower}
+        alt="Higan flower"
+        class="absolute w-[700px] h-[1000px] scale-x-[-1] right-28 bottom-0 opacity-25 mix-blend-color-burn max-xl:hidden"
+    />
 </section>

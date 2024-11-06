@@ -14,7 +14,7 @@ export default {
       fontFamily: {
         mont: "Montserrat, sans-serif",
         exo: "Exo 2, sans-serif",
-        jp: "Noto Sans JP,sans-serif",
+        jp: "Noto Sans JP, sans-serif",
       },
       screens: {
         "3xl": "1921px",

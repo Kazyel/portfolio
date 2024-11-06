@@ -1,6 +1,10 @@
 ---
 import Experience from "./Experience.astro";
 import MyInfo from "./MyInfo.astro";
+
+import { Image } from "astro:assets";
+import InkPaint from "@/assets/ink-paint.png";
+import InkPaint2 from "@/assets/ink-paint-2.png";
 ---
 
 <section id="about-section" class="relative overflow-hidden">
@@ -36,4 +40,16 @@ import MyInfo from "./MyInfo.astro";
             />
         </div>
     </div>
+
+    <Image
+        src={InkPaint2}
+        alt="Dragon"
+        class="absolute w-[1000px] -bottom-36 -right-28 mix-blend-multiply opacity-50 grayscale max-md:hidden"
+    />
+
+    <Image
+        src={InkPaint}
+        alt="Dragon"
+        class="absolute w-[800px] -bottom-36 -left-72 mix-blend-multiply opacity-20 grayscale max-md:hidden"
+    />
 </section>

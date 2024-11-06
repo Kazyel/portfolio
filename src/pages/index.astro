@@ -1,11 +1,12 @@
 ---
-// Components 
+// Components
 import Layout from "@/layouts/Layout.astro";
 import Navbar from "@/components/navbar/Navbar.tsx";
 
 // Images
 import { Image } from "astro:assets";
 import KanagawaWave from "@/assets/kanagawa.png";
+import Pagoda from "@/assets/pagoda.png";
 
 // Sections
 import Landing from "@/components/landing/Landing.astro";
@@ -15,28 +16,37 @@ import Contact from "@/components/contact/Contact.astro";
 ---
 
 <Layout title="Kazyel">
-  <!-- Navbar -->
-  <div id="navbar" class="max-lg:sticky backdrop-blur-md top-0 z-10">
-    <Navbar client:only="react"/>
-  </div>
+    <!-- Navbar -->
+    <div id="navbar" class="max-lg:sticky backdrop-blur-md top-0 z-10">
+        <Navbar client:only="react" />
+    </div>
 
-  <div id="landing-section" class="relative max-xl:px-10 flex lg:min-h-screen max-lg:min-h-dvh flex-col justify-center items-center">
-    <!-- Landing -->
-    <Landing />
-    <Image
-      src={KanagawaWave}
-      alt="Kanagawa Wave"
-      class="absolute bottom-0 -z-10 w-full opacity-5 grayscale max-md:hidden"
-      quality={100}
-    />
-  </div>
+    <div
+        id="landing-section"
+        class="relative max-xl:px-10 flex lg:min-h-screen max-lg:min-h-dvh flex-col justify-center items-center"
+    >
+        <!-- Landing -->
+        <Landing />
+        <Image
+            src={KanagawaWave}
+            alt="Kanagawa Wave"
+            class="absolute bottom-0 -z-10 w-full opacity-5 grayscale max-md:hidden"
+            quality={100}
+        />
+        <Image
+            src={Pagoda}
+            alt="Kanagawa Wave"
+            class="absolute -bottom-52 -z-10 opacity-10 grayscale max-md:hidden w-[2000px]"
+            quality={100}
+        />
+    </div>
 
-  <!-- About Me -->
-  <About />
+    <!-- About Me -->
+    <About />
 
-  <!-- Projects -->
-  <Projects />
+    <!-- Projects -->
+    <Projects />
 
-  <!-- Contact -->
-  <Contact />
+    <!-- Contact -->
+    <Contact />
 </Layout>
