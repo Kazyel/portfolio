@@ -14,7 +14,7 @@ import InkPaint2 from "@/assets/ink-paint-2.png";
         <!-- About Me -->
         <div
             id="about-me"
-            class="col-span-3 max-xl:pt-20 max-xl:mb-12 flex h-full flex-col xl:items-end items-center justify-center xl:pr-16 2xl:pr-28"
+            class="col-span-3 max-xl:pt-20 max-xl:mb-12 flex h-full flex-col xl:items-end items-center justify-center xl:pr-16 2xl:pr-28 z-20"
         >
             <MyInfo />
         </div>
@@ -40,16 +40,15 @@ import InkPaint2 from "@/assets/ink-paint-2.png";
             />
         </div>
     </div>
-
     <Image
-        src={InkPaint2}
-        alt="Dragon"
-        class="absolute w-[1000px] -bottom-36 -right-28 mix-blend-multiply opacity-50 grayscale max-md:hidden"
+        src={InkPaint}
+        alt="Ink Paint"
+        class="absolute w-[800px] max-2xl:w-[800px] -bottom-24 -left-[26rem] mix-blend-multiply opacity-20 grayscale max-md:hidden"
     />
 
     <Image
-        src={InkPaint}
-        alt="Dragon"
-        class="absolute w-[800px] -bottom-36 -left-72 mix-blend-multiply opacity-20 grayscale max-md:hidden"
+        src={InkPaint2}
+        alt="Ink Paint"
+        class="absolute w-[1100px] max-2xl:-right-96 max-xl:-bottom-8 bottom-0 -right-[26rem] mix-blend-multiply opacity-50 grayscale max-md:hidden"
     />
 </section>
