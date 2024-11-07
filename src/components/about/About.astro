@@ -3,8 +3,8 @@ import Experience from "./Experience.astro";
 import MyInfo from "./MyInfo.astro";
 
 import { Image } from "astro:assets";
-import InkPaint from "@/assets/ink-paint.png";
-import InkPaint2 from "@/assets/ink-paint-2.png";
+import InkPaint from "@/assets/imgs/ink-paint.png";
+import InkPaint2 from "@/assets/imgs/ink-paint-2.png";
 ---
 
 <section id="about-section" class="relative overflow-hidden">
@@ -43,12 +43,18 @@ import InkPaint2 from "@/assets/ink-paint-2.png";
     <Image
         src={InkPaint}
         alt="Ink Paint"
+        width={800}
+        height={800}
         class="absolute w-[800px] max-2xl:w-[800px] -bottom-24 -left-[26rem] mix-blend-multiply opacity-20 grayscale max-md:hidden"
+        loading="lazy"
     />
 
     <Image
         src={InkPaint2}
-        alt="Ink Paint"
+        alt="Ink Paint 2"
+        width={1100}
+        height={1100}
         class="absolute w-[1100px] max-2xl:-right-96 max-xl:-bottom-8 bottom-0 -right-[26rem] mix-blend-multiply opacity-50 grayscale max-md:hidden"
+        loading="lazy"
     />
 </section>

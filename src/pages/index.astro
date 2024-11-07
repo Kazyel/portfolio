@@ -5,13 +5,13 @@ import Navbar from "@/components/navbar/Navbar.tsx";
 
 // Images
 import { Image } from "astro:assets";
-import KanagawaWave from "@/assets/kanagawa.png";
-import Pagoda from "@/assets/pagoda.png";
+import KanagawaWave from "@/assets/imgs/kanagawa.png";
+import Pagoda from "@/assets/imgs/pagoda.png";
 
 // Sections
 import Landing from "@/components/landing/Landing.astro";
 import About from "@/components/about/About.astro";
-import Projects from "@/components/projects/Projects.astro";
+import Projects from "@/components/projects/Projects.tsx";
 import Contact from "@/components/contact/Contact.astro";
 ---
 
@@ -31,13 +31,17 @@ import Contact from "@/components/contact/Contact.astro";
             src={KanagawaWave}
             alt="Kanagawa Wave"
             class="absolute bottom-0 -z-10 w-full opacity-5 grayscale max-md:hidden"
-            quality={100}
+            width={1920}
+            height={1080}
+            loading={"eager"}
         />
         <Image
             src={Pagoda}
             alt="Kanagawa Wave"
-            class="absolute -bottom-52 -z-10 opacity-10 grayscale max-md:hidden w-[2000px]"
-            quality={100}
+            class="absolute -bottom-52 -z-10 opacity-10 grayscale max-md:hidden w-[1920px]"
+            height={1920}
+            width={1080}
+            loading={"eager"}
         />
     </div>
 
@@ -45,7 +49,7 @@ import Contact from "@/components/contact/Contact.astro";
     <About />
 
     <!-- Projects -->
-    <Projects />
+    <Projects client:only="react" />
 
     <!-- Contact -->
     <Contact />
