@@ -20,33 +20,33 @@ import '@fontsource-variable/montserrat';
 
 <Layout title="Kazyel">
     <!-- Navbar -->
-    <div id="navbar" class="max-lg:sticky backdrop-blur-md top-0 z-50">
-        <Navbar client:only="react" />
-    </div>
+        <div id="navbar" class="max-lg:sticky backdrop-blur-md top-0 z-50">
+            <Navbar client:only="react" />
+        </div>
 
-    <div
-        id="landing-section"
-        class="relative max-xl:px-10 flex lg:min-h-screen max-lg:min-h-dvh flex-col justify-center items-center"
-    >
-        <!-- Landing -->
-        <Landing />
-        <Image
-            src={KanagawaWave}
-            alt="Kanagawa Wave"
-            class="absolute bottom-0 -z-10 w-full opacity-5 grayscale max-md:hidden"
-            width={1920}
-            height={1080}
-            loading={"eager"}
-        />
-        <Image
-            src={Pagoda}
-            alt="Kanagawa Wave"
-            class="absolute -bottom-52 -z-10 opacity-10 grayscale max-md:hidden w-[1920px]"
-            height={1920}
-            width={1080}
-            loading={"eager"}
-        />
-    </div>
+        <div
+            class="relative max-lg:h-[calc(100dvh-4rem)] max-xl:px-10 flex lg:min-h-screen flex-col justify-center items-center"
+        >
+            <!-- Landing -->
+            <Landing />
+            <Image
+                src={KanagawaWave}
+                alt="Kanagawa Wave"
+                class="absolute bottom-0 -z-10 w-full opacity-5 grayscale max-md:hidden"
+                width={1920}
+                height={1080}
+                loading={"eager"}
+            />
+            <Image
+                src={Pagoda}
+                alt="Kanagawa Wave"
+                class="absolute -bottom-52 -z-10 opacity-10 grayscale max-md:hidden w-[1920px]"
+                height={1920}
+                width={1080}
+                loading={"eager"}
+            />
+        </div>
+
 
     <!-- About Me -->
     <About />

@@ -1,4 +1,4 @@
-import { projects } from "@/constant/projects";
+import { projects } from "@/content/projects";
 import ProjectsCard from "./ProjectsCard";
 
 const ProjectsList = () => {
