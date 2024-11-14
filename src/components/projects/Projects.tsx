@@ -4,11 +4,10 @@ import RedSakura from "@/assets/imgs/higan.png";
 import AvailableProjects from "./AvailableProjects";
 
 import { CSSTransition, SwitchTransition } from "react-transition-group";
-import { useRef, type Key } from "react";
+import { type Key } from "react";
 
 const Projects = () => {
     const $isProjectOpen = useStore(isProjectOpen);
-    const ref = useRef<HTMLDivElement>(null);
 
     function ProjectOpened() {
         const ProjectComponent = openedProject.value.component!;
@@ -34,17 +33,14 @@ const Projects = () => {
         >
             <SwitchTransition mode="out-in">
                 <CSSTransition
-                    key={isProjectOpen.value as any}
+                    key={$isProjectOpen as unknown as Key}
                     addEndListener={(node, done) => {
                         node.addEventListener("transitionend", done, false);
                     }}
                     timeout={250}
                     classNames="fade"
                 >
-                    <div
-                        ref={ref}
-                        className="z-20 flex min-h-screen w-full flex-col items-center justify-center"
-                    >
+                    <div className="z-20 flex min-h-screen w-full flex-col items-center justify-center">
                         {!$isProjectOpen ? (
                             <AvailableProjects />
                         ) : (
