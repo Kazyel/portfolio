@@ -3,12 +3,12 @@ import { atom } from "nanostores";
 type OpenedProject = {
     title: string;
     text: string;
-    isOpen: boolean;
     component?: React.FC;
 };
 
-export const projectOpened = atom<OpenedProject>({
+export const openedProject = atom<OpenedProject>({
     title: "",
     text: "",
-    isOpen: false,
 });
+
+export const isProjectOpen = atom(false);

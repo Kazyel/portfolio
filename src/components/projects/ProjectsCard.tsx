@@ -1,4 +1,4 @@
-import { projectOpened } from "@/stores/store";
+import { isProjectOpen, openedProject } from "@/stores/store";
 
 type Props = {
     title: string;
@@ -8,12 +8,13 @@ type Props = {
 
 const ProjectsCard = ({ title, text, component }: Props) => {
     function openProject() {
-        projectOpened.set({
+        openedProject.set({
             title: title,
             text: text,
-            isOpen: true,
             component: component,
         });
+
+        isProjectOpen.set(true);
     }
 
     return (

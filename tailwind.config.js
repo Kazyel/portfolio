@@ -12,8 +12,8 @@ export default {
         "darkest": "#1f1a15",
       },
       fontFamily: {
-        mont: "Montserrat, sans-serif",
-        exo: "Exo 2, sans-serif",
+        mont: "Montserrat Variable, sans-serif",
+        exo: "Exo 2 Variable, sans-serif",
         jp: "Noto Sans JP, sans-serif",
       },
       screens: {
