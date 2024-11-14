@@ -1,17 +1,12 @@
+import type { ProjectType } from "@/content/projects";
 import { isProjectOpen, openedProject } from "@/stores/store";
 
-type Props = {
-    title: string;
-    text: string;
-    component: React.FC;
-};
-
-const ProjectsCard = ({ title, text, component }: Props) => {
+const ProjectsCard = ({ title, text, createComponent }: ProjectType) => {
     function openProject() {
         openedProject.set({
             title: title,
             text: text,
-            component: component,
+            createComponent: createComponent,
         });
 
         isProjectOpen.set(true);

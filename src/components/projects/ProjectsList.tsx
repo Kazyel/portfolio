@@ -9,7 +9,7 @@ const ProjectsList = () => {
                     key={index}
                     title={project.title}
                     text={project.text}
-                    component={project.component}
+                    createComponent={project.createComponent}
                 />
             ))}
         </div>

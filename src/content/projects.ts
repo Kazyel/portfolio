@@ -1,26 +1,27 @@
-import type React from "react";
-import Project from "@/components/projects/Project";
+import ProjectTemplate from "@/components/projects/ProjectTemplate";
 
-type ProjectType = {
+type ProjectComponent = (title: string) => () => JSX.Element;
+
+export type ProjectType = {
     title: string;
     text: string;
-    component: React.FC;
+    createComponent: ProjectComponent;
 };
 
 export const projects: ProjectType[] = [
     {
         title: "Project 1",
         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, voluptate.",
-        component: () => Project("Project 1"),
+        createComponent: (title: string) => () => ProjectTemplate(title),
     },
     {
         title: "Project 2",
         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, voluptate.",
-        component: () => Project("Project 2"),
+        createComponent: (title: string) => () => ProjectTemplate(title),
     },
     {
         title: "Project 3",
         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, voluptate.",
-        component: () => Project("Project 3"),
+        createComponent: (title: string) => () => ProjectTemplate(title),
     },
 ];

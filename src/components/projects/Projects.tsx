@@ -1,16 +1,18 @@
+import { type Key } from "react";
 import { useStore } from "@nanostores/react";
 import { isProjectOpen, openedProject } from "@/stores/store";
-import RedSakura from "@/assets/imgs/higan.png";
-import AvailableProjects from "./AvailableProjects";
-
 import { CSSTransition, SwitchTransition } from "react-transition-group";
-import { type Key } from "react";
+import AvailableProjects from "./AvailableProjects";
+import RedSakura from "@/assets/imgs/higan.png";
 
 const Projects = () => {
     const $isProjectOpen = useStore(isProjectOpen);
+    const $openedProject = useStore(openedProject);
 
-    function ProjectOpened() {
-        const ProjectComponent = openedProject.value.component!;
+    function OpenedProject() {
+        const ProjectComponent = openedProject.value.createComponent(
+            $openedProject.title,
+        )!;
 
         return (
             <div className="flex h-full w-full flex-col items-center justify-center">
@@ -44,7 +46,7 @@ const Projects = () => {
                         {!$isProjectOpen ? (
                             <AvailableProjects />
                         ) : (
-                            <ProjectOpened />
+                            <OpenedProject />
                         )}
                     </div>
                 </CSSTransition>
