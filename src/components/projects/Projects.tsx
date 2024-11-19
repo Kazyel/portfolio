@@ -18,7 +18,7 @@ const Projects = () => {
         })!;
 
         return (
-            <div className="max-h-[900px] p-8 xl:p-20 2xl:min-w-[1600px] 2xl:max-w-[1600px]">
+            <div className="max-h-[900px] p-8 xl:px-20 xl:pt-8 2xl:min-w-[1600px] 2xl:max-w-[1600px]">
                 <div className="flex flex-col items-center justify-between">
                     <button
                         className="group mb-2 flex cursor-pointer items-center gap-1 self-start italic text-off-w/75"
