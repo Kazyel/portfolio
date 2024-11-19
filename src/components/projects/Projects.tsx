@@ -15,15 +15,33 @@ const Projects = () => {
         )!;
 
         return (
-            <div className="flex h-full w-full flex-col items-center justify-center">
-                <p
-                    className="cursor-pointer text-xl font-bold text-off-w"
-                    onClick={() => isProjectOpen.set(!$isProjectOpen)}
-                >
-                    Back to Projects
-                </p>
+            <div className="p-20 2xl:min-w-[1590px] 2xl:max-w-[1590px]">
+                <div className="flex flex-col items-center justify-between">
+                    <button
+                        className="group mb-2 flex cursor-pointer items-center gap-1 self-start italic text-off-w/75"
+                        onClick={() => isProjectOpen.set(!$isProjectOpen)}
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke="currentColor"
+                            className="size-5 transition-all duration-200 group-hover:-translate-x-1 group-hover:text-off-w"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18"
+                            />
+                        </svg>
+                        <span className="transition-all duration-200 group-hover:text-off-w">
+                            Back to Projects
+                        </span>
+                    </button>
 
-                <ProjectComponent />
+                    <ProjectComponent />
+                </div>
             </div>
         );
     }
@@ -42,7 +60,7 @@ const Projects = () => {
                     timeout={250}
                     classNames="fade"
                 >
-                    <div className="z-20 flex min-h-screen w-full flex-col items-center justify-center">
+                    <div className="z-20 flex min-h-screen flex-col items-center justify-center">
                         {!$isProjectOpen ? (
                             <AvailableProjects />
                         ) : (
@@ -59,7 +77,7 @@ const Projects = () => {
                     alt="Higan flower"
                     width={700}
                     height={1000}
-                    className="absolute bottom-0 left-28 z-10 aspect-square h-[1000px] w-[700px] opacity-35 mix-blend-color-burn max-xl:hidden"
+                    className="absolute bottom-0 left-28 z-10 aspect-square h-[1000px] w-[700px] opacity-40 mix-blend-color-burn max-xl:hidden"
                     loading="lazy"
                     decoding="async"
                 />
@@ -87,7 +105,7 @@ const Projects = () => {
                     alt="Higan flower"
                     width={700}
                     height={1100}
-                    className="absolute bottom-0 right-28 z-10 h-[1100px] w-[700px] scale-x-[-1] opacity-35 mix-blend-color-burn max-xl:hidden"
+                    className="absolute bottom-0 right-28 z-10 h-[1100px] w-[700px] scale-x-[-1] opacity-40 mix-blend-color-burn max-xl:hidden"
                     loading="lazy"
                     decoding="async"
                 />
@@ -110,6 +128,8 @@ const Projects = () => {
                     decoding="async"
                 />
             </div>
+
+            <div className="absolute bottom-0 left-0 z-10 h-full w-full rounded-lg bg-gradient-to-t from-black/25 to-transparent opacity-100"></div>
         </section>
     );
 };
