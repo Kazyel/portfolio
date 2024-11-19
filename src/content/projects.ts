@@ -1,4 +1,5 @@
 import ProjectTemplate from "@/components/projects/ProjectTemplate";
+import images from "./images";
 
 type ProjectComponent = ({
     title,
@@ -11,7 +12,7 @@ type ProjectComponent = ({
 export type ProjectProps = {
     title: string;
     text: string[];
-    languages: string[];
+    languages: Record<string, string>[];
     repoLink: string;
     description: string;
 };
@@ -34,7 +35,7 @@ export const projects: ProjectType[] = [
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus eius fuga possimus dolores voluptas a officiis, soluta quae distinctio aliquid error nobis enim inventore corporis ducimus molestiae delectus magnam. Necessitatibus nesciunt praesentium voluptates autem. Voluptas eligendi doloribus similique aspernatur, laudantium minus tenetur in, laborum necessitatibus accusantium iste sint explicabo optio quos magni.",
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus eius fuga possimus dolores voluptas a officiis, soluta quae distinctio aliquid error nobis enim inventore corporis ducimus molestiae delectus magnam. Necessitatibus nesciunt praesentium voluptates autem. Voluptas eligendi doloribus similique aspernatur, laudantium minus tenetur in, laborum necessitatibus accusantium iste sint explicabo optio quos magni.",
         ],
-        languages: ["go", "bash"],
+        languages: [{ ...images.go }, { ...images.bash }],
         repoLink: "https://github.com/Kazyel/Kazanto",
         createComponent,
     },
@@ -46,7 +47,13 @@ export const projects: ProjectType[] = [
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus eius fuga possimus dolores voluptas a officiis, soluta quae distinctio aliquid error nobis enim inventore corporis ducimus molestiae delectus magnam. Necessitatibus nesciunt praesentium voluptates autem. Voluptas eligendi doloribus similique aspernatur, laudantium minus tenetur in, laborum necessitatibus accusantium iste sint explicabo optio quos magni.",
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus eius fuga possimus dolores voluptas a officiis, soluta quae distinctio aliquid error nobis enim inventore corporis ducimus molestiae delectus magnam. Necessitatibus nesciunt praesentium voluptates autem. Voluptas eligendi doloribus similique aspernatur, laudantium minus tenetur in, laborum necessitatibus accusantium iste sint explicabo optio quos magni.",
         ],
-        languages: ["node", "js", "ts", "fastify", "prisma"],
+        languages: [
+            { ...images.node },
+            { ...images.js },
+            { ...images.ts },
+            { ...images.fastify },
+            { ...images.prisma },
+        ],
         repoLink: "https://github.com/Kazyel/API_APSystem",
         createComponent,
     },
@@ -57,7 +64,12 @@ export const projects: ProjectType[] = [
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus eius fuga possimus dolores voluptas a officiis, soluta quae distinctio aliquid error nobis enim inventore corporis ducimus molestiae delectus magnam. Necessitatibus nesciunt praesentium voluptates autem. Voluptas eligendi doloribus similique aspernatur, laudantium minus tenetur in, laborum necessitatibus accusantium iste sint explicabo optio quos magni.",
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus eius fuga possimus dolores voluptas a officiis, soluta quae distinctio aliquid error nobis enim inventore corporis ducimus molestiae delectus magnam. Necessitatibus nesciunt praesentium voluptates autem. Voluptas eligendi doloribus similique aspernatur, laudantium minus tenetur in, laborum necessitatibus accusantium iste sint explicabo optio quos magni.",
         ],
-        languages: ["react", "astro", "tailwind", "ts"],
+        languages: [
+            { ...images.react },
+            { ...images.astro },
+            { ...images.tailwind },
+            { ...images.ts },
+        ],
         repoLink: "https://github.com/Kazyel/portfolio",
         createComponent,
     },

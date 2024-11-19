@@ -47,8 +47,8 @@ const ProjectTemplate = ({
                             <img
                                 key={index}
                                 className="aspect-square size-16 max-w-[]"
-                                src={`./src/assets/langs/${lang}.svg`}
-                                alt={lang + " logo"}
+                                src={lang.src}
+                                alt={`${lang.alt} +  logo`}
                             ></img>
                         ))}
                     </div>
