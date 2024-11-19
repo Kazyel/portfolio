@@ -4,8 +4,17 @@ import ProjectTemplate from "@/components/projects/ProjectTemplate";
 
 export const openedProject = atom<ProjectType>({
     title: "",
-    text: "",
-    createComponent: () => () => ProjectTemplate(""),
+    description: "",
+    text: [""],
+    languages: [],
+    repoLink: "",
+    createComponent: () => () =>
+        ProjectTemplate({
+            title: "",
+            repoLink: "",
+            languages: [],
+            text: [""],
+        }),
 });
 
 export const isProjectOpen = atom<boolean>(false);

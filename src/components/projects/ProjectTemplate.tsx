@@ -1,40 +1,32 @@
+import type { ProjectProps } from "@/content/projects";
 import ProjectLink from "./ProjectLink";
 
-const ProjectTemplate = (title: string) => {
+const ProjectTemplate = ({
+    title,
+    repoLink,
+    languages,
+    text,
+    description,
+}: ProjectProps) => {
     return (
         <div className="z-20 flex flex-col items-center justify-center">
-            <h2 className="self-start pb-10 text-5xl font-bold text-red-800">
-                {title}
-            </h2>
+            <div className="flex flex-col gap-2 self-start pb-10 pt-4">
+                <h2 className="text-5xl font-bold text-red-800">{title}</h2>
+                <h3 className="text-lg font-light text-acc-yellow-2">
+                    {description}
+                </h3>
+            </div>
 
             <div className="grid grid-cols-3 grid-rows-4 max-xl:flex max-xl:flex-col xl:max-h-[700px]">
-                <div className="col-span-2 row-span-3 mr-16 flex flex-col justify-around border-l-2 border-off-w pl-6 text-lg text-off-w max-xl:mb-10">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit. Eum laborum cum eaque velit sed dolore nostrum eos
-                        fugit quod minus? Illo minima odio similique animi,
-                        mollitia, ex sit praesentium delectus aut nihil quasi
-                        natus ullam consequuntur, ab cumque magnam aliquid totam
-                        cupiditate? Praesentium ex accusamus quia placeat
-                        excepturi dolore velit suscipit porro deleniti
-                        molestias, illo corrupti, non nobis ipsam aliquam qui
-                        nisi optio id cupiditate! Reprehenderit cum repellat
-                        magni cupiditate, est accusamus minima ad aperiam porro
-                        rem id debitis et, sed qui.
-                    </p>
-                    <p>
-                        Esse omnis beatae doloribus molestiae pariatur, dolores
-                        totam quos rerum placeat perspiciatis cupiditate
-                        similique fuga blanditiis! Exercitationem pariatur
-                        quidem autem tempore cupiditate voluptatibus fuga
-                        temporibus magnam, tempora expedita, doloribus quis rem
-                        ipsum excepturi, similique nostrum laudantium adipisci
-                        nobis repellat iusto corporis aperiam nam molestias?
-                        Quis facere maiores tempora animi alias, ratione ex
-                        numquam necessitatibus vel ad accusamus molestias
-                        voluptate ipsam laboriosam dolorum praesentium, illo
-                        dolore minus reiciendis rerum dolor commodi?
-                    </p>
+                <div className="col-span-2 row-span-3 mr-16 flex flex-col items-center text-justify text-lg leading-7 text-off-w max-xl:mb-10">
+                    {text.map((line, index) => (
+                        <p
+                            key={index}
+                            className="border-l-2 border-off-w pb-4 pl-6"
+                        >
+                            {line}
+                        </p>
+                    ))}
                 </div>
 
                 <div className="col-span-1 row-span-3 aspect-square max-w-[500px] overflow-hidden rounded-lg max-xl:max-w-[300px]">
@@ -49,10 +41,23 @@ const ProjectTemplate = (title: string) => {
                     />
                 </div>
 
-                <div className="col-span-1 col-start-3 row-span-4 flex h-[96px] flex-col justify-end">
+                <div className="col-span-2 row-span-4 flex items-center gap-8">
+                    <div className="flex h-[96px] gap-8 rounded bg-off-w p-4">
+                        {languages.map((lang, index) => (
+                            <img
+                                key={index}
+                                className="aspect-square size-16 max-w-[]"
+                                src={`./src/assets/langs/${lang}.svg`}
+                                alt={lang + " logo"}
+                            ></img>
+                        ))}
+                    </div>
+                </div>
+
+                <div className="col-span-1 col-start-3 row-span-4 flex flex-col items-center justify-center">
                     <ProjectLink
                         title="View the repository on GitHub"
-                        url="https://github.com/Kazyel/"
+                        url={repoLink}
                     />
                 </div>
             </div>

@@ -1,12 +1,22 @@
 import type { ProjectType } from "@/content/projects";
 import { isProjectOpen, openedProject } from "@/stores/store";
 
-const ProjectsCard = ({ title, text, createComponent }: ProjectType) => {
+const ProjectsCard = ({
+    title,
+    text,
+    createComponent,
+    languages,
+    repoLink,
+    description,
+}: ProjectType) => {
     function openProject() {
         openedProject.set({
             title: title,
             text: text,
+            description: description,
             createComponent: createComponent,
+            languages: languages,
+            repoLink: repoLink,
         });
 
         isProjectOpen.set(true);
@@ -40,7 +50,7 @@ const ProjectsCard = ({ title, text, createComponent }: ProjectType) => {
                     id="project-text"
                     className="text-off-w/75 transition-all duration-200 group-hover:text-off-w"
                 >
-                    {text}
+                    {description}
                 </p>
             </div>
             <div className="absolute bottom-0 left-0 z-10 h-full w-full rounded-lg bg-gradient-to-t from-black to-transparent opacity-100 transition-all duration-300 group-hover:opacity-90"></div>

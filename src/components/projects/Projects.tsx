@@ -1,4 +1,4 @@
-import { type Key } from "react";
+import { useEffect, useRef, type Key } from "react";
 import { useStore } from "@nanostores/react";
 import { isProjectOpen, openedProject } from "@/stores/store";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
@@ -8,14 +8,15 @@ import RedSakura from "@/assets/imgs/higan.png";
 const Projects = () => {
     const $isProjectOpen = useStore(isProjectOpen);
     const $openedProject = useStore(openedProject);
+    const nodeRef = useRef<HTMLDivElement>(null);
 
     function OpenedProject() {
-        const ProjectComponent = openedProject.value.createComponent(
-            $openedProject.title,
-        )!;
+        let ProjectComponent = openedProject.value.createComponent({
+            ...$openedProject,
+        })!;
 
         return (
-            <div className="p-20 2xl:min-w-[1590px] 2xl:max-w-[1590px]">
+            <div className="p-8 xl:p-20 2xl:min-w-[1590px] 2xl:max-w-[1590px]">
                 <div className="flex flex-col items-center justify-between">
                     <button
                         className="group mb-2 flex cursor-pointer items-center gap-1 self-start italic text-off-w/75"
@@ -54,13 +55,21 @@ const Projects = () => {
             <SwitchTransition mode="out-in">
                 <CSSTransition
                     key={$isProjectOpen as unknown as Key}
-                    addEndListener={(node, done) => {
-                        node.addEventListener("transitionend", done, false);
+                    nodeRef={nodeRef}
+                    addEndListener={(done) => {
+                        nodeRef.current!.addEventListener(
+                            "transitionend",
+                            done,
+                            false,
+                        );
                     }}
                     timeout={250}
                     classNames="fade"
                 >
-                    <div className="z-20 flex min-h-screen flex-col items-center justify-center">
+                    <div
+                        ref={nodeRef}
+                        className="z-20 flex min-h-screen flex-col items-center justify-center"
+                    >
                         {!$isProjectOpen ? (
                             <AvailableProjects />
                         ) : (
@@ -129,7 +138,7 @@ const Projects = () => {
                 />
             </div>
 
-            <div className="absolute bottom-0 left-0 z-10 h-full w-full rounded-lg bg-gradient-to-t from-black/25 to-transparent opacity-100"></div>
+            <div className="absolute bottom-0 left-0 z-10 h-full w-full rounded-lg bg-gradient-to-t from-black/35 to-transparent opacity-100"></div>
         </section>
     );
 };

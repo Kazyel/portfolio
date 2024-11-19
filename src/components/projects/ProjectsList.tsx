@@ -8,8 +8,11 @@ const ProjectsList = () => {
                 <ProjectsCard
                     key={index}
                     title={project.title}
+                    description={project.description}
                     text={project.text}
                     createComponent={project.createComponent}
+                    languages={project.languages}
+                    repoLink={project.repoLink}
                 />
             ))}
         </div>
