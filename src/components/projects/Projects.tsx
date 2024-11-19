@@ -1,4 +1,4 @@
-import { useEffect, useRef, type Key } from "react";
+import { useRef, type Key } from "react";
 import { useStore } from "@nanostores/react";
 import { isProjectOpen, openedProject } from "@/stores/store";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
@@ -11,12 +11,14 @@ const Projects = () => {
     const nodeRef = useRef<HTMLDivElement>(null);
 
     function OpenedProject() {
-        let ProjectComponent = openedProject.value.createComponent({
+        if (!$openedProject) return;
+
+        let ProjectComponent = $openedProject.createComponent({
             ...$openedProject,
         })!;
 
         return (
-            <div className="p-8 xl:p-20 2xl:min-w-[1590px] 2xl:max-w-[1590px]">
+            <div className="max-h-[900px] p-8 xl:p-20 2xl:min-w-[1600px] 2xl:max-w-[1600px]">
                 <div className="flex flex-col items-center justify-between">
                     <button
                         className="group mb-2 flex cursor-pointer items-center gap-1 self-start italic text-off-w/75"
@@ -50,7 +52,7 @@ const Projects = () => {
     return (
         <section
             id="projects-section"
-            className="bg-pattern relative flex w-full flex-col justify-center overflow-hidden bg-amber-900/10 max-xl:p-10"
+            className="bg-pattern relative flex min-h-screen w-full flex-col justify-center overflow-hidden bg-amber-900/10 max-xl:p-10"
         >
             <SwitchTransition mode="out-in">
                 <CSSTransition

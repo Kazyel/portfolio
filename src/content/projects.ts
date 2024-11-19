@@ -1,5 +1,5 @@
-import ProjectTemplate from "@/components/projects/ProjectTemplate";
 import images from "./images";
+import ProjectTemplate from "@/components/projects/ProjectTemplate";
 
 type ProjectComponent = ({
     title,
@@ -35,8 +35,8 @@ export const projects: ProjectType[] = [
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus eius fuga possimus dolores voluptas a officiis, soluta quae distinctio aliquid error nobis enim inventore corporis ducimus molestiae delectus magnam. Necessitatibus nesciunt praesentium voluptates autem. Voluptas eligendi doloribus similique aspernatur, laudantium minus tenetur in, laborum necessitatibus accusantium iste sint explicabo optio quos magni.",
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus eius fuga possimus dolores voluptas a officiis, soluta quae distinctio aliquid error nobis enim inventore corporis ducimus molestiae delectus magnam. Necessitatibus nesciunt praesentium voluptates autem. Voluptas eligendi doloribus similique aspernatur, laudantium minus tenetur in, laborum necessitatibus accusantium iste sint explicabo optio quos magni.",
         ],
-        languages: [{ ...images.go }, { ...images.bash }],
         repoLink: "https://github.com/Kazyel/Kazanto",
+        languages: [{ ...images.go }, { ...images.bash }],
         createComponent,
     },
     {
@@ -47,6 +47,7 @@ export const projects: ProjectType[] = [
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus eius fuga possimus dolores voluptas a officiis, soluta quae distinctio aliquid error nobis enim inventore corporis ducimus molestiae delectus magnam. Necessitatibus nesciunt praesentium voluptates autem. Voluptas eligendi doloribus similique aspernatur, laudantium minus tenetur in, laborum necessitatibus accusantium iste sint explicabo optio quos magni.",
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus eius fuga possimus dolores voluptas a officiis, soluta quae distinctio aliquid error nobis enim inventore corporis ducimus molestiae delectus magnam. Necessitatibus nesciunt praesentium voluptates autem. Voluptas eligendi doloribus similique aspernatur, laudantium minus tenetur in, laborum necessitatibus accusantium iste sint explicabo optio quos magni.",
         ],
+        repoLink: "https://github.com/Kazyel/API_APSystem",
         languages: [
             { ...images.node },
             { ...images.js },
@@ -54,7 +55,6 @@ export const projects: ProjectType[] = [
             { ...images.fastify },
             { ...images.prisma },
         ],
-        repoLink: "https://github.com/Kazyel/API_APSystem",
         createComponent,
     },
     {
@@ -64,13 +64,13 @@ export const projects: ProjectType[] = [
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus eius fuga possimus dolores voluptas a officiis, soluta quae distinctio aliquid error nobis enim inventore corporis ducimus molestiae delectus magnam. Necessitatibus nesciunt praesentium voluptates autem. Voluptas eligendi doloribus similique aspernatur, laudantium minus tenetur in, laborum necessitatibus accusantium iste sint explicabo optio quos magni.",
             "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus eius fuga possimus dolores voluptas a officiis, soluta quae distinctio aliquid error nobis enim inventore corporis ducimus molestiae delectus magnam. Necessitatibus nesciunt praesentium voluptates autem. Voluptas eligendi doloribus similique aspernatur, laudantium minus tenetur in, laborum necessitatibus accusantium iste sint explicabo optio quos magni.",
         ],
+        repoLink: "https://github.com/Kazyel/portfolio",
         languages: [
             { ...images.react },
             { ...images.astro },
             { ...images.tailwind },
             { ...images.ts },
         ],
-        repoLink: "https://github.com/Kazyel/portfolio",
         createComponent,
     },
 ];

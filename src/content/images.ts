@@ -10,7 +10,9 @@ import Prisma from "@/assets/langs/prisma.svg";
 import PostgreSQL from "@/assets/langs/postgresql.svg";
 import Node from "@/assets/langs/node.svg";
 
-const images: Record<string, Record<string, string>> = {
+type ImagesData = Record<string, Record<string, string>>;
+
+const images: ImagesData = {
     go: { src: Go.src, alt: "Go logo" },
     bash: { src: Bash.src, alt: "Bash logo" },
     react: { src: React.src, alt: "React logo" },
