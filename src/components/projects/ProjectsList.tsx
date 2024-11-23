@@ -3,7 +3,7 @@ import ProjectsCard from "./ProjectsCard";
 
 const ProjectsList = () => {
     return (
-        <div className="flex flex-col gap-10 pt-20 xl:flex-row">
+        <div className="flex flex-col items-center justify-center gap-10 pt-20 max-lg:pt-10 lg:flex-row">
             {projects.map((project, index) => (
                 <ProjectsCard
                     key={index}

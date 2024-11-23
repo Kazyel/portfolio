@@ -1,11 +1,18 @@
 type Props = {
     title: string;
     url: string;
+    className?: string;
 };
 
-const ProjectLink = ({ title, url }: Props) => {
+const ProjectLink = ({ title, url, className }: Props) => {
     return (
-        <div className="group flex items-center gap-2 self-end">
+        <div
+            className={
+                className
+                    ? `${className} group flex items-center gap-2 self-end`
+                    : "group flex items-center gap-2 self-end"
+            }
+        >
             <a
                 href={url}
                 target="_blank"

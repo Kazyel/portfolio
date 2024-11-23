@@ -1,14 +1,6 @@
 import images from "./images";
 import ProjectTemplate from "@/components/projects/ProjectTemplate";
 
-type ProjectComponent = ({
-    title,
-    repoLink,
-    languages,
-    text,
-    description,
-}: ProjectProps) => () => JSX.Element;
-
 export type ProjectProps = {
     title: string;
     text: string[];
@@ -16,6 +8,14 @@ export type ProjectProps = {
     repoLink: string;
     description: string;
 };
+
+type ProjectComponent = ({
+    title,
+    repoLink,
+    languages,
+    text,
+    description,
+}: ProjectProps) => () => JSX.Element;
 
 export type ProjectType = {
     createComponent: ProjectComponent;

@@ -25,10 +25,10 @@ const ProjectsCard = ({
     return (
         <div
             id="project-card"
-            className="group relative grid max-w-[450px] cursor-pointer grid-cols-1 gap-10"
+            className="group relative grid max-w-[450px] cursor-pointer grid-cols-1 gap-10 max-lg:max-w-[400px] max-sm:max-w-[275px]"
             onClick={openProject}
         >
-            <div className="col-span-full row-span-full flex h-[450px] max-w-[450px] flex-col overflow-hidden rounded-lg bg-stone-900">
+            <div className="col-span-full row-span-full flex flex-col overflow-hidden rounded-lg border-off-w/25 bg-stone-900 max-lg:h-[400px] max-lg:w-[400px] max-lg:border-x-2 max-lg:border-t-2 max-sm:h-[275px] max-sm:w-[275px] xl:h-[450px] 2xl:max-w-[450px]">
                 <img
                     src={
                         "https://images.unsplash.com/photo-1508504509543-5ca56440e013?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8amFwYW58ZW58MHx8MHx8fDA%3D"
@@ -42,13 +42,13 @@ const ProjectsCard = ({
             <div className="z-20 col-span-full row-span-full flex flex-col gap-2 self-end p-6">
                 <h3
                     id="project-title"
-                    className="text-4xl font-bold text-red-800 transition-all duration-200 group-hover:text-red-600"
+                    className="text-4xl font-bold text-red-800 transition-all duration-200 group-hover:text-red-600 max-sm:text-2xl"
                 >
                     {title}
                 </h3>
                 <p
                     id="project-text"
-                    className="text-off-w/75 transition-all duration-200 group-hover:text-off-w"
+                    className="text-off-w/75 transition-all duration-200 group-hover:text-off-w max-sm:text-sm"
                 >
                     {description}
                 </p>

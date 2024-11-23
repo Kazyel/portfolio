@@ -9,7 +9,7 @@ const ProjectTemplate = ({
     description,
 }: ProjectProps) => {
     return (
-        <div className="z-20 flex flex-col items-center justify-center">
+        <div className="z-20 flex w-full flex-col items-center justify-center">
             <div className="flex flex-col gap-2 self-start pb-10 pt-4">
                 <h2 className="text-5xl font-bold text-red-800">{title}</h2>
                 <h3 className="text-lg font-light text-acc-yellow-2">
@@ -17,12 +17,12 @@ const ProjectTemplate = ({
                 </h3>
             </div>
 
-            <div className="grid grid-cols-3 grid-rows-4 max-xl:flex max-xl:flex-col xl:max-h-[700px]">
-                <div className="col-span-2 row-span-3 mr-16 flex flex-col items-center text-justify text-lg leading-7 text-off-w max-xl:mb-10">
+            <div className="grid grid-cols-3 grid-rows-4 max-xl:flex max-xl:flex-col max-xl:justify-center max-lg:items-center xl:max-h-[700px]">
+                <div className="col-span-2 row-span-3 flex flex-col items-center text-lg leading-7 text-off-w max-xl:mb-10 max-lg:justify-center sm:text-justify xl:mr-16">
                     {text.map((line, index) => (
                         <p
                             key={index}
-                            className="border-l-2 border-off-w pb-4 pl-6"
+                            className="border-l-2 border-off-w pb-4 pl-6 max-sm:text-sm"
                         >
                             {line}
                         </p>
@@ -41,12 +41,12 @@ const ProjectTemplate = ({
                     />
                 </div>
 
-                <div className="col-span-2 row-span-4 flex items-center gap-8">
-                    <div className="flex h-[96px] gap-8 rounded bg-off-w p-4">
+                <div className="col-span-2 row-span-4 flex items-center gap-8 max-xl:justify-center max-lg:mt-8">
+                    <div className="flex items-center gap-8 rounded bg-off-w p-4 max-lg:flex-wrap xl:h-[96px] xl:p-8">
                         {languages.map((lang, index) => (
                             <img
                                 key={index}
-                                className="aspect-square size-16 max-w-[]"
+                                className="aspect-square size-10 xl:size-16"
                                 src={lang.src}
                                 alt={`${lang.alt} +  logo`}
                             ></img>
@@ -54,7 +54,7 @@ const ProjectTemplate = ({
                     </div>
                 </div>
 
-                <div className="col-span-1 col-start-3 row-span-4 flex flex-col items-center justify-center">
+                <div className="col-span-1 col-start-3 row-span-4 flex flex-col items-center justify-center max-xl:mt-8">
                     <ProjectLink
                         title="View the repository on GitHub"
                         url={repoLink}

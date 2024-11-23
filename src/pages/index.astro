@@ -32,7 +32,7 @@ import '@fontsource-variable/montserrat';
             <Image
                 src={KanagawaWave}
                 alt="Kanagawa Wave"
-                class="absolute bottom-0 -z-10 w-full opacity-5 grayscale max-md:hidden"
+                class="absolute bottom-0 -z-10 w-full opacity-10 grayscale max-md:hidden"
                 width={1920}
                 height={1080}
                 loading={"eager"}
@@ -40,7 +40,7 @@ import '@fontsource-variable/montserrat';
             <Image
                 src={Pagoda}
                 alt="Kanagawa Wave"
-                class="absolute -bottom-52 -z-10 opacity-10 grayscale max-md:hidden w-[1920px]"
+                class="absolute -bottom-52 -z-10 opacity-20 grayscale max-md:hidden w-[1920px] pagoda-animation"
                 height={1920}
                 width={1080}
                 loading={"eager"}
@@ -57,3 +57,22 @@ import '@fontsource-variable/montserrat';
     <!-- Contact -->
     <Contact />
 </Layout>
+
+<style scoped>
+    @keyframes enter-pagoda {
+        0% {
+            transform: translateY(50px);
+            opacity: 0.05;
+        }
+
+        100% {
+            transform: translateY(0px);
+            opacity: 0.20;
+        }
+    }
+    
+    .pagoda-animation {
+        animation: enter-pagoda 1s;
+        z-index: -20;
+    }
+</style>
