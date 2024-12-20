@@ -6,14 +6,14 @@ const Navbar = () => {
 
     const addAndRemoveClassName = (
         ref: RefObject<any>,
-        addString: string[],
-        removeString: string[],
+        add: string[],
+        remove: string[],
     ) => {
-        for (const className of addString) {
+        for (const className of add) {
             ref.current.classList.add(className);
         }
 
-        for (const className of removeString) {
+        for (const className of remove) {
             ref.current.classList.remove(className);
         }
     };
@@ -44,13 +44,24 @@ const Navbar = () => {
                 ["stroke-off-w"],
                 ["stroke-black"],
             );
+            return;
         });
     };
 
-    const observer = new IntersectionObserver(intersectionCallback, {
+    const observerMobile = new IntersectionObserver(intersectionCallback, {
         rootMargin: "0px 0px -100% 0px",
     });
-    observer.observe(document.querySelector("#about-section")!);
+
+    const observerDesktop = new IntersectionObserver(intersectionCallback, {
+        rootMargin: "0px",
+        threshold: 0.85,
+    });
+
+    const mql = window.matchMedia("(max-width: 1024px)");
+
+    mql.matches
+        ? observerMobile.observe(document.querySelector("#about-section")!)
+        : observerDesktop.observe(document.querySelector("#about-section")!);
 
     return (
         <nav
@@ -60,7 +71,7 @@ const Navbar = () => {
             <a
                 ref={navbarLogo}
                 href="/portfolio"
-                className="border-l-2 border-off-w px-2 text-2xl font-bold text-off-w"
+                className="duration-[250ms] border-l-2 border-off-w px-2 text-2xl font-bold text-off-w transition-all"
             >
                 Kazyel
             </a>
@@ -73,7 +84,7 @@ const Navbar = () => {
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
                     stroke="currentColor"
-                    className="h-7 w-7 cursor-pointer"
+                    className="duration-[250ms] h-7 w-7 cursor-pointer transition-all"
                 >
                     <path
                         strokeLinecap="round"

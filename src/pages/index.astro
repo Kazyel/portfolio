@@ -11,51 +11,54 @@ import Pagoda from "@/assets/imgs/pagoda.png";
 // Sections
 import Landing from "@/components/landing/Landing.astro";
 import About from "@/components/about/About.astro";
-import Projects from "@/components/projects/Projects.tsx";
+import Projects from "@/components/projects/Projects.astro";
 import Contact from "@/components/contact/Contact.astro";
 
 // Supports weights 100-900
-import '@fontsource-variable/montserrat';
+import "@fontsource-variable/montserrat";
 ---
 
 <Layout title="Kazyel">
     <!-- Navbar -->
-        <div id="navbar" class="max-lg:sticky backdrop-blur-md top-0 z-50">
-            <Navbar client:only="react" />
+    <div id="navbar" class="max-lg:sticky backdrop-blur-md top-0 z-50">
+        <Navbar client:only="react" />
+    </div>
+
+    <div
+        class="xl:snap-mandatory xl:snap-y xl:overflow-y-scroll xl:h-screen xl:scroll-smooth"
+    >
+        <!-- Landing -->
+        <div class="snap-start min-h-screen">
+            <div
+                class="relative max-lg:h-[calc(100dvh-4rem)] max-xl:px-10 flex lg:min-h-screen flex-col justify-center items-center"
+            >
+                <Landing />
+                <Image
+                    src={KanagawaWave}
+                    alt="Kanagawa Wave"
+                    class="absolute bottom-0 -z-10 w-full opacity-10 grayscale max-md:hidden"
+                    width={1920}
+                    height={1080}
+                />
+                <Image
+                    src={Pagoda}
+                    alt="Kanagawa Wave"
+                    class="absolute -bottom-52 -z-10 opacity-20 grayscale max-md:hidden w-[1920px] pagoda-animation"
+                    height={1920}
+                    width={1080}
+                />
+            </div>
         </div>
 
-        <div
-            class="relative max-lg:h-[calc(100dvh-4rem)] max-xl:px-10 flex lg:min-h-screen flex-col justify-center items-center"
-        >
-            <!-- Landing -->
-            <Landing />
-            <Image
-                src={KanagawaWave}
-                alt="Kanagawa Wave"
-                class="absolute bottom-0 -z-10 w-full opacity-10 grayscale max-md:hidden"
-                width={1920}
-                height={1080}
-                loading={"eager"}
-            />
-            <Image
-                src={Pagoda}
-                alt="Kanagawa Wave"
-                class="absolute -bottom-52 -z-10 opacity-20 grayscale max-md:hidden w-[1920px] pagoda-animation"
-                height={1920}
-                width={1080}
-                loading={"eager"}
-            />
-        </div>
+        <!-- About Me -->
+        <About />
 
+        <!-- Projects -->
+        <Projects />
 
-    <!-- About Me -->
-    <About />
-
-    <!-- Projects -->
-    <Projects client:only="react" />
-
-    <!-- Contact -->
-    <Contact />
+        <!-- Contact -->
+        <Contact />
+    </div>
 </Layout>
 
 <style scoped>
@@ -67,10 +70,10 @@ import '@fontsource-variable/montserrat';
 
         100% {
             transform: translateY(0px);
-            opacity: 0.20;
+            opacity: 0.2;
         }
     }
-    
+
     .pagoda-animation {
         animation: enter-pagoda 1s;
         z-index: -20;
