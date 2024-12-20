@@ -54,7 +54,7 @@ const Navbar = () => {
 
     const observerDesktop = new IntersectionObserver(intersectionCallback, {
         rootMargin: "0px",
-        threshold: 0.85,
+        threshold: 0.925,
     });
 
     const mql = window.matchMedia("(max-width: 1024px)");
@@ -71,7 +71,7 @@ const Navbar = () => {
             <a
                 ref={navbarLogo}
                 href="/portfolio"
-                className="duration-[250ms] border-l-2 border-off-w px-2 text-2xl font-bold text-off-w transition-all"
+                className="duration-[300ms] border-l-2 border-off-w px-2 text-2xl font-bold text-off-w transition-all"
             >
                 Kazyel
             </a>
@@ -84,7 +84,7 @@ const Navbar = () => {
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
                     stroke="currentColor"
-                    className="duration-[250ms] h-7 w-7 cursor-pointer transition-all"
+                    className="duration-[300ms] h-7 w-7 cursor-pointer transition-all"
                 >
                     <path
                         strokeLinecap="round"
