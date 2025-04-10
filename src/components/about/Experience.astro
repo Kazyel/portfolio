@@ -1,31 +1,31 @@
 ---
 interface Props {
-    year: string;
-    text: string;
+  year: string;
+  text: string;
 }
 
 const { year, text } = Astro.props;
 ---
 
 <div
-    class="relative border-l-4 border-stone-700 pt-8 exp-padding-down pl-8 xl: pr-10 text-justify text-off-w max-xl:text-left group max-xl:max-w-2xl flex hover:border-acc-yellow transition-all duration-200"
+  class="relative border-l-4 border-stone-700 pt-8 exp-padding-down pl-8 xl: pr-10 text-justify text-off-w max-xl:text-left group max-xl:max-w-2xl flex hover:border-acc-yellow transition-all duration-200"
 >
-    <p class="text-stone-700 font-medium 3xl:text-lg mt-2">
-        {text}
-    </p>
+  <p class="text-stone-700 font-medium 3xl:text-lg mt-2">
+    {text}
+  </p>
 
-    <p class="absolute -top-2 font-bold text-stone-900 text-xl 2xl:text-2xl">
-        <slot>{year}</slot>
-    </p>
+  <p class="absolute -top-2 font-bold text-stone-900 text-xl 2xl:text-2xl">
+    <slot>{year}</slot>
+  </p>
 
-    <div
-        class="absolute -left-[10px] -top-1 h-4 w-4 rounded-full bg-stone-700 group-hover:bg-acc-yellow transition-all duration-200"
-    >
-    </div>
+  <div
+    class="absolute -left-[10px] -top-1 h-4 w-4 rounded-full bg-stone-700 group-hover:bg-acc-yellow transition-all duration-200"
+  >
+  </div>
 </div>
 
 <style scoped>
-    .exp-padding-down:not(:last-child) {
-        padding-bottom: 2rem;
-    }
+  .exp-padding-down:not(:last-child) {
+    padding-bottom: 2rem;
+  }
 </style>

@@ -4,71 +4,72 @@ import Dragon from "@/assets/imgs/dragon.png";
 ---
 
 <div
-    class="flex max-xs:max-w-[320px] max-sm:max-w-[360px] max-lg:max-w-[650px] max-xl:max-w-[768px] 2xl:max-w-lg flex-col max-xl:flex-row max-sm:flex-col items-center max-lg:gap-10 gap-16 xl:max-w-xl"
+  class="flex max-xs:max-w-[320px] max-sm:max-w-[360px] max-lg:max-w-[650px] max-xl:max-w-[768px] 2xl:w-full max-xl:flex-row max-sm:flex-col items-center max-lg:gap-10 gap-16 xl:w-full"
 >
-    <div>
-        <div class="flex justify-center gap-3 xl:pb-8">
-            <h2 class="text-2xl 2xl:text-4xl font-extrabold text-acc-yellow">
-                Yo, it's me!
-            </h2>
+  <div>
+    <div class="flex justify-center gap-3 xl:pb-8">
+      <h2 class="text-2xl 2xl:text-4xl font-extrabold text-acc-yellow">Yo, it's me!</h2>
 
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="3"
-                stroke="currentColor"
-                class="h-8 w-8 2xl:h-10 2xl:w-10 stroke-acc-yellow"
-            >
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M15.75 17.25L12 21m0 0l-3.75-3.75M12 21V3"
-                >
-                </path>
-            </svg>
-        </div>
-
-        <div class="grid grid-cols-2 grid-rows-2 place-items-center mt-4">
-            <Image
-                src={Dragon}
-                width={750}
-                height={750}
-                alt="Dragon"
-                class="opacity-100 top-0 col-span-full row-span-full"
-            />
-
-            <Image
-                src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
-                class="aspect-square rounded-[50%] border-[6px] border-black object-cover xl:w-[368px] max-lg:w-[228px] max-xl:w-[258px] col-span-full row-span-full z-10"
-                width={300}
-                height={300}
-                alt="Placeholder"
-            />
-        </div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="3"
+        stroke="currentColor"
+        class="h-8 w-8 2xl:h-10 2xl:w-10 stroke-acc-yellow"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M15.75 17.25L12 21m0 0l-3.75-3.75M12 21V3"
+        >
+        </path>
+      </svg>
     </div>
 
+    <div class="grid grid-cols-2 grid-rows-2 place-items-center">
+      <Image
+        src={Dragon}
+        width={550}
+        height={550}
+        alt="Dragon"
+        class="opacity-100 top-0 col-span-full row-span-full"
+      />
+
+      <Image
+        src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
+        class="aspect-square rounded-[50%] border-[6px] border-black object-cover xl:w-[368px] max-lg:w-[228px] max-xl:w-[258px] col-span-full row-span-full z-10"
+        width={300}
+        height={300}
+        alt="Placeholder"
+      />
+    </div>
+  </div>
+
+  <div
+    class="relative 2xl:text-xl border-l-4 border-acc-yellow pl-6 max-lg:max-w-[275px] max-xl:max-w-[300px] xl:max-w-[450px] max-sm:max-w-full about-text"
+  >
     <p
-        class="text-stone-700 relative font-medium text-lg italic 2xl:text-xl max-lg:text-base max-xl:text-lg border-l-4 border-acc-yellow pl-6 max-lg:max-w-[275px] max-xl:max-w-[300px] max-sm:max-w-full about-text"
+      class="text-stone-700 relative font-medium text-lg italic max-xl:text-lg max-lg:text-base"
     >
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati
-        ullam ad quam nisi, itaque corrupti vitae totam placeat, amet voluptatum
-        consequatur repudiandae modi nihil asperiores sapiente, ab odio eos.
-        Cum?
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati ullam ad quam
+      nisi, itaque corrupti vitae totam placeat, amet voluptatum consequatur repudiandae
+      modi nihil asperiores sapiente, ab odio eos. Cum?
     </p>
+  </div>
 </div>
 
 <style scoped>
-    @media (min-width: 1600px) {
-        .about-text::before {
-            content: "学";
-            position: absolute;
-            left: -75px;
-            top: 55px;
-            font-size: 3rem;
-            font-style: normal;
-            font-weight: bold;
-            color: #44403c;
-        }
+  @media (min-width: 1600px) {
+    .about-text::before {
+      content: "学";
+      position: absolute;
+      left: -75px;
+      top: 55px;
+      font-size: 3rem;
+      font-style: normal;
+      font-weight: bold;
+      color: #44403c;
     }
+  }
 </style>

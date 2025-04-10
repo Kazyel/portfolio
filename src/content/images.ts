@@ -13,17 +13,17 @@ import Node from "@/assets/langs/node.svg";
 type ImagesData = Record<string, Record<string, string>>;
 
 const images: ImagesData = {
-    go: { src: Go.src, alt: "Go logo" },
-    bash: { src: Bash.src, alt: "Bash logo" },
-    react: { src: React.src, alt: "React logo" },
-    astro: { src: Astro.src, alt: "Astro logo" },
-    tailwind: { src: Tailwind.src, alt: "Tailwind logo" },
-    ts: { src: TS.src, alt: "TypeScript logo" },
-    js: { src: JS.src, alt: "JavaScript logo" },
-    fastify: { src: Fastify.src, alt: "Fastify logo" },
-    prisma: { src: Prisma.src, alt: "Prisma logo" },
-    postgresql: { src: PostgreSQL.src, alt: "PostgreSQL logo" },
-    node: { src: Node.src, alt: "Node logo" },
+  go: { src: Go.src, alt: "Go logo" },
+  bash: { src: Bash.src, alt: "Bash logo" },
+  react: { src: React.src, alt: "React logo" },
+  astro: { src: Astro.src, alt: "Astro logo" },
+  tailwind: { src: Tailwind.src, alt: "Tailwind logo" },
+  ts: { src: TS.src, alt: "TypeScript logo" },
+  js: { src: JS.src, alt: "JavaScript logo" },
+  fastify: { src: Fastify.src, alt: "Fastify logo" },
+  prisma: { src: Prisma.src, alt: "Prisma logo" },
+  postgresql: { src: PostgreSQL.src, alt: "PostgreSQL logo" },
+  node: { src: Node.src, alt: "Node logo" },
 };
 
 export default images;

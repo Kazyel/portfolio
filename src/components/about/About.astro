@@ -8,56 +8,35 @@ import InkPaint2 from "@/assets/imgs/ink-paint-2.png";
 ---
 
 <section
-    id="about-section"
-    class="relative overflow-hidden section xl:min-h-screen snap-start snap-always"
+  id="about-section"
+  class="relative overflow-hidden section xl:min-h-screen snap-start snap-always"
 >
+  <div
+    class="flex relative min-h-screen justify-center items-center max-xl:flex max-xl:flex-col max-sm:w-full max-xl:pb-20 xl:p-20 3xl:p-0 bg-off-w"
+  >
+    <!-- About Me -->
     <div
-        class="grid relative min-h-screen grid-cols-6 max-xl:flex max-xl:flex-col max-sm:w-full max-xl:pb-20 xl:p-20 3xl:p-0 bg-off-w"
+      id="about-me"
+      class="col-span-4 max-xl:pt-20 max-xl:mb-12 flex h-full flex-col xl:items-end items-center justify-center z-20"
     >
-        <!-- About Me -->
-        <div
-            id="about-me"
-            class="col-span-3 max-xl:pt-20 max-xl:mb-12 flex h-full flex-col xl:items-end items-center justify-center xl:pr-16 2xl:pr-28 z-20"
-        >
-            <MyInfo />
-        </div>
-        <!-- Experience -->
-        <div
-            class="col-span-3 xl:pl-12 xl:pr-0 pt-4 px-12 max-xl:pt-10 flex items-center justify-center flex-col xl:max-w-xl 2xl:max-w-2xl h-full z-20"
-        >
-            <Experience
-                year="2024"
-                text="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque itaque aliquid labore provident. Officia totam illum commodi, natus sit assumenda, vero facilis recusandae nemo enim nostrum delectus, placeat dolorum suscipit?"
-            />
-            <Experience
-                year="2023"
-                text="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque itaque aliquid labore provident. Officia totam illum commodi, natus sit assumenda, vero facilis recusandae nemo enim nostrum delectus, placeat dolorum suscipit?"
-            />
-            <Experience
-                year="2022"
-                text="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque itaque aliquid labore provident. Officia totam illum commodi, natus sit assumenda, vero facilis recusandae nemo enim nostrum delectus, placeat dolorum suscipit?"
-            />
-            <Experience
-                year="2021"
-                text="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque itaque aliquid labore provident. Officia totam illum commodi, natus sit assumenda, vero facilis recusandae nemo enim nostrum delectus, placeat dolorum suscipit?"
-            />
-        </div>
+      <MyInfo />
     </div>
-    <Image
-        src={InkPaint}
-        alt="Ink Paint"
-        width={800}
-        height={800}
-        class="absolute w-[800px] max-2xl:w-[800px] -bottom-24 -left-[26rem] mix-blend-multiply opacity-20 grayscale max-md:hidden"
-        loading="lazy"
-    />
+  </div>
+  <Image
+    src={InkPaint}
+    alt="Ink Paint"
+    width={800}
+    height={800}
+    class="absolute w-[800px] max-2xl:w-[800px] -bottom-24 -left-[26rem] mix-blend-multiply opacity-20 grayscale max-md:hidden"
+    loading="lazy"
+  />
 
-    <Image
-        src={InkPaint2}
-        alt="Ink Paint 2"
-        width={1100}
-        height={1100}
-        class="absolute w-[1100px] max-2xl:-right-96 max-xl:-bottom-8 bottom-0 -right-[26rem] mix-blend-multiply opacity-50 grayscale max-md:hidden"
-        loading="lazy"
-    />
+  <Image
+    src={InkPaint2}
+    alt="Ink Paint 2"
+    width={1100}
+    height={1100}
+    class="absolute w-[1100px] max-2xl:-right-96 max-xl:-bottom-8 bottom-0 -right-[26rem] mix-blend-multiply opacity-50 grayscale max-md:hidden"
+    loading="lazy"
+  />
 </section>
