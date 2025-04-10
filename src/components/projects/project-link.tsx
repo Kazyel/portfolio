@@ -1,30 +1,31 @@
-type Props = {
+type ProjectLinkProps = {
   title: string;
   url: string;
   className?: string;
 };
 
-const ProjectLink = ({ title, url, className }: Props) => {
+export const ProjectLink = ({ title, url, className }: ProjectLinkProps) => {
   return (
     <div
       className={
         className
           ? `${className} group flex items-center gap-2 self-end`
-          : "group flex items-center gap-2 self-end"
+          : "group flex items-center gap-2 self-end text-lg font-semibold"
       }
     >
       <a
         href={url}
         target="_blank"
-        className="cursor-pointer text-lg font-light italic text-off-w/75 transition-all duration-200 group-hover:font-normal group-hover:text-off-w"
+        className="cursor-pointer italic tracking-wide text-off-w/75 transition-all duration-300 hover:drop-shadow-[0px_0px_12px_#f3e5d766] group-hover:text-off-w"
       >
         {title}
       </a>
+
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
         fill="currentColor"
-        className="mb-[4px] size-4 fill-off-w/75 transition-all duration-200 group-hover:-translate-y-[2px] group-hover:fill-off-w"
+        className="mb-[4px] size-4 fill-off-w/75 transition-all duration-300 group-hover:-translate-y-[2px] group-hover:fill-off-w"
       >
         <path
           fillRule="evenodd"
@@ -40,5 +41,3 @@ const ProjectLink = ({ title, url, className }: Props) => {
     </div>
   );
 };
-
-export default ProjectLink;

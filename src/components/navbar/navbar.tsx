@@ -1,4 +1,4 @@
-import { useRef, type RefObject } from "react";
+import { useEffect, useRef, type RefObject } from "react";
 
 const Navbar = () => {
   const navbarLogo = useRef<HTMLAnchorElement>(null);
@@ -18,42 +18,49 @@ const Navbar = () => {
     }
   };
 
-  const intersectionCallback = (entries: IntersectionObserverEntry[]) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
+  useEffect(() => {
+    const intersectionCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          addAndRemoveClassName(
+            navbarLogo,
+            ["text-black", "border-black"],
+            ["text-off-w", "border-off-w"],
+          );
+          addAndRemoveClassName(languageIcon, ["stroke-black"], ["stroke-off-w"]);
+          return;
+        }
+
         addAndRemoveClassName(
           navbarLogo,
-          ["text-black", "border-black"],
           ["text-off-w", "border-off-w"],
+          ["text-black", "border-black"],
         );
-        addAndRemoveClassName(languageIcon, ["stroke-black"], ["stroke-off-w"]);
+        addAndRemoveClassName(languageIcon, ["stroke-off-w"], ["stroke-black"]);
         return;
-      }
+      });
+    };
 
-      addAndRemoveClassName(
-        navbarLogo,
-        ["text-off-w", "border-off-w"],
-        ["text-black", "border-black"],
-      );
-      addAndRemoveClassName(languageIcon, ["stroke-off-w"], ["stroke-black"]);
-      return;
+    const observerMobile = new IntersectionObserver(intersectionCallback, {
+      rootMargin: "0px 0px -100% 0px",
     });
-  };
 
-  const observerMobile = new IntersectionObserver(intersectionCallback, {
-    rootMargin: "0px 0px -100% 0px",
-  });
+    const observerDesktop = new IntersectionObserver(intersectionCallback, {
+      rootMargin: "0px",
+      threshold: 0.85,
+    });
 
-  const observerDesktop = new IntersectionObserver(intersectionCallback, {
-    rootMargin: "0px",
-    threshold: 0.925,
-  });
+    const mql = window.matchMedia("(max-width: 1024px)");
 
-  const mql = window.matchMedia("(max-width: 1024px)");
+    mql.matches
+      ? observerMobile.observe(document.querySelector("#about-section")!)
+      : observerDesktop.observe(document.querySelector("#about-section")!);
 
-  mql.matches
-    ? observerMobile.observe(document.querySelector("#about-section")!)
-    : observerDesktop.observe(document.querySelector("#about-section")!);
+    return () => {
+      observerMobile.disconnect();
+      observerDesktop.disconnect();
+    };
+  }, []);
 
   return (
     <nav
@@ -62,7 +69,7 @@ const Navbar = () => {
     >
       <a
         ref={navbarLogo}
-        href="/portfolio"
+        href="#landing-section"
         className="duration-[300ms] border-l-2 border-off-w px-2 text-2xl font-bold text-off-w transition-all"
       >
         Kazyel

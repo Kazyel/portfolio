@@ -9,6 +9,8 @@ import Fastify from "@/assets/langs/fastify.svg";
 import Prisma from "@/assets/langs/prisma.svg";
 import PostgreSQL from "@/assets/langs/postgresql.svg";
 import Node from "@/assets/langs/node.svg";
+import Python from "@/assets/langs/python.svg";
+import NextJS from "@/assets/langs/next-js.svg";
 
 type ImagesData = Record<string, Record<string, string>>;
 
@@ -24,6 +26,8 @@ const images: ImagesData = {
   prisma: { src: Prisma.src, alt: "Prisma logo" },
   postgresql: { src: PostgreSQL.src, alt: "PostgreSQL logo" },
   node: { src: Node.src, alt: "Node logo" },
+  python: { src: Python.src, alt: "Python logo" },
+  nextjs: { src: NextJS.src, alt: "NextJS logo" },
 };
 
 export default images;

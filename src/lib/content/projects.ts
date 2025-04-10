@@ -1,49 +1,43 @@
-import images from "./images";
-import ProjectTemplate from "@/components/projects/ProjectTemplate";
+import images from "../constants/images";
 
 export type ProjectProps = {
   title: string;
-  text: string[];
+  body: string[];
   languages: Record<string, string>[];
   repoLink: string;
   description: string;
 };
 
-type ProjectComponent = ({
-  title,
-  repoLink,
-  languages,
-  text,
-  description,
-}: ProjectProps) => () => JSX.Element;
+export type ProjectComponent = JSX.Element | null;
 
 export type ProjectType = {
-  createComponent: ProjectComponent;
-} & ProjectProps;
-
-const createComponent =
-  ({ title, repoLink, languages, text, description }: ProjectProps) =>
-  () =>
-    ProjectTemplate({ title, repoLink, languages, text, description });
+  id: string;
+  title: string;
+  description: string;
+  body: string[];
+  repoLink: string;
+  languages: Record<string, string>[];
+};
 
 export const projects: ProjectType[] = [
   {
+    id: "kazanto",
     title: "Kazanto",
     description:
       "Directly from your terminal, a new Pokémon journey awaits. Explore, catch, inspect and more.",
-    text: [
+    body: [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus eius fuga possimus dolores voluptas a officiis, soluta quae distinctio aliquid error nobis enim inventore corporis ducimus molestiae delectus magnam. Necessitatibus nesciunt praesentium voluptates autem. Voluptas eligendi doloribus similique aspernatur, laudantium minus tenetur in, laborum necessitatibus accusantium iste sint explicabo optio quos magni.",
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus eius fuga possimus dolores voluptas a officiis, soluta quae distinctio aliquid error nobis enim inventore corporis ducimus molestiae delectus magnam. Necessitatibus nesciunt praesentium voluptates autem. Voluptas eligendi doloribus similique aspernatur, laudantium minus tenetur in, laborum necessitatibus accusantium iste sint explicabo optio quos magni.",
     ],
     repoLink: "https://github.com/Kazyel/Kazanto",
     languages: [{ ...images.go }, { ...images.bash }],
-    createComponent,
   },
   {
+    id: "apsystem-api",
     title: "APSystem API",
     description:
       "API for fetching and displaying data collected from solar panels in a cool and visual way.",
-    text: [
+    body: [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus eius fuga possimus dolores voluptas a officiis, soluta quae distinctio aliquid error nobis enim inventore corporis ducimus molestiae delectus magnam. Necessitatibus nesciunt praesentium voluptates autem. Voluptas eligendi doloribus similique aspernatur, laudantium minus tenetur in, laborum necessitatibus accusantium iste sint explicabo optio quos magni.",
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus eius fuga possimus dolores voluptas a officiis, soluta quae distinctio aliquid error nobis enim inventore corporis ducimus molestiae delectus magnam. Necessitatibus nesciunt praesentium voluptates autem. Voluptas eligendi doloribus similique aspernatur, laudantium minus tenetur in, laborum necessitatibus accusantium iste sint explicabo optio quos magni.",
     ],
@@ -55,22 +49,21 @@ export const projects: ProjectType[] = [
       { ...images.fastify },
       { ...images.prisma },
     ],
-    createComponent,
   },
   {
+    id: "this-portfolio",
     title: "This Portfolio",
     description: "Hey, this is my portfolio! Working on it right now.",
-    text: [
+    body: [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus eius fuga possimus dolores voluptas a officiis, soluta quae distinctio aliquid error nobis enim inventore corporis ducimus molestiae delectus magnam. Necessitatibus nesciunt praesentium voluptates autem. Voluptas eligendi doloribus similique aspernatur, laudantium minus tenetur in, laborum necessitatibus accusantium iste sint explicabo optio quos magni.",
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus eius fuga possimus dolores voluptas a officiis, soluta quae distinctio aliquid error nobis enim inventore corporis ducimus molestiae delectus magnam. Necessitatibus nesciunt praesentium voluptates autem. Voluptas eligendi doloribus similique aspernatur, laudantium minus tenetur in, laborum necessitatibus accusantium iste sint explicabo optio quos magni.",
     ],
-    repoLink: "https://github.com/Kazyel/portfolio",
+    repoLink: "https://github.com/Kazyel/",
     languages: [
       { ...images.react },
       { ...images.astro },
       { ...images.tailwind },
       { ...images.ts },
     ],
-    createComponent,
   },
 ];

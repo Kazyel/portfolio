@@ -1,7 +1,7 @@
 ---
 // Components
-import Layout from "@/layouts/Layout.astro";
-import Navbar from "@/components/navbar/Navbar.tsx";
+import Layout from "@/layouts/layout.astro";
+import Navbar from "@/components/navbar/navbar";
 
 // Images
 import { Image } from "astro:assets";
@@ -9,10 +9,10 @@ import KanagawaWave from "@/assets/imgs/kanagawa.png";
 import Pagoda from "@/assets/imgs/pagoda.png";
 
 // Sections
-import Landing from "@/components/landing/Landing.astro";
-import About from "@/components/about/About.astro";
-import Projects from "@/components/projects/Projects.astro";
-import Contact from "@/components/contact/Contact.astro";
+import { LandingSection } from "@/components/landing/landing-section";
+import { AboutSection } from "@/components/about/about";
+import Projects from "@/components/projects/projects.astro";
+import Contact from "@/components/contact/contact.astro";
 
 // Supports weights 100-900
 import "@fontsource-variable/montserrat";
@@ -21,37 +21,41 @@ import "@fontsource-variable/montserrat";
 <Layout title="Kazyel">
   <!-- Navbar -->
   <div id="navbar" class="max-lg:sticky backdrop-blur-md top-0 z-50">
-    <Navbar client:only="react" />
+    <Navbar client:load />
   </div>
 
   <div
-    class="xl:snap-mandatory xl:snap-y xl:overflow-y-scroll xl:h-screen xl:scroll-smooth"
+    class="xl:snap-mandatory xl:snap-y xl:overflow-y-scroll xl:h-screen xl:scroll-smooth bg-darkest"
   >
     <!-- Landing -->
     <div class="snap-start min-h-screen">
       <div
-        class="relative max-lg:h-[calc(100dvh-4rem)] max-xl:px-10 flex lg:min-h-screen flex-col justify-center items-center"
+        class="relative max-lg:h-[calc(100dvh-4rem)] max-xl:px-10 flex lg:min-h-screen flex-col justify-center items-center bg-darkest"
       >
-        <Landing />
         <Image
           src={KanagawaWave}
           alt="Kanagawa Wave"
-          class="absolute bottom-0 -z-10 w-full opacity-10 grayscale max-md:hidden"
+          class="absolute bottom-0 z-10 w-full opacity-10 grayscale max-md:hidden pointer-events-none"
           width={1920}
           height={1080}
+          decoding="async"
+          loading="eager"
         />
         <Image
           src={Pagoda}
-          alt="Kanagawa Wave"
-          class="absolute -bottom-52 -z-10 opacity-20 grayscale max-md:hidden w-[1920px] pagoda-animation"
+          alt="Pagoda"
+          class="absolute -bottom-52 opacity-35 grayscale max-md:hidden w-[1920px] pagoda-animation pointer-events-none"
           height={1920}
           width={1080}
+          decoding="async"
+          loading="eager"
         />
+        <LandingSection client:only="react" />
       </div>
     </div>
 
     <!-- About Me -->
-    <About />
+    <AboutSection client:idle />
 
     <!-- Projects -->
     <Projects />
@@ -70,12 +74,11 @@ import "@fontsource-variable/montserrat";
 
     100% {
       transform: translateY(0px);
-      opacity: 0.2;
+      opacity: 0.35;
     }
   }
 
   .pagoda-animation {
-    animation: enter-pagoda 1s;
-    z-index: -20;
+    animation: enter-pagoda 1s ease-in-out;
   }
 </style>
