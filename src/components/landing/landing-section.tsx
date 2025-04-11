@@ -1,27 +1,30 @@
-import { TextAnimate } from "@/components/magicui/text-animate";
+import { TextAnimate } from "@/components/ui/magicui/text-animate";
+import { AuroraText } from "../ui/magicui/aurora-text";
 
 export const LandingSection = () => {
   return (
-    <section id="landing-section" className="relative z-10 overflow-hidden">
-      <div className="max-lg:text-center lg:w-[1100px]">
-        <p className="mb-4 text-[3rem] font-extrabold text-acc-yellow max-lg:text-[3rem] max-sm:text-[2.75rem]">
-          <TextAnimate animation="slideDown" startOnView={false}>
-            Hey, web wanderer!
-          </TextAnimate>
-        </p>
+    <section id="landing-section" className="relative">
+      <div className="z-10 max-lg:text-center">
+        <TextAnimate
+          className="mb-4 text-5xl font-extrabold text-acc-yellow max-lg:text-[3rem] max-sm:text-[2.75rem]"
+          animation="slideDown"
+        >
+          Hey, web wanderer!
+        </TextAnimate>
 
-        <h2 className="font-light tracking-tight text-off-w max-md:text-2xl sm:mb-8 xl:text-7xl">
-          <TextAnimate delay={0.25} startOnView={false}>
-            I'm Mateus Mascarelo,
-          </TextAnimate>
-        </h2>
+        <TextAnimate
+          className="font-extralight tracking-tight text-off-w max-md:text-2xl sm:mb-8 xl:text-7xl"
+          as="h2"
+          delay={0.15}
+        >
+          I'm Mateus Mascarelo,
+        </TextAnimate>
 
         <TextAnimate
           as="h2"
-          delay={0.4}
+          delay={0.3}
           animation="fadeIn"
-          startOnView={false}
-          className="font-extrabold leading-[1] tracking-tighter text-off-w max-md:text-4xl max-sm:text-3xl xl:text-[5rem]"
+          className="font-extrabold tracking-tighter text-off-w max-md:text-4xl max-sm:text-3xl xl:text-7xl"
         >
           More than a web developer.
         </TextAnimate>

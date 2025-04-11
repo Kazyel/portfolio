@@ -1,11 +1,11 @@
-import type { ProjectProps } from "@/lib/content/projects";
+import type { ProjectType } from "@/lib/content/projects";
 
-import { useStore } from "@nanostores/react";
 import { currentProject, isProjectOpen } from "@/lib/stores/store";
+import { useStore } from "@nanostores/react";
 
-import { ProjectTemplate } from "./project-template";
+import { ProjectTemplate } from "@/components/projects/project-template";
 
-export const ProjectView = ({ ...props }: ProjectProps) => {
+export const ProjectView = ({ ...props }: ProjectType) => {
   const project = useStore(currentProject);
   const $isProjectOpen = useStore(isProjectOpen);
 

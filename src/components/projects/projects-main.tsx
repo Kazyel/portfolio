@@ -1,6 +1,8 @@
-import { TextAnimate } from "@/components/magicui/text-animate";
+import { projects } from "@/lib/content/projects";
+
+import { TextAnimate } from "@/components/ui/magicui/text-animate";
 import { ProjectLink } from "@/components/projects/project-link";
-import { ProjectsList } from "@/components/projects/projects-list";
+import { ProjectCard } from "@/components/projects/project-card";
 
 export const MainProjects = () => {
   return (
@@ -8,10 +10,17 @@ export const MainProjects = () => {
       <div className="flex items-center justify-center max-lg:flex-col xl:items-end xl:justify-between xl:border-l-8 xl:border-red-800 xl:pl-6">
         {/* <!-- Title --> */}
         <div className="flex flex-col max-lg:items-center max-lg:justify-center">
-          <TextAnimate className="text-6xl font-extrabold tracking-tighter text-red-800">
+          <TextAnimate
+            duration={0.1}
+            className="text-6xl font-extrabold tracking-tighter text-red-800"
+          >
             My Projects
           </TextAnimate>
-          <TextAnimate className="tracking-light pt-4 text-2xl font-light tracking-wider text-off-w max-lg:text-center">
+
+          <TextAnimate
+            duration={0.1}
+            className="tracking-light pt-4 text-2xl font-light text-off-w max-lg:text-center"
+          >
             Some projects of mine that I find the most interesting...
           </TextAnimate>
         </div>
@@ -24,8 +33,12 @@ export const MainProjects = () => {
         />
       </div>
 
-      {/* <!-- Projects --> */}
-      <ProjectsList />
+      {/* <!-- Project Cards --> */}
+      <div className="flex flex-col items-center justify-center gap-x-10 pt-20 max-lg:pt-10 lg:flex-row">
+        {projects.map((project, index) => (
+          <ProjectCard key={index} {...project} />
+        ))}
+      </div>
     </div>
   );
 };

@@ -1,15 +1,5 @@
 import images from "../constants/images";
 
-export type ProjectProps = {
-  title: string;
-  body: string[];
-  languages: Record<string, string>[];
-  repoLink: string;
-  description: string;
-};
-
-export type ProjectComponent = JSX.Element | null;
-
 export type ProjectType = {
   id: string;
   title: string;

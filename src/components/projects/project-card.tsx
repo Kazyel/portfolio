@@ -1,9 +1,9 @@
-import { isProjectOpen, currentProject } from "@/lib/stores/store";
+import type { ProjectType } from "@/lib/content/projects";
 
-import type { ProjectProps } from "@/lib/content/projects";
+import { isProjectOpen, currentProject } from "@/lib/stores/store";
 import { memo } from "react";
 
-export const ProjectCard = memo(({ ...props }: ProjectProps) => {
+export const ProjectCard = memo(({ ...props }: Omit<ProjectType, "id">) => {
   const openProject = () => {
     currentProject.set(props);
     isProjectOpen.set(true);

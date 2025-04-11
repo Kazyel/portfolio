@@ -1,57 +1,57 @@
 ---
-// Components
 import Layout from "@/layouts/layout.astro";
 import Navbar from "@/components/navbar/navbar";
 
-// Images
 import { Image } from "astro:assets";
 import KanagawaWave from "@/assets/imgs/kanagawa.png";
 import Pagoda from "@/assets/imgs/pagoda.png";
 
-// Sections
 import { LandingSection } from "@/components/landing/landing-section";
 import { AboutSection } from "@/components/about/about";
 import Projects from "@/components/projects/projects.astro";
 import Contact from "@/components/contact/contact.astro";
 
-// Supports weights 100-900
 import "@fontsource-variable/montserrat";
+import AnimatedGradientBackground from "@/components/ui/animated-gradient-background";
+
+const STATIC_COLOR = "#f3e5d7";
+const DARK_COLOR = "#00000033";
 ---
 
 <Layout title="Kazyel">
   <!-- Navbar -->
-  <div id="navbar" class="max-lg:sticky backdrop-blur-md top-0 z-50">
-    <Navbar client:load />
-  </div>
+  <Navbar client:load />
 
   <div
     class="xl:snap-mandatory xl:snap-y xl:overflow-y-scroll xl:h-screen xl:scroll-smooth bg-darkest"
   >
     <!-- Landing -->
-    <div class="snap-start min-h-screen">
-      <div
-        class="relative max-lg:h-[calc(100dvh-4rem)] max-xl:px-10 flex lg:min-h-screen flex-col justify-center items-center bg-darkest"
-      >
-        <Image
-          src={KanagawaWave}
-          alt="Kanagawa Wave"
-          class="absolute bottom-0 z-10 w-full opacity-10 grayscale max-md:hidden pointer-events-none"
-          width={1920}
-          height={1080}
-          decoding="async"
-          loading="eager"
-        />
-        <Image
-          src={Pagoda}
-          alt="Pagoda"
-          class="absolute -bottom-52 opacity-35 grayscale max-md:hidden w-[1920px] pagoda-animation pointer-events-none"
-          height={1920}
-          width={1080}
-          decoding="async"
-          loading="eager"
-        />
-        <LandingSection client:only="react" />
-      </div>
+    <div
+      class="snap-start relative max-lg:h-[calc(100dvh-4rem)] max-xl:px-10 lg:min-h-screen flex flex-col justify-center items-center bg-darkest"
+    >
+      <AnimatedGradientBackground
+        client:load
+        gradientStops={[45, 75, 100]}
+        gradientColors={[DARK_COLOR, STATIC_COLOR + "44", STATIC_COLOR]}
+      />
+
+      <Image
+        src={KanagawaWave}
+        alt="Kanagawa Wave"
+        class="absolute bottom-0 w-full opacity-15 sepia max-md:hidden pointer-events-none kanagawa-animation"
+        width={1920}
+        height={1080}
+        loading="eager"
+      />
+      <Image
+        src={Pagoda}
+        alt="Pagoda"
+        class="absolute -bottom-52 opacity-25 max-md:hidden w-[1920px] pagoda-animation pointer-events-none"
+        height={1920}
+        width={1080}
+        loading="eager"
+      />
+      <LandingSection client:only="react" />
     </div>
 
     <!-- About Me -->
@@ -64,21 +64,3 @@ import "@fontsource-variable/montserrat";
     <Contact />
   </div>
 </Layout>
-
-<style scoped>
-  @keyframes enter-pagoda {
-    0% {
-      transform: translateY(50px);
-      opacity: 0.05;
-    }
-
-    100% {
-      transform: translateY(0px);
-      opacity: 0.35;
-    }
-  }
-
-  .pagoda-animation {
-    animation: enter-pagoda 1s ease-in-out;
-  }
-</style>

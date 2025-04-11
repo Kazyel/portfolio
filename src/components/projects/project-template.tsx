@@ -1,7 +1,7 @@
-import type { ProjectProps } from "@/lib/content/projects";
+import type { ProjectType } from "@/lib/content/projects";
 
 import { ProjectLink } from "@/components/projects/project-link";
-import { TextAnimate } from "@/components/magicui/text-animate";
+import { TextAnimate } from "@/components/ui/magicui/text-animate";
 
 export const ProjectTemplate = ({
   title,
@@ -9,7 +9,7 @@ export const ProjectTemplate = ({
   languages,
   body,
   description,
-}: ProjectProps) => {
+}: ProjectType) => {
   return (
     <div className="z-20 flex w-full flex-col items-center justify-center">
       <div className="flex flex-col gap-2 self-start pb-10 pt-4">
@@ -20,23 +20,25 @@ export const ProjectTemplate = ({
         >
           {title}
         </TextAnimate>
+
         <TextAnimate
-          animation="blurIn"
+          animation="slideUp"
           as="h2"
           className="text-lg font-semibold tracking-tight text-acc-yellow-2"
         >
-          {description + "teste"}
+          {description}
         </TextAnimate>
       </div>
 
       <div className="grid grid-cols-3 grid-rows-4 max-xl:flex max-xl:flex-col max-xl:justify-center max-lg:items-center xl:max-h-[700px]">
-        <div className="col-span-2 row-span-3 flex flex-col items-center gap-y-8 text-lg leading-7 text-off-w max-xl:mb-10 max-lg:justify-center sm:text-justify xl:mr-16">
+        <div className="col-span-2 row-span-3 flex flex-col items-center justify-between gap-y-8 text-lg leading-7 text-off-w max-xl:mb-10 max-lg:justify-center sm:text-justify xl:mr-16">
           <div className="border-off-w">
             {body.map((line, index) => (
               <TextAnimate
                 by="line"
                 animation="slideLeft"
-                delay={0.25}
+                delay={0.15}
+                duration={0.1}
                 key={index}
                 className="border-l-2 pb-4 pl-6 last:pb-0 max-sm:text-sm"
               >
@@ -45,7 +47,7 @@ export const ProjectTemplate = ({
             ))}
           </div>
 
-          <div className="flex shrink-0 items-center justify-end gap-8 place-self-start rounded bg-off-w p-4 max-lg:flex-wrap xl:h-[96px]">
+          <div className="flex shrink-0 items-center justify-end gap-8 place-self-start rounded bg-off-w p-4 max-lg:flex-wrap xl:h-24">
             {languages.map((lang, index) => (
               <img
                 key={index}

@@ -1,16 +1,10 @@
 import Dragon from "@/assets/imgs/dragon.png";
-import { TextAnimate } from "../magicui/text-animate";
+import { TextAnimate } from "../ui/magicui/text-animate";
 
 export const MyInfo = () => {
   return (
-    <div className="flex items-center justify-center gap-x-12 p-10 max-xl:max-w-[768px] max-xl:flex-row max-lg:max-w-[650px] max-lg:gap-x-10 max-sm:max-w-[360px] max-sm:flex-col max-xs:max-w-[320px] xl:w-full">
+    <div className="flex items-center justify-center gap-x-20 p-10 max-xl:max-w-[768px] max-xl:flex-row max-lg:max-w-[650px] max-lg:gap-x-10 max-sm:max-w-[360px] max-sm:flex-col max-xs:max-w-[320px] xl:w-full">
       <div>
-        {/* <div className="flex justify-center gap-3">
-          <h2 className="-translate-x-[10rem] translate-y-[4rem] -rotate-[45deg] text-2xl font-extrabold text-acc-yellow 2xl:text-4xl">
-            Yo, it's me!
-          </h2>
-        </div> */}
-
         <div className="grid grid-cols-2 grid-rows-2 place-items-center">
           <img
             src={Dragon.src}
@@ -30,20 +24,21 @@ export const MyInfo = () => {
         </div>
       </div>
 
-      <div className="flex flex-col gap-y-6">
+      <div className="flex flex-col gap-y-4">
         <TextAnimate
-          className="text-3xl font-extrabold tracking-tight text-darkest"
+          className="-ml-3 text-4xl font-extrabold tracking-tight text-darkest"
           as="h2"
           by="line"
           animation="slideDown"
           delay={0.15}
+          duration={0.1}
         >
           A little about myself...
         </TextAnimate>
 
-        <div className="relative flex flex-col gap-y-4 border-l-4 border-acc-yellow p-2 pl-6 max-xl:max-w-[300px] max-lg:max-w-[275px] max-sm:max-w-full xl:max-w-[568px] 2xl:text-xl">
+        <div className="relative flex flex-col gap-y-4 border-l-4 border-acc-yellow pl-6 max-xl:max-w-[300px] max-lg:max-w-[275px] max-sm:max-w-full xl:max-w-[568px]">
           <TextAnimate
-            className="relative text-lg font-medium leading-8 text-stone-700 max-xl:text-lg max-lg:text-base"
+            className="text-lg font-medium leading-8 text-stone-700 max-xl:text-lg max-lg:text-base"
             by="line"
             animation="slideLeft"
             delay={0.25}
@@ -54,7 +49,7 @@ export const MyInfo = () => {
           </TextAnimate>
 
           <TextAnimate
-            className="relative text-lg font-medium leading-8 text-stone-700 max-xl:text-lg max-lg:text-base"
+            className="text-lg font-medium leading-8 text-stone-700 max-xl:text-lg max-lg:text-base"
             by="line"
             animation="slideLeft"
             delay={0.25}
@@ -65,7 +60,7 @@ export const MyInfo = () => {
           </TextAnimate>
 
           <TextAnimate
-            className="relative text-lg font-medium leading-8 text-stone-700 max-xl:text-lg max-lg:text-base"
+            className="text-lg font-medium leading-8 text-stone-700 max-xl:text-lg max-lg:text-base"
             by="line"
             animation="slideLeft"
             delay={0.35}

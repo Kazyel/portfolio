@@ -4,7 +4,7 @@ import { isProjectOpen, currentProject } from "@/lib/stores/store";
 import { CSSTransition, SwitchTransition } from "react-transition-group";
 
 import { MainProjects } from "@/components/projects/projects-main";
-import { ProjectView } from "./project-view";
+import { ProjectView } from "@/components/projects/project-view";
 
 export const ProjectsWrapper = () => {
   const $currentProject = useStore(currentProject);
