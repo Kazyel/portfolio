@@ -9,7 +9,7 @@ export const ProjectTemplate = ({
   languages,
   body,
   description,
-}: ProjectType) => {
+}: Omit<ProjectType, "id">) => {
   return (
     <div className="z-20 flex w-full flex-col items-center justify-center">
       <div className="flex flex-col gap-2 self-start pb-10 pt-4">

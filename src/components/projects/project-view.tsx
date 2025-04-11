@@ -5,7 +5,7 @@ import { useStore } from "@nanostores/react";
 
 import { ProjectTemplate } from "@/components/projects/project-template";
 
-export const ProjectView = ({ ...props }: ProjectType) => {
+export const ProjectView = ({ ...props }: Omit<ProjectType, "id">) => {
   const project = useStore(currentProject);
   const $isProjectOpen = useStore(isProjectOpen);
 
