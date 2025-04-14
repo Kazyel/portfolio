@@ -1,0 +1,47 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { useAtomValue } from "jotai";
+import { currentProjectAtom, isProjectOpenAtom } from "@/lib/store";
+
+import { ProjectView } from "@/components/sections/projects/project-view";
+import { MainProjects } from "@/components/sections/projects/projects-main";
+import { BackgroundFlowers } from "@/components/sections/projects/background-flowers";
+
+const animatePresence = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+  transition: { duration: 0.25 },
+};
+
+export default function ProjectsSection() {
+  const currentProject = useAtomValue(currentProjectAtom);
+  const isProjectOpen = useAtomValue(isProjectOpenAtom);
+
+  return (
+    <section className="snap-start snap-always bg-pattern relative flex min-h-screen w-full section flex-col justify-center overflow-hidden bg-amber-950/10 max-xl:p-10">
+      {isProjectOpen ? (
+        <motion.div
+          key="project-view"
+          className="z-10 flex min-h-screen flex-col items-center justify-center"
+          {...animatePresence}
+        >
+          <ProjectView {...currentProject!} />
+        </motion.div>
+      ) : (
+        <motion.div
+          key="main-projects"
+          className="z-10 flex min-h-screen flex-col items-center justify-center"
+          {...animatePresence}
+        >
+          <MainProjects />
+        </motion.div>
+      )}
+
+      <BackgroundFlowers />
+
+      <div className="absolute bottom-0 left-0 h-full w-full rounded-lg bg-gradient-to-t from-black/35 to-transparent opacity-100"></div>
+    </section>
+  );
+}
