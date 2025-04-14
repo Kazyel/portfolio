@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Dragon from "@/assets/imgs/dragon.webp";
 
 import { TextAnimate } from "@/components/ui/text-animate";
 
@@ -11,7 +10,7 @@ export const MyInfo = () => {
       <div>
         <div className="grid grid-cols-2 grid-rows-2 place-items-center">
           <Image
-            src={Dragon.src}
+            src={"/images/dragon.webp"}
             width={550}
             height={550}
             alt="Dragon"

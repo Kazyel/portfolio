@@ -1,4 +1,6 @@
-import images from "../constants/images";
+import { type IconType } from "@icons-pack/react-simple-icons";
+
+import languages from "@/lib/constants/languages";
 
 export type ProjectType = {
   id: string;
@@ -6,7 +8,10 @@ export type ProjectType = {
   description: string;
   body: string[];
   repoLink: string;
-  languages: Record<string, string>[];
+  languages: {
+    src: IconType;
+    alt: string;
+  }[];
 };
 
 export const projects: ProjectType[] = [
@@ -20,7 +25,7 @@ export const projects: ProjectType[] = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus eius fuga possimus dolores voluptas a officiis, soluta quae distinctio aliquid error nobis enim inventore corporis ducimus molestiae delectus magnam. Necessitatibus nesciunt praesentium voluptates autem. Voluptas eligendi doloribus similique aspernatur, laudantium minus tenetur in, laborum necessitatibus accusantium iste sint explicabo optio quos magni.",
     ],
     repoLink: "https://github.com/Kazyel/Kazanto",
-    languages: [{ ...images.go }, { ...images.bash }],
+    languages: [{ ...languages.go }, { ...languages.bash }],
   },
   {
     id: "apsystem-api",
@@ -33,11 +38,11 @@ export const projects: ProjectType[] = [
     ],
     repoLink: "https://github.com/Kazyel/API_APSystem",
     languages: [
-      { ...images.node },
-      { ...images.js },
-      { ...images.ts },
-      { ...images.fastify },
-      { ...images.prisma },
+      { ...languages.node },
+      { ...languages.js },
+      { ...languages.ts },
+      { ...languages.fastify },
+      { ...languages.prisma },
     ],
   },
   {
@@ -50,10 +55,10 @@ export const projects: ProjectType[] = [
     ],
     repoLink: "https://github.com/Kazyel/",
     languages: [
-      { ...images.react },
-      { ...images.astro },
-      { ...images.tailwind },
-      { ...images.ts },
+      { ...languages.react },
+      { ...languages.nextjs },
+      { ...languages.tailwind },
+      { ...languages.ts },
     ],
   },
 ];

@@ -1,7 +1,7 @@
-import Image from "next/image";
+import { type IconType } from "@icons-pack/react-simple-icons";
 
 import { cn } from "@/lib/utils";
-import images from "@/lib/constants/images";
+import languages from "@/lib/constants/languages";
 
 import { MyInfo } from "@/components/sections/about/my-info";
 import { BackgroundInkPaint } from "@/components/sections/about/background-ink-paint";
@@ -9,29 +9,29 @@ import { Marquee } from "@/components/ui/marquee";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 const langs = [
-  { name: "Go", src: images.go.src },
-  { name: "TypeScript", src: images.ts.src },
-  { name: "Node", src: images.node.src },
-  { name: "React", src: images.react.src },
-  { name: "Tailwind", src: images.tailwind.src },
-  { name: "PostgreSQL", src: images.postgresql.src },
-  { name: "Python", src: images.python.src },
-  { name: "NextJS", src: images.nextjs.src },
-  { name: "Git", src: images.git.src },
+  { name: "Go", src: languages.go.src },
+  { name: "TypeScript", src: languages.ts.src },
+  { name: "Node", src: languages.node.src },
+  { name: "React", src: languages.react.src },
+  { name: "Tailwind", src: languages.tailwind.src },
+  { name: "PostgreSQL", src: languages.postgresql.src },
+  { name: "Python", src: languages.python.src },
+  { name: "NextJS", src: languages.nextjs.src },
+  { name: "Git", src: languages.git.src },
 ];
 
-const LanguageCard = ({ src, name }: { src: string; name: string }) => {
+const LanguageCard = ({ Src, name }: { Src: IconType; name: string }) => {
   return (
     <TooltipProvider>
       <Tooltip delayDuration={700}>
         <TooltipTrigger asChild>
           <figure
             className={cn(
-              "relative h-full w-fit cursor-pointer overflow-hidden rounded-xl border p-3 sm:w-24 ",
+              "relative h-full w-fit cursor-pointer overflow-hidden rounded-xl border p-3 sm:w-[5.5rem]",
               "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]"
             )}
           >
-            <Image className="size-full" alt={name + " logo"} src={src} width={96} height={96} />
+            <Src className="size-full" />
           </figure>
         </TooltipTrigger>
         <TooltipContent className="text-[0.85rem] font-bold text-white">{name}</TooltipContent>
@@ -55,7 +55,7 @@ export default function AboutSection() {
         <div className="relative flex w-[1000px] flex-row items-center justify-center overflow-hidden">
           <Marquee pauseOnHover className="[--duration:15s]">
             {langs.map((lang) => (
-              <LanguageCard key={lang.name} {...lang} />
+              <LanguageCard key={lang.name} name={lang.name} Src={lang.src} />
             ))}
           </Marquee>
 

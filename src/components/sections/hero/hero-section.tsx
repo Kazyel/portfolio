@@ -1,9 +1,7 @@
+import Image from "next/image";
+
 import { TextAnimate } from "@/components/ui/text-animate";
 import AnimatedGradientBackground from "@/components/ui/animated-gradient-background";
-
-import Image from "next/image";
-import KanagawaWave from "@/assets/imgs/kanagawa.webp";
-import Pagoda from "@/assets/imgs/pagoda.webp";
 
 const STATIC_COLOR = "#f3e5d7";
 const DARK_COLOR = "#00000033";
@@ -18,16 +16,24 @@ export default function HeroSection() {
         />
 
         <Image
-          src={KanagawaWave}
+          src={"/images/kanagawa.webp"}
           alt="Kanagawa Wave"
           className="absolute bottom-0 w-full opacity-15 sepia max-md:hidden pointer-events-none kanagawa-animation"
           loading="eager"
+          priority={true}
+          quality={85}
+          width={1900}
+          height={443}
         />
         <Image
-          src={Pagoda}
+          src={"/images/pagoda.webp"}
           alt="Pagoda"
           className="absolute -bottom-52 opacity-25 max-md:hidden max-w-[1920px] pagoda-animation pointer-events-none"
           loading="eager"
+          priority={true}
+          quality={85}
+          width={1920}
+          height={1080}
         />
         <section id="landing-section" className="relative">
           <div className="z-10 max-lg:text-center">

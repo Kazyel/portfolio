@@ -1,15 +1,10 @@
-"use client";
-
 import Image from "next/image";
-
-import InkPaint from "@/assets/imgs/ink-paint.webp";
-import InkPaint2 from "@/assets/imgs/ink-paint-2.webp";
 
 export const BackgroundInkPaint = () => {
   return (
     <div>
       <Image
-        src={InkPaint.src}
+        src={"/images/ink-paint.webp"}
         alt="Ink Paint"
         width={800}
         height={800}
@@ -17,7 +12,7 @@ export const BackgroundInkPaint = () => {
       />
 
       <Image
-        src={InkPaint2.src}
+        src={"/images/ink-paint-2.webp"}
         alt="Ink Paint 2"
         width={1100}
         height={1100}
