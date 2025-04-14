@@ -25,7 +25,7 @@ export const projects: ProjectType[] = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus eius fuga possimus dolores voluptas a officiis, soluta quae distinctio aliquid error nobis enim inventore corporis ducimus molestiae delectus magnam. Necessitatibus nesciunt praesentium voluptates autem. Voluptas eligendi doloribus similique aspernatur, laudantium minus tenetur in, laborum necessitatibus accusantium iste sint explicabo optio quos magni.",
     ],
     repoLink: "https://github.com/Kazyel/Kazanto",
-    languages: [{ ...languages.go }, { ...languages.bash }],
+    languages: [languages.go, languages.bash],
   },
   {
     id: "apsystem-api",
@@ -37,13 +37,7 @@ export const projects: ProjectType[] = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus eius fuga possimus dolores voluptas a officiis, soluta quae distinctio aliquid error nobis enim inventore corporis ducimus molestiae delectus magnam. Necessitatibus nesciunt praesentium voluptates autem. Voluptas eligendi doloribus similique aspernatur, laudantium minus tenetur in, laborum necessitatibus accusantium iste sint explicabo optio quos magni.",
     ],
     repoLink: "https://github.com/Kazyel/API_APSystem",
-    languages: [
-      { ...languages.node },
-      { ...languages.js },
-      { ...languages.ts },
-      { ...languages.fastify },
-      { ...languages.prisma },
-    ],
+    languages: [languages.node, languages.js, languages.ts, languages.fastify, languages.prisma],
   },
   {
     id: "this-portfolio",
@@ -54,11 +48,6 @@ export const projects: ProjectType[] = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus eius fuga possimus dolores voluptas a officiis, soluta quae distinctio aliquid error nobis enim inventore corporis ducimus molestiae delectus magnam. Necessitatibus nesciunt praesentium voluptates autem. Voluptas eligendi doloribus similique aspernatur, laudantium minus tenetur in, laborum necessitatibus accusantium iste sint explicabo optio quos magni.",
     ],
     repoLink: "https://github.com/Kazyel/",
-    languages: [
-      { ...languages.react },
-      { ...languages.nextjs },
-      { ...languages.tailwind },
-      { ...languages.ts },
-    ],
+    languages: [languages.react, languages.nextjs, languages.tailwind, languages.ts],
   },
 ];

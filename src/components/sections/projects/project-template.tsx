@@ -28,7 +28,7 @@ export const ProjectTemplate = ({
       </div>
 
       <div className="grid grid-cols-3 grid-rows-4 max-xl:flex max-xl:flex-col max-xl:justify-center max-lg:items-center xl:max-h-[700px]">
-        <div className="col-span-2 row-span-3 flex flex-col items-center justify-between gap-y-8 text-lg leading-7 text-off-w max-xl:mb-10 max-lg:justify-center sm:text-justify xl:mr-16">
+        <div className="col-span-2 row-span-3 flex flex-col items-center justify-between gap-y-8 text-lg leading-7 max-xl:mb-10 max-lg:justify-center sm:text-justify xl:mr-16">
           <div className="border-off-w">
             {body.map((line, index) => (
               <TextAnimate
@@ -37,23 +37,16 @@ export const ProjectTemplate = ({
                 delay={0.15}
                 duration={0.1}
                 key={index}
-                className="border-l-2 pb-4 pl-6 last:pb-0 max-sm:text-sm"
+                className="text-off-w border-l-2 pb-4 pl-6 last:pb-0 max-sm:text-sm"
               >
                 {line}
               </TextAnimate>
             ))}
           </div>
 
-          <div className="flex shrink-0 items-center justify-end gap-8 place-self-start rounded bg-off-w p-4 max-lg:flex-wrap xl:h-24">
+          <div className="flex items-center justify-end gap-8 place-self-start rounded bg-off-w p-4 max-lg:flex-wrap xl:h-24">
             {languages.map((lang, index) => (
-              <Image
-                key={index}
-                className="aspect-square size-10 xl:size-16"
-                src={lang.src}
-                width={40}
-                height={40}
-                alt={`${lang.alt} +  logo`}
-              ></Image>
+              <lang.src key={index} className="aspect-square size-10 xl:size-16" />
             ))}
           </div>
         </div>

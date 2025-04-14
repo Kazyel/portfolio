@@ -8,7 +8,6 @@ export const MainProjects = () => {
   return (
     <div className="px-20 max-lg:px-10 max-lg:py-10 max-sm:px-2">
       <div className="flex items-center justify-center max-lg:flex-col xl:items-end xl:justify-between xl:border-l-8 xl:border-red-800 xl:pl-6">
-        {/* <!-- Title --> */}
         <div className="flex flex-col max-lg:items-center max-lg:justify-center">
           <TextAnimate
             duration={0.1}
@@ -25,7 +24,6 @@ export const MainProjects = () => {
           </TextAnimate>
         </div>
 
-        {/* <!-- GitHub Link --> */}
         <ProjectLink
           title="For all projects, check out my GitHub"
           url="https://github.com/Kazyel"
@@ -33,7 +31,6 @@ export const MainProjects = () => {
         />
       </div>
 
-      {/* <!-- Project Cards --> */}
       <div className="flex flex-col items-center justify-center gap-x-10 pt-20 max-lg:pt-10 lg:flex-row">
         {projects.map((project, index) => (
           <ProjectCard key={index} {...project} />

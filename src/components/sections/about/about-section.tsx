@@ -20,7 +20,7 @@ const langs = [
   { name: "Git", src: languages.git.src },
 ];
 
-const LanguageCard = ({ Src, name }: { Src: IconType; name: string }) => {
+const LanguageCard = (props: { src: IconType; name: string }) => {
   return (
     <TooltipProvider>
       <Tooltip delayDuration={700}>
@@ -31,10 +31,12 @@ const LanguageCard = ({ Src, name }: { Src: IconType; name: string }) => {
               "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]"
             )}
           >
-            <Src className="size-full" />
+            <props.src className="size-full" />
           </figure>
         </TooltipTrigger>
-        <TooltipContent className="text-[0.85rem] font-bold text-white">{name}</TooltipContent>
+        <TooltipContent className="text-[0.85rem] font-bold text-white">
+          {props.name}
+        </TooltipContent>
       </Tooltip>
     </TooltipProvider>
   );
@@ -48,14 +50,14 @@ export default function AboutSection() {
     >
       <div
         id="about-me"
-        className="relative flex h-full min-h-screen w-full flex-col items-center justify-center gap-y-6 bg-off-w max-xl:mb-12 max-xl:flex max-xl:flex-col max-xl:pb-20 max-xl:pt-20 max-sm:w-full xl:p-20"
+        className="relative flex h-full min-h-screen w-full flex-col items-center justify-center gap-y-8 bg-off-w max-xl:mb-12 max-xl:flex max-xl:flex-col max-xl:pb-20 max-xl:pt-20 max-sm:w-full xl:p-20"
       >
         <MyInfo />
 
         <div className="relative flex w-[1000px] flex-row items-center justify-center overflow-hidden">
           <Marquee pauseOnHover className="[--duration:15s]">
             {langs.map((lang) => (
-              <LanguageCard key={lang.name} name={lang.name} Src={lang.src} />
+              <LanguageCard key={lang.name} {...lang} />
             ))}
           </Marquee>
 
