@@ -1,9 +1,9 @@
-import { TextAnimate } from "@/components/ui/magicui/text-animate";
+import { TextAnimate } from "@/components/ui/text-animate";
 import AnimatedGradientBackground from "@/components/ui/animated-gradient-background";
 
 import Image from "next/image";
-import KanagawaWave from "@/assets/imgs/kanagawa.png";
-import Pagoda from "@/assets/imgs/pagoda.png";
+import KanagawaWave from "@/assets/imgs/kanagawa.webp";
+import Pagoda from "@/assets/imgs/pagoda.webp";
 
 const STATIC_COLOR = "#f3e5d7";
 const DARK_COLOR = "#00000033";

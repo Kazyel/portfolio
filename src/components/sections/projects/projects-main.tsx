@@ -1,6 +1,6 @@
 import { projects } from "@/lib/content/projects";
 
-import { TextAnimate } from "@/components/ui/magicui/text-animate";
+import { TextAnimate } from "@/components/ui/text-animate";
 import { ProjectLink } from "@/components/sections/projects/project-link";
 import { ProjectCard } from "@/components/sections/projects/project-card";
 

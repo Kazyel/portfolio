@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Dragon from "@/assets/imgs/dragon.png";
+import Dragon from "@/assets/imgs/dragon.webp";
 
-import { TextAnimate } from "@/components/ui/magicui/text-animate";
+import { TextAnimate } from "@/components/ui/text-animate";
 
 export const MyInfo = () => {
   return (

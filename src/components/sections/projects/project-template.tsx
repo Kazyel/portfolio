@@ -1,7 +1,7 @@
 import type { ProjectType } from "@/lib/content/projects";
 
 import { ProjectLink } from "@/components/sections/projects/project-link";
-import { TextAnimate } from "@/components/ui/magicui/text-animate";
+import { TextAnimate } from "@/components/ui/text-animate";
 import Image from "next/image";
 
 export const ProjectTemplate = ({

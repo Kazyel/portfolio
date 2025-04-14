@@ -1,12 +1,12 @@
-import { cn } from "@/lib/utils";
-
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { Marquee } from "@/components/ui/magicui/marquee";
-import { MyInfo } from "@/components/sections/about/my-info";
-
 import Image from "next/image";
+
+import { cn } from "@/lib/utils";
 import images from "@/lib/constants/images";
-import { BackgroundInkPaint } from "./background-ink-paint";
+
+import { MyInfo } from "@/components/sections/about/my-info";
+import { BackgroundInkPaint } from "@/components/sections/about/background-ink-paint";
+import { Marquee } from "@/components/ui/marquee";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 const langs = [
   { name: "Go", src: images.go.src },

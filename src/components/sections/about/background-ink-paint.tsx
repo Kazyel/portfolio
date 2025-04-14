@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 
-import InkPaint from "@/assets/imgs/ink-paint.png";
-import InkPaint2 from "@/assets/imgs/ink-paint-2.png";
+import InkPaint from "@/assets/imgs/ink-paint.webp";
+import InkPaint2 from "@/assets/imgs/ink-paint-2.webp";
 
 export const BackgroundInkPaint = () => {
   return (

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import RedSakura from "@/assets/imgs/higan.png";
+import RedSakura from "@/assets/imgs/higan.webp";
 
 export const BackgroundFlowers = () => {
   return (

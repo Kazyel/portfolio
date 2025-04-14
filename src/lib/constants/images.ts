@@ -1,17 +1,17 @@
-import Go from "@/assets/langs/go.svg";
-import Bash from "@/assets/langs/bash.svg";
-import React from "@/assets/langs/react.svg";
-import Astro from "@/assets/langs/astro.svg";
-import Tailwind from "@/assets/langs/tailwind.svg";
-import TS from "@/assets/langs/ts.svg";
-import JS from "@/assets/langs/js.svg";
-import Fastify from "@/assets/langs/fastify.svg";
-import Prisma from "@/assets/langs/prisma.svg";
-import PostgreSQL from "@/assets/langs/postgresql.svg";
-import Node from "@/assets/langs/node.svg";
-import Python from "@/assets/langs/python.svg";
-import NextJS from "@/assets/langs/next-js.svg";
-import Git from "@/assets/langs/git.svg";
+import Go from "@/assets/svgs/go.svg";
+import Bash from "@/assets/svgs/bash.svg";
+import React from "@/assets/svgs/react.svg";
+import Astro from "@/assets/svgs/astro.svg";
+import Tailwind from "@/assets/svgs/tailwind.svg";
+import TS from "@/assets/svgs/ts.svg";
+import JS from "@/assets/svgs/js.svg";
+import Fastify from "@/assets/svgs/fastify.svg";
+import Prisma from "@/assets/svgs/prisma.svg";
+import PostgreSQL from "@/assets/svgs/postgresql.svg";
+import Node from "@/assets/svgs/node.svg";
+import Python from "@/assets/svgs/python.svg";
+import NextJS from "@/assets/svgs/next-js.svg";
+import Git from "@/assets/svgs/git.svg";
 
 type ImagesData = Record<string, Record<string, string>>;
 
