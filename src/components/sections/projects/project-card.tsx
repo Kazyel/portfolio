@@ -1,11 +1,11 @@
 import type { ProjectType } from "@/lib/content/projects";
 
-import { isProjectOpenAtom, currentProjectAtom } from "@/lib/store";
-import { useSetAtom } from "jotai";
 import Image from "next/image";
 import { memo } from "react";
+import { useSetAtom } from "jotai";
+import { isProjectOpenAtom, currentProjectAtom } from "@/lib/store";
 
-export const ProjectCard = memo(({ ...props }: Omit<ProjectType, "id">) => {
+export const ProjectCard = memo(({ ...props }: ProjectType) => {
   const setCurrentProject = useSetAtom(currentProjectAtom);
   const setIsProjectOpen = useSetAtom(isProjectOpenAtom);
 
@@ -20,7 +20,7 @@ export const ProjectCard = memo(({ ...props }: Omit<ProjectType, "id">) => {
       className="group relative grid h-[400px] w-[400px] cursor-pointer grid-cols-1 rounded-lg max-sm:h-[275px] max-sm:w-[275px] max-sm:max-w-[275px]"
       onClick={openProject}
     >
-      <div className="col-span-full row-span-full flex flex-col overflow-hidden rounded-lg border-off-w/25 bg-stone-900">
+      <div className="border-off-w/25 col-span-full row-span-full flex flex-col overflow-hidden rounded-lg bg-stone-900">
         <Image
           src={
             "https://images.unsplash.com/photo-1508504509543-5ca56440e013?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8amFwYW58ZW58MHx8MHx8fDA%3D"
@@ -43,7 +43,7 @@ export const ProjectCard = memo(({ ...props }: Omit<ProjectType, "id">) => {
         </h3>
         <p
           id="project-text"
-          className="text-off-w/75 transition-all duration-200 group-hover:text-off-w max-sm:text-sm"
+          className="text-off-w/75 group-hover:text-off-w transition-all duration-200 max-sm:text-sm"
         >
           {props.description}
         </p>

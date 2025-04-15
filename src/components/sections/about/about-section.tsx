@@ -6,7 +6,12 @@ import languages from "@/lib/constants/languages";
 import { MyInfo } from "@/components/sections/about/my-info";
 import { BackgroundInkPaint } from "@/components/sections/about/background-ink-paint";
 import { Marquee } from "@/components/ui/marquee";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const langs = [
   { name: "Go", src: languages.go.src },
@@ -28,7 +33,7 @@ const LanguageCard = (props: { src: IconType; name: string }) => {
           <figure
             className={cn(
               "relative h-full w-fit cursor-pointer overflow-hidden rounded-xl border p-3 sm:w-[5.5rem]",
-              "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]"
+              "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
             )}
           >
             <props.src className="size-full" />
@@ -44,13 +49,10 @@ const LanguageCard = (props: { src: IconType; name: string }) => {
 
 export default function AboutSection() {
   return (
-    <section
-      id="about-section"
-      className="section relative snap-start snap-always overflow-hidden xl:min-h-screen"
-    >
+    <section id="about-section" className="h-section-height relative overflow-hidden">
       <div
         id="about-me"
-        className="relative flex h-full min-h-screen w-full flex-col items-center justify-center gap-y-8 bg-off-w max-xl:mb-12 max-xl:flex max-xl:flex-col max-xl:pb-20 max-xl:pt-20 max-sm:w-full xl:p-20"
+        className="bg-off-w flex h-full w-full flex-col items-center justify-center gap-y-8 max-xl:mb-12 max-xl:flex max-xl:flex-col max-xl:pt-20 max-xl:pb-20 max-sm:w-full"
       >
         <MyInfo />
 
@@ -61,8 +63,8 @@ export default function AboutSection() {
             ))}
           </Marquee>
 
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-1/5 bg-gradient-to-r from-off-w"></div>
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-1/5 bg-gradient-to-l from-off-w"></div>
+          <div className="from-off-w pointer-events-none absolute inset-y-0 left-0 w-1/5 bg-gradient-to-r"></div>
+          <div className="from-off-w pointer-events-none absolute inset-y-0 right-0 w-1/5 bg-gradient-to-l"></div>
         </div>
       </div>
 

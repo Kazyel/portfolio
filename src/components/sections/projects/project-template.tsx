@@ -10,18 +10,22 @@ export const ProjectTemplate = ({
   languages,
   body,
   description,
-}: Omit<ProjectType, "id">) => {
+}: ProjectType) => {
   return (
     <div className="z-20 flex w-full flex-col items-center justify-center">
-      <div className="flex flex-col gap-2 self-start pb-10 pt-4">
-        <TextAnimate as="h1" by="line" className="text-5xl font-bold tracking-tighter text-red-800">
+      <div className="flex flex-col gap-2 self-start pt-4 pb-10">
+        <TextAnimate
+          as="h1"
+          by="line"
+          className="text-5xl font-bold tracking-tighter text-red-800"
+        >
           {title}
         </TextAnimate>
 
         <TextAnimate
           animation="slideUp"
           as="h2"
-          className="text-lg font-semibold tracking-tight text-acc-yellow-2"
+          className="text-acc-yellow-2 text-lg font-semibold tracking-tight"
         >
           {description}
         </TextAnimate>
@@ -44,7 +48,7 @@ export const ProjectTemplate = ({
             ))}
           </div>
 
-          <div className="flex items-center justify-end gap-8 place-self-start rounded bg-off-w p-4 max-lg:flex-wrap xl:h-24">
+          <div className="bg-off-w flex items-center justify-end gap-8 place-self-start rounded p-4 max-lg:flex-wrap xl:h-24">
             {languages.map((lang, index) => (
               <lang.src key={index} className="aspect-square size-10 xl:size-16" />
             ))}

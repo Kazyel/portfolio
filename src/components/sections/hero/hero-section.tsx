@@ -9,7 +9,10 @@ const DARK_COLOR = "#00000033";
 export default function HeroSection() {
   return (
     <>
-      <div className="snap-start relative max-lg:h-[calc(100dvh-4rem)] max-xl:px-10 lg:min-h-screen flex flex-col justify-center items-center bg-darkest">
+      <section
+        id="hero-section"
+        className="relative flex flex-col items-center justify-center overflow-hidden max-lg:h-[calc(100dvh-4rem)] max-lg:px-10 lg:h-screen"
+      >
         <AnimatedGradientBackground
           gradientStops={[45, 75, 100]}
           gradientColors={[DARK_COLOR, STATIC_COLOR + "44", STATIC_COLOR]}
@@ -18,7 +21,7 @@ export default function HeroSection() {
         <Image
           src={"/images/kanagawa.webp"}
           alt="Kanagawa Wave"
-          className="absolute bottom-0 w-full opacity-15 sepia max-md:hidden pointer-events-none kanagawa-animation"
+          className="kanagawa-animation pointer-events-none absolute bottom-0 w-full opacity-20 sepia"
           loading="eager"
           priority={true}
           quality={85}
@@ -28,24 +31,24 @@ export default function HeroSection() {
         <Image
           src={"/images/pagoda.webp"}
           alt="Pagoda"
-          className="absolute -bottom-52 opacity-25 max-md:hidden max-w-[1920px] pagoda-animation pointer-events-none"
+          className="pagoda-animation pointer-events-none absolute -bottom-52 opacity-35"
           loading="eager"
           priority={true}
           quality={85}
           width={1920}
           height={1080}
         />
-        <section id="landing-section" className="relative">
+        <div className="relative">
           <div className="z-10 max-lg:text-center">
             <TextAnimate
-              className="mb-4 text-5xl font-extrabold text-acc-yellow max-lg:text-[3rem] max-sm:text-[2.75rem]"
+              className="text-acc-yellow mb-4 text-5xl font-extrabold max-lg:text-[3rem] max-sm:text-[2.75rem]"
               animation="slideDown"
             >
               Hey, web wanderer!
             </TextAnimate>
 
             <TextAnimate
-              className="font-extralight tracking-tight text-off-w max-md:text-2xl sm:mb-8 xl:text-7xl"
+              className="text-off-w font-extralight tracking-tight max-md:text-2xl sm:mb-8 xl:text-6xl"
               as="h2"
               delay={0.15}
             >
@@ -56,13 +59,13 @@ export default function HeroSection() {
               as="h2"
               delay={0.3}
               animation="fadeIn"
-              className="font-extrabold tracking-tighter text-off-w max-md:text-4xl max-sm:text-3xl xl:text-7xl"
+              className="text-off-w font-extrabold tracking-tighter max-md:text-4xl max-sm:text-3xl xl:text-7xl"
             >
               More than a web developer.
             </TextAnimate>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </>
   );
 }

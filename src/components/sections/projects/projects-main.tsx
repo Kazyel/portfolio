@@ -18,7 +18,7 @@ export const MainProjects = () => {
 
           <TextAnimate
             duration={0.1}
-            className="tracking-light pt-4 text-2xl font-light text-off-w max-lg:text-center"
+            className="tracking-light text-off-w pt-4 text-2xl font-light max-lg:text-center"
           >
             Some projects of mine that I find the most interesting...
           </TextAnimate>

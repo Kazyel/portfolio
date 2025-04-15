@@ -2,8 +2,7 @@ import { type IconType } from "@icons-pack/react-simple-icons";
 
 import languages from "@/lib/constants/languages";
 
-export type ProjectType = {
-  id: string;
+export interface ProjectType {
   title: string;
   description: string;
   body: string[];
@@ -12,11 +11,10 @@ export type ProjectType = {
     src: IconType;
     alt: string;
   }[];
-};
+}
 
 export const projects: ProjectType[] = [
   {
-    id: "kazanto",
     title: "Kazanto",
     description:
       "Directly from your terminal, a new Pokémon journey awaits. Explore, catch, inspect and more.",
@@ -28,7 +26,6 @@ export const projects: ProjectType[] = [
     languages: [languages.go, languages.bash],
   },
   {
-    id: "apsystem-api",
     title: "APSystem API",
     description:
       "API for fetching and displaying data collected from solar panels in a cool and visual way.",
@@ -37,10 +34,15 @@ export const projects: ProjectType[] = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus eius fuga possimus dolores voluptas a officiis, soluta quae distinctio aliquid error nobis enim inventore corporis ducimus molestiae delectus magnam. Necessitatibus nesciunt praesentium voluptates autem. Voluptas eligendi doloribus similique aspernatur, laudantium minus tenetur in, laborum necessitatibus accusantium iste sint explicabo optio quos magni.",
     ],
     repoLink: "https://github.com/Kazyel/API_APSystem",
-    languages: [languages.node, languages.js, languages.ts, languages.fastify, languages.prisma],
+    languages: [
+      languages.node,
+      languages.js,
+      languages.ts,
+      languages.fastify,
+      languages.prisma,
+    ],
   },
   {
-    id: "this-portfolio",
     title: "This Portfolio",
     description: "Hey, this is my portfolio! Working on it right now.",
     body: [

@@ -20,7 +20,10 @@ export default function ProjectsSection() {
   const isProjectOpen = useAtomValue(isProjectOpenAtom);
 
   return (
-    <section className="snap-start snap-always bg-pattern relative flex min-h-screen w-full section flex-col justify-center overflow-hidden bg-amber-950/10 max-xl:p-10">
+    <section
+      id="projects-section"
+      className="relative flex h-[calc(100vh+64px)] w-full flex-col justify-center overflow-hidden bg-amber-950/10 max-xl:p-10"
+    >
       {isProjectOpen ? (
         <motion.div
           key="project-view"

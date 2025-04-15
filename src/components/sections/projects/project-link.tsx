@@ -1,8 +1,8 @@
-type ProjectLinkProps = {
+interface ProjectLinkProps {
   title: string;
   url: string;
   className?: string;
-};
+}
 
 export const ProjectLink = ({ title, url, className }: ProjectLinkProps) => {
   return (
@@ -16,7 +16,7 @@ export const ProjectLink = ({ title, url, className }: ProjectLinkProps) => {
       <a
         href={url}
         target="_blank"
-        className="cursor-pointer italic tracking-wide text-off-w/75 transition-all duration-300 hover:drop-shadow-[0px_0px_12px_#f3e5d766] group-hover:text-off-w"
+        className="text-off-w/75 group-hover:text-off-w cursor-pointer tracking-wide italic transition-all duration-300 hover:drop-shadow-[0px_0px_12px_#f3e5d766]"
       >
         {title}
       </a>
@@ -25,7 +25,7 @@ export const ProjectLink = ({ title, url, className }: ProjectLinkProps) => {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
         fill="currentColor"
-        className="mb-[4px] size-4 fill-off-w/75 transition-all duration-300 group-hover:-translate-y-[2px] group-hover:fill-off-w"
+        className="fill-off-w/75 group-hover:fill-off-w mb-[4px] size-4 transition-all duration-300 group-hover:-translate-y-[2px]"
       >
         <path
           fillRule="evenodd"
