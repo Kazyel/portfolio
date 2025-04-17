@@ -23,7 +23,7 @@ const langs = [
   { name: "Python", src: languages.python.src },
   { name: "NextJS", src: languages.nextjs.src },
   { name: "Git", src: languages.git.src },
-];
+] as const;
 
 const LanguageCard = (props: { src: IconType; name: string }) => {
   return (

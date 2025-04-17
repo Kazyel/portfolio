@@ -1,104 +1,117 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
+import { useMemo } from "react";
+
+import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-const LOGO_DARK = "text-black border-black hover:border-black/50 hover:text-black/50 ";
-const LOGO_LIGHT = "text-off-w border-off-w hover:border-off-w/60 hover:text-off-w/60";
-const ICON_DARK = "stroke-black hover:stroke-black/50";
-const ICON_LIGHT = "stroke-off-w hover:stroke-off-w/60";
+import Link from "next/link";
+
+import {
+  LINK_DARK,
+  LINK_LIGHT,
+  ICON_DARK,
+  ICON_LIGHT,
+  CV_DARK,
+  CV_LIGHT,
+  NAV_LINKS,
+} from "@/lib/constants/navbar";
+import useNavbarLogic from "@/hooks/navbar-logic";
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isOverlapping, setIsOverlapping] = useState(false);
+  const {
+    isScrolled,
+    isOverlapping,
+    activeSection,
+    underlineProps,
+    hoveredLink,
+    navbarRef,
+    underlineRef,
+    linkRefs,
+    setHoveredLink,
+    setActiveSection,
+  } = useNavbarLogic();
 
-  const navbarRef = useRef<HTMLElement>(null);
+  const underlineAnimation = {
+    initial: { x: 0, width: 0 },
+    animate: {
+      x: underlineProps.x,
+      width: underlineProps.width,
+      opacity: activeSection ? 1 : 0,
+    },
+    transition: {
+      type: "spring",
+      stiffness: 500,
+      damping: 35,
+      mass: 0.5,
+    },
+    exit: { opacity: 0, duration: 0.15 },
+  };
 
-  useEffect(() => {
-    const section = document.querySelector("#about-section");
-    if (!section || !navbarRef.current) return;
-
-    let ticking = false;
-
-    const checkOverlap = () => {
-      const sectionRect = section.getBoundingClientRect();
-      const navbarRect = navbarRef.current!.getBoundingClientRect();
-      const navbarCenterY = navbarRect.top + navbarRect.height / 2;
-
-      setIsOverlapping((prev) => {
-        const newValue =
-          navbarCenterY >= sectionRect.top && navbarCenterY <= sectionRect.bottom;
-        return prev !== newValue ? newValue : prev;
-      });
+  const currentStyles = useMemo(() => {
+    return {
+      link: isOverlapping ? LINK_DARK : LINK_LIGHT,
+      cv: isOverlapping ? CV_DARK : CV_LIGHT,
+      icon: isOverlapping ? ICON_DARK : ICON_LIGHT,
     };
-
-    const onScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          setIsScrolled(window.scrollY > 0);
-          checkOverlap();
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener("scroll", onScroll, {
-      passive: true,
-    });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [isOverlapping]);
 
   return (
     <nav
       id="navbar"
       ref={navbarRef}
       className={cn(
-        "ease fixed top-0 z-50 flex h-16 w-full items-center justify-evenly transition-all duration-150",
+        "ease fixed top-0 z-50 flex h-14 w-full items-center justify-evenly transition-all duration-100",
         "border-b border-transparent backdrop-blur-none",
-        isScrolled && "border-stone-700/50 backdrop-blur-md",
+        isScrolled && "border-stone-700/70 backdrop-blur-lg",
       )}
     >
       <Link
         href="#hero-section"
         className={cn(
-          "relative border-l-2 px-2 text-xl font-extrabold tracking-tighter transition duration-200",
-          "before:text-off-w before:font-jp before:absolute before:-left-7 before:text-lg before:content-['新']",
-          isOverlapping ? LOGO_DARK : LOGO_LIGHT,
+          "relative border-l-2 px-2 text-lg font-extrabold tracking-tighter transition duration-150",
+          "before:font-jp before:absolute before:-left-7 before:text-lg before:transition-all before:duration-150 before:content-['新']",
+          currentStyles.link,
         )}
       >
         Kazyel
       </Link>
 
-      <div className="flex items-center gap-x-8">
-        <Link
-          href="#hero-section"
-          className={cn(
-            "text-sm font-light transition duration-200",
-            isOverlapping ? LOGO_DARK : LOGO_LIGHT,
+      <div className="relative flex items-center gap-x-8">
+        {NAV_LINKS.map((link) => (
+          <Link
+            key={link.id}
+            href={`#${link.id}`}
+            ref={(el) => {
+              if (el) linkRefs.current[link.id] = el;
+            }}
+            className={cn("relative text-sm font-medium", currentStyles.link)}
+            onClick={() => setActiveSection(link.id)}
+            onMouseEnter={() => setHoveredLink(link.id)}
+            onMouseLeave={() => setHoveredLink(null)}
+          >
+            {link.name}
+          </Link>
+        ))}
+
+        <AnimatePresence mode="wait">
+          {activeSection && activeSection !== "hero-section" && (
+            <motion.span
+              ref={underlineRef}
+              className={cn(
+                "absolute -bottom-1 h-[1px]",
+                isOverlapping
+                  ? hoveredLink === activeSection
+                    ? "bg-black/50"
+                    : "bg-black"
+                  : hoveredLink === activeSection
+                    ? "bg-off-w/60"
+                    : "bg-off-w",
+              )}
+              {...underlineAnimation}
+            />
           )}
-        >
-          About
-        </Link>
-        <Link
-          href="#hero-section"
-          className={cn(
-            "text-sm font-light transition duration-200",
-            isOverlapping ? LOGO_DARK : LOGO_LIGHT,
-          )}
-        >
-          Projects
-        </Link>
-        <Link
-          href="#hero-section"
-          className={cn(
-            "text-sm font-light transition duration-200",
-            isOverlapping ? LOGO_DARK : LOGO_LIGHT,
-          )}
-        >
-          Contact
-        </Link>
+        </AnimatePresence>
       </div>
 
       <div className="flex items-center gap-6">
@@ -109,8 +122,8 @@ export default function Navbar() {
           strokeWidth={1.8}
           stroke="currentColor"
           className={cn(
-            "size-6 cursor-pointer transition-all duration-200",
-            isOverlapping ? ICON_DARK : ICON_LIGHT,
+            "size-5 cursor-pointer transition-all duration-150",
+            currentStyles.icon,
           )}
         >
           <path
@@ -119,7 +132,12 @@ export default function Navbar() {
             d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802"
           ></path>
         </svg>
-        <button className="bg-off-w hover:bg-off-w/35 hover:text-off-w cursor-pointer rounded-md px-2 py-2 text-xs font-semibold text-black transition-all duration-200">
+        <button
+          className={cn(
+            "cursor-pointer rounded-md p-2 text-[0.625rem] font-bold transition-all duration-150",
+            currentStyles.cv,
+          )}
+        >
           View CV
         </button>
       </div>

@@ -22,7 +22,7 @@ export default function ProjectsSection() {
   return (
     <section
       id="projects-section"
-      className="relative flex h-[calc(100vh+64px)] w-full flex-col justify-center overflow-hidden bg-amber-950/10 max-xl:p-10"
+      className="h-section-height relative flex w-full flex-col justify-center overflow-hidden bg-amber-950/10 max-xl:p-10"
     >
       {isProjectOpen ? (
         <motion.div
