@@ -50,6 +50,8 @@ export default function useNavbarLogic() {
       }
     };
 
+    handleScroll();
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("resize", handleScroll, { passive: true });
 

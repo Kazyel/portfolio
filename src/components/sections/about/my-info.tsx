@@ -6,7 +6,7 @@ import { TextAnimate } from "@/components/ui/text-animate";
 
 export const MyInfo = () => {
   return (
-    <div className="max-xs:max-w-[320px] flex items-center justify-center gap-x-20 p-10 max-xl:max-w-[768px] max-xl:flex-row max-lg:max-w-[650px] max-lg:gap-x-10 max-sm:max-w-[360px] max-sm:flex-col xl:w-full">
+    <div className="max-xs:max-w-[320px] flex items-center justify-center gap-x-20 p-12 max-xl:max-w-[768px] max-xl:flex-row max-lg:max-w-[650px] max-lg:gap-x-10 max-sm:max-w-[360px] max-sm:flex-col xl:w-full">
       <div>
         <div className="grid grid-cols-2 grid-rows-2 place-items-center">
           <Image

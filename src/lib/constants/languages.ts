@@ -15,7 +15,7 @@ import {
   SiGit,
 } from "@icons-pack/react-simple-icons";
 
-const languages = {
+const LANGUAGES = {
   go: { src: SiGo, alt: "Go logo" },
   bash: { src: SiGnubash, alt: "Bash logo" },
   react: { src: SiReact, alt: "React logo" },
@@ -37,6 +37,6 @@ const languages = {
   }
 >;
 
-export type ImagesData = typeof languages;
+export type ImagesData = typeof LANGUAGES;
 
-export default languages;
+export default LANGUAGES;

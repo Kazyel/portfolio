@@ -1,7 +1,7 @@
 import { type IconType } from "@icons-pack/react-simple-icons";
 
 import { cn } from "@/lib/utils";
-import languages from "@/lib/constants/languages";
+import LANGUAGES from "@/lib/constants/languages";
 
 import { MyInfo } from "@/components/sections/about/my-info";
 import { BackgroundInkPaint } from "@/components/sections/about/background-ink-paint";
@@ -14,15 +14,15 @@ import {
 } from "@/components/ui/tooltip";
 
 const langs = [
-  { name: "Go", src: languages.go.src },
-  { name: "TypeScript", src: languages.ts.src },
-  { name: "Node", src: languages.node.src },
-  { name: "React", src: languages.react.src },
-  { name: "Tailwind", src: languages.tailwind.src },
-  { name: "PostgreSQL", src: languages.postgresql.src },
-  { name: "Python", src: languages.python.src },
-  { name: "NextJS", src: languages.nextjs.src },
-  { name: "Git", src: languages.git.src },
+  { name: "Go", src: LANGUAGES.go.src },
+  { name: "TypeScript", src: LANGUAGES.ts.src },
+  { name: "Node", src: LANGUAGES.node.src },
+  { name: "React", src: LANGUAGES.react.src },
+  { name: "Tailwind", src: LANGUAGES.tailwind.src },
+  { name: "PostgreSQL", src: LANGUAGES.postgresql.src },
+  { name: "Python", src: LANGUAGES.python.src },
+  { name: "NextJS", src: LANGUAGES.nextjs.src },
+  { name: "Git", src: LANGUAGES.git.src },
 ] as const;
 
 const LanguageCard = (props: { src: IconType; name: string }) => {
@@ -52,7 +52,7 @@ export default function AboutSection() {
     <section id="about-section" className="h-section-height relative overflow-hidden">
       <div
         id="about-me"
-        className="bg-off-w flex h-full w-full flex-col items-center justify-center gap-y-8 max-xl:mb-12 max-xl:flex max-xl:flex-col max-xl:pt-20 max-xl:pb-20 max-sm:w-full"
+        className="bg-off-w flex h-full w-full flex-col items-center justify-center max-xl:mb-12 max-xl:flex max-xl:flex-col max-xl:pt-20 max-xl:pb-20 max-sm:w-full"
       >
         <MyInfo />
 

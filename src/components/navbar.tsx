@@ -85,7 +85,10 @@ export default function Navbar() {
             ref={(el) => {
               if (el) linkRefs.current[link.id] = el;
             }}
-            className={cn("relative text-sm font-medium", currentStyles.link)}
+            className={cn(
+              "relative text-xs font-medium transition-colors duration-150",
+              currentStyles.link,
+            )}
             onClick={() => setActiveSection(link.id)}
             onMouseEnter={() => setHoveredLink(link.id)}
             onMouseLeave={() => setHoveredLink(null)}
@@ -99,7 +102,7 @@ export default function Navbar() {
             <motion.span
               ref={underlineRef}
               className={cn(
-                "absolute -bottom-1 h-[1px]",
+                "absolute -bottom-1 h-[1px] transition-colors duration-150",
                 isOverlapping
                   ? hoveredLink === activeSection
                     ? "bg-black/50"

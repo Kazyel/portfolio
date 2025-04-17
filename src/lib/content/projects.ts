@@ -1,6 +1,6 @@
 import { type IconType } from "@icons-pack/react-simple-icons";
 
-import languages from "@/lib/constants/languages";
+import LANGUAGES from "@/lib/constants/languages";
 
 export interface ProjectType {
   title: string;
@@ -23,7 +23,7 @@ export const projects: ProjectType[] = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus eius fuga possimus dolores voluptas a officiis, soluta quae distinctio aliquid error nobis enim inventore corporis ducimus molestiae delectus magnam. Necessitatibus nesciunt praesentium voluptates autem. Voluptas eligendi doloribus similique aspernatur, laudantium minus tenetur in, laborum necessitatibus accusantium iste sint explicabo optio quos magni.",
     ],
     repoLink: "https://github.com/Kazyel/Kazanto",
-    languages: [languages.go, languages.bash],
+    languages: [LANGUAGES.go, LANGUAGES.bash],
   },
   {
     title: "APSystem API",
@@ -35,11 +35,11 @@ export const projects: ProjectType[] = [
     ],
     repoLink: "https://github.com/Kazyel/API_APSystem",
     languages: [
-      languages.node,
-      languages.js,
-      languages.ts,
-      languages.fastify,
-      languages.prisma,
+      LANGUAGES.node,
+      LANGUAGES.js,
+      LANGUAGES.ts,
+      LANGUAGES.fastify,
+      LANGUAGES.prisma,
     ],
   },
   {
@@ -50,6 +50,6 @@ export const projects: ProjectType[] = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus eius fuga possimus dolores voluptas a officiis, soluta quae distinctio aliquid error nobis enim inventore corporis ducimus molestiae delectus magnam. Necessitatibus nesciunt praesentium voluptates autem. Voluptas eligendi doloribus similique aspernatur, laudantium minus tenetur in, laborum necessitatibus accusantium iste sint explicabo optio quos magni.",
     ],
     repoLink: "https://github.com/Kazyel/",
-    languages: [languages.react, languages.nextjs, languages.tailwind, languages.ts],
+    languages: [LANGUAGES.react, LANGUAGES.nextjs, LANGUAGES.tailwind, LANGUAGES.ts],
   },
 ];

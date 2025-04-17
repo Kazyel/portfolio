@@ -10,17 +10,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@fontsource-variable/exo-2": "^5.2.5",
-    "@fontsource-variable/lexend": "^5.2.6",
-    "@fontsource-variable/libre-franklin": "^5.2.5",
-    "@fontsource-variable/lora": "^5.2.5",
-    "@fontsource-variable/merriweather-sans": "^5.2.5",
-    "@fontsource-variable/montserrat": "^5.1.0",
     "@fontsource-variable/noto-sans-jp": "^5.2.5",
-    "@fontsource-variable/outfit": "^5.2.5",
-    "@fontsource-variable/rubik": "^5.2.5",
     "@fontsource-variable/unbounded": "^5.2.5",
-    "@fontsource/cinzel-decorative": "^5.2.5",
     "@icons-pack/react-simple-icons": "^12.6.0",
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-tooltip": "^1.2.0",

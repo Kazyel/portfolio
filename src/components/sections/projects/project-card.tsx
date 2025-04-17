@@ -1,9 +1,11 @@
 import type { ProjectType } from "@/lib/content/projects";
 
-import Image from "next/image";
 import { memo } from "react";
 import { useSetAtom } from "jotai";
+
 import { isProjectOpenAtom, currentProjectAtom } from "@/lib/store";
+
+import Image from "next/image";
 
 export const ProjectCard = memo(({ ...props }: ProjectType) => {
   const setCurrentProject = useSetAtom(currentProjectAtom);

@@ -7,16 +7,7 @@ export const metadata: Metadata = {
   description: "My portfolio",
 };
 
-import "@fontsource-variable/montserrat";
-import "@fontsource-variable/exo-2";
-import "@fontsource-variable/lexend";
-import "@fontsource-variable/rubik";
-import "@fontsource-variable/merriweather-sans";
-import "@fontsource-variable/outfit";
-import "@fontsource-variable/lora";
 import "@fontsource-variable/noto-sans-jp";
-// Supports weights 100-900
-import "@fontsource-variable/libre-franklin";
 // Supports weights 200-900
 import "@fontsource-variable/unbounded";
 
