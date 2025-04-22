@@ -43,6 +43,7 @@ export default function HeroSection() {
             <TextAnimate
               className="text-acc-yellow mb-4 text-5xl font-extrabold max-lg:text-[3rem] max-sm:text-[2.75rem]"
               animation="slideDown"
+              once
             >
               Hey, web wanderer!
             </TextAnimate>
@@ -51,6 +52,7 @@ export default function HeroSection() {
               className="text-off-w font-extralight tracking-tight max-md:text-2xl sm:mb-8 xl:text-6xl"
               as="h2"
               delay={0.15}
+              once
             >
               I'm Mateus Mascarelo,
             </TextAnimate>
@@ -60,6 +62,7 @@ export default function HeroSection() {
               delay={0.3}
               animation="fadeIn"
               className="text-off-w font-extrabold tracking-tighter max-md:text-4xl max-sm:text-3xl xl:text-7xl"
+              once
             >
               More than a web developer.
             </TextAnimate>

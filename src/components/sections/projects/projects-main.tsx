@@ -9,11 +9,17 @@ export const MainProjects = () => {
     <div className="px-20 max-lg:px-10 max-lg:py-10 max-sm:px-2">
       <div className="flex items-center justify-center max-lg:flex-col xl:items-end xl:justify-between xl:border-l-8 xl:border-red-800 xl:pl-6">
         <div className="flex flex-col max-lg:items-center max-lg:justify-center">
-          <TextAnimate className="text-7xl font-extrabold tracking-tighter text-red-800">
+          <TextAnimate
+            className="text-7xl font-extrabold tracking-tighter text-red-800"
+            once
+          >
             My Projects
           </TextAnimate>
 
-          <TextAnimate className="text-off-w/85 pt-4 text-xl font-medium tracking-tight max-lg:text-center">
+          <TextAnimate
+            className="text-off-w/85 pt-4 text-xl font-medium tracking-tight max-lg:text-center"
+            once
+          >
             Some projects of mine that I find the most interesting...
           </TextAnimate>
         </div>

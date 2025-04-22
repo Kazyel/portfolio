@@ -35,6 +35,7 @@ export const MyInfo = () => {
           animation="slideDown"
           delay={0.15}
           duration={0.1}
+          once
         >
           A little about myself...
         </TextAnimate>
@@ -45,6 +46,7 @@ export const MyInfo = () => {
             by="line"
             animation="slideLeft"
             delay={0.25}
+            once
           >
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati ullam ad
             quam nisi, itaque corrupti vitae totam placeat, amet voluptatum consequatur
@@ -56,6 +58,7 @@ export const MyInfo = () => {
             by="line"
             animation="slideLeft"
             delay={0.25}
+            once
           >
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati ullam ad
             quam nisi, itaque corrupti vitae totam placeat, amet voluptatum consequatur
@@ -67,6 +70,7 @@ export const MyInfo = () => {
             by="line"
             animation="slideLeft"
             delay={0.35}
+            once
           >
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati ullam ad
             quam nisi, itaque corrupti vitae totam placeat, amet voluptatum consequatur
