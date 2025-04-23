@@ -1,20 +1,14 @@
-import { z } from "zod";
+import { object, string, InferType } from "yup";
 
-export const emailSchema = z.object({
-  name: z
-    .string({
-      required_error: "Name is required",
-    })
+export const emailSchema = object({
+  name: string()
+    .required("This field is required")
     .min(3, "Name must be at least 3 characters long"),
-  email: z
-    .string({ required_error: "Email is required" })
-    .email({ message: "Invalid email" }),
-  subject: z
-    .string({
-      required_error: "Subject is required",
-    })
+  email: string().email("Invalid email").required("This field is required"),
+  subject: string()
+    .required("This field is required")
     .min(3, "Subject must be at least 3 characters long"),
-  message: z.string({ required_error: "Message is required" }),
+  message: string().required("This field is required"),
 });
 
-export type EmailFormSchema = z.infer<typeof emailSchema>;
+export type EmailFormSchema = InferType<typeof emailSchema>;
