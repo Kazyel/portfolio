@@ -20,6 +20,7 @@ export const ContactForm = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm<EmailFormSchema>({
     resolver: yupResolver(emailSchema),
@@ -28,6 +29,7 @@ export const ContactForm = () => {
 
   const onSubmitForm: SubmitHandler<EmailFormSchema> = async (data) => {
     await submitForm(data);
+    reset();
   };
 
   const formEntries = Object.keys(emailSchema.fields) as FormEntries[];
@@ -65,7 +67,7 @@ export const ContactForm = () => {
           isSubmitting && "pointer-events-none opacity-50",
         )}
       >
-        {isSubmitting ? "" : "Submit"}
+        {isSubmitting ? "..." : "Submit"}
       </button>
     </motion.form>
   );

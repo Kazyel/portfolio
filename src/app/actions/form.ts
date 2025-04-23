@@ -1,6 +1,5 @@
 "use server";
 
-import { EmailTemplate } from "@/components/email-template";
 import { EmailFormSchema } from "@/lib/validations/form";
 import { Resend } from "resend";
 
