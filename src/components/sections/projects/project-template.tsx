@@ -4,6 +4,7 @@ import Image from "next/image";
 
 import { ProjectLink } from "@/components/sections/projects/project-link";
 import { TextAnimate } from "@/components/ui/text-animate";
+import { ShineBorder } from "@/components/ui/shine-border";
 
 export const ProjectTemplate = ({
   title,
@@ -33,14 +34,14 @@ export const ProjectTemplate = ({
 
         <ProjectLink
           className="self-start not-italic"
-          title="View the repository on GitHub"
+          title="View this repository on GitHub"
           url={repoLink}
         />
       </div>
 
       <div className="grid w-full grid-cols-3 grid-rows-4 max-xl:flex max-xl:flex-col max-xl:justify-center max-lg:items-center xl:max-h-[700px]">
         <div className="col-span-2 row-span-3 flex flex-col items-center justify-between gap-y-8 text-lg leading-7 max-xl:mb-10 max-lg:justify-center sm:text-justify xl:mr-16">
-          <div className="border-off-w">
+          <div className="">
             {body.map((line, index) => (
               <TextAnimate
                 by="line"
@@ -48,7 +49,7 @@ export const ProjectTemplate = ({
                 delay={0.15}
                 duration={0.1}
                 key={index}
-                className="text-off-w border-l-2 pb-4 pl-6 font-extralight last:pb-0 max-sm:text-sm"
+                className="border-off-w/75 pb-4 font-light text-neutral-200/85 last:pb-0 max-sm:text-sm"
               >
                 {line}
               </TextAnimate>
@@ -62,7 +63,7 @@ export const ProjectTemplate = ({
           </div>
         </div>
 
-        <div className="col-span-1 row-span-3 aspect-square max-w-[500px] overflow-hidden rounded-lg max-xl:max-w-[300px]">
+        <div className="relative col-span-1 row-span-3 aspect-square max-w-[500px] overflow-hidden rounded-lg max-xl:max-w-[300px]">
           <Image
             src={
               "https://images.unsplash.com/photo-1508504509543-5ca56440e013?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8amFwYW58ZW58MHx8MHx8fDA%3D"
@@ -73,6 +74,12 @@ export const ProjectTemplate = ({
             width={1000}
             height={1000}
             className="rounded-lg brightness-50 sepia"
+          />
+
+          <ShineBorder
+            borderWidth={2}
+            shineColor={["#9f0712", "#000000", "#9f071266"]}
+            className="rounded-lg"
           />
         </div>
       </div>

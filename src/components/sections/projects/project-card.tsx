@@ -55,7 +55,7 @@ export const ProjectCard = memo(({ ...props }: ProjectType) => {
       <div className="absolute bottom-0 left-0 z-10 h-full w-full rounded-lg bg-gradient-to-t from-black to-transparent opacity-100 transition-all duration-300 group-hover:opacity-90"></div>
 
       <ShineBorder
-        borderWidth={4}
+        borderWidth={2}
         shineColor={["#9f0712", "#000000", "#9f071266"]}
         className="rounded-lg"
       />
