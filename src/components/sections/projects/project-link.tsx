@@ -9,14 +9,14 @@ export const ProjectLink = ({ title, url, className }: ProjectLinkProps) => {
     <div
       className={
         className
-          ? `${className} group flex items-center gap-2 self-end`
-          : "group flex items-center gap-2 self-end text-lg font-semibold"
+          ? `${className} group flex items-center gap-2`
+          : "group flex items-center gap-2 self-end text-lg font-semibold italic"
       }
     >
       <a
         href={url}
         target="_blank"
-        className="text-off-w/75 group-hover:text-off-w cursor-pointer tracking-wide italic transition-all duration-300 hover:drop-shadow-[0px_0px_12px_#f3e5d766]"
+        className="text-off-w group-hover:text-off-w cursor-pointer tracking-wide transition-all duration-300 hover:drop-shadow-[0px_0px_12px_#f3e5d766]"
       >
         {title}
       </a>

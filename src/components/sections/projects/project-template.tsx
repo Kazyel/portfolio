@@ -13,12 +13,12 @@ export const ProjectTemplate = ({
   description,
 }: ProjectType) => {
   return (
-    <div className="z-20 flex w-full flex-col items-center justify-center">
-      <div className="flex flex-col gap-2 self-start pt-4 pb-10">
+    <div className="z-20 flex w-full flex-col items-center">
+      <div className="flex flex-col gap-4 self-start pt-5 pb-10">
         <TextAnimate
           as="h1"
           by="line"
-          className="text-5xl font-bold tracking-tighter text-red-800"
+          className="text-6xl font-extrabold tracking-tighter text-red-800"
         >
           {title}
         </TextAnimate>
@@ -26,13 +26,19 @@ export const ProjectTemplate = ({
         <TextAnimate
           animation="slideUp"
           as="h2"
-          className="text-acc-yellow-2 text-lg font-semibold tracking-tight"
+          className="text-acc-yellow-2 font-semibold"
         >
           {description}
         </TextAnimate>
+
+        <ProjectLink
+          className="self-start not-italic"
+          title="View the repository on GitHub"
+          url={repoLink}
+        />
       </div>
 
-      <div className="grid grid-cols-3 grid-rows-4 max-xl:flex max-xl:flex-col max-xl:justify-center max-lg:items-center xl:max-h-[700px]">
+      <div className="grid w-full grid-cols-3 grid-rows-4 max-xl:flex max-xl:flex-col max-xl:justify-center max-lg:items-center xl:max-h-[700px]">
         <div className="col-span-2 row-span-3 flex flex-col items-center justify-between gap-y-8 text-lg leading-7 max-xl:mb-10 max-lg:justify-center sm:text-justify xl:mr-16">
           <div className="border-off-w">
             {body.map((line, index) => (
@@ -42,7 +48,7 @@ export const ProjectTemplate = ({
                 delay={0.15}
                 duration={0.1}
                 key={index}
-                className="text-off-w border-l-2 pb-4 pl-6 last:pb-0 max-sm:text-sm"
+                className="text-off-w border-l-2 pb-4 pl-6 font-extralight last:pb-0 max-sm:text-sm"
               >
                 {line}
               </TextAnimate>
@@ -68,10 +74,6 @@ export const ProjectTemplate = ({
             height={1000}
             className="rounded-lg brightness-50 sepia"
           />
-        </div>
-
-        <div className="col-span-1 col-start-3 flex flex-col items-center justify-center max-xl:mt-8">
-          <ProjectLink title="View the repository on GitHub" url={repoLink} />
         </div>
       </div>
     </div>

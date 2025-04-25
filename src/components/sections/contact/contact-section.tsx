@@ -1,3 +1,8 @@
+"use client";
+
+import Image from "next/image";
+import { motion } from "framer-motion";
+
 import { TextAnimate } from "@/components/ui/text-animate";
 import { ContactForm } from "@/components/sections/contact/contact-form";
 
@@ -5,39 +10,88 @@ export default function ContactSection() {
   return (
     <section
       id="contact-section"
-      className="h-section-height relative flex items-center justify-center gap-x-20 overflow-hidden bg-black/75"
+      className="h-section-height relative flex flex-col items-center justify-center overflow-hidden bg-black/75"
     >
-      <div className="flex w-[600px] flex-col gap-y-10">
-        <TextAnimate
-          as="h1"
-          by="line"
-          className="text-off-w text-8xl font-bold tracking-tighter"
-          delay={0.2}
-          animation="slideRight"
-          once
-        >
-          This journey ends here.
-        </TextAnimate>
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 1.5 }}
+        viewport={{ once: true, amount: 0.65 }}
+        className="absolute inset-0"
+      >
+        <Image
+          src="/images/samurai.webp"
+          alt="Samurai Background"
+          className="mx-auto opacity-15 grayscale"
+          width={1000}
+          height={1000}
+          quality={75}
+          loading="lazy"
+          decoding="async"
+        />
+      </motion.div>
 
-        <TextAnimate
-          as="h2"
-          by="line"
-          className="text-off-w text-5xl font-light"
-          delay={1}
-          animation="slideRight"
-          once
-        >
-          Yet, ours yearns to begin.
-        </TextAnimate>
+      <motion.div
+        initial={{ opacity: 0.2 }}
+        whileInView={{ opacity: 0.1 }}
+        transition={{ duration: 0.5, delay: 1.4 }}
+        viewport={{ once: true, amount: 0.65 }}
+        className="absolute inset-0"
+      >
+        <Image
+          src="/images/torii.webp"
+          alt="Samurai Background"
+          className="absolute -right-[300px] bottom-0 grayscale"
+          width={900}
+          height={900}
+          quality={75}
+          loading="lazy"
+          decoding="async"
+        />
 
-        <div className="text-off-w/50 text-lg font-extralight tracking-wide">
-          <TextAnimate delay={1.75} duration={1} by="line" animation="blurIn" once>
-            A blade stays sheathed — until its purpose awakens...
+        <Image
+          src="/images/torii.webp"
+          alt="Samurai Background"
+          className="absolute bottom-0 -left-[300px] -scale-x-[1] grayscale"
+          width={900}
+          height={900}
+          quality={75}
+          loading="lazy"
+          decoding="async"
+        />
+      </motion.div>
+
+      <div className="flex w-full items-center justify-center gap-x-20">
+        <div className="z-10 flex w-[600px] flex-col gap-y-6">
+          <TextAnimate
+            as="h1"
+            className="text-off-w text-8xl font-bold tracking-tighter"
+            delay={0.15}
+            animation="slideRight"
+            once
+          >
+            This journey ends here.
           </TextAnimate>
-        </div>
-      </div>
 
-      <ContactForm />
+          <TextAnimate
+            as="h2"
+            by="line"
+            className="text-off-w text-5xl font-light"
+            delay={0.75}
+            animation="slideRight"
+            once
+          >
+            Yet, ours yearns to begin.
+          </TextAnimate>
+
+          <div className="text-off-w/60 text-lg font-extralight tracking-wide">
+            <TextAnimate delay={1.5} duration={1} by="line" animation="blurIn" once>
+              A blade stays sheathed — until its purpose awakens...
+            </TextAnimate>
+          </div>
+        </div>
+        <ContactForm />
+      </div>
     </section>
   );
 }

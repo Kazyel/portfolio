@@ -1,9 +1,10 @@
-import { EmailFormSchema } from "@/lib/validations/form";
-import { FieldErrors, UseFormRegister } from "react-hook-form";
-import { ContactFormError } from "./contact-form-error";
-import { AnimatePresence } from "framer-motion";
+import type { FieldErrors, UseFormRegister } from "react-hook-form";
+import type { EmailFormSchema } from "@/lib/validations/form";
+import type { FormEntries } from "@/components/sections/contact/contact-form";
 
-export type FormEntries = "name" | "subject" | "message" | "email";
+import { AnimatePresence } from "framer-motion";
+import { ContactFormError } from "@/components/sections/contact/contact-form-error";
+import { Mail, User, MessageSquareText } from "lucide-react";
 
 interface ContactFormFieldProps {
   register: UseFormRegister<EmailFormSchema>;
@@ -15,10 +16,15 @@ interface ContactFormFieldProps {
 }
 
 const PLACEHOLDERS = {
-  name: "Your name",
-  subject: "Subject",
-  message: "Message",
-  email: "Your email",
+  name: "Enter your name...",
+  email: "Enter your email... ",
+  message: "Please, leave me a message!",
+};
+
+const ICONS = {
+  name: () => <User className="size-4" />,
+  email: () => <Mail className="size-4" />,
+  message: () => <MessageSquareText className="size-4" />,
 };
 
 export const ContactFormField = ({
@@ -29,61 +35,46 @@ export const ContactFormField = ({
   type = "text",
   as = "input",
 }: ContactFormFieldProps) => {
-  const errorType = errors[name];
+  const Icon = ICONS[name];
   const placeholder = PLACEHOLDERS[name];
+  const errorType = errors[name];
 
   return (
     <>
-      {as === "textarea" && (
-        <div className="flex flex-col gap-y-2">
-          <label
-            htmlFor={name}
-            className="flex items-center gap-1.5 text-sm font-semibold"
-          >
-            <span>{label}</span>
-            <AnimatePresence>
-              {errorType && errorType.message && (
-                <ContactFormError message={errorType.message} />
-              )}
-            </AnimatePresence>
-          </label>
+      <div className="flex flex-col gap-y-3">
+        <label htmlFor={name} className="flex items-center gap-3 text-sm font-semibold">
+          <div className="flex items-center gap-2">
+            <Icon />
+            {label}
+          </div>
 
+          <AnimatePresence>
+            {errorType && errorType.message && (
+              <ContactFormError message={errorType.message} />
+            )}
+          </AnimatePresence>
+        </label>
+
+        {as === "textarea" ? (
           <textarea
             {...register(name)}
             name={name}
             id={name}
             placeholder={placeholder}
-            className="border-off-w/30 resize-none rounded-sm border p-3 text-sm font-light"
-            rows={6}
+            className="border-off-w/30 focus-within:outline-off-w/75 resize-none rounded-sm border p-3 text-sm font-light placeholder:font-extralight focus-within:outline-2"
+            rows={7}
           />
-        </div>
-      )}
-
-      {as === "input" && (
-        <div className="flex flex-col gap-y-2">
-          <label
-            htmlFor={name}
-            className="flex items-center gap-1.5 text-sm font-semibold"
-          >
-            {label}
-
-            <AnimatePresence>
-              {errorType && errorType.message && (
-                <ContactFormError message={errorType.message} />
-              )}
-            </AnimatePresence>
-          </label>
-
+        ) : (
           <input
             {...register(name)}
             type={type}
             name={name}
             id={name}
             placeholder={placeholder}
-            className="border-off-w/30 rounded-sm border p-3 text-sm font-light"
+            className="border-off-w/30 focus-within:outline-off-w/75 rounded-sm border p-3 text-sm font-light placeholder:font-extralight placeholder:tracking-wide focus-within:outline-2"
           />
-        </div>
-      )}
+        )}
+      </div>
     </>
   );
 };

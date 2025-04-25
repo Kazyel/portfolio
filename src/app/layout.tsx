@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { Providers } from "@/components/providers";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: "Kazyel",
@@ -21,6 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`font-unbounded bg-darkest flex flex-col antialiased`}>
         <Providers>{children}</Providers>
+        <Toaster richColors />
       </body>
     </html>
   );

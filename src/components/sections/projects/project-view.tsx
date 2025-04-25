@@ -14,7 +14,7 @@ export const ProjectView = ({ ...props }: ProjectType) => {
   const handleProjectToggle = () => setIsProjectOpen((prev) => !prev);
 
   return (
-    <div className="sm:p-8 xl:max-h-[800px] xl:px-20 xl:pt-8 2xl:max-w-[1600px] 2xl:min-w-[1600px]">
+    <div className="sm:p-8 xl:max-h-[800px] 2xl:max-w-[1600px]">
       <div className="flex flex-col items-center justify-between">
         <button
           className="group text-off-w/75 mb-2 flex cursor-pointer items-center gap-1 self-start italic"

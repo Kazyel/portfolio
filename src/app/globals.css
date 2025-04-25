@@ -176,7 +176,16 @@
       backgroundposition: bottom center;
     }
   }
-}
+  --animate-grid: grid 15s linear infinite
+;
+  @keyframes grid {
+  0% {
+    transform: translateY(-50%);
+    }
+  100% {
+    transform: translateY(0);
+    }
+  }}
 
 html {
   font-family: system-ui, sans-serif;
