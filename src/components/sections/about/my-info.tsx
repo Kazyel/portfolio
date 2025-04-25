@@ -10,7 +10,7 @@ export const MyInfo = () => {
       <div>
         <div className="grid grid-cols-2 grid-rows-2 place-items-center">
           <Image
-            src={"/images/dragon.webp"}
+            src={"/images/dragon-2.webp"}
             width={550}
             height={550}
             alt="Dragon"
