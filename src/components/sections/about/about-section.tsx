@@ -16,7 +16,7 @@ import {
 const langs = [
   { name: "Go", src: LANGUAGES.go.src },
   { name: "TypeScript", src: LANGUAGES.ts.src },
-  { name: "Node", src: LANGUAGES.node.src },
+  { name: "NodeJS", src: LANGUAGES.node.src },
   { name: "React", src: LANGUAGES.react.src },
   { name: "Tailwind", src: LANGUAGES.tailwind.src },
   { name: "PostgreSQL", src: LANGUAGES.postgresql.src },
@@ -28,12 +28,12 @@ const langs = [
 const LanguageCard = (props: { src: IconType; name: string }) => {
   return (
     <TooltipProvider>
-      <Tooltip delayDuration={700}>
+      <Tooltip delayDuration={500}>
         <TooltipTrigger asChild>
           <figure
             className={cn(
-              "relative h-full w-fit cursor-pointer overflow-hidden rounded-xl border p-3 sm:w-[5.5rem]",
-              "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
+              "relative ml-3 h-full w-fit cursor-pointer overflow-hidden rounded-lg border p-3 sm:w-[5.5rem]",
+              "border-2 border-black/35 hover:bg-gray-950/[.05]",
             )}
           >
             <props.src className="size-full" />

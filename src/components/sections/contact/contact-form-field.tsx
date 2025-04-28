@@ -41,12 +41,9 @@ export const ContactFormField = ({
 
   return (
     <>
-      <div className="flex flex-col gap-y-3">
+      <div className="flex flex-col gap-y-2.5">
         <div className="flex items-center gap-2.5">
-          <label
-            htmlFor={name}
-            className="flex items-center gap-1.5 text-sm font-semibold"
-          >
+          <label htmlFor={name} className="flex items-center gap-2.5 font-semibold">
             <Icon />
             {label}
           </label>

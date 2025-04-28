@@ -8,7 +8,7 @@ export const BackgroundInkPaint = () => {
         alt="Ink Paint"
         width={800}
         height={800}
-        className="pointer-events-none absolute -bottom-24 -left-[26rem] w-[800px] opacity-30 mix-blend-multiply grayscale max-2xl:w-[800px] max-md:hidden"
+        className="pointer-events-none absolute -bottom-32 -left-[26rem] w-[800px] opacity-20 mix-blend-multiply grayscale max-2xl:w-[800px] max-md:hidden"
       />
 
       <Image
@@ -16,7 +16,7 @@ export const BackgroundInkPaint = () => {
         alt="Ink Paint 2"
         width={1100}
         height={1100}
-        className="pointer-events-none absolute -right-[26rem] bottom-0 w-[1100px] opacity-65 mix-blend-multiply grayscale max-2xl:-right-96 max-xl:-bottom-8 max-md:hidden"
+        className="pointer-events-none absolute -right-[32rem] bottom-0 w-[1100px] opacity-65 mix-blend-multiply grayscale max-2xl:-right-96 max-xl:-bottom-8 max-md:hidden"
       />
     </div>
   );

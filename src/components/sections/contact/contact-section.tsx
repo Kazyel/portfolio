@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { TextAnimate } from "@/components/ui/text-animate";
 import { ContactForm } from "@/components/sections/contact/contact-form";
 
-const BACKGROUND_TRANSITION = {
+const BACKGROUND_ANIMATION = {
   transition: { duration: 0.5, delay: 1.5 },
   viewport: { once: true, amount: 0.65 },
 };
@@ -20,7 +20,7 @@ export default function ContactSection() {
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        {...BACKGROUND_TRANSITION}
+        {...BACKGROUND_ANIMATION}
         className="absolute inset-0"
       >
         <Image
@@ -38,7 +38,7 @@ export default function ContactSection() {
       <motion.div
         initial={{ opacity: 0.2 }}
         whileInView={{ opacity: 0.1 }}
-        {...BACKGROUND_TRANSITION}
+        {...BACKGROUND_ANIMATION}
         className="absolute inset-0"
       >
         <Image
@@ -68,7 +68,7 @@ export default function ContactSection() {
         <div className="z-10 flex w-[600px] flex-col gap-y-6">
           <TextAnimate
             as="h1"
-            className="text-off-w text-8xl font-bold tracking-tighter"
+            className="text-off-w text-8xl font-extrabold tracking-tighter"
             delay={0.15}
             animation="slideRight"
             once
@@ -79,7 +79,7 @@ export default function ContactSection() {
           <TextAnimate
             as="h2"
             by="line"
-            className="text-off-w text-5xl font-light"
+            className="text-acc-yellow-2 text-5xl"
             delay={0.75}
             animation="slideRight"
             once
@@ -87,7 +87,7 @@ export default function ContactSection() {
             Yet, ours yearns to begin.
           </TextAnimate>
 
-          <div className="text-off-w/60 text-lg font-extralight tracking-wide">
+          <div className="text-off-w/60 text-lg font-extralight tracking-wide italic">
             <TextAnimate delay={1.5} duration={1} by="line" animation="blurIn" once>
               A blade stays sheathed — until its purpose awakens...
             </TextAnimate>

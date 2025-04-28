@@ -52,9 +52,9 @@ export const ContactForm = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.75, delay: 0.75 }}
       viewport={{ once: true, amount: 0.65 }}
-      className="border-off-w/30 relative z-10 flex w-[450px] flex-col gap-y-3 overflow-hidden rounded-lg border bg-black px-4 pt-5 pb-3"
+      className="border-off-w/30 relative z-10 flex w-[450px] flex-col gap-y-3 overflow-hidden rounded-lg border bg-black p-4"
     >
-      <ShineBorder shineColor={["#F3E5D7BB", "#F3E5D744", "#F3E5D722"]} />
+      <ShineBorder shineColor={["#F3E5D7ee", "#F3E5D744", "#F3E5D722"]} />
 
       <form
         id="email-form"
