@@ -22,9 +22,9 @@ const PLACEHOLDERS = {
 };
 
 const ICONS = {
-  name: () => <User className="size-4" />,
-  email: () => <Mail className="size-4" />,
-  message: () => <MessageSquareText className="size-4" />,
+  name: () => <User className="size-5" />,
+  email: () => <Mail className="size-5" />,
+  message: () => <MessageSquareText className="size-5" />,
 };
 
 export const ContactFormField = ({
@@ -42,18 +42,21 @@ export const ContactFormField = ({
   return (
     <>
       <div className="flex flex-col gap-y-3">
-        <label htmlFor={name} className="flex items-center gap-3 text-sm font-semibold">
-          <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2.5">
+          <label
+            htmlFor={name}
+            className="flex items-center gap-1.5 text-sm font-semibold"
+          >
             <Icon />
             {label}
-          </div>
+          </label>
 
           <AnimatePresence>
             {errorType && errorType.message && (
               <ContactFormError message={errorType.message} />
             )}
           </AnimatePresence>
-        </label>
+        </div>
 
         {as === "textarea" ? (
           <textarea
@@ -61,7 +64,7 @@ export const ContactFormField = ({
             name={name}
             id={name}
             placeholder={placeholder}
-            className="border-off-w/30 focus-within:outline-off-w/75 resize-none rounded-sm border p-3 text-sm font-light placeholder:font-extralight focus-within:outline-2"
+            className="border-off-w/30 focus-within:outline-off-w/75 resize-none rounded-sm border p-3 text-sm font-light placeholder:font-light focus-within:outline-2"
             rows={7}
           />
         ) : (
@@ -71,7 +74,7 @@ export const ContactFormField = ({
             name={name}
             id={name}
             placeholder={placeholder}
-            className="border-off-w/30 focus-within:outline-off-w/75 rounded-sm border p-3 text-sm font-light placeholder:font-extralight placeholder:tracking-wide focus-within:outline-2"
+            className="border-off-w/30 focus-within:outline-off-w/75 rounded-sm border p-3 text-sm font-light placeholder:font-light placeholder:tracking-wide focus-within:outline-2"
           />
         )}
       </div>

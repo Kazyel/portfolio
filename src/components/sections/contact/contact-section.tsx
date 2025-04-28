@@ -41,7 +41,7 @@ export default function ContactSection() {
         <Image
           src="/images/torii.webp"
           alt="Samurai Background"
-          className="absolute -right-[300px] bottom-0 grayscale"
+          className="pointer-events-none absolute -right-[300px] bottom-0 grayscale"
           width={900}
           height={900}
           quality={75}
@@ -52,7 +52,7 @@ export default function ContactSection() {
         <Image
           src="/images/torii.webp"
           alt="Samurai Background"
-          className="absolute bottom-0 -left-[300px] -scale-x-[1] grayscale"
+          className="pointer-events-none absolute bottom-0 -left-[300px] -scale-x-[1] grayscale"
           width={900}
           height={900}
           quality={75}
@@ -90,6 +90,7 @@ export default function ContactSection() {
             </TextAnimate>
           </div>
         </div>
+
         <ContactForm />
       </div>
     </section>

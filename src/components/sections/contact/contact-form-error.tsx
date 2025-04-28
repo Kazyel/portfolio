@@ -13,7 +13,7 @@ export const ContactFormError = ({ message }: ContactFormErrorProps) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.25, ease: "easeInOut" } }}
       transition={{ duration: 0.25, ease: "easeInOut" }}
-      className="text-[0.6rem] text-red-200/75 italic"
+      className="text-[0.65rem] text-red-300/75 italic"
     >
       * {message}.
     </motion.p>
