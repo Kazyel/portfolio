@@ -97,7 +97,7 @@ export default function Navbar() {
           </Link>
         ))}
 
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="sync">
           {activeSection && activeSection !== "hero-section" && (
             <motion.span
               ref={underlineRef}

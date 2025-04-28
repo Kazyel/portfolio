@@ -1,6 +1,6 @@
 import React, { SVGProps } from "react";
 
-export default function SiLinkedin(props: SVGProps<SVGSVGElement>) {
+export function SiLinkedin(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

@@ -1,7 +1,7 @@
 import { type IconType } from "@icons-pack/react-simple-icons";
 
-import { cn } from "@/lib/utils";
 import LANGUAGES from "@/lib/constants/languages";
+import { cn } from "@/lib/utils";
 
 import { MyInfo } from "@/components/sections/about/my-info";
 import { BackgroundInkPaint } from "@/components/sections/about/background-ink-paint";
@@ -12,7 +12,6 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import Image from "next/image";
 
 const langs = [
   { name: "Go", src: LANGUAGES.go.src },

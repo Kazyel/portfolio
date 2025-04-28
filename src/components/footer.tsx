@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import SiLinkedin from "@/components/svgs/SiLinkedIn";
-import { LoveIcon } from "@/components/svgs/LoveIcon";
 import { SiGithub, SiNextdotjs } from "@icons-pack/react-simple-icons";
+import { SiLinkedin } from "@/components/svgs/SiLinkedIn";
+import { LoveIcon } from "@/components/svgs/LoveIcon";
 
 export const Footer = () => {
   return (
@@ -55,23 +55,25 @@ export const Footer = () => {
       </div>
 
       <div className="text-off-w/50 z-10 flex items-center gap-x-3 text-xs">
-        <a
+        <Link
           href="https://github.com/Kazyel"
           target="_blank"
           rel="noreferrer"
           className="text-off-w hover:text-off-w transition-all duration-150"
         >
           <SiGithub className="size-6" />
-        </a>
+        </Link>
+
         <p>●</p>
-        <a
+
+        <Link
           href="https://www.linkedin.com/in/kazyel/"
           target="_blank"
           rel="noreferrer"
           className="text-off-w hover:text-off-w transition-all duration-150"
         >
           <SiLinkedin className="size-6" />
-        </a>
+        </Link>
       </div>
     </footer>
   );

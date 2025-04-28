@@ -3,15 +3,15 @@ import type { Metadata } from "next";
 import { Providers } from "@/components/providers";
 import { Toaster } from "@/components/ui/sonner";
 
-export const metadata: Metadata = {
-  title: "Kazyel",
-  description: "My portfolio",
-};
-
 import "@fontsource-variable/noto-sans-jp";
 import "@fontsource-variable/unbounded";
 
 import "./globals.css";
+
+export const metadata: Metadata = {
+  title: "Kazyel",
+  description: "My portfolio",
+};
 
 export default function RootLayout({
   children,

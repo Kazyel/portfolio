@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 interface ProjectLinkProps {
   title: string;
   url: string;
@@ -13,13 +15,13 @@ export const ProjectLink = ({ title, url, className }: ProjectLinkProps) => {
           : "group flex items-center gap-2 self-end text-lg font-semibold italic"
       }
     >
-      <a
+      <Link
         href={url}
         target="_blank"
         className="text-off-w group-hover:text-off-w cursor-pointer tracking-wide transition-all duration-300 hover:drop-shadow-[0px_0px_12px_#f3e5d766]"
       >
         {title}
-      </a>
+      </Link>
 
       <svg
         xmlns="http://www.w3.org/2000/svg"

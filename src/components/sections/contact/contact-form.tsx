@@ -1,33 +1,36 @@
 "use client";
 
-import { SubmitHandler, useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-
-import { Loader2, Send } from "lucide-react";
-import { SiGithub } from "@icons-pack/react-simple-icons";
-import SiLinkedin from "@/components/svgs/SiLinkedIn";
+import { toast } from "sonner";
 
 import { type EmailFormSchema, emailSchema } from "@/lib/validations/form";
 import { submitForm } from "@/lib/actions/form";
-import { cn } from "@/lib/utils";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+
+import { Loader2, Send } from "lucide-react";
+import { SiGithub } from "@icons-pack/react-simple-icons";
+import { SiLinkedin } from "@/components/svgs/SiLinkedIn";
 
 import { ContactFormField } from "@/components/sections/contact/contact-form-field";
 import { ShineBorder } from "@/components/ui/shine-border";
-import { toast } from "sonner";
 
 export type FormEntries = keyof EmailFormSchema;
 
 export const ContactForm = () => {
+  const form = useForm<EmailFormSchema>({
+    resolver: yupResolver(emailSchema),
+    defaultValues: { name: "", message: "", email: "" },
+  });
+
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<EmailFormSchema>({
-    resolver: yupResolver(emailSchema),
-    defaultValues: { name: "", message: "", email: "" },
-  });
+  } = form;
 
   const onSubmitForm: SubmitHandler<EmailFormSchema> = async (data) => {
     const emailResponse = await submitForm(data);
@@ -91,7 +94,7 @@ export const ContactForm = () => {
       </form>
 
       <div className="flex gap-4">
-        <a
+        <Link
           href="https://www.linkedin.com/in/mateus-mascarelo/"
           target="_blank"
           rel="noreferrer"
@@ -101,9 +104,9 @@ export const ContactForm = () => {
           <p className="trasition-all text-off-w/65 text-sm font-semibold duration-200 group-hover:text-black">
             LinkedIn
           </p>
-        </a>
+        </Link>
 
-        <a
+        <Link
           href="https://www.github.com/Kazyel"
           target="_blank"
           rel="noreferrer"
@@ -113,7 +116,7 @@ export const ContactForm = () => {
           <p className="trasition-all text-off-w/65 text-sm font-semibold duration-200 group-hover:text-black">
             GitHub
           </p>
-        </a>
+        </Link>
       </div>
     </motion.div>
   );

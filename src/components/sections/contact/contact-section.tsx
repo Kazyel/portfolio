@@ -6,6 +6,11 @@ import { motion } from "framer-motion";
 import { TextAnimate } from "@/components/ui/text-animate";
 import { ContactForm } from "@/components/sections/contact/contact-form";
 
+const BACKGROUND_TRANSITION = {
+  transition: { duration: 0.5, delay: 1.5 },
+  viewport: { once: true, amount: 0.65 },
+};
+
 export default function ContactSection() {
   return (
     <section
@@ -15,8 +20,7 @@ export default function ContactSection() {
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 1.5 }}
-        viewport={{ once: true, amount: 0.65 }}
+        {...BACKGROUND_TRANSITION}
         className="absolute inset-0"
       >
         <Image
@@ -34,8 +38,7 @@ export default function ContactSection() {
       <motion.div
         initial={{ opacity: 0.2 }}
         whileInView={{ opacity: 0.1 }}
-        transition={{ duration: 0.5, delay: 1.4 }}
-        viewport={{ once: true, amount: 0.65 }}
+        {...BACKGROUND_TRANSITION}
         className="absolute inset-0"
       >
         <Image
