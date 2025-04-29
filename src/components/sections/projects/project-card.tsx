@@ -56,7 +56,7 @@ export const ProjectCard = memo(({ ...props }: ProjectType) => {
 
       <ShineBorder
         borderWidth={2}
-        shineColor={["#9f0712", "#000000", "#9f071266"]}
+        shineColor={["#9f0712cc", "#000000", "#9f071266"]}
         className="rounded-lg"
       />
     </div>

@@ -13,11 +13,11 @@ export const MainProjects = () => {
             className="text-7xl font-extrabold tracking-tighter text-red-800"
             once
           >
-            My Projects
+            Projects
           </TextAnimate>
 
           <TextAnimate
-            className="text-acc-yellow-2 pt-4 text-xl font-medium tracking-tight italic max-lg:text-center"
+            className="text-acc-yellow-2 pt-4 text-xl font-medium tracking-tight max-lg:text-center"
             once
           >
             Some projects of mine that I find the most interesting...

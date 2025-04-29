@@ -4,9 +4,10 @@ import { motion } from "framer-motion";
 import { useAtomValue } from "jotai";
 import { currentProjectAtom, isProjectOpenAtom } from "@/lib/store";
 
+import Image from "next/image";
 import { ProjectView } from "@/components/sections/projects/project-view";
 import { MainProjects } from "@/components/sections/projects/projects-main";
-import { BackgroundFlowers } from "@/components/sections/projects/background-flowers";
+import { ProjectsBackground } from "@/components/sections/projects/projects-background";
 
 const animatePresence = {
   initial: { opacity: 0 },
@@ -22,7 +23,7 @@ export default function ProjectsSection() {
   return (
     <section
       id="projects-section"
-      className="h-section-height relative flex w-full flex-col justify-center overflow-hidden bg-amber-950/10 max-xl:p-10"
+      className="h-section-height relative flex w-full flex-col justify-center overflow-hidden bg-red-950/50 max-xl:p-10"
     >
       {isProjectOpen ? (
         <motion.div
@@ -42,9 +43,9 @@ export default function ProjectsSection() {
         </motion.div>
       )}
 
-      <BackgroundFlowers />
+      <ProjectsBackground />
 
-      <div className="absolute bottom-0 left-0 h-full w-full rounded-lg bg-gradient-to-t from-black/35 to-transparent opacity-100"></div>
+      <div className="absolute bottom-0 left-0 h-full w-full rounded-lg bg-gradient-to-t from-black/25 to-transparent opacity-100" />
     </section>
   );
 }

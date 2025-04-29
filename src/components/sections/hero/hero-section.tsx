@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import { TextAnimate } from "@/components/ui/text-animate";
+import { HeroButtons } from "@/components/sections/hero/hero-buttons";
 import AnimatedGradientBackground from "@/components/ui/animated-gradient-background";
 
 const STATIC_COLOR = "#f3e5d7";
@@ -38,10 +39,11 @@ export default function HeroSection() {
           width={1920}
           height={1080}
         />
-        <div className="relative">
-          <div className="z-10 max-lg:text-center">
+
+        <div className="relative z-10 flex flex-col gap-y-12">
+          <div className="max-lg:text-center">
             <TextAnimate
-              className="text-acc-yellow mb-4 text-5xl font-extrabold max-lg:text-[3rem] max-sm:text-[2.75rem]"
+              className="text-acc-yellow mb-4 text-[3.5rem] font-extrabold tracking-tighter max-lg:text-[3rem] max-sm:text-[2.75rem]"
               animation="slideDown"
               once
             >
@@ -49,7 +51,7 @@ export default function HeroSection() {
             </TextAnimate>
 
             <TextAnimate
-              className="text-off-w font-extralight tracking-tight max-md:text-2xl sm:mb-8 xl:text-6xl"
+              className="text-off-w leading-[1em] font-extralight tracking-tighter max-md:text-2xl sm:mb-8 xl:text-[4rem]"
               as="h2"
               delay={0.15}
               once
@@ -67,6 +69,8 @@ export default function HeroSection() {
               More than a web developer.
             </TextAnimate>
           </div>
+
+          <HeroButtons />
         </div>
       </section>
     </>

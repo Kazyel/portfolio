@@ -20,6 +20,7 @@ export const ProjectTemplate = ({
           as="h1"
           by="line"
           className="text-6xl font-extrabold tracking-tighter text-red-800"
+          once
         >
           {title}
         </TextAnimate>
@@ -28,6 +29,7 @@ export const ProjectTemplate = ({
           animation="slideUp"
           as="h2"
           className="text-acc-yellow-2 font-semibold"
+          once
         >
           {description}
         </TextAnimate>
@@ -49,6 +51,7 @@ export const ProjectTemplate = ({
                 delay={0.15}
                 duration={0.1}
                 key={index}
+                once
                 className="border-off-w/75 pb-4 font-light text-neutral-200/85 last:pb-0 max-sm:text-sm"
               >
                 {line}
@@ -78,7 +81,7 @@ export const ProjectTemplate = ({
 
           <ShineBorder
             borderWidth={2}
-            shineColor={["#9f0712", "#000000", "#9f071266"]}
+            shineColor={["#9f0712cc", "#000000", "#9f071266"]}
             className="rounded-lg"
           />
         </div>
