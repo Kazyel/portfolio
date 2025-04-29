@@ -107,7 +107,7 @@ export const ProjectsBackground = () => {
           exit={{ opacity: 0 }}
         >
           <Image
-            src={"/images/fish.png"}
+            src={"/images/fish.webp"}
             alt="Fish"
             className="pointer-events-none absolute right-0 bottom-0 mix-blend-multiply grayscale"
             loading="lazy"
