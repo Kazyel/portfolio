@@ -43,7 +43,7 @@ export default function HeroSection() {
         <div className="relative z-10 flex flex-col gap-y-12 max-xl:items-center">
           <div className="max-xl:flex max-xl:flex-col max-xl:items-center max-xl:justify-center max-lg:text-center">
             <TextAnimate
-              className="text-acc-yellow mb-4 text-[3.5rem] font-extrabold tracking-tighter max-xl:text-[3rem] max-md:text-[2rem]"
+              className="text-acc-yellow mb-4 text-[3.5rem] font-extrabold tracking-tighter max-xl:text-[3rem] max-md:text-[2.5rem]"
               animation="slideDown"
               once
             >
@@ -51,7 +51,7 @@ export default function HeroSection() {
             </TextAnimate>
 
             <TextAnimate
-              className="text-off-w mb-4 text-[4rem] leading-[1em] font-extralight tracking-tighter max-xl:text-[3.75rem] max-md:text-[2.25rem]"
+              className="text-off-w mb-4 text-[4rem] leading-[1em] font-extralight tracking-tighter max-xl:text-[3.75rem] max-md:text-[2.75rem]"
               as="h2"
               delay={0.15}
               once
@@ -63,7 +63,7 @@ export default function HeroSection() {
               as="h2"
               delay={0.3}
               animation="fadeIn"
-              className="text-off-w text-7xl font-extrabold tracking-tighter max-xl:text-[4rem] max-md:text-[2.5rem]"
+              className="text-off-w text-7xl font-extrabold tracking-tighter max-xl:text-[4rem] max-md:text-[2rem]"
               once
             >
               More than a web developer.

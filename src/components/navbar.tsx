@@ -36,14 +36,11 @@ export default function Navbar() {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const navbarMobileRef = useRef<HTMLDivElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleClickOutside(e: MouseEvent) {
-      if (
-        navbarMobileRef.current &&
-        !navbarMobileRef.current.contains(e.target as Node)
-      ) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
         setIsMenuOpen(false);
       }
     }
@@ -52,7 +49,7 @@ export default function Navbar() {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [navbarMobileRef]);
+  }, [dropdownRef]);
 
   const underlineAnimation = {
     initial: { x: 0, width: 0 },
@@ -85,7 +82,7 @@ export default function Navbar() {
       id="navbar"
       ref={navbarRef}
       className={cn(
-        "ease fixed top-0 z-50 flex h-14 w-full items-center justify-evenly transition-all duration-100 max-md:justify-between max-md:pr-3 max-md:pl-10",
+        "ease fixed top-0 z-50 flex h-14 w-full items-center justify-evenly transition-all duration-100 max-md:justify-between max-md:pr-4 max-md:pl-10",
         "border-b border-transparent backdrop-blur-none",
         isScrolled && "border-stone-700/70 backdrop-blur-lg",
       )}
@@ -142,7 +139,7 @@ export default function Navbar() {
       </div>
 
       <div className="flex items-center gap-6 max-md:gap-3.5">
-        <div className="relative md:hidden">
+        <div ref={dropdownRef} className="relative md:hidden">
           <Menu
             className={cn(
               "size-7 cursor-pointer transition-all duration-150",
@@ -157,9 +154,8 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.25 }}
               id="mobile-navbar"
-              ref={navbarMobileRef}
               className={cn(
-                "ma absolute top-12 flex flex-col gap-6 rounded-md border-black p-3 shadow-md",
+                "absolute top-12 flex flex-col gap-y-4 rounded-md border border-black/65 p-3 shadow-md",
                 currentStyles.mobileNavbar,
               )}
             >
@@ -171,6 +167,7 @@ export default function Navbar() {
                     "text-xs font-medium transition-colors duration-150 max-md:text-sm",
                     currentStyles.mobileLink,
                   )}
+                  onClick={() => setIsMenuOpen(false)}
                 >
                   {link.name}
                 </Link>

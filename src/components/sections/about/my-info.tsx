@@ -14,12 +14,12 @@ export const MyInfo = () => {
             width={550}
             height={550}
             alt="Dragon"
-            className="pointer-events-none top-0 col-span-full row-span-full opacity-100 max-xl:w-[450px] max-md:w-[400px]"
+            className="pointer-events-none top-0 col-span-full row-span-full opacity-100 max-xl:w-[425px] max-md:w-[350px]"
           />
 
           <Image
             src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
-            className="z-10 col-span-full row-span-full aspect-square rounded-[50%] border-[8px] border-black object-cover max-xl:w-[300px] max-lg:w-[275px] max-md:w-[256px] xl:w-[368px]"
+            className="z-10 col-span-full row-span-full aspect-square rounded-[50%] border-[8px] border-black object-cover max-xl:w-[300px] max-lg:w-[275px] max-md:w-[225px] xl:w-[368px]"
             width={300}
             height={300}
             alt="Placeholder"
