@@ -32,7 +32,7 @@ export default function HeroSection() {
         <Image
           src={"/images/pagoda.webp"}
           alt="Pagoda"
-          className="pagoda-animation pointer-events-none absolute -bottom-52 opacity-35"
+          className="pagoda-animation pointer-events-none absolute -bottom-52 opacity-35 max-lg:hidden"
           loading="eager"
           priority={true}
           quality={85}
@@ -40,10 +40,10 @@ export default function HeroSection() {
           height={1080}
         />
 
-        <div className="relative z-10 flex flex-col gap-y-12">
-          <div className="max-lg:text-center">
+        <div className="relative z-10 flex flex-col gap-y-12 max-xl:items-center">
+          <div className="max-xl:flex max-xl:flex-col max-xl:items-center max-xl:justify-center max-lg:text-center">
             <TextAnimate
-              className="text-acc-yellow mb-4 text-[3.5rem] font-extrabold tracking-tighter max-lg:text-[3rem] max-sm:text-[2.75rem]"
+              className="text-acc-yellow mb-4 text-[3.5rem] font-extrabold tracking-tighter max-xl:text-[3rem] max-md:text-[2rem]"
               animation="slideDown"
               once
             >
@@ -51,7 +51,7 @@ export default function HeroSection() {
             </TextAnimate>
 
             <TextAnimate
-              className="text-off-w leading-[1em] font-extralight tracking-tighter max-md:text-2xl sm:mb-8 xl:text-[4rem]"
+              className="text-off-w mb-4 text-[4rem] leading-[1em] font-extralight tracking-tighter max-xl:text-[3.75rem] max-md:text-[2.25rem]"
               as="h2"
               delay={0.15}
               once
@@ -63,7 +63,7 @@ export default function HeroSection() {
               as="h2"
               delay={0.3}
               animation="fadeIn"
-              className="text-off-w font-extrabold tracking-tighter max-md:text-4xl max-sm:text-3xl xl:text-7xl"
+              className="text-off-w text-7xl font-extrabold tracking-tighter max-xl:text-[4rem] max-md:text-[2.5rem]"
               once
             >
               More than a web developer.

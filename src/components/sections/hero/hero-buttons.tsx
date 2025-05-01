@@ -15,9 +15,9 @@ export const HeroButtons = () => {
       <motion.div {...BUTTONS_ANIMATION}>
         <a
           href="#about-section"
-          className="bg-acc-yellow-2 hover:bg-off-w group flex cursor-pointer items-center rounded-sm border-2 border-black p-2 text-xl font-extrabold text-black transition-all duration-200"
+          className="bg-acc-yellow-2 hover:bg-off-w group flex cursor-pointer items-center rounded-sm border border-black p-2 text-xl font-extrabold text-black transition-all duration-200 max-md:text-sm max-sm:text-xs"
         >
-          <StarsIcon className="mr-2 size-7 transition-all duration-200 group-hover:rotate-90" />
+          <StarsIcon className="mr-2 size-7 transition-all duration-200 group-hover:rotate-90 max-md:size-5" />
           Start this journey
         </a>
       </motion.div>
@@ -25,9 +25,9 @@ export const HeroButtons = () => {
       <motion.div {...BUTTONS_ANIMATION}>
         <a
           href="#contact-section"
-          className="text-off-w/85 border-off-w/85 bg-off-w/20 hover:bg-acc-yellow-2/15 hover:text-acc-yellow-2 hover:border-acc-yellow-2 flex cursor-pointer items-center rounded-sm border-2 p-2 text-xl font-bold transition-all duration-200"
+          className="text-off-w/85 border-off-w/85 bg-off-w/15 hover:bg-acc-yellow-2/15 hover:text-acc-yellow-2 hover:border-acc-yellow-2 flex cursor-pointer items-center rounded-sm border p-2 text-xl font-bold transition-all duration-200 max-md:text-sm max-sm:text-xs"
         >
-          <Contact2 className="mr-2 size-7" />
+          <Contact2 className="mr-2 size-7 max-md:size-5" />
           Contact me
         </a>
       </motion.div>

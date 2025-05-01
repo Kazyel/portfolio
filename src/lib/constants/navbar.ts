@@ -10,6 +10,9 @@ export const ICON_LIGHT = "stroke-off-w hover:stroke-off-w/60";
 export const CV_DARK = "bg-black hover:bg-black/50 text-off-w";
 export const CV_LIGHT = "bg-off-w hover:bg-off-w/35 hover:text-off-w text-black";
 
+export const MOBILE_NAVBAR_DARK = "bg-black";
+export const MOBILE_NAVBAR_LIGHT = "bg-off-w";
+
 export const NAV_LINKS = [
   { name: "About", id: "about-section" },
   { name: "Projects", id: "projects-section" },

@@ -32,7 +32,7 @@ const LanguageCard = (props: { src: IconType; name: string }) => {
         <TooltipTrigger asChild>
           <figure
             className={cn(
-              "relative ml-3 h-full w-fit cursor-pointer overflow-hidden rounded-lg border p-3 sm:w-[5.5rem]",
+              "bg-off-w relative ml-3 h-full w-fit cursor-pointer overflow-hidden rounded-lg border p-3 shadow-md max-xl:w-[4.75rem] max-md:w-[4rem] xl:w-[5.5rem]",
               "border-2 border-black/35 hover:bg-gray-950/[.05]",
             )}
           >
@@ -49,22 +49,25 @@ const LanguageCard = (props: { src: IconType; name: string }) => {
 
 export default function AboutSection() {
   return (
-    <section id="about-section" className="h-section-height relative overflow-hidden">
+    <section
+      id="about-section"
+      className="h-section-height bg-off-w relative overflow-hidden max-xl:h-max max-xl:py-10"
+    >
       <div
         id="about-me"
-        className="bg-off-w flex h-full w-full flex-col items-center justify-center max-xl:mb-12 max-xl:flex max-xl:flex-col max-xl:pt-20 max-xl:pb-20 max-sm:w-full"
+        className="flex h-full w-full flex-col items-center justify-center"
       >
         <MyInfo />
 
-        <div className="relative flex w-[1000px] flex-row items-center justify-center overflow-hidden">
+        <div className="relative flex flex-row items-center justify-center overflow-hidden max-xl:w-[700px] max-md:w-[400px] xl:w-[1000px]">
           <Marquee pauseOnHover className="[--duration:15s]">
             {langs.map((lang) => (
               <LanguageCard key={lang.name} {...lang} />
             ))}
           </Marquee>
 
-          <div className="from-off-w pointer-events-none absolute inset-y-0 left-0 w-1/5 bg-gradient-to-r"></div>
-          <div className="from-off-w pointer-events-none absolute inset-y-0 right-0 w-1/5 bg-gradient-to-l"></div>
+          <div className="from-off-w pointer-events-none absolute inset-y-0 left-0 z-0 w-1/5 bg-gradient-to-r"></div>
+          <div className="from-off-w pointer-events-none absolute inset-y-0 right-0 z-0 w-1/5 bg-gradient-to-l"></div>
         </div>
       </div>
 

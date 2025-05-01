@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { useAtomValue } from "jotai";
 import { currentProjectAtom, isProjectOpenAtom } from "@/lib/store";
 
-import Image from "next/image";
 import { ProjectView } from "@/components/sections/projects/project-view";
 import { MainProjects } from "@/components/sections/projects/projects-main";
 import { ProjectsBackground } from "@/components/sections/projects/projects-background";

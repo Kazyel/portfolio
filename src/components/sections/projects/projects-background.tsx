@@ -102,7 +102,7 @@ export const ProjectsBackground = () => {
             filter: "grayscale(100%)",
             mixBlendMode: "multiply",
           }}
-          animate={{ opacity: 0.65, x: 0 }}
+          animate={{ opacity: 0.75, x: 0 }}
           transition={{ duration: 0.4 }}
           exit={{ opacity: 0 }}
         >
