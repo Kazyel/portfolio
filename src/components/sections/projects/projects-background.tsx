@@ -18,7 +18,7 @@ export const ProjectsBackground = () => {
         src={URL_FLOWERS}
         alt="Decorative floral background"
         className={cn(
-          "absolute bottom-0 left-28 aspect-square h-[1000px] w-[700px] opacity-40 mix-blend-color-burn transition-all duration-500 group-hover:opacity-15 max-xl:hidden",
+          "absolute bottom-0 left-28 aspect-square h-[1000px] w-[700px] opacity-40 mix-blend-color-burn transition-all duration-500 group-hover:opacity-15",
           isOpen && "opacity-15",
         )}
         loading="lazy"
@@ -31,7 +31,7 @@ export const ProjectsBackground = () => {
         src={URL_FLOWERS}
         alt="Decorative floral background"
         className={cn(
-          "absolute -bottom-12 -left-40 h-[700px] w-[400px] -rotate-45 opacity-20 mix-blend-color-burn transition-all duration-500 max-xl:hidden",
+          "absolute -bottom-12 -left-40 h-[700px] w-[400px] -rotate-45 opacity-20 mix-blend-color-burn transition-all duration-500",
           isOpen && "opacity-30",
         )}
         loading="lazy"
@@ -44,7 +44,7 @@ export const ProjectsBackground = () => {
         src={URL_FLOWERS}
         alt="Decorative floral background"
         className={cn(
-          "absolute -bottom-20 left-[24rem] h-[600px] w-[500px] opacity-25 mix-blend-color-burn transition-all duration-500 max-2xl:hidden",
+          "absolute -bottom-20 left-[24rem] h-[600px] w-[500px] opacity-25 mix-blend-color-burn transition-all duration-500",
           isOpen && "opacity-35",
         )}
         loading="lazy"
@@ -104,12 +104,11 @@ export const ProjectsBackground = () => {
           }}
           animate={{ opacity: 0.75, x: 0 }}
           transition={{ duration: 0.4 }}
-          exit={{ opacity: 0 }}
         >
           <Image
             src={"/images/fish.webp"}
             alt="Fish"
-            className="pointer-events-none absolute right-0 bottom-0 mix-blend-multiply grayscale"
+            className="pointer-events-none absolute right-0 bottom-0 mix-blend-multiply grayscale max-xl:hidden"
             loading="lazy"
             decoding="async"
             quality={50}

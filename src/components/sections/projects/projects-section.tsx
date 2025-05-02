@@ -22,12 +22,12 @@ export default function ProjectsSection() {
   return (
     <section
       id="projects-section"
-      className="h-section-height relative flex w-full flex-col justify-center overflow-hidden bg-red-950/50 max-xl:p-10"
+      className="xl:h-section-height relative flex h-max w-full flex-col justify-center overflow-hidden bg-red-950/50 max-lg:scroll-mt-[56px]"
     >
       {isProjectOpen ? (
         <motion.div
           key="project-view"
-          className="z-10 flex min-h-screen flex-col items-center justify-center"
+          className="z-10 flex min-h-screen flex-col items-center justify-center p-10"
           {...animatePresence}
         >
           <ProjectView {...currentProject!} />
@@ -35,7 +35,7 @@ export default function ProjectsSection() {
       ) : (
         <motion.div
           key="main-projects"
-          className="z-10 flex min-h-screen flex-col items-center justify-center"
+          className="z-10 flex min-h-screen flex-col items-center justify-center p-10"
           {...animatePresence}
         >
           <MainProjects />

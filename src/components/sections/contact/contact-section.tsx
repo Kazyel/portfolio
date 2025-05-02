@@ -15,7 +15,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact-section"
-      className="h-section-height relative flex flex-col items-center justify-center overflow-hidden bg-black/75"
+      className="h-section-height relative flex flex-col items-center justify-center overflow-hidden bg-black/75 max-lg:scroll-mt-[56px]"
     >
       <motion.div
         initial={{ opacity: 0 }}

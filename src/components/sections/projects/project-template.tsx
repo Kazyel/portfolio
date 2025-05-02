@@ -41,8 +41,8 @@ export const ProjectTemplate = ({
         />
       </div>
 
-      <div className="grid w-full grid-cols-3 grid-rows-4 max-xl:flex max-xl:flex-col max-xl:justify-center max-lg:items-center xl:max-h-[700px]">
-        <div className="col-span-2 row-span-3 flex flex-col items-center justify-between gap-y-8 text-lg leading-7 max-xl:mb-10 max-lg:justify-center sm:text-justify xl:mr-16">
+      <div className="grid w-full grid-cols-3 grid-rows-4 max-xl:flex max-xl:flex-col max-md:items-center max-md:justify-center xl:max-h-[700px]">
+        <div className="col-span-2 row-span-3 flex flex-col items-center justify-between gap-y-8 text-pretty max-xl:mb-10 max-lg:justify-center xl:mr-16">
           <div className="">
             {body.map((line, index) => (
               <TextAnimate
@@ -52,7 +52,7 @@ export const ProjectTemplate = ({
                 duration={0.1}
                 key={index}
                 once
-                className="border-off-w/75 pb-4 font-light text-neutral-200/85 last:pb-0 max-sm:text-sm"
+                className="border-off-w/75 pb-4 text-lg leading-7 font-light text-neutral-200/85 last:pb-0 max-md:text-base"
               >
                 {line}
               </TextAnimate>

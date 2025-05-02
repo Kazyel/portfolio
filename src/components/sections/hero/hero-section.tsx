@@ -12,9 +12,10 @@ export default function HeroSection() {
     <>
       <section
         id="hero-section"
-        className="relative flex flex-col items-center justify-center overflow-hidden max-lg:h-[calc(100dvh-4rem)] max-lg:px-10 lg:h-screen"
+        className="relative flex flex-col items-center justify-center overflow-hidden max-lg:h-dvh max-lg:px-10 lg:h-screen"
       >
         <AnimatedGradientBackground
+          containerClassName="max-lg:hidden"
           gradientStops={[45, 75, 100]}
           gradientColors={[DARK_COLOR, STATIC_COLOR + "44", STATIC_COLOR]}
         />

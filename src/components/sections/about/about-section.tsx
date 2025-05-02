@@ -51,7 +51,7 @@ export default function AboutSection() {
   return (
     <section
       id="about-section"
-      className="h-section-height bg-off-w relative overflow-hidden max-xl:h-max max-xl:py-10"
+      className="h-section-height bg-off-w relative overflow-hidden max-xl:h-max max-xl:py-10 max-lg:scroll-mt-[56px]"
     >
       <div
         id="about-me"
