@@ -7,7 +7,7 @@ import { LoveIcon } from "@/components/svgs/LoveIcon";
 
 export const Footer = () => {
   return (
-    <footer className="relative flex h-[64px] w-full items-center justify-between overflow-hidden border-t border-stone-700/75 bg-black/60 px-16">
+    <footer className="relative flex h-[64px] w-full items-center justify-between overflow-hidden border-t border-stone-700/75 bg-black/60 max-xl:px-8 xl:px-16">
       <Image
         src={"/images/dragon.webp"}
         alt="Dragon"
@@ -16,7 +16,7 @@ export const Footer = () => {
         quality={75}
         loading="lazy"
         decoding="async"
-        className="absolute -top-12 right-0 -rotate-12 opacity-45 grayscale"
+        className="absolute -top-12 right-0 -rotate-12 opacity-45 grayscale max-lg:-right-24 max-sm:-right-48"
       />
 
       <Image
@@ -27,10 +27,10 @@ export const Footer = () => {
         quality={75}
         loading="lazy"
         decoding="async"
-        className="absolute -top-12 left-0 -scale-x-[1] rotate-[10deg] opacity-45 grayscale"
+        className="absolute -top-12 left-0 -scale-x-[1] rotate-[10deg] opacity-45 grayscale max-lg:-left-24 max-sm:hidden"
       />
 
-      <div className="text-off-w/85 z-10 flex items-center">
+      <div className="text-off-w/85 z-10 flex items-center max-md:hidden">
         <p className="text-xs">Built with</p>
 
         <LoveIcon className="mr-1 ml-1.5 size-5 text-white" />
@@ -47,7 +47,7 @@ export const Footer = () => {
         </Link>
       </div>
 
-      <div className="flex flex-col items-center justify-center gap-y-0.5">
+      <div className="z-10 flex flex-col items-center justify-center gap-y-0.5">
         <p className="text-off-w text-xs font-bold tracking-tighter">
           © {new Date().getFullYear()} • Kazyel
         </p>

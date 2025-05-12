@@ -19,7 +19,7 @@ export const ProjectTemplate = ({
         <TextAnimate
           as="h1"
           by="line"
-          className="text-6xl font-extrabold tracking-tighter text-red-800"
+          className="text-5xl font-extrabold tracking-tighter text-red-800"
           once
         >
           {title}
@@ -28,7 +28,7 @@ export const ProjectTemplate = ({
         <TextAnimate
           animation="slideUp"
           as="h2"
-          className="text-acc-yellow-2 font-semibold"
+          className="text-acc-yellow-2 text-sm font-semibold"
           once
         >
           {description}

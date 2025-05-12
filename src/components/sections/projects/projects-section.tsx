@@ -35,7 +35,7 @@ export default function ProjectsSection() {
       ) : (
         <motion.div
           key="main-projects"
-          className="z-10 flex min-h-screen flex-col items-center justify-center p-10"
+          className="z-10 flex min-h-screen flex-col items-center justify-center"
           {...animatePresence}
         >
           <MainProjects />

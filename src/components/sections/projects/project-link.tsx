@@ -18,7 +18,7 @@ export const ProjectLink = ({ title, url, className }: ProjectLinkProps) => {
       <Link
         href={url}
         target="_blank"
-        className="text-off-w group-hover:text-off-w cursor-pointer tracking-wide transition-all duration-300 hover:drop-shadow-[0px_0px_12px_#f3e5d766]"
+        className="text-off-w group-hover:text-off-w cursor-pointer tracking-wide transition-all duration-300 hover:drop-shadow-[0px_0px_12px_#f3e5d766] max-md:text-xs"
       >
         {title}
       </Link>
