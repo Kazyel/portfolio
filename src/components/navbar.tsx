@@ -3,7 +3,7 @@
 import Link from "next/link";
 import useNavbarLogic from "@/hooks/navbar-logic";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { AnimatePresence, HTMLMotionProps, motion } from "framer-motion";
+import { AnimatePresence, type HTMLMotionProps, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 import {

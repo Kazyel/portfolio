@@ -1,12 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { type HTMLMotionProps, motion } from "framer-motion";
 
 import { TextAnimate } from "@/components/ui/text-animate";
 import { ContactForm } from "@/components/sections/contact/contact-form";
 
-const BACKGROUND_ANIMATION = {
+const BACKGROUND_ANIMATION: Omit<HTMLMotionProps<"div">, "ref" | "className"> = {
   transition: { duration: 0.5, delay: 1.5 },
   viewport: { once: true, amount: 0.65 },
 };

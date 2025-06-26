@@ -1,9 +1,9 @@
 "use client";
 
-import { motion, type MotionProps } from "framer-motion";
+import { type HTMLMotionProps, motion } from "framer-motion";
 import { Contact2, StarsIcon } from "lucide-react";
 
-const BUTTONS_MOTION: MotionProps = {
+const BUTTONS_MOTION: Omit<HTMLMotionProps<"div">, "ref" | "className"> = {
   initial: { y: 20, opacity: 0 },
   animate: { y: 0, opacity: 1 },
   transition: { duration: 0.3, delay: 0.5 },

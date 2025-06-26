@@ -2,7 +2,7 @@
 
 // Library Components
 import Link from "next/link";
-import { motion, type MotionProps } from "framer-motion";
+import { type HTMLMotionProps, motion } from "framer-motion";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
 
@@ -23,7 +23,7 @@ import { ShineBorder } from "@/components/ui/shine-border";
 
 export type FormEntries = keyof EmailFormSchema;
 
-const FORM_MOTION: MotionProps = {
+const CONTACT_MOTION: Omit<HTMLMotionProps<"div">, "ref" | "className"> = {
   initial: { opacity: 0, y: 35 },
   whileInView: { opacity: 1, y: 0 },
   transition: { duration: 0.75, delay: 0.75 },
@@ -59,7 +59,7 @@ export const ContactForm = () => {
 
   return (
     <motion.div
-      {...FORM_MOTION}
+      {...CONTACT_MOTION}
       className="border-off-w/30 relative z-10 flex w-[450px] flex-col gap-y-3 overflow-hidden rounded-lg border bg-black p-4 max-sm:w-full"
     >
       <ShineBorder shineColor={["#F3E5D7ee", "#F3E5D744", "#F3E5D722"]} />

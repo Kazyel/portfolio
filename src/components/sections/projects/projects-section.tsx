@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { type HTMLMotionProps, motion } from "framer-motion";
 import { useAtomValue } from "jotai";
 import { currentProjectAtom, isProjectOpenAtom } from "@/lib/store";
 
@@ -8,7 +8,7 @@ import { ProjectView } from "@/components/sections/projects/project-view";
 import { MainProjects } from "@/components/sections/projects/projects-main";
 import { ProjectsBackground } from "@/components/sections/projects/projects-background";
 
-const animatePresence = {
+const animatePresence: Omit<HTMLMotionProps<"div">, "ref" | "className"> = {
   initial: { opacity: 0 },
   animate: { opacity: 1 },
   exit: { opacity: 0 },
