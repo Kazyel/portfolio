@@ -27,7 +27,7 @@ export const ProjectCard = memo(({ ...props }: ProjectType) => {
   return (
     <div
       id="project-card"
-      className="group relative grid h-[400px] w-[400px] cursor-pointer grid-cols-1 rounded-lg shadow-xl max-xl:h-[325px] max-xl:w-[325px] max-lg:h-[500px] max-lg:w-[500px] max-md:h-[375px] max-md:w-[375px] max-sm:h-[325px] max-sm:w-[325px]"
+      className="group relative grid h-[400px] w-[400px] cursor-pointer grid-cols-1 rounded-lg shadow-xl max-2xl:h-[350px] max-2xl:w-[350px] max-lg:h-[300px] max-lg:w-[300px] max-md:h-[375px] max-md:w-[375px] max-sm:h-[325px] max-sm:w-[325px]"
       onClick={openProject}
     >
       <div className="border-off-w/25 col-span-full row-span-full flex flex-col overflow-hidden rounded-lg bg-stone-900">
@@ -44,16 +44,16 @@ export const ProjectCard = memo(({ ...props }: ProjectType) => {
         />
       </div>
 
-      <div className="z-20 col-span-full row-span-full flex flex-col gap-2 self-end rounded-lg px-6 py-8">
+      <div className="z-20 col-span-full row-span-full flex flex-col gap-2 self-end rounded-lg px-6 py-8 max-lg:px-4">
         <h3
           id="project-title"
-          className="text-4xl font-bold tracking-tighter text-red-800 transition-all duration-200 group-hover:text-red-600 max-xl:text-3xl max-lg:text-5xl max-md:text-3xl"
+          className="text-4xl font-bold tracking-tighter text-red-800 transition-all duration-200 group-hover:text-red-600 max-xl:text-3xl max-md:text-3xl"
         >
           {props.title}
         </h3>
         <p
           id="project-text"
-          className="text-off-w/75 group-hover:text-off-w transition-all duration-200 max-xl:text-sm max-lg:text-lg max-md:text-sm"
+          className="text-off-w/75 group-hover:text-off-w transition-all duration-200 max-2xl:text-sm"
         >
           {props.description}
         </p>

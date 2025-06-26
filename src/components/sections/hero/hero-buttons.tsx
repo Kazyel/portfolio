@@ -11,7 +11,7 @@ const BUTTONS_MOTION: MotionProps = {
 
 export const HeroButtons = () => {
   return (
-    <div className="flex gap-x-6 max-sm:flex-col max-sm:gap-y-4">
+    <div className="flex flex-wrap gap-x-6 self-start max-lg:self-center max-sm:gap-y-4">
       <motion.div {...BUTTONS_MOTION}>
         <a
           href="#about-section"

@@ -60,7 +60,7 @@ export const ContactForm = () => {
   return (
     <motion.div
       {...FORM_MOTION}
-      className="border-off-w/30 relative z-10 flex w-[450px] flex-col gap-y-3 overflow-hidden rounded-lg border bg-black p-4"
+      className="border-off-w/30 relative z-10 flex w-[450px] flex-col gap-y-3 overflow-hidden rounded-lg border bg-black p-4 max-sm:w-full"
     >
       <ShineBorder shineColor={["#F3E5D7ee", "#F3E5D744", "#F3E5D722"]} />
 

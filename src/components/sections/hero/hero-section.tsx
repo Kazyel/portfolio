@@ -12,7 +12,7 @@ export default function HeroSection() {
     <>
       <section
         id="hero-section"
-        className="relative flex flex-col items-center justify-center overflow-hidden max-lg:h-dvh max-lg:px-10 lg:h-screen"
+        className="relative flex flex-col items-center justify-center overflow-hidden max-lg:h-dvh max-lg:px-8 lg:h-screen"
       >
         <AnimatedGradientBackground
           containerClassName="max-lg:hidden"
@@ -41,10 +41,10 @@ export default function HeroSection() {
           height={1080}
         />
 
-        <div className="relative z-10 flex flex-col gap-y-12 max-xl:items-center">
-          <div className="max-xl:flex max-xl:flex-col max-xl:items-center max-xl:justify-center max-lg:text-center">
+        <div className="relative z-10 flex flex-col gap-y-12">
+          <div className="flex flex-col lg:items-start">
             <TextAnimate
-              className="text-acc-yellow mb-4 text-[3.5rem] font-extrabold tracking-tighter max-xl:text-[3rem] max-md:text-[2.5rem]"
+              className="text-acc-yellow xs:max-lg:text-center mb-4 text-[3.5rem] font-extrabold tracking-tighter max-xl:text-[3rem] max-md:text-[2.5rem] max-sm:leading-10 2xl:text-[4rem]"
               animation="slideDown"
               once
             >
@@ -52,7 +52,7 @@ export default function HeroSection() {
             </TextAnimate>
 
             <TextAnimate
-              className="text-off-w mb-4 text-[4rem] leading-[1em] font-extralight tracking-tighter max-xl:text-[3.75rem] max-md:text-[2.75rem]"
+              className="xs:max-lg:text-center hero-shadow-1 text-off-w max-xs:text-[2.5rem] mb-4 text-[4rem] leading-[1em] font-semibold tracking-tighter max-xl:text-[3.75rem] max-md:text-[3rem] max-sm:leading-10 2xl:text-[5rem]"
               as="h2"
               delay={0.15}
               once
@@ -61,10 +61,10 @@ export default function HeroSection() {
             </TextAnimate>
 
             <TextAnimate
+              className="text-off-w xs:max-lg:text-center hero-shadow-2 max-xs:text-[2.5rem] text-7xl font-extrabold tracking-tighter max-xl:text-[4rem] max-md:text-[3rem]"
               as="h2"
               delay={0.3}
               animation="fadeIn"
-              className="text-off-w text-7xl font-extrabold tracking-tighter max-xl:text-[4rem] max-md:text-[2rem]"
               once
             >
               More than a web developer.

@@ -42,7 +42,7 @@ export const MyInfo = () => {
 
         <div className="max-xl:bg-off-w relative z-10 flex flex-col gap-y-3 border-l-2 border-black/35 max-xl:rounded-md max-xl:border-2 max-xl:p-4 max-xl:shadow-lg max-lg:w-full xl:ml-4 xl:max-w-[600px] xl:px-4">
           <TextAnimate
-            className="text-lg leading-8 font-light text-black max-xl:text-lg max-lg:text-base"
+            className="text-lg leading-7 font-light text-black max-xl:text-base max-lg:text-sm"
             by="line"
             animation="slideLeft"
             delay={0.25}
@@ -54,7 +54,7 @@ export const MyInfo = () => {
           </TextAnimate>
 
           <TextAnimate
-            className="text-lg leading-8 font-light text-black max-xl:text-lg max-lg:text-base"
+            className="text-lg leading-7 font-light text-black max-xl:text-base max-lg:text-sm"
             by="line"
             animation="slideLeft"
             delay={0.25}
@@ -66,7 +66,7 @@ export const MyInfo = () => {
           </TextAnimate>
 
           <TextAnimate
-            className="text-lg leading-8 font-light text-black max-xl:text-lg max-lg:text-base"
+            className="text-lg leading-7 font-light text-black max-xl:text-base max-lg:text-sm"
             by="line"
             animation="slideLeft"
             delay={0.35}

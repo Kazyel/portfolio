@@ -6,9 +6,9 @@ import { ProjectCard } from "@/components/sections/projects/project-card";
 
 export const MainProjects = () => {
   return (
-    <div className="max-lg:p-10 xl:p-20">
-      <div className="flex items-center justify-center max-xl:flex-col max-xl:items-start xl:items-end xl:justify-between">
-        <div className="flex flex-col max-lg:items-center max-lg:justify-center">
+    <div className="max-xl:p-12 xl:p-20">
+      <div className="flex items-center justify-center max-xl:flex-col xl:items-end xl:justify-between">
+        <div className="flex flex-col max-xl:items-center max-xl:justify-center">
           <TextAnimate
             className="text-7xl font-extrabold tracking-tighter text-red-800 max-md:text-6xl"
             once
@@ -17,7 +17,7 @@ export const MainProjects = () => {
           </TextAnimate>
 
           <TextAnimate
-            className="text-acc-yellow-2 pt-4 text-xl font-medium tracking-tight max-lg:text-center max-md:text-base"
+            className="text-acc-yellow-2 pt-4 text-xl font-medium tracking-tight max-lg:text-center max-sm:text-base"
             once
           >
             Some projects of mine that I find the most interesting...
@@ -31,7 +31,7 @@ export const MainProjects = () => {
         />
       </div>
 
-      <div className="flex flex-col items-center justify-center gap-10 pt-20 max-lg:pt-10 lg:flex-row">
+      <div className="flex flex-col flex-wrap items-center justify-center gap-10 pt-20 max-xl:pt-10 md:flex-row">
         {projects.map((project, index) => (
           <ProjectCard key={index} {...project} />
         ))}

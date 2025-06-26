@@ -26,7 +26,7 @@ export default function ContactSection() {
         <Image
           src="/images/samurai.webp"
           alt="Samurai Background"
-          className="mx-auto opacity-15 grayscale"
+          className="mx-auto opacity-15 grayscale max-lg:hidden"
           width={1000}
           height={1000}
           quality={75}
@@ -44,7 +44,7 @@ export default function ContactSection() {
         <Image
           src="/images/torii.webp"
           alt="Samurai Background"
-          className="pointer-events-none absolute -right-[300px] bottom-0 grayscale"
+          className="pointer-events-none absolute -right-[300px] bottom-0 grayscale max-xl:hidden"
           width={900}
           height={900}
           quality={75}
@@ -55,7 +55,7 @@ export default function ContactSection() {
         <Image
           src="/images/torii.webp"
           alt="Samurai Background"
-          className="pointer-events-none absolute bottom-0 -left-[300px] -scale-x-[1] grayscale"
+          className="pointer-events-none absolute bottom-0 -left-[300px] -scale-x-[1] grayscale max-xl:hidden"
           width={900}
           height={900}
           quality={75}
@@ -64,11 +64,11 @@ export default function ContactSection() {
         />
       </motion.div>
 
-      <div className="flex w-full items-center justify-center gap-x-20">
-        <div className="z-10 flex w-[600px] flex-col gap-y-6">
+      <div className="flex w-full items-center justify-center gap-x-20 gap-y-6 px-10 max-lg:flex-col">
+        <div className="z-10 flex w-[600px] flex-col gap-y-6 max-lg:w-full max-lg:gap-3 max-md:gap-0 sm:items-center">
           <TextAnimate
             as="h1"
-            className="text-off-w text-8xl font-extrabold tracking-tighter"
+            className="text-off-w text-8xl font-extrabold tracking-tighter max-lg:text-5xl max-md:text-4xl"
             delay={0.15}
             animation="slideRight"
             once
@@ -79,7 +79,7 @@ export default function ContactSection() {
           <TextAnimate
             as="h2"
             by="line"
-            className="text-acc-yellow-2 text-5xl"
+            className="text-acc-yellow-2 text-5xl max-lg:text-3xl max-md:text-2xl"
             delay={0.75}
             animation="slideRight"
             once
@@ -87,7 +87,7 @@ export default function ContactSection() {
             Yet, ours yearns to begin.
           </TextAnimate>
 
-          <div className="text-off-w/60 text-lg font-extralight tracking-wide italic">
+          <div className="text-off-w/60 text-lg font-extralight tracking-wide italic max-lg:text-base max-md:text-sm">
             <TextAnimate delay={1.5} duration={1} by="line" animation="blurIn" once>
               A blade stays sheathed — until its purpose awakens...
             </TextAnimate>
