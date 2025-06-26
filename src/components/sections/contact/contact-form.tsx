@@ -1,23 +1,34 @@
 "use client";
 
+// Library Components
 import Link from "next/link";
-import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
+import { motion, type MotionProps } from "framer-motion";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
 
-import { type EmailFormSchema, emailSchema } from "@/lib/validations/form";
+// Helpers
+import { cn } from "@/lib/utils";
 import { submitForm } from "@/lib/actions/form";
-import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { type EmailFormSchema, emailSchema } from "@/lib/validations/form";
 
-import { Loader2, Send } from "lucide-react";
+// Icons
 import { SiGithub } from "@icons-pack/react-simple-icons";
+import { Loader2, Send } from "lucide-react";
 import { SiLinkedin } from "@/components/svgs/SiLinkedIn";
 
+// UI Components
 import { ContactFormField } from "@/components/sections/contact/contact-form-field";
 import { ShineBorder } from "@/components/ui/shine-border";
 
 export type FormEntries = keyof EmailFormSchema;
+
+const FORM_MOTION: MotionProps = {
+  initial: { opacity: 0, y: 35 },
+  whileInView: { opacity: 1, y: 0 },
+  transition: { duration: 0.75, delay: 0.75 },
+  viewport: { once: true, amount: 0.65 },
+};
 
 export const ContactForm = () => {
   const form = useForm<EmailFormSchema>({
@@ -48,10 +59,7 @@ export const ContactForm = () => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 35 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.75, delay: 0.75 }}
-      viewport={{ once: true, amount: 0.65 }}
+      {...FORM_MOTION}
       className="border-off-w/30 relative z-10 flex w-[450px] flex-col gap-y-3 overflow-hidden rounded-lg border bg-black p-4"
     >
       <ShineBorder shineColor={["#F3E5D7ee", "#F3E5D744", "#F3E5D722"]} />

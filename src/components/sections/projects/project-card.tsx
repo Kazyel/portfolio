@@ -2,11 +2,12 @@ import type { ProjectType } from "@/lib/content/projects";
 
 import Image from "next/image";
 import { memo } from "react";
-
 import { useSetAtom } from "jotai";
 import { isProjectOpenAtom, currentProjectAtom } from "@/lib/store";
 
 import { ShineBorder } from "@/components/ui/shine-border";
+
+const SHINE_BORDER_COLOR = ["#9f0712cc", "#000000", "#9f071266"];
 
 export const ProjectCard = memo(({ ...props }: ProjectType) => {
   const setCurrentProject = useSetAtom(currentProjectAtom);
@@ -62,7 +63,7 @@ export const ProjectCard = memo(({ ...props }: ProjectType) => {
 
       <ShineBorder
         borderWidth={2}
-        shineColor={["#9f0712cc", "#000000", "#9f071266"]}
+        shineColor={SHINE_BORDER_COLOR}
         className="rounded-lg"
       />
     </div>

@@ -6,6 +6,8 @@ import { ProjectLink } from "@/components/sections/projects/project-link";
 import { TextAnimate } from "@/components/ui/text-animate";
 import { ShineBorder } from "@/components/ui/shine-border";
 
+const SHINE_BORDER_COLOR = ["#9f0712cc", "#000000", "#9f071266"];
+
 export const ProjectTemplate = ({
   title,
   repoLink,
@@ -81,7 +83,7 @@ export const ProjectTemplate = ({
 
           <ShineBorder
             borderWidth={2}
-            shineColor={["#9f0712cc", "#000000", "#9f071266"]}
+            shineColor={SHINE_BORDER_COLOR}
             className="rounded-lg"
           />
         </div>
