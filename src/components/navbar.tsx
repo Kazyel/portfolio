@@ -3,7 +3,7 @@
 import Link from "next/link";
 import useNavbarLogic from "@/hooks/navbar-logic";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, HTMLMotionProps, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 import {
@@ -52,7 +52,7 @@ export default function Navbar() {
     };
   }, [dropdownRef]);
 
-  const underlineAnimation = {
+  const underlineAnimation: Omit<HTMLMotionProps<"span">, "ref" | "className"> = {
     initial: { x: 0, width: 0 },
     animate: {
       x: underlineProps.x,
@@ -65,7 +65,7 @@ export default function Navbar() {
       damping: 35,
       mass: 0.5,
     },
-    exit: { opacity: 0, duration: 0.15 },
+    exit: { opacity: 0 },
   };
 
   const currentStyles = useMemo(() => {
