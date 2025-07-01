@@ -1,3 +1,4 @@
+import { TextAnimate } from "@/components/ui/text-animate";
 import Link from "next/link";
 
 interface ProjectLinkProps {
@@ -20,7 +21,9 @@ export const ProjectLink = ({ title, url, className }: ProjectLinkProps) => {
         target="_blank"
         className="text-off-w group-hover:text-off-w cursor-pointer tracking-wide transition-all duration-300 hover:drop-shadow-[0px_0px_12px_#f3e5d766] max-md:text-xs"
       >
-        {title}
+        <TextAnimate animation="slideUp" by="line" once>
+          {title}
+        </TextAnimate>
       </Link>
 
       <svg

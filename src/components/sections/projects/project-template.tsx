@@ -31,6 +31,7 @@ export const ProjectTemplate = ({
           animation="slideUp"
           as="h2"
           className="text-acc-yellow-2 text-sm font-semibold"
+          by="line"
           once
         >
           {description}
@@ -43,9 +44,9 @@ export const ProjectTemplate = ({
         />
       </div>
 
-      <div className="grid w-full grid-cols-3 grid-rows-4 max-xl:flex max-xl:flex-col max-md:items-center max-md:justify-center xl:max-h-[700px]">
+      <div className="grid w-full grid-cols-3 grid-rows-3 max-xl:flex max-xl:flex-col max-md:items-center max-md:justify-center xl:max-h-[700px]">
         <div className="col-span-2 row-span-3 flex flex-col items-center justify-between gap-y-8 text-pretty max-xl:mb-10 max-lg:justify-center xl:mr-16">
-          <div className="">
+          <div>
             {body.map((line, index) => (
               <TextAnimate
                 by="line"
@@ -61,9 +62,9 @@ export const ProjectTemplate = ({
             ))}
           </div>
 
-          <div className="bg-off-w flex items-center justify-end gap-8 place-self-start rounded p-4 max-lg:flex-wrap xl:h-24">
+          <div className="bg-off-w flex items-center gap-8 place-self-start rounded p-3 max-lg:flex-wrap max-sm:place-self-center xl:h-24">
             {languages.map((lang, index) => (
-              <lang.src key={index} className="aspect-square size-10 xl:size-16" />
+              <lang.src key={index} className="aspect-square size-12 flex-1 xl:size-16" />
             ))}
           </div>
         </div>

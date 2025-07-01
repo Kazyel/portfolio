@@ -64,11 +64,11 @@ export default function ContactSection() {
         />
       </motion.div>
 
-      <div className="flex w-full items-center justify-center gap-x-20 gap-y-6 px-10 max-lg:flex-col">
-        <div className="z-10 flex w-[600px] flex-col gap-y-6 max-lg:w-full max-lg:gap-3 max-md:gap-0 sm:items-center">
+      <div className="flex w-full items-center justify-center gap-x-20 gap-y-6 px-8 max-lg:flex-col">
+        <div className="z-10 flex w-[600px] flex-col gap-y-6 max-lg:w-full max-lg:gap-y-4 max-md:gap-y-2 sm:items-center">
           <TextAnimate
             as="h1"
-            className="text-off-w text-8xl font-extrabold tracking-tighter max-lg:text-5xl max-md:text-4xl"
+            className="text-off-w text-8xl font-extrabold tracking-tighter max-lg:text-5xl max-md:text-[2.75rem]"
             delay={0.15}
             animation="slideRight"
             once
@@ -79,7 +79,7 @@ export default function ContactSection() {
           <TextAnimate
             as="h2"
             by="line"
-            className="text-acc-yellow-2 text-5xl max-lg:text-3xl max-md:text-2xl"
+            className="text-acc-yellow-2 text-5xl max-lg:text-3xl max-md:text-3xl"
             delay={0.75}
             animation="slideRight"
             once
@@ -87,7 +87,7 @@ export default function ContactSection() {
             Yet, ours yearns to begin.
           </TextAnimate>
 
-          <div className="text-off-w/60 text-lg font-extralight tracking-wide italic max-lg:text-base max-md:text-sm">
+          <div className="text-off-w/60 text-lg font-extralight tracking-wide italic max-lg:text-base max-md:text-base">
             <TextAnimate delay={1.5} duration={1} by="line" animation="blurIn" once>
               A blade stays sheathed — until its purpose awakens...
             </TextAnimate>

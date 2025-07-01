@@ -19,6 +19,8 @@ export const MainProjects = () => {
           <TextAnimate
             className="text-acc-yellow-2 pt-4 text-xl font-medium tracking-tight max-lg:text-center max-sm:text-base"
             once
+            by="line"
+            as="h2"
           >
             Some projects of mine that I find the most interesting...
           </TextAnimate>

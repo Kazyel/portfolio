@@ -196,7 +196,8 @@ export default function Navbar() {
         </svg>
 
         <Link
-          href={"/cv"}
+          href={"/pdf/cv-ptbr.pdf"}
+          target="_blank"
           className={cn(
             "cursor-pointer rounded-md p-2 text-[0.625rem] font-bold transition-all duration-150",
             currentStyles.cv,
