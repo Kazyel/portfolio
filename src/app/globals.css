@@ -47,7 +47,7 @@
     --sidebar-ring: oklch(0.708 0 0);
 
     /* My colors */
-    --navbar-height: 56px;
+    --navbar-height: 0px;
     --radius: 0.625rem;
     --unbounded: "Unbounded Variable", sans-serif;
   }
@@ -68,7 +68,7 @@
   --font-jp: "Noto Sans JP, sans-serif";
   --breakpoint-3xl: 1921px;
   --breakpoint-xs: 420px;
-  --height-section-height: calc(100dvh + var(--navbar-height));
+  --height-section-height: min(calc(100dvh + var(--navbar-height)));
 
   @keyframes marquee {
     from {
