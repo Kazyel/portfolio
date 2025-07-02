@@ -12,7 +12,7 @@ export default function HeroSection() {
     <>
       <section
         id="hero-section"
-        className="relative flex flex-col items-center justify-center overflow-hidden max-lg:h-dvh max-lg:px-8 lg:h-screen"
+        className="min-h-section-height relative flex flex-col items-center justify-center overflow-hidden max-lg:px-8"
       >
         <AnimatedGradientBackground
           containerClassName="max-lg:hidden"

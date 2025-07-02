@@ -15,18 +15,18 @@ export default function ContactSection() {
   return (
     <section
       id="contact-section"
-      className="h-section-height relative flex flex-col items-center justify-center overflow-hidden bg-black/75 max-lg:scroll-mt-[56px]"
+      className="min-h-section-height relative flex flex-col items-center justify-center overflow-clip bg-black/75 max-xl:py-10 max-lg:scroll-mt-[56px]"
     >
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         {...BACKGROUND_ANIMATION}
-        className="absolute inset-0"
+        className="absolute inset-0 max-lg:hidden"
       >
         <Image
           src="/images/samurai.webp"
           alt="Samurai Background"
-          className="mx-auto opacity-15 grayscale max-lg:hidden"
+          className="mx-auto opacity-15 grayscale"
           width={1000}
           height={1000}
           quality={75}
@@ -39,12 +39,12 @@ export default function ContactSection() {
         initial={{ opacity: 0.2 }}
         whileInView={{ opacity: 0.1 }}
         {...BACKGROUND_ANIMATION}
-        className="absolute inset-0"
+        className="absolute inset-0 max-xl:hidden"
       >
         <Image
           src="/images/torii.webp"
           alt="Samurai Background"
-          className="pointer-events-none absolute -right-[300px] bottom-0 grayscale max-xl:hidden"
+          className="pointer-events-none absolute -right-[300px] bottom-0 grayscale"
           width={900}
           height={900}
           quality={75}
@@ -55,7 +55,7 @@ export default function ContactSection() {
         <Image
           src="/images/torii.webp"
           alt="Samurai Background"
-          className="pointer-events-none absolute bottom-0 -left-[300px] -scale-x-[1] grayscale max-xl:hidden"
+          className="pointer-events-none absolute bottom-0 -left-[300px] -scale-x-[1] grayscale"
           width={900}
           height={900}
           quality={75}

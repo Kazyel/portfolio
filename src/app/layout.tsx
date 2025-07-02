@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`font-unbounded bg-darkest flex flex-col antialiased`}>
+      <body className={`font-unbounded bg-darkest antialiased`}>
         <Providers>{children}</Providers>
         <Toaster richColors />
       </body>

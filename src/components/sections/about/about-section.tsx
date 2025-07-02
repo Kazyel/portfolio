@@ -51,24 +51,19 @@ export default function AboutSection() {
   return (
     <section
       id="about-section"
-      className="h-section-height bg-off-w relative overflow-hidden max-xl:h-max max-xl:py-10 max-lg:scroll-mt-[56px]"
+      className="min-h-section-height bg-off-w relative flex flex-col items-center justify-center overflow-clip max-xl:py-10 max-lg:scroll-mt-[56px]"
     >
-      <div
-        id="about-me"
-        className="flex h-full w-full flex-col items-center justify-center"
-      >
-        <MyInfo />
+      <MyInfo />
 
-        <div className="relative flex flex-row items-center justify-center overflow-hidden max-xl:w-[700px] max-md:w-[400px] xl:w-[1000px]">
-          <Marquee pauseOnHover className="[--duration:15s]">
-            {langs.map((lang) => (
-              <LanguageCard key={lang.name} {...lang} />
-            ))}
-          </Marquee>
+      <div className="relative flex flex-row items-center justify-center overflow-hidden max-xl:w-[700px] max-md:w-[400px] xl:w-[1000px]">
+        <Marquee pauseOnHover className="[--duration:15s]">
+          {langs.map((lang) => (
+            <LanguageCard key={lang.name} {...lang} />
+          ))}
+        </Marquee>
 
-          <div className="from-off-w pointer-events-none absolute inset-y-0 left-0 z-0 w-1/5 bg-gradient-to-r"></div>
-          <div className="from-off-w pointer-events-none absolute inset-y-0 right-0 z-0 w-1/5 bg-gradient-to-l"></div>
-        </div>
+        <div className="from-off-w pointer-events-none absolute inset-y-0 left-0 z-0 w-1/5 bg-gradient-to-r"></div>
+        <div className="from-off-w pointer-events-none absolute inset-y-0 right-0 z-0 w-1/5 bg-gradient-to-l"></div>
       </div>
 
       <BackgroundInkPaint />
