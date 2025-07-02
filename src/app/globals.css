@@ -47,7 +47,7 @@
     --sidebar-ring: oklch(0.708 0 0);
 
     /* My colors */
-    --navbar-height: 0px;
+    --navbar-height: 56px;
     --radius: 0.625rem;
     --unbounded: "Unbounded Variable", sans-serif;
   }
