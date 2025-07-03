@@ -3,7 +3,7 @@ import type { ProjectType } from "@/lib/content/projects";
 import Image from "next/image";
 import { memo } from "react";
 import { useSetAtom } from "jotai";
-import { isProjectOpenAtom, currentProjectAtom } from "@/lib/store";
+import { isProjectOpenAtom, currentProjectAtom } from "@/lib/store/projects";
 
 import { ShineBorder } from "@/components/ui/shine-border";
 

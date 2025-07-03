@@ -1,6 +1,6 @@
 import { type IconType } from "@icons-pack/react-simple-icons";
 
-import LANGUAGES from "@/lib/constants/languages";
+import LANGUAGES from "@/lib/constants/langs";
 import { cn } from "@/lib/utils";
 
 import { MyInfo } from "@/components/sections/about/my-info";

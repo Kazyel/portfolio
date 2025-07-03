@@ -3,11 +3,14 @@ import Image from "next/image";
 import { TextAnimate } from "@/components/ui/text-animate";
 import { HeroButtons } from "@/components/sections/hero/hero-buttons";
 import AnimatedGradientBackground from "@/components/ui/animated-gradient-background";
+import { getServerTranslator } from "@/hooks/use-translations";
 
 const STATIC_COLOR = "#f3e5d7";
 const DARK_COLOR = "#00000033";
 
-export default function HeroSection() {
+export default async function HeroSection() {
+  const t = await getServerTranslator();
+
   return (
     <>
       <section
@@ -48,7 +51,7 @@ export default function HeroSection() {
               animation="slideDown"
               once
             >
-              Hey, web wanderer!
+              {t("hello")}
             </TextAnimate>
 
             <TextAnimate

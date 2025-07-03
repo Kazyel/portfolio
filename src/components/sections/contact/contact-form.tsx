@@ -8,7 +8,7 @@ import { toast } from "sonner";
 
 // Helpers
 import { cn } from "@/lib/utils";
-import { submitForm } from "@/lib/actions/form";
+import { submitForm } from "@/lib/actions/email-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { type EmailFormSchema, emailSchema } from "@/lib/validations/form";
 

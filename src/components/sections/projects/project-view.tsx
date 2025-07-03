@@ -3,7 +3,7 @@ import type { ProjectType } from "@/lib/content/projects";
 import { ProjectTemplate } from "@/components/sections/projects/project-template";
 
 import { useAtomValue, useSetAtom } from "jotai";
-import { currentProjectAtom, isProjectOpenAtom } from "@/lib/store";
+import { currentProjectAtom, isProjectOpenAtom } from "@/lib/store/projects";
 
 export const ProjectView = ({ ...props }: ProjectType) => {
   const project = useAtomValue(currentProjectAtom);

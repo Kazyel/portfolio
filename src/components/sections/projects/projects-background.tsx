@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 import { useAtomValue } from "jotai";
-import { isProjectOpenAtom } from "@/lib/store";
+import { isProjectOpenAtom } from "@/lib/store/projects";
 import { cn } from "@/lib/utils";
 
 const URL_FLOWERS = "/images/higan-flowers.webp";

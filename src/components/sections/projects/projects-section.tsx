@@ -2,7 +2,7 @@
 
 import { type HTMLMotionProps, motion } from "framer-motion";
 import { useAtomValue } from "jotai";
-import { currentProjectAtom, isProjectOpenAtom } from "@/lib/store";
+import { currentProjectAtom, isProjectOpenAtom } from "@/lib/store/projects";
 
 import { ProjectView } from "@/components/sections/projects/project-view";
 import { MainProjects } from "@/components/sections/projects/projects-main";
