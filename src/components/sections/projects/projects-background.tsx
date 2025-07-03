@@ -1,13 +1,31 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { HTMLMotionProps, motion } from "framer-motion";
 
 import { useAtomValue } from "jotai";
 import { isProjectOpenAtom } from "@/lib/store/projects";
 import { cn } from "@/lib/utils";
 
 const URL_FLOWERS = "/images/higan-flowers.webp";
+
+const KOI_ANIMATION: Omit<HTMLMotionProps<"div">, "ref" | "className"> = {
+  initial: {
+    x: 15,
+    opacity: 0,
+  },
+  animate: {
+    x: 0,
+    opacity: 0.75,
+  },
+  exit: {
+    x: 15,
+    opacity: 0,
+  },
+  transition: {
+    duration: 0.4,
+  },
+};
 
 export const ProjectsBackground = () => {
   const isOpen = useAtomValue(isProjectOpenAtom);
@@ -96,19 +114,12 @@ export const ProjectsBackground = () => {
 
       {isOpen && (
         <motion.div
-          initial={{
-            opacity: 0,
-            x: 15,
-            filter: "grayscale(100%)",
-            mixBlendMode: "multiply",
-          }}
-          animate={{ opacity: 0.75, x: 0 }}
-          transition={{ duration: 0.4 }}
+          {...KOI_ANIMATION}
+          className="pointer-events-none absolute right-0 bottom-0 mix-blend-multiply grayscale max-xl:hidden"
         >
           <Image
             src={"/images/fish.webp"}
             alt="Fish"
-            className="pointer-events-none absolute right-0 bottom-0 mix-blend-multiply grayscale max-xl:hidden"
             loading="lazy"
             decoding="async"
             quality={50}
