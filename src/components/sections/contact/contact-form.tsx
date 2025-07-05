@@ -23,6 +23,29 @@ const CONTACT_MOTION: Omit<HTMLMotionProps<"div">, "ref" | "className"> = {
   viewport: { once: true, amount: 0.65 },
 };
 
+const formContainerClasses = cn(
+  "border-off-w/30 relative z-10 flex w-[450px] flex-col gap-y-3 overflow-hidden rounded-lg border bg-black p-4",
+  "max-sm:w-full",
+);
+
+const formClasses = "text-off-w flex flex-col gap-y-6";
+
+const submitButtonClasses = cn(
+  "border-off-w/50 bg-off-w hover:bg-off-w/40 hover:text-off-w flex w-full cursor-pointer items-center justify-center gap-x-2 rounded-sm border p-2 font-extrabold text-black transition-all duration-300",
+);
+
+const socialLinkClasses = cn(
+  "border-off-w/30 group hover:border-off-w hover:bg-off-w flex grow cursor-pointer items-center justify-center gap-x-2 rounded-sm border p-2 transition-all duration-200",
+);
+
+const socialIconClasses = cn(
+  "text-off-w/65 size-5 shrink-0 transition-all duration-200 group-hover:text-black",
+);
+
+const socialTextClasses = cn(
+  "text-off-w/65 text-sm font-semibold transition-all duration-200 group-hover:text-black",
+);
+
 export const ContactForm = () => {
   const form = useForm<EmailFormSchema>({
     resolver: yupResolver(emailSchema),
@@ -51,17 +74,10 @@ export const ContactForm = () => {
   const formEntries = Object.keys(emailSchema.fields) as FormEntries[];
 
   return (
-    <motion.div
-      {...CONTACT_MOTION}
-      className="border-off-w/30 relative z-10 flex w-[450px] flex-col gap-y-3 overflow-hidden rounded-lg border bg-black p-4 max-sm:w-full"
-    >
+    <motion.div {...CONTACT_MOTION} className={formContainerClasses}>
       <ShineBorder shineColor={["#F3E5D7ee", "#F3E5D744", "#F3E5D722"]} />
 
-      <form
-        id="email-form"
-        className="text-off-w flex flex-col gap-y-6"
-        onSubmit={handleSubmit(onSubmitForm)}
-      >
+      <form id="email-form" className={formClasses} onSubmit={handleSubmit(onSubmitForm)}>
         <div className="flex flex-col gap-y-4">
           {formEntries.map((entry) => (
             <ContactFormField
@@ -80,7 +96,7 @@ export const ContactForm = () => {
           type="submit"
           disabled={isSubmitting}
           className={cn(
-            "border-off-w/50 bg-off-w hover:bg-off-w/40 hover:text-off-w flex w-full cursor-pointer items-center justify-center gap-x-2 rounded-sm border p-2 font-extrabold text-black transition-all duration-300",
+            submitButtonClasses,
             isSubmitting && "pointer-events-none opacity-50",
           )}
         >
@@ -100,24 +116,20 @@ export const ContactForm = () => {
           href="https://www.linkedin.com/in/mateus-mascarelo/"
           target="_blank"
           rel="noreferrer"
-          className="border-off-w/30 group hover:border-off-w hover:bg-off-w flex grow cursor-pointer items-center justify-center gap-x-2 rounded-sm border p-2 transition-all duration-200"
+          className={socialLinkClasses}
         >
-          <SiLinkedin className="text-off-w/65 size-5 shrink-0 transition-all duration-200 group-hover:text-black" />
-          <p className="text-off-w/65 text-sm font-semibold transition-all duration-200 group-hover:text-black">
-            LinkedIn
-          </p>
+          <SiLinkedin className={socialIconClasses} />
+          <p className={socialTextClasses}>LinkedIn</p>
         </Link>
 
         <Link
           href="https://www.github.com/Kazyel"
           target="_blank"
           rel="noreferrer"
-          className="border-off-w/30 group hover:border-off-w hover:bg-off-w flex grow cursor-pointer items-center justify-center gap-x-2 rounded-sm border p-2 transition-all duration-200"
+          className={socialLinkClasses}
         >
-          <SiGithub className="text-off-w/65 size-5 shrink-0 transition-all duration-200 group-hover:text-black" />
-          <p className="text-off-w/65 text-sm font-semibold transition-all duration-200 group-hover:text-black">
-            GitHub
-          </p>
+          <SiGithub className={socialIconClasses} />
+          <p className={socialTextClasses}>GitHub</p>
         </Link>
       </div>
     </motion.div>

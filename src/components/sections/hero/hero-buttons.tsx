@@ -3,12 +3,17 @@
 import { useTranslations } from "@/hooks/use-translations";
 import { type HTMLMotionProps, motion } from "framer-motion";
 import { Contact2, StarsIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const BUTTONS_MOTION: Omit<HTMLMotionProps<"div">, "ref" | "className"> = {
   initial: { y: 20, opacity: 0 },
   animate: { y: 0, opacity: 1 },
   transition: { duration: 0.3, delay: 0.5 },
 };
+
+const buttonBaseClasses =
+  "flex cursor-pointer items-center rounded-sm p-2 text-xl font-bold transition-all duration-200 max-md:text-base";
+const iconClasses = "mr-2 size-6 max-md:size-6";
 
 export const HeroButtons = () => {
   const { t } = useTranslations();
@@ -18,9 +23,18 @@ export const HeroButtons = () => {
       <motion.div {...BUTTONS_MOTION}>
         <a
           href="#about-section"
-          className="bg-acc-yellow-2 hover:bg-off-w group flex cursor-pointer items-center rounded-sm border-2 border-black p-2 text-xl font-extrabold text-black transition-all duration-200 max-md:text-base"
+          className={cn(
+            buttonBaseClasses,
+            "bg-acc-yellow-2 hover:bg-off-w border-2 border-black font-extrabold text-black",
+            "group",
+          )}
         >
-          <StarsIcon className="mr-2 size-6 transition-all duration-200 group-hover:rotate-90 max-md:size-6" />
+          <StarsIcon
+            className={cn(
+              iconClasses,
+              "transition-transform duration-200 group-hover:rotate-90",
+            )}
+          />
           {t("start")}
         </a>
       </motion.div>
@@ -28,9 +42,13 @@ export const HeroButtons = () => {
       <motion.div {...BUTTONS_MOTION}>
         <a
           href="#contact-section"
-          className="text-off-w/85 border-off-w/85 bg-off-w/15 hover:bg-acc-yellow-2/15 hover:text-acc-yellow-2 hover:border-acc-yellow-2 flex cursor-pointer items-center rounded-sm border p-2 text-xl font-bold transition-all duration-200 max-md:text-base"
+          className={cn(
+            buttonBaseClasses,
+            "border-off-w/50 bg-off-w/15 text-off-w/85 border",
+            "hover:border-acc-yellow-2 hover:bg-acc-yellow-2/15 hover:text-acc-yellow-2",
+          )}
         >
-          <Contact2 className="mr-2 size-6 max-md:size-6" />
+          <Contact2 className={iconClasses} />
           {t("contact")}
         </a>
       </motion.div>
