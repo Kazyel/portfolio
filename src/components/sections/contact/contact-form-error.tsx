@@ -15,7 +15,7 @@ interface ContactFormErrorProps {
 
 export const ContactFormError = ({ message }: ContactFormErrorProps) => {
   return (
-    <motion.p {...FORM_ERROR_MOTION} className="text-[0.65rem] text-red-300/75 italic">
+    <motion.p {...FORM_ERROR_MOTION} className="text-[10px] text-red-300/75 italic">
       * {message}.
     </motion.p>
   );

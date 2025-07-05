@@ -15,8 +15,9 @@ export default function ContactSection() {
   return (
     <section
       id="contact-section"
-      className="min-h-section-height relative flex flex-col items-center justify-center overflow-clip bg-black/75 max-xl:py-10 max-lg:scroll-mt-[56px]"
+      className="min-h-section-height relative flex items-center justify-center gap-x-20 gap-y-6 overflow-clip bg-black/75 px-8 max-xl:py-10 max-lg:scroll-mt-[56px] max-lg:flex-col"
     >
+      {/* Animated background overlays */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -64,38 +65,36 @@ export default function ContactSection() {
         />
       </motion.div>
 
-      <div className="flex w-full items-center justify-center gap-x-20 gap-y-6 px-8 max-lg:flex-col">
-        <div className="z-10 flex w-[600px] flex-col gap-y-6 max-lg:w-full max-lg:gap-y-4 max-md:gap-y-2 sm:items-center">
-          <TextAnimate
-            as="h1"
-            className="text-off-w text-8xl font-extrabold tracking-tighter max-lg:text-5xl max-md:text-[2.75rem]"
-            delay={0.15}
-            animation="slideRight"
-            once
-          >
-            This journey ends here.
-          </TextAnimate>
+      <div className="z-10 flex w-[600px] flex-col gap-y-6 max-lg:w-full max-lg:gap-y-4 max-md:gap-y-2 sm:items-center">
+        <TextAnimate
+          as="h1"
+          className="text-off-w text-8xl font-extrabold tracking-tighter max-lg:text-5xl max-md:text-[2.75rem]"
+          delay={0.15}
+          animation="slideRight"
+          once
+        >
+          This journey ends here.
+        </TextAnimate>
 
-          <TextAnimate
-            as="h2"
-            by="line"
-            className="text-acc-yellow-2 text-5xl max-lg:text-3xl max-md:text-3xl"
-            delay={0.75}
-            animation="slideRight"
-            once
-          >
-            Yet, ours yearns to begin.
-          </TextAnimate>
+        <TextAnimate
+          as="h2"
+          by="line"
+          className="text-acc-yellow-2 text-5xl max-lg:text-3xl max-md:text-3xl"
+          delay={0.75}
+          animation="slideRight"
+          once
+        >
+          Yet, ours yearns to begin.
+        </TextAnimate>
 
-          <div className="text-off-w/60 text-lg font-extralight tracking-wide italic max-lg:text-base max-md:text-base">
-            <TextAnimate delay={1.5} duration={1} by="line" animation="blurIn" once>
-              A blade stays sheathed — until its purpose awakens...
-            </TextAnimate>
-          </div>
+        <div className="text-off-w/60 text-lg font-extralight tracking-wide italic max-lg:text-base max-md:text-base">
+          <TextAnimate delay={1.5} duration={1} by="line" animation="blurIn" once>
+            A blade stays sheathed — until its purpose awakens...
+          </TextAnimate>
         </div>
-
-        <ContactForm />
       </div>
+
+      <ContactForm />
     </section>
   );
 }

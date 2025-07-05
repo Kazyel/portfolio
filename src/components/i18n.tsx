@@ -7,7 +7,6 @@ import { localeAtom } from "@/lib/store/language";
 interface TranslationsContextType {
   t: (key: string) => string;
   locale: string;
-  isLoading: boolean;
 }
 
 const TranslationsContext = createContext<TranslationsContextType | null>(null);
@@ -21,9 +20,8 @@ export function TranslationsProvider({
   initialMessages: any;
   initialLocale: string;
 }) {
-  const [locale, setLocale] = useAtom(localeAtom);
+  const [locale, _] = useAtom(localeAtom);
   const [messages, setMessages] = useState(initialMessages);
-  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     document.cookie = `locale=${locale}; path=/; max-age=${60 * 60 * 24 * 365}`;
@@ -31,15 +29,12 @@ export function TranslationsProvider({
 
   useEffect(() => {
     if (locale !== initialLocale) {
-      setIsLoading(true);
       const loadMessages = async () => {
         try {
           const newMessages = await import(`../lib/i18n/messages/${locale}.json`);
           setMessages(newMessages.default);
         } catch (error) {
           console.error("Failed to load messages:", error);
-        } finally {
-          setIsLoading(false);
         }
       };
       loadMessages();
@@ -49,7 +44,7 @@ export function TranslationsProvider({
   const t = (key: string) => messages[key] || key;
 
   return (
-    <TranslationsContext.Provider value={{ t, locale, isLoading }}>
+    <TranslationsContext.Provider value={{ t, locale }}>
       {children}
     </TranslationsContext.Provider>
   );

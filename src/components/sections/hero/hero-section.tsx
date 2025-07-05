@@ -60,7 +60,7 @@ export default async function HeroSection() {
               delay={0.15}
               once
             >
-              I'm Mateus Mascarelo,
+              {t("mateus")}
             </TextAnimate>
 
             <TextAnimate
@@ -70,7 +70,7 @@ export default async function HeroSection() {
               animation="fadeIn"
               once
             >
-              More than a web developer.
+              {t("more")}
             </TextAnimate>
           </div>
 

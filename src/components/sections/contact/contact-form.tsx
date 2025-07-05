@@ -1,23 +1,16 @@
 "use client";
 
-// Library Components
 import Link from "next/link";
 import { type HTMLMotionProps, motion } from "framer-motion";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
-
-// Helpers
 import { cn } from "@/lib/utils";
 import { submitForm } from "@/lib/actions/email-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { type EmailFormSchema, emailSchema } from "@/lib/validations/form";
-
-// Icons
 import { SiGithub } from "@icons-pack/react-simple-icons";
 import { Loader2, Send } from "lucide-react";
 import { SiLinkedin } from "@/components/svgs/SiLinkedIn";
-
-// UI Components
 import { ContactFormField } from "@/components/sections/contact/contact-form-field";
 import { ShineBorder } from "@/components/ui/shine-border";
 
@@ -95,7 +88,8 @@ export const ContactForm = () => {
             <Loader2 className="size-6 animate-spin" />
           ) : (
             <>
-              <p>Send Message</p> <Send className="size-5" />
+              <p>Send Message</p>
+              <Send className="size-5" />
             </>
           )}
         </button>
@@ -109,7 +103,7 @@ export const ContactForm = () => {
           className="border-off-w/30 group hover:border-off-w hover:bg-off-w flex grow cursor-pointer items-center justify-center gap-x-2 rounded-sm border p-2 transition-all duration-200"
         >
           <SiLinkedin className="text-off-w/65 size-5 shrink-0 transition-all duration-200 group-hover:text-black" />
-          <p className="trasition-all text-off-w/65 text-sm font-semibold duration-200 group-hover:text-black">
+          <p className="text-off-w/65 text-sm font-semibold transition-all duration-200 group-hover:text-black">
             LinkedIn
           </p>
         </Link>
@@ -121,7 +115,7 @@ export const ContactForm = () => {
           className="border-off-w/30 group hover:border-off-w hover:bg-off-w flex grow cursor-pointer items-center justify-center gap-x-2 rounded-sm border p-2 transition-all duration-200"
         >
           <SiGithub className="text-off-w/65 size-5 shrink-0 transition-all duration-200 group-hover:text-black" />
-          <p className="trasition-all text-off-w/65 text-sm font-semibold duration-200 group-hover:text-black">
+          <p className="text-off-w/65 text-sm font-semibold transition-all duration-200 group-hover:text-black">
             GitHub
           </p>
         </Link>
