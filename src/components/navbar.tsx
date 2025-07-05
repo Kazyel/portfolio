@@ -99,6 +99,8 @@ export default function Navbar() {
   };
 
   const handleLinkClick = (linkId: string) => {
+    const currentSection = document.querySelector(`#${linkId}`);
+    currentSection?.scrollIntoView({ behavior: "smooth" });
     setActiveSection(linkId);
     setIsMenuOpen(false);
   };
@@ -134,14 +136,13 @@ export default function Navbar() {
         className="relative flex flex-1 items-center justify-center gap-x-8 max-md:hidden"
       >
         {NAV_LINKS.map((link) => (
-          <Link
+          <button
             key={link.id}
-            href={`#${link.id}`}
             ref={(el) => {
               if (el) linkRefs.current[link.id] = el;
             }}
             className={cn(
-              "px-2 text-xs font-medium transition-colors duration-150",
+              "cursor-pointer px-2 text-xs font-medium transition-colors duration-150",
               currentStyles.link,
             )}
             onClick={() => handleLinkClick(link.id)}
@@ -149,7 +150,7 @@ export default function Navbar() {
             onMouseLeave={() => setHoveredLink(null)}
           >
             {link.name}
-          </Link>
+          </button>
         ))}
 
         {/* Animated Underline */}
