@@ -31,7 +31,7 @@ export function TranslationsProvider({
     if (locale !== initialLocale) {
       const loadMessages = async () => {
         try {
-          const newMessages = await import(`../lib/i18n/messages/${locale}.json`);
+          const newMessages = await import(`@/lib/i18n/messages/${locale}.json`);
           setMessages(newMessages.default);
         } catch (error) {
           console.error("Failed to load messages:", error);

@@ -13,6 +13,14 @@ export async function getTranslations(locale: string) {
 
 export async function createTranslator(messages: any) {
   return function t(key: string): string {
-    return messages[key] || key;
+    const keys = key.split(".");
+    let value = messages;
+
+    for (const k of keys) {
+      value = value?.[k];
+      if (value === undefined) break;
+    }
+
+    return value !== undefined ? value : key;
   };
 }

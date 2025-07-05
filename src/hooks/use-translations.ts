@@ -1,4 +1,4 @@
-import { useClientTranslations } from "@/components/i18n";
+import { useClientTranslations } from "@/components/i18n-provider";
 import { getServerLocale } from "@/lib/i18n/locale";
 import { createTranslator, getTranslations } from "@/lib/i18n/translations";
 

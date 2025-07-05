@@ -8,6 +8,8 @@ export async function updateLocale(locale: string) {
   cookieStore.set("locale", locale, {
     path: "/",
     maxAge: 60 * 60 * 24 * 365,
+    sameSite: "lax",
+    secure: process.env.NODE_ENV === "production",
   });
 
   revalidatePath("/");

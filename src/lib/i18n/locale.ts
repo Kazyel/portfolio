@@ -14,13 +14,17 @@ export async function getServerLocale(): Promise<string> {
     const headersList = await headers();
     const acceptLanguage = headersList.get("accept-language");
 
-    if (acceptLanguage?.includes("pt")) {
-      return "pt";
+    if (
+      acceptLanguage?.includes("pt") ||
+      acceptLanguage?.includes("pt-BR") ||
+      acceptLanguage?.includes("br")
+    ) {
+      return "pt-br";
     }
 
-    return "en";
+    return "en-us";
   } catch (error) {
     console.error("Error getting server locale:", error);
-    return "en";
+    return "en-us";
   }
 }

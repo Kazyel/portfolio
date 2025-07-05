@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
-import JotaiProvider from "@/components/jotai";
-import { TranslationsProvider } from "@/components/i18n";
+import JotaiProvider from "@/components/jotai-provider";
+import { TranslationsProvider } from "@/components/i18n-provider";
 import { Toaster } from "@/components/ui/sonner";
 
 import "@fontsource-variable/noto-sans-jp";
