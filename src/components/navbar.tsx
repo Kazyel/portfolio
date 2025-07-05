@@ -5,7 +5,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Menu } from "lucide-react";
 import Link from "next/link";
-import useNavbarLogic from "@/lib/hooks/use-navbar-logic";
+import useNavbarLogic from "@/hooks/use-navbar-logic";
 import LanguageSwitcher from "./language-switcher";
 
 import {
