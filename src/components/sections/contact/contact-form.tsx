@@ -5,7 +5,7 @@ import { type HTMLMotionProps, motion } from "framer-motion";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
-import { submitForm } from "@/lib/actions/email-form";
+import { submitForm } from "@/app/actions/email-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { type EmailFormSchema, emailSchema } from "@/lib/validations/form";
 import { SiGithub } from "@icons-pack/react-simple-icons";

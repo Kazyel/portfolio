@@ -2,12 +2,17 @@
 
 export async function getTranslations(locale: string) {
   try {
-    const messages = await import(`../i18n/messages/${locale}.json`);
-    return messages.default;
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_SITE_URL}/messages/${locale}.json`,
+    );
+    const messages = await res.json();
+    return messages;
   } catch (error) {
     console.error(`Failed to load translations for locale: ${locale}`, error);
-    const fallback = await import(`../i18n/messages/en-us.json`);
-    return fallback.default;
+    const fallbackRes = await fetch(
+      `${process.env.NEXT_PUBLIC_SITE_URL}/messages/en-us.json`,
+    );
+    return fallbackRes.json();
   }
 }
 

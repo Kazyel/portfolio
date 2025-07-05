@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { localeAtom } from "@/lib/store/language";
-import { updateLocale } from "@/lib/actions/update-language";
+import { updateLocale } from "@/app/actions/update-language";
 import { useAtom } from "jotai";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
