@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "@/hooks/use-translations";
+import { useTranslations } from "next-intl";
 import { type HTMLMotionProps, motion } from "framer-motion";
 import { Contact2, StarsIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -16,7 +16,7 @@ const buttonBaseClasses =
 const iconClasses = "mr-2 size-6 max-md:size-6";
 
 export const HeroButtons = () => {
-  const { t } = useTranslations();
+  const t = useTranslations("Hero");
 
   return (
     <div className="flex flex-wrap gap-x-6 self-start max-lg:self-center max-sm:gap-y-4">

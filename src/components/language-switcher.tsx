@@ -1,11 +1,10 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { localeAtom } from "@/lib/store/language";
-import { updateLocale } from "@/app/actions/update-language";
-import { useAtom } from "jotai";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
+
+import { useRouter } from "next/navigation";
+import { useTransition } from "react";
 
 interface LanguageSwitcherProps {
   currentStyles: {
@@ -18,13 +17,11 @@ interface LanguageSwitcherProps {
 }
 
 export default function LanguageSwitcher({ currentStyles }: LanguageSwitcherProps) {
-  const [locale, setLocale] = useAtom(localeAtom);
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
 
-  const handleLanguageChange = async (newLocale: string) => {
-    setLocale(newLocale);
-    await updateLocale(newLocale);
+  const changeLocale = async (newLocale: string) => {
+    document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=${60 * 60 * 24 * 365}`;
     router.refresh();
   };
 
@@ -51,12 +48,8 @@ export default function LanguageSwitcher({ currentStyles }: LanguageSwitcherProp
 
       {isOpen && (
         <div className="flex gap-x-2">
-          <span className="text-xl" onClick={() => handleLanguageChange("en-us")}>
-            🇺🇸
-          </span>
-          <span className="text-xl" onClick={() => handleLanguageChange("pt-br")}>
-            🇧🇷
-          </span>
+          <button onClick={() => changeLocale("en")}>🇺🇸 English</button>
+          <button onClick={() => changeLocale("pt")}>🇧🇷 Português</button>
         </div>
       )}
     </div>

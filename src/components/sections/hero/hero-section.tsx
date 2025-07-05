@@ -1,6 +1,5 @@
 import { cn } from "@/lib/utils";
-import { getServerTranslator } from "@/hooks/use-translations";
-
+import { useTranslations } from "next-intl";
 import { TextAnimate } from "@/components/ui/text-animate";
 import { HeroButtons } from "@/components/sections/hero/hero-buttons";
 import AnimatedGradientBackground from "@/components/ui/animated-gradient-background";
@@ -15,8 +14,8 @@ const imageClasses = "pointer-events-none absolute opacity-35";
 const textContainerClasses = "flex flex-col lg:items-start";
 const textBaseClasses = "tracking-tighter text-pretty max-sm:leading-10";
 
-export default async function HeroSection() {
-  const t = await getServerTranslator();
+export default function HeroSection() {
+  const t = useTranslations("Hero");
 
   return (
     <section id="hero-section" className={sectionClasses}>
