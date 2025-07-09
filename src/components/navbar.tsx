@@ -31,7 +31,7 @@ const UNDERLINE_TIMING = {
   exit: { opacity: 0, x: 250, width: 0 },
 };
 
-const MOBILE_NAV_ANIMATION = {
+const MOBILE_NAV_ANIMATION: Omit<HTMLMotionProps<"div">, "ref" | "className"> = {
   initial: { opacity: 0, y: -20 },
   animate: { opacity: 1, y: 0 },
   exit: { opacity: 0 },

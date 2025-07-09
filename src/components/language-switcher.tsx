@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, type HTMLMotionProps, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -18,7 +18,7 @@ interface LanguageSwitcherProps {
   };
 }
 
-const SWITCHER_ANIMATION = {
+const SWITCHER_ANIMATION: Omit<HTMLMotionProps<"div">, "ref" | "className"> = {
   initial: { opacity: 0, y: -25 },
   transition: {
     type: "spring" as const,
