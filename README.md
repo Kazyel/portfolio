@@ -2,7 +2,7 @@
 
 A modern, responsive portfolio website inspired by Japanese aesthetics. Built with cutting-edge web technologies to showcase my journey, projects and skills with elegance and simplicity.
 
-## ✨ Features
+## ✨ Key Features
 
 - **🎌 Japanese-Inspired Design** - Clean and minimalist design with a touch of Japanese aesthetics
 - **📱 Responsive** - Optimized for desktop and mobile devices
@@ -30,7 +30,7 @@ A modern, responsive portfolio website inspired by Japanese aesthetics. Built wi
 <div align="center">
   <p>Made with ❤️ and Next.js, inspired by 🇯🇵</p> 
   <p>
-    <a href="portfolio-pi-pied-48.vercel.app/ ">Live Demo</a> •
+    <a href="portfolio-pi-pied-48.vercel.app/ ">Take a look</a> •
     <a href="mailto:m.mascarelo@gmail.com">Contact</a> •
     <a href="https://twitter.com/MattMascarelo">Twitter</a>
   </p>
