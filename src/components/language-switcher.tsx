@@ -32,8 +32,8 @@ const SWITCHER_ANIMATION = {
 
 export default function LanguageSwitcher({ currentStyles }: LanguageSwitcherProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const router = useRouter();
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent | TouchEvent) => {

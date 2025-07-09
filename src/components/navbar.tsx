@@ -20,7 +20,7 @@ import {
   MOBILE_NAVBAR_LIGHT,
 } from "@/lib/constants/navbar";
 
-const UNDERLINE_ANIMATION = {
+const UNDERLINE_TIMING = {
   initial: { width: 0, opacity: 0, x: 250 },
   transition: {
     type: "spring" as const,
@@ -29,6 +29,18 @@ const UNDERLINE_ANIMATION = {
     mass: 0.5,
   },
   exit: { opacity: 0, x: 250, width: 0 },
+};
+
+const MOBILE_NAV_ANIMATION = {
+  initial: { opacity: 0, y: -20 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0 },
+  transition: {
+    type: "spring",
+    stiffness: 500,
+    damping: 35,
+    mass: 0.5,
+  },
 };
 
 export default function Navbar() {
@@ -79,7 +91,7 @@ export default function Navbar() {
   );
 
   const underlineAnimation: Omit<HTMLMotionProps<"span">, "ref" | "className"> = {
-    ...UNDERLINE_ANIMATION,
+    ...UNDERLINE_TIMING,
     animate: {
       x: underlineProps.x,
       width: underlineProps.width,
@@ -186,15 +198,7 @@ export default function Navbar() {
             <AnimatePresence>
               {isMenuOpen && (
                 <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 500,
-                    damping: 35,
-                    mass: 0.5,
-                  }}
+                  {...MOBILE_NAV_ANIMATION}
                   className={cn(
                     "absolute top-12 left-0 flex flex-col gap-y-4 rounded-md border border-black/65 p-3 shadow-md",
                     currentStyles.mobileNavbar,
