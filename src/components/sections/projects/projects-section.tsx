@@ -18,7 +18,7 @@ const ANIMATE_PRESENCE: Omit<HTMLMotionProps<"div">, "ref" | "className"> = {
 
 const sectionClasses = cn(
   "min-h-section-height relative flex flex-col items-center justify-center overflow-clip bg-red-950/50",
-  "max-lg:scroll-mt-[56px]",
+  "max-lg:scroll-mt-[52px]",
 );
 
 const motionContainerClasses = cn(

@@ -84,7 +84,8 @@ export default function LanguageSwitcher({ currentStyles }: LanguageSwitcherProp
           <motion.div
             {...SWITCHER_ANIMATION}
             className={cn(
-              "bg-off-w absolute -bottom-24 flex flex-col gap-y-2 rounded-sm border border-black/65 p-2.5 text-sm font-medium",
+              "bg-off-w absolute top-12 flex flex-col gap-y-2 rounded-sm border border-black/65 p-2.5 text-sm font-medium",
+              "max-md:p-2",
               currentStyles.mobileNavbar,
             )}
           >

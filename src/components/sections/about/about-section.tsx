@@ -42,7 +42,7 @@ const fadeGradientClasses = cn(
 
 const sectionClasses = cn(
   "min-h-section-height bg-off-w relative flex flex-col items-center justify-center overflow-clip",
-  "max-xl:py-10 max-lg:scroll-mt-[56px]",
+  "max-xl:py-10 max-lg:scroll-mt-[52px]",
 );
 
 interface LanguageCardProps {

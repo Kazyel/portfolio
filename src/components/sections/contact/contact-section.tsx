@@ -13,7 +13,7 @@ const BACKGROUND_ANIMATION: Omit<HTMLMotionProps<"div">, "ref" | "className"> = 
 
 const sectionClasses = cn(
   "min-h-section-height relative flex items-center justify-center gap-x-20 gap-y-6 overflow-clip bg-black/75 px-8",
-  "max-xl:py-10 max-lg:scroll-mt-[56px] max-lg:flex-col",
+  "max-xl:py-10 max-lg:scroll-mt-[52px] max-lg:flex-col",
 );
 
 const samuraiBgClasses = cn("mx-auto opacity-15 grayscale");

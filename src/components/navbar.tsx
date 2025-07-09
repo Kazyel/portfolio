@@ -209,7 +209,7 @@ export default function Navbar() {
                       key={link.id}
                       href={`#${link.id}`}
                       className={cn(
-                        "text-xs font-medium transition-colors duration-150 md:text-sm",
+                        "text-sm font-medium transition-colors duration-150 md:text-sm",
                         currentStyles.mobileLink,
                       )}
                       onClick={() => handleLinkClick(link.id)}
