@@ -5,7 +5,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Menu } from "lucide-react";
 import Link from "next/link";
-import useNavbarLogic from "@/hooks/use-navbar-logic";
+import useNavbar from "@/hooks/use-navbar";
 import LanguageSwitcher from "./language-switcher";
 
 import {
@@ -21,14 +21,14 @@ import {
 } from "@/lib/constants/navbar";
 
 const UNDERLINE_ANIMATION = {
-  initial: { width: 0, opacity: 0 },
+  initial: { width: 0, opacity: 0, x: 250 },
   transition: {
     type: "spring" as const,
     stiffness: 500,
     damping: 35,
     mass: 0.5,
   },
-  exit: { opacity: 0 },
+  exit: { opacity: 0, x: 250, width: 0 },
 };
 
 export default function Navbar() {
@@ -44,7 +44,7 @@ export default function Navbar() {
     linkRefs,
     setHoveredLink,
     setActiveSection,
-  } = useNavbarLogic();
+  } = useNavbar();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -100,8 +100,8 @@ export default function Navbar() {
 
   const handleLinkClick = (linkId: string) => {
     const currentSection = document.querySelector(`#${linkId}`);
-    currentSection?.scrollIntoView({ behavior: "smooth" });
     setActiveSection(linkId);
+    currentSection?.scrollIntoView({ behavior: "smooth" });
     setIsMenuOpen(false);
   };
 
@@ -110,24 +110,24 @@ export default function Navbar() {
       id="navbar"
       ref={navbarRef}
       className={cn(
-        "fixed top-0 z-50 flex h-14 w-full items-center",
+        "fixed top-0 z-50 flex h-13 w-full items-center",
         "max-md:justify-between max-md:px-4 max-md:pl-10",
         "ease border-b border-transparent backdrop-blur-none transition-all duration-100",
-        isScrolled && "border-stone-700/70 backdrop-blur-lg",
+        isScrolled && "border-stone-700/70 backdrop-blur-xl",
       )}
     >
       {/* Logo */}
       <div className="flex flex-1 justify-end max-md:flex-none">
-        <Link
-          href="#hero-section"
+        <button
           className={cn(
-            "relative border-l-2 px-2 text-lg font-extrabold tracking-tighter transition-colors duration-150",
+            "relative cursor-pointer border-l-2 px-2 text-lg font-extrabold tracking-tighter transition-colors duration-150",
             "before:font-jp before:absolute before:-left-7 before:text-lg before:transition-all before:duration-150 before:content-['新']",
             currentStyles.link,
           )}
+          onClick={() => handleLinkClick("hero-section")}
         >
           Kazyel
-        </Link>
+        </button>
       </div>
 
       {/* Desktop Navigation */}
