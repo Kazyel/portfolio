@@ -1,10 +1,12 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { useState } from "react";
-
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { useTransition } from "react";
+
+import { BrazilFlag } from "./svgs/BrazilFlag";
+import { USFlag } from "./svgs/USFlag";
 
 interface LanguageSwitcherProps {
   currentStyles: {
@@ -16,9 +18,40 @@ interface LanguageSwitcherProps {
   };
 }
 
+const SWITCHER_ANIMATION = {
+  initial: { opacity: 0, y: -25 },
+  transition: {
+    type: "spring" as const,
+    stiffness: 500,
+    damping: 35,
+    mass: 0.5,
+  },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0 },
+};
+
 export default function LanguageSwitcher({ currentStyles }: LanguageSwitcherProps) {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent | TouchEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener("touchstart", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, [isOpen]);
 
   const changeLocale = async (newLocale: string) => {
     document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=${60 * 60 * 24 * 365}`;
@@ -26,7 +59,7 @@ export default function LanguageSwitcher({ currentStyles }: LanguageSwitcherProp
   };
 
   return (
-    <div className="relative flex items-center gap-2">
+    <div className="relative" ref={dropdownRef}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -46,12 +79,38 @@ export default function LanguageSwitcher({ currentStyles }: LanguageSwitcherProp
         ></path>
       </svg>
 
-      {isOpen && (
-        <div className="flex gap-x-2">
-          <button onClick={() => changeLocale("en")}>🇺🇸 English</button>
-          <button onClick={() => changeLocale("pt")}>🇧🇷 Português</button>
-        </div>
-      )}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            {...SWITCHER_ANIMATION}
+            className={cn(
+              "bg-off-w absolute -bottom-24 flex flex-col gap-y-2 rounded-sm border border-black/65 p-2.5 text-sm font-medium",
+              currentStyles.mobileNavbar,
+            )}
+          >
+            <button
+              className={cn(
+                "flex cursor-pointer items-center gap-x-1.5",
+                currentStyles.mobileLink,
+              )}
+              onClick={() => changeLocale("en")}
+            >
+              <USFlag />
+              English
+            </button>
+            <button
+              className={cn(
+                "flex cursor-pointer items-center gap-x-1.5",
+                currentStyles.mobileLink,
+              )}
+              onClick={() => changeLocale("pt")}
+            >
+              <BrazilFlag />
+              Português
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

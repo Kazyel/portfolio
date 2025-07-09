@@ -189,7 +189,12 @@ export default function Navbar() {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.25 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 500,
+                    damping: 35,
+                    mass: 0.5,
+                  }}
                   className={cn(
                     "absolute top-12 left-0 flex flex-col gap-y-4 rounded-md border border-black/65 p-3 shadow-md",
                     currentStyles.mobileNavbar,
