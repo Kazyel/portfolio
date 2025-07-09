@@ -20,17 +20,6 @@ import {
   MOBILE_NAVBAR_LIGHT,
 } from "@/lib/constants/navbar";
 
-const UNDERLINE_TIMING = {
-  initial: { width: 0, opacity: 0, x: 250 },
-  transition: {
-    type: "spring" as const,
-    stiffness: 500,
-    damping: 35,
-    mass: 0.5,
-  },
-  exit: { opacity: 0, x: 250, width: 0 },
-};
-
 const MOBILE_NAV_ANIMATION: Omit<HTMLMotionProps<"div">, "ref" | "className"> = {
   initial: { opacity: 0, y: -20 },
   animate: { opacity: 1, y: 0 },
@@ -59,6 +48,7 @@ export default function Navbar() {
   } = useNavbar();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [startingPoint, setStartingPoint] = useState(0);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -79,6 +69,16 @@ export default function Navbar() {
     };
   }, [isMenuOpen]);
 
+  useEffect(() => {
+    const activeEl = linkRefs.current[activeSection];
+    const container = navbarLinksRef.current;
+    if (!activeEl || !container) return;
+
+    const containerRect = container.getBoundingClientRect();
+    const activeElRect = activeEl.getBoundingClientRect();
+    setStartingPoint(activeElRect.left - containerRect.left);
+  }, [activeSection]);
+
   const currentStyles = useMemo(
     () => ({
       link: isOverlapping ? LINK_DARK : LINK_LIGHT,
@@ -89,15 +89,6 @@ export default function Navbar() {
     }),
     [isOverlapping],
   );
-
-  const underlineAnimation: Omit<HTMLMotionProps<"span">, "ref" | "className"> = {
-    ...UNDERLINE_TIMING,
-    animate: {
-      x: underlineProps.x,
-      width: underlineProps.width,
-      opacity: activeSection ? 1 : 0,
-    },
-  };
 
   const getUnderlineColor = () => {
     const isHovered = hoveredLink === activeSection;
@@ -115,6 +106,26 @@ export default function Navbar() {
     setActiveSection(linkId);
     currentSection?.scrollIntoView({ behavior: "smooth" });
     setIsMenuOpen(false);
+  };
+
+  const underlineAnimation: Omit<HTMLMotionProps<"span">, "ref" | "className"> = {
+    initial: {
+      width: 0,
+      opacity: 0,
+      x: startingPoint,
+    },
+    transition: {
+      type: "spring" as const,
+      stiffness: 500,
+      damping: 35,
+      mass: 0.5,
+    },
+    animate: {
+      x: underlineProps.x,
+      width: underlineProps.width,
+      opacity: activeSection ? 1 : 0,
+    },
+    exit: { opacity: 0, x: startingPoint, width: 0 },
   };
 
   return (
