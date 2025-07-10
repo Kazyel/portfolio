@@ -4,14 +4,19 @@ import type { CustomMotion } from "@/lib/types";
 
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
-
 import { Contact2, StarsIcon } from "lucide-react";
 import { motion } from "framer-motion";
 
 const BUTTONS_MOTION: CustomMotion<"div"> = {
-  initial: { y: 20, opacity: 0 },
+  initial: { y: -10, opacity: 0 },
+  transition: {
+    type: "spring" as const,
+    stiffness: 500,
+    damping: 35,
+    mass: 0.5,
+    delay: 0.6,
+  },
   animate: { y: 0, opacity: 1 },
-  transition: { duration: 0.3, delay: 0.5 },
 };
 
 const buttonBaseClasses =
@@ -22,45 +27,48 @@ const iconBaseClasses = "mr-2 size-6 max-md:size-6";
 export const HeroButtons = () => {
   const t = useTranslations("Hero");
 
+  const handleClick = (section: string) => {
+    const sectionEl = document.getElementById(section);
+    if (!sectionEl) return;
+    sectionEl?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <div
+    <motion.div
+      {...BUTTONS_MOTION}
       className={cn(
         "flex flex-wrap gap-x-6 self-start",
         "max-lg:self-center max-sm:gap-y-4",
       )}
     >
-      <motion.div {...BUTTONS_MOTION}>
-        <a
-          href="#about-section"
+      <button
+        onClick={() => handleClick("about-section")}
+        className={cn(
+          buttonBaseClasses,
+          "bg-acc-yellow-2 hover:bg-off-w border-2 border-black font-extrabold text-black",
+          "group",
+        )}
+      >
+        <StarsIcon
           className={cn(
-            buttonBaseClasses,
-            "bg-acc-yellow-2 hover:bg-off-w border-2 border-black font-extrabold text-black",
-            "group",
+            iconBaseClasses,
+            "transition-transform duration-200 group-hover:rotate-90",
           )}
-        >
-          <StarsIcon
-            className={cn(
-              iconBaseClasses,
-              "transition-transform duration-200 group-hover:rotate-90",
-            )}
-          />
-          {t("start")}
-        </a>
-      </motion.div>
+        />
+        {t("start")}
+      </button>
 
-      <motion.div {...BUTTONS_MOTION}>
-        <a
-          href="#contact-section"
-          className={cn(
-            buttonBaseClasses,
-            "border-off-w/50 bg-off-w/15 text-off-w/85 border",
-            "hover:border-acc-yellow-2 hover:bg-acc-yellow-2/15 hover:text-acc-yellow-2",
-          )}
-        >
-          <Contact2 className={iconBaseClasses} />
-          {t("contact")}
-        </a>
-      </motion.div>
-    </div>
+      <button
+        onClick={() => handleClick("contact-section")}
+        className={cn(
+          buttonBaseClasses,
+          "border-off-w/50 bg-off-w/15 text-off-w/85 border",
+          "hover:border-acc-yellow-2 hover:bg-acc-yellow-2/15 hover:text-acc-yellow-2",
+        )}
+      >
+        <Contact2 className={iconBaseClasses} />
+        {t("contact")}
+      </button>
+    </motion.div>
   );
 };

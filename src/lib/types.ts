@@ -21,7 +21,7 @@ export type ProjectType = {
   }[];
 };
 
-export type CustomMotion<T extends "div" | "span" | "p"> = Omit<
+export type CustomMotion<T extends "div" | "span" | "p" | "button"> = Omit<
   HTMLMotionProps<T>,
   "ref" | "className"
 >;
