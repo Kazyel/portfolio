@@ -1,17 +1,6 @@
-import { type IconType } from "@icons-pack/react-simple-icons";
+import type { ProjectType } from "../types";
 
 import LANGUAGES from "@/lib/constants/langs";
-
-export interface ProjectType {
-  title: string;
-  description: string;
-  body: string[];
-  repoLink: string;
-  languages: {
-    src: IconType;
-    alt: string;
-  }[];
-}
 
 export const projects: ProjectType[] = [
   {

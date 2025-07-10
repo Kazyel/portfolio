@@ -1,0 +1,27 @@
+import { IconType } from "@icons-pack/react-simple-icons";
+import { HTMLMotionProps } from "framer-motion";
+import { JSX, SVGProps } from "react";
+
+export type Socials<T extends string> = {
+  [K in T]: {
+    href: string;
+    icon: IconType | ((props: SVGProps<SVGSVGElement>) => JSX.Element);
+    text: string;
+  };
+};
+
+export type ProjectType = {
+  title: string;
+  description: string;
+  body: string[];
+  repoLink: string;
+  languages: {
+    src: IconType;
+    alt: string;
+  }[];
+};
+
+export type CustomMotion<T extends "div" | "span" | "p"> = Omit<
+  HTMLMotionProps<T>,
+  "ref" | "className"
+>;

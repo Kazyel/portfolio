@@ -1,16 +1,10 @@
-import type { ProjectType } from "@/lib/content/projects";
-import { ProjectTemplate } from "@/components/sections/projects/project-template";
+import type { ProjectType } from "@/lib/types";
+
+import { cn } from "@/lib/utils";
 import { useAtomValue, useSetAtom } from "jotai";
 import { currentProjectAtom, isProjectOpenAtom } from "@/lib/store/projects";
-import { cn } from "@/lib/utils";
 
-const containerClasses = cn("xl:max-h-[800px] 2xl:max-w-[1600px]");
-
-const buttonContainerClasses = cn("flex flex-col items-center justify-between");
-
-const backButtonClasses = cn(
-  "group text-off-w/75 mb-2 flex cursor-pointer items-center gap-1 self-start italic",
-);
+import { ProjectTemplate } from "@/components/sections/projects/project-template";
 
 const backButtonIconClasses = cn(
   "size-5 transition-all duration-200",
@@ -28,9 +22,14 @@ export const ProjectView = ({ ...props }: ProjectType) => {
   const handleProjectToggle = () => setIsProjectOpen((prev) => !prev);
 
   return (
-    <div className={containerClasses}>
-      <div className={buttonContainerClasses}>
-        <button className={backButtonClasses} onClick={handleProjectToggle}>
+    <div className={cn("xl:max-h-[800px] 2xl:max-w-[1600px]")}>
+      <div className={cn("flex flex-col items-center justify-between")}>
+        <button
+          className={cn(
+            "group text-off-w/75 mb-2 flex cursor-pointer items-center gap-1 self-start italic",
+          )}
+          onClick={handleProjectToggle}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

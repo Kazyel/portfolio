@@ -8,17 +8,20 @@ import Image from "next/image";
 const STATIC_COLOR = "#f3e5d7";
 const DARK_COLOR = "#00000033";
 
-const sectionClasses =
-  "min-h-section-height relative flex flex-col items-center justify-center overflow-hidden max-lg:px-8";
-const imageClasses = "pointer-events-none absolute opacity-35";
-const textContainerClasses = "flex flex-col lg:items-start";
+const imageBaseClasses = "pointer-events-none absolute opacity-35";
 const textBaseClasses = "tracking-tighter text-pretty max-sm:leading-10";
 
 export default function HeroSection() {
   const t = useTranslations("Hero");
 
   return (
-    <section id="hero-section" className={sectionClasses}>
+    <section
+      id="hero-section"
+      className={cn(
+        "min-h-section-height relative flex flex-col items-center justify-center overflow-hidden",
+        "max-lg:px-8",
+      )}
+    >
       <AnimatedGradientBackground
         containerClassName="max-lg:hidden"
         gradientStops={[45, 75, 100]}
@@ -29,7 +32,7 @@ export default function HeroSection() {
         src="/images/kanagawa.webp"
         alt="Kanagawa Wave"
         className={cn(
-          imageClasses,
+          imageBaseClasses,
           "kanagawa-animation bottom-0 w-full opacity-20 sepia",
         )}
         loading="eager"
@@ -41,7 +44,7 @@ export default function HeroSection() {
       <Image
         src="/images/pagoda.webp"
         alt="Pagoda"
-        className={cn(imageClasses, "pagoda-animation -bottom-52 max-lg:hidden")}
+        className={cn(imageBaseClasses, "pagoda-animation -bottom-52", "max-lg:hidden")}
         loading="eager"
         priority
         quality={85}
@@ -49,8 +52,8 @@ export default function HeroSection() {
         height={1080}
       />
 
-      <div className="relative z-10 flex flex-col gap-y-12 lg:p-4">
-        <div className={textContainerClasses}>
+      <div className={cn("relative z-10 flex flex-col gap-y-12", "lg:p-4")}>
+        <div className={cn("flex flex-col", "lg:items-start")}>
           <TextAnimate
             className={cn(
               textBaseClasses,

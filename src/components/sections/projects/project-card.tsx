@@ -1,48 +1,14 @@
-import type { ProjectType } from "@/lib/content/projects";
-import Image from "next/image";
+import type { ProjectType } from "@/lib/types";
+
+import { cn } from "@/lib/utils";
 import { memo } from "react";
 import { useSetAtom } from "jotai";
 import { isProjectOpenAtom, currentProjectAtom } from "@/lib/store/projects";
-import { cn } from "@/lib/utils";
+
 import { ShineBorder } from "@/components/ui/shine-border";
+import Image from "next/image";
 
 const SHINE_BORDER_COLOR = ["#9f0712cc", "#000000", "#9f071266"];
-
-const cardContainerClasses = cn(
-  "group relative grid h-[400px] w-[400px] cursor-pointer grid-cols-1 rounded-lg shadow-xl",
-  "max-2xl:h-[350px] max-2xl:w-[350px]",
-  "max-lg:h-[300px] max-lg:w-[300px]",
-  "max-md:h-[375px] max-md:w-[375px]",
-  "max-sm:h-[325px] max-sm:w-[325px]",
-);
-
-const imageContainerClasses = cn(
-  "border-off-w/25 col-span-full row-span-full flex flex-col overflow-hidden rounded-lg bg-stone-900",
-);
-
-const imageClasses = "col-span-full row-span-full rounded-lg brightness-90 sepia";
-
-const contentContainerClasses = cn(
-  "z-20 col-span-full row-span-full flex flex-col gap-2 self-end rounded-lg px-6 py-8",
-  "max-lg:px-4",
-);
-
-const titleClasses = cn(
-  "text-4xl font-bold tracking-tighter text-red-800 transition-all duration-200",
-  "group-hover:text-red-600",
-  "max-xl:text-3xl max-md:text-3xl",
-);
-
-const descriptionClasses = cn(
-  "text-off-w/75 transition-all duration-200",
-  "group-hover:text-off-w",
-  "max-2xl:text-sm",
-);
-
-const gradientOverlayClasses = cn(
-  "absolute bottom-0 left-0 z-10 h-full w-full rounded-lg bg-gradient-to-t from-black to-transparent opacity-100",
-  "transition-all duration-300 group-hover:opacity-90",
-);
 
 export const ProjectCard = memo(({ ...props }: ProjectType) => {
   const setCurrentProject = useSetAtom(currentProjectAtom);
@@ -57,8 +23,18 @@ export const ProjectCard = memo(({ ...props }: ProjectType) => {
   };
 
   return (
-    <div id="project-card" className={cardContainerClasses} onClick={openProject}>
-      <div className={imageContainerClasses}>
+    <div
+      id="project-card"
+      className={cn(
+        "group relative grid h-[400px] w-[400px] cursor-pointer grid-cols-1 rounded-lg shadow-xl",
+        "max-2xl:h-[350px] max-2xl:w-[350px]",
+        "max-lg:h-[300px] max-lg:w-[300px]",
+        "max-md:h-[375px] max-md:w-[375px]",
+        "max-sm:h-[325px] max-sm:w-[325px]",
+      )}
+      onClick={openProject}
+    >
+      <div className="border-off-w/25 col-span-full row-span-full flex flex-col overflow-hidden rounded-lg bg-stone-900">
         <Image
           src="https://images.unsplash.com/photo-1508504509543-5ca56440e013?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8amFwYW58ZW58MHx8MHx8fDA%3D"
           alt={`${props.title}-image`}
@@ -66,20 +42,44 @@ export const ProjectCard = memo(({ ...props }: ProjectType) => {
           height={500}
           loading="lazy"
           decoding="async"
-          className={imageClasses}
+          className="col-span-full row-span-full rounded-lg brightness-90 sepia"
         />
       </div>
 
-      <div className={contentContainerClasses}>
-        <h3 id="project-title" className={titleClasses}>
+      <div
+        className={cn(
+          "z-20 col-span-full row-span-full flex flex-col gap-2 self-end rounded-lg px-6 py-8",
+          "max-lg:px-4",
+        )}
+      >
+        <h3
+          id="project-title"
+          className={cn(
+            "text-4xl font-bold tracking-tighter text-red-800 transition-all duration-200",
+            "group-hover:text-red-600",
+            "max-xl:text-3xl max-md:text-3xl",
+          )}
+        >
           {props.title}
         </h3>
-        <p id="project-text" className={descriptionClasses}>
+        <p
+          id="project-text"
+          className={cn(
+            "text-off-w/75 transition-all duration-200",
+            "group-hover:text-off-w",
+            "max-2xl:text-sm",
+          )}
+        >
           {props.description}
         </p>
       </div>
 
-      <div className={gradientOverlayClasses}></div>
+      <div
+        className={cn(
+          "absolute bottom-0 left-0 z-10 h-full w-full rounded-lg bg-gradient-to-t from-black to-transparent opacity-100 transition-all duration-300",
+          "group-hover:opacity-90",
+        )}
+      ></div>
 
       <ShineBorder
         borderWidth={2}

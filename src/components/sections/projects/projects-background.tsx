@@ -1,14 +1,17 @@
 "use client";
 
-import Image from "next/image";
-import { HTMLMotionProps, motion } from "framer-motion";
+import type { CustomMotion } from "@/lib/types";
+
 import { useAtomValue } from "jotai";
 import { isProjectOpenAtom } from "@/lib/store/projects";
 import { cn } from "@/lib/utils";
 
+import Image from "next/image";
+import { motion } from "framer-motion";
+
 const URL_FLOWERS = "/images/higan-flowers.webp";
 
-const KOI_ANIMATION: Omit<HTMLMotionProps<"div">, "ref" | "className"> = {
+const KOI_MOTION: CustomMotion<"div"> = {
   initial: { x: 15, opacity: 0 },
   animate: { x: 0, opacity: 0.75 },
   exit: { x: 15, opacity: 0 },
@@ -129,7 +132,7 @@ export const ProjectsBackground = () => {
 
       {/* Koi Fish */}
       {isOpen && (
-        <motion.div {...KOI_ANIMATION} className={koiContainerClasses}>
+        <motion.div {...KOI_MOTION} className={koiContainerClasses}>
           <Image
             src="/images/fish.webp"
             alt="Fish"

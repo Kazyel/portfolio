@@ -1,12 +1,14 @@
 "use client";
 
+import type { CustomMotion } from "@/lib/types";
+
 import { cn } from "@/lib/utils";
-import { AnimatePresence, type HTMLMotionProps, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import { BrazilFlag } from "./svgs/BrazilFlag";
 import { USFlag } from "./svgs/USFlag";
+import { AnimatePresence, motion } from "framer-motion";
 
 interface LanguageSwitcherProps {
   currentStyles: {
@@ -18,7 +20,7 @@ interface LanguageSwitcherProps {
   };
 }
 
-const SWITCHER_ANIMATION: Omit<HTMLMotionProps<"div">, "ref" | "className"> = {
+const SWITCHER_ANIMATION: CustomMotion<"div"> = {
   initial: { opacity: 0, y: -25 },
   transition: {
     type: "spring" as const,

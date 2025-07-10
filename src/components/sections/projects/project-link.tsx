@@ -14,17 +14,6 @@ const defaultContainerClasses = cn(
   "self-end text-lg font-semibold italic",
 );
 
-const linkClasses = cn(
-  "text-off-w cursor-pointer tracking-wide transition-all duration-300",
-  "group-hover:text-off-w hover:drop-shadow-[0px_0px_12px_#f3e5d766]",
-  "max-md:text-xs",
-);
-
-const iconClasses = cn(
-  "fill-off-w/75 mb-[4px] size-4 transition-all duration-300",
-  "group-hover:fill-off-w group-hover:-translate-y-[2px]",
-);
-
 export const ProjectLink = ({ title, url, className }: ProjectLinkProps) => {
   return (
     <div
@@ -32,7 +21,15 @@ export const ProjectLink = ({ title, url, className }: ProjectLinkProps) => {
         className ? cn(containerBaseClasses, className) : defaultContainerClasses
       }
     >
-      <Link href={url} target="_blank" className={linkClasses}>
+      <Link
+        href={url}
+        target="_blank"
+        className={cn(
+          "text-off-w cursor-pointer tracking-wide transition-all duration-300",
+          "group-hover:text-off-w hover:drop-shadow-[0px_0px_12px_#f3e5d766]",
+          "max-md:text-xs",
+        )}
+      >
         <TextAnimate animation="slideUp" by="line" once>
           {title}
         </TextAnimate>
@@ -42,7 +39,10 @@ export const ProjectLink = ({ title, url, className }: ProjectLinkProps) => {
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
         fill="currentColor"
-        className={iconClasses}
+        className={cn(
+          "fill-off-w/75 mb-[4px] size-4 transition-all duration-300",
+          "group-hover:fill-off-w group-hover:-translate-y-[2px]",
+        )}
       >
         <path
           fillRule="evenodd"

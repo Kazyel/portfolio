@@ -1,12 +1,14 @@
 "use client";
+import type { CustomMotion } from "@/lib/types";
 
-import { AnimatePresence, type HTMLMotionProps, motion } from "framer-motion";
-import { useEffect, useMemo, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
-import { Menu } from "lucide-react";
-import Link from "next/link";
+import { useEffect, useMemo, useRef, useState } from "react";
 import useNavbar from "@/hooks/use-navbar";
+
+import Link from "next/link";
 import LanguageSwitcher from "./language-switcher";
+import { Menu } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 
 import {
   LINK_DARK,
@@ -20,7 +22,7 @@ import {
   MOBILE_NAVBAR_LIGHT,
 } from "@/lib/constants/navbar";
 
-const MOBILE_NAV_ANIMATION: Omit<HTMLMotionProps<"div">, "ref" | "className"> = {
+const MOBILE_NAV_ANIMATION: CustomMotion<"div"> = {
   initial: { opacity: 0, y: -20 },
   animate: { opacity: 1, y: 0 },
   exit: { opacity: 0 },
@@ -101,14 +103,14 @@ export default function Navbar() {
         : "bg-off-w";
   };
 
-  const handleLinkClick = (linkId: string) => {
+  const handleSectionTravel = (linkId: string) => {
     const currentSection = document.querySelector(`#${linkId}`);
     setActiveSection(linkId);
     currentSection?.scrollIntoView({ behavior: "smooth" });
     setIsMenuOpen(false);
   };
 
-  const underlineAnimation: Omit<HTMLMotionProps<"span">, "ref" | "className"> = {
+  const underlineAnimation: CustomMotion<"span"> = {
     initial: {
       width: 0,
       opacity: 0,
@@ -147,7 +149,7 @@ export default function Navbar() {
             "before:font-jp before:absolute before:-left-7 before:text-lg before:transition-all before:duration-150 before:content-['新']",
             currentStyles.link,
           )}
-          onClick={() => handleLinkClick("hero-section")}
+          onClick={() => handleSectionTravel("hero-section")}
         >
           Kazyel
         </button>
@@ -168,7 +170,7 @@ export default function Navbar() {
               "cursor-pointer px-2 text-xs font-medium transition-colors duration-150",
               currentStyles.link,
             )}
-            onClick={() => handleLinkClick(link.id)}
+            onClick={() => handleSectionTravel(link.id)}
             onMouseEnter={() => setHoveredLink(link.id)}
             onMouseLeave={() => setHoveredLink(null)}
           >
@@ -223,7 +225,7 @@ export default function Navbar() {
                         "text-sm font-medium transition-colors duration-150 md:text-sm",
                         currentStyles.mobileLink,
                       )}
-                      onClick={() => handleLinkClick(link.id)}
+                      onClick={() => handleSectionTravel(link.id)}
                     >
                       {link.name}
                     </Link>

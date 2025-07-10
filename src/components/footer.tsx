@@ -1,39 +1,42 @@
-import Image from "next/image";
-import Link from "next/link";
+import type { Socials } from "@/lib/types";
+
+import { cn } from "@/lib/utils";
+
 import { SiGithub, SiNextdotjs } from "@icons-pack/react-simple-icons";
 import { SiLinkedin } from "@/components/svgs/SiLinkedIn";
 import { LoveIcon } from "@/components/svgs/LoveIcon";
-import { cn } from "@/lib/utils";
 
-const footerClasses = cn(
-  "relative flex h-16 w-full items-center overflow-hidden border-t border-stone-700/75 bg-black/60",
-  "px-8 xl:px-16",
-);
+import Image from "next/image";
+import Link from "next/link";
 
 const dragonImageClasses = cn(
   "absolute -top-12 opacity-45 grayscale",
   "w-[360px] h-[160px]",
 );
 
-const builtWithContainerClasses = cn(
-  "text-off-w/85 z-10 flex flex-1 items-center",
-  "max-md:hidden",
-);
-
-const copyrightContainerClasses = cn(
-  "z-10 flex flex-1 flex-col items-center gap-y-0.5",
-  "max-md:items-start",
-);
-
-const socialLinksContainerClasses = cn(
-  "text-off-w/75 z-10 flex flex-1 items-center justify-end gap-x-3 text-xs",
-);
-
 const socialLinkClasses = cn("transition-colors duration-150 hover:text-off-w");
+
+const socialLinks: Socials<"linkedIn" | "github"> = {
+  github: {
+    href: "https://www.github.com/Kazyel",
+    icon: SiGithub,
+    text: "GitHub",
+  },
+  linkedIn: {
+    href: "https://www.linkedin.com/in/mateus-mascarelo/",
+    icon: SiLinkedin,
+    text: "LinkedIn",
+  },
+};
 
 export const Footer = () => {
   return (
-    <footer className={footerClasses}>
+    <footer
+      className={cn(
+        "relative flex h-16 w-full items-center overflow-hidden border-t border-stone-700/75 bg-black/60",
+        "px-8 xl:px-16",
+      )}
+    >
       {/* Right Dragon */}
       <Image
         src="/images/dragon.webp"
@@ -63,7 +66,7 @@ export const Footer = () => {
       />
 
       {/* Built With Section */}
-      <div className={builtWithContainerClasses}>
+      <div className={cn("text-off-w/85 z-10 flex flex-1 items-center", "max-md:hidden")}>
         <p className="text-xs">Built with</p>
         <LoveIcon className="text-off-w mx-1 size-5" />
         <p className="text-xs">and</p>
@@ -78,7 +81,12 @@ export const Footer = () => {
       </div>
 
       {/* Copyright Section */}
-      <div className={copyrightContainerClasses}>
+      <div
+        className={cn(
+          "z-10 flex flex-1 flex-col items-center gap-y-0.5",
+          "max-md:items-start",
+        )}
+      >
         <p className="text-off-w text-xs font-bold tracking-tighter">
           © {new Date().getFullYear()} • Kazyel
         </p>
@@ -86,24 +94,24 @@ export const Footer = () => {
       </div>
 
       {/* Social Links Section */}
-      <div className={socialLinksContainerClasses}>
-        <Link
-          href="https://github.com/Kazyel"
-          target="_blank"
-          rel="noreferrer"
-          className={socialLinkClasses}
-        >
-          <SiGithub className="size-6" />
-        </Link>
-        <p>●</p>
-        <Link
-          href="https://www.linkedin.com/in/kazyel/"
-          target="_blank"
-          rel="noreferrer"
-          className={socialLinkClasses}
-        >
-          <SiLinkedin className="size-6" />
-        </Link>
+      <div className="text-off-w/75 z-10 flex flex-1 items-center justify-end gap-x-3 text-xs">
+        {Object.entries(socialLinks)
+          .flatMap(([key, social], index) => [
+            <Link
+              key={key}
+              href={social.href}
+              target="_blank"
+              rel="noreferrer"
+              className={socialLinkClasses}
+            >
+              <social.icon className="size-6" />
+            </Link>,
+
+            index < Object.entries(socialLinks).length - 1 && (
+              <p key={`separator-${index}`}>●</p>
+            ),
+          ])
+          .filter(Boolean)}
       </div>
     </footer>
   );
