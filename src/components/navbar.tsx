@@ -221,17 +221,16 @@ export default function Navbar() {
                   )}
                 >
                   {NAV_LINKS.map((link) => (
-                    <Link
+                    <button
                       key={link.id}
-                      href={`#${link.id}`}
                       className={cn(
-                        "text-sm font-medium transition-colors duration-150 md:text-sm",
+                        "cursor-pointer self-start text-sm font-medium transition-colors duration-150",
                         currentStyles.mobileLink,
                       )}
                       onClick={() => handleSectionTravel(link.id)}
                     >
                       {t(link.name)}
-                    </Link>
+                    </button>
                   ))}
                 </motion.div>
               )}
