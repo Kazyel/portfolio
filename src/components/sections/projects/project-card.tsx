@@ -31,6 +31,7 @@ export const ProjectCard = memo(({ ...props }: ProjectType) => {
         "max-lg:h-[300px] max-lg:w-[300px]",
         "max-md:h-[375px] max-md:w-[375px]",
         "max-sm:h-[325px] max-sm:w-[325px]",
+        "max-xs:h-[300px] max-xs:w-[300px]",
       )}
       onClick={openProject}
     >

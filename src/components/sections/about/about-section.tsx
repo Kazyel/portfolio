@@ -95,8 +95,8 @@ export default function AboutSection() {
       )}
     >
       <MyInfo />
-      <TechStackMarquee />
       <BackgroundInkPaint />
+      <TechStackMarquee />
     </section>
   );
 }

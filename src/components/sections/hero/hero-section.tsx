@@ -10,6 +10,7 @@ const DARK_COLOR = "#00000033";
 
 const imageBaseClasses = "pointer-events-none absolute opacity-35";
 const textBaseClasses = "tracking-tighter text-pretty max-sm:leading-10";
+const mobileTextDisposition = "max-xs:text-left sm:max-lg:text-center";
 
 export default function HeroSection() {
   const t = useTranslations("Hero");
@@ -18,16 +19,17 @@ export default function HeroSection() {
     <section
       id="hero-section"
       className={cn(
-        "min-h-section-height relative flex flex-col items-center justify-center overflow-hidden",
-        "max-lg:px-8",
+        "min-h-section-height relative flex flex-col items-center justify-center overflow-hidden px-12",
+        "max-xs:px-6 max-sm:px-9",
       )}
     >
+      {/* Gradient Background */}
       <AnimatedGradientBackground
-        containerClassName="max-lg:hidden"
         gradientStops={[45, 75, 100]}
         gradientColors={[DARK_COLOR, STATIC_COLOR + "44", STATIC_COLOR]}
       />
 
+      {/* Background */}
       <Image
         src="/images/kanagawa.webp"
         alt="Kanagawa Wave"
@@ -52,15 +54,20 @@ export default function HeroSection() {
         height={1080}
       />
 
-      <div className={cn("relative z-10 flex flex-col gap-y-12", "lg:p-4")}>
-        <div className={cn("flex flex-col", "lg:items-start")}>
+      {/* Hero Content */}
+      <div className={cn("relative flex w-full flex-col gap-y-12", "xl:max-w-[1250px]")}>
+        <div className="w-full">
           <TextAnimate
             className={cn(
               textBaseClasses,
-              "text-acc-yellow xs:max-lg:text-center mb-4 text-[3.5rem] font-extrabold",
-              "max-xl:text-[3rem] max-md:text-[2.5rem] 2xl:text-[4rem]",
+              mobileTextDisposition,
+              "text-acc-yellow hero-shadow-1 mb-4 text-[3.5rem] font-extrabold",
+              "max-xs:text-[2rem] max-xl:text-[3rem] max-md:text-[2.5rem] 2xl:text-[4rem]",
             )}
+            as="h1"
             animation="slideDown"
+            delay={0.2}
+            by="text"
             once
           >
             {t("hello")}
@@ -69,11 +76,13 @@ export default function HeroSection() {
           <TextAnimate
             className={cn(
               textBaseClasses,
-              "hero-shadow-1 text-off-w xs:max-lg:text-center mb-4 text-[4rem] leading-[1em] font-semibold",
+              mobileTextDisposition,
+              "hero-shadow-2 text-off-w mb-4 text-[4rem] leading-[1em] font-semibold",
               "max-xs:text-[2.5rem] max-xl:text-[3.75rem] max-md:text-[3rem] 2xl:text-[5rem]",
             )}
             as="h2"
-            delay={0.15}
+            by="text"
+            delay={0.4}
             once
           >
             {t("mateus")}
@@ -82,18 +91,21 @@ export default function HeroSection() {
           <TextAnimate
             className={cn(
               textBaseClasses,
-              "hero-shadow-2 text-off-w xs:max-lg:text-center text-7xl font-extrabold",
-              "max-xs:text-[2.5rem] max-xl:text-[4rem] max-md:text-[3rem]",
+              mobileTextDisposition,
+              "hero-shadow-3 text-off-w text-7xl font-extrabold",
+              "max-xs:text-[2.5rem] xs:max-md:text-[3rem] max-xl:text-[4rem]",
             )}
             as="h2"
-            delay={0.3}
+            delay={0.6}
             animation="fadeIn"
+            by="text"
             once
           >
             {t("more")}
           </TextAnimate>
         </div>
 
+        {/* Call to Action Buttons */}
         <HeroButtons />
       </div>
     </section>

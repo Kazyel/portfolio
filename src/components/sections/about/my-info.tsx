@@ -1,12 +1,10 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 
 import Image from "next/image";
 import { TextAnimate } from "@/components/ui/text-animate";
-
-const textContent =
-  "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati ullam ad quam nisi, itaque corrupti vitae totam placeat, amet voluptatum consequatur repudiandae modi nihil asperiores sapiente, ab odio eos. Cum?";
 
 const ProfileImage = () => {
   return (
@@ -22,13 +20,13 @@ const ProfileImage = () => {
         )}
       />
       <Image
-        src="https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
+        src="/images/me.jpg"
         className={cn(
           "z-10 col-span-full row-span-full aspect-square rounded-full border-8 border-black object-cover",
           "max-xl:w-[300px] max-lg:w-[275px] max-md:w-[225px] xl:w-[368px]",
         )}
-        width={300}
-        height={300}
+        width={400}
+        height={400}
         alt="Profile"
       />
     </div>
@@ -36,6 +34,8 @@ const ProfileImage = () => {
 };
 
 const AboutText = () => {
+  const t = useTranslations("About");
+
   return (
     <div
       className={cn(
@@ -44,53 +44,36 @@ const AboutText = () => {
         "max-lg:w-full xl:ml-4 xl:max-w-[600px] xl:px-4",
       )}
     >
-      <TextAnimate
-        className={cn(
-          "text-lg leading-7 font-light text-black",
-          "max-xl:text-base max-lg:text-sm",
-        )}
-        by="line"
-        animation="slideLeft"
-        delay={0.25}
-        once
-      >
-        {textContent}
-      </TextAnimate>
-      <TextAnimate
-        className={cn(
-          "text-lg leading-7 font-light text-black",
-          "max-xl:text-base max-lg:text-sm",
-        )}
-        by="line"
-        animation="slideLeft"
-        delay={0.25}
-        once
-      >
-        {textContent}
-      </TextAnimate>
-      <TextAnimate
-        className={cn(
-          "text-lg leading-7 font-light text-black",
-          "max-xl:text-base max-lg:text-sm",
-        )}
-        by="line"
-        animation="slideLeft"
-        delay={0.35}
-        once
-      >
-        {textContent}
-      </TextAnimate>
+      {["description-1", "description-2", "description-3"].map((key, index) => {
+        return (
+          <TextAnimate
+            key={index}
+            className={cn(
+              "leading-7 font-light text-pretty text-black",
+              "max-xl:text-base max-lg:text-sm",
+            )}
+            by="line"
+            animation="slideLeft"
+            delay={0.25}
+            once
+          >
+            {t(key)}
+          </TextAnimate>
+        );
+      })}
     </div>
   );
 };
 
 export const MyInfo = () => {
+  const t = useTranslations("About");
+
   return (
     <div
       className={cn(
         "flex items-center justify-center gap-x-8 pb-12",
-        "max-xs:max-w-[320px] max-xl:max-w-[768px] max-xl:flex-col",
-        "max-lg:max-w-[650px] max-lg:gap-x-10 max-md:max-w-[468px] max-sm:px-6",
+        "max-xs:w-full max-xl:max-w-[768px] max-xl:flex-col",
+        "max-lg:max-w-[650px] max-lg:gap-x-10 max-md:max-w-[568px] max-sm:px-6",
         "xl:w-full xl:flex-row",
       )}
     >
@@ -111,7 +94,7 @@ export const MyInfo = () => {
           duration={0.1}
           once
         >
-          A little about myself...
+          {t("title")}
         </TextAnimate>
 
         <AboutText />

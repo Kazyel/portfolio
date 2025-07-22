@@ -67,7 +67,7 @@
   --font-unbounded: var(--unbounded);
   --font-jp: "Noto Sans JP, sans-serif";
   --breakpoint-3xl: 1921px;
-  --breakpoint-xs: 420px;
+  --breakpoint-xs: 30rem;
   --height-section-height: calc(100dvh + var(--navbar-height));
 
   @keyframes marquee {
@@ -256,17 +256,27 @@ html {
 
 .hero-shadow-1 {
   text-shadow:
-    0px 3px 0 #9e110f,
-    -1px 3px 0 #9e110f,
-    -2px 2px 0 #9e110f,
-    -3px 1px 0 #9e110f,
-    -4px 1px 0 #9e110f;
+    -1px 3px 0 #5a3104,
+    -2px 2px 0 #5a3104,
+    -2px 1px 0 #5a3104,
+    -2px 2px 0 #5a3104,
+    -3px 2px 0 #5a3104,
+    -4px 4px 0 #5a3104;
 }
 
 .hero-shadow-2 {
   text-shadow:
-    0px -1px 0 #737373,
-    -2px 5px 0 #737373,
-    -1px 3px 0 #737373,
+    -1px 3px 0 #9e110f,
+    -2px 2px 0 #9e110f,
+    -3px 1px 0 #9e110f,
+    -4px 1px 0 #9e110f,
+    -4px 3px 0 #9e110f;
+}
+
+.hero-shadow-3 {
+  text-shadow:
+    0px -2px 0 #737373,
+    -1px 4px 0 #737373,
+    -2px 0px 0 #737373,
     -2px 6px 0 #737373;
 }

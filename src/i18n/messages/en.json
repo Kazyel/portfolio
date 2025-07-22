@@ -1,9 +1,21 @@
 {
+  "Navbar": {
+    "about": "About",
+    "contact": "Contact",
+    "projects": "Projects",
+    "cv": "View CV"
+  },
   "Hero": {
     "hello": "Hey, web wanderer!",
     "mateus": "I'm Mateus Mascarelo",
     "more": "More than a web developer.",
-    "start": "Start this journey",
+    "start": "Start this journey!",
     "contact": "Contact me"
+  },
+  "About": {
+    "title": "A little bit about me...",
+    "description-1": "I'm a 23-year-old developer from Brazil, mainly focused on front-end development, but lately I’ve been diving deeper into back-end as well. I'm always looking to grow as a full-stack developer, and I enjoy building things that not only look good but also work seamlessly. Coding has become more than just a skill to me and it's something I genuinely enjoy.",
+    "description-2": "I’d say I’m a pretty chill and creative person. I love facing challenges, learning new things, and experimenting with different technologies. Whether it's a new framework, a programming concept, I get excited about the process of figuring things out and improving along the way.",
+    "description-3": "When I’m not coding, you’ll probably find me playing video games, listening to music, or reading some manga. These hobbies help me unwind and also keep my creativity flowing. They’ve been a big part of who I am and often inspire the way I approach design and problem-solving in tech."
   }
 }

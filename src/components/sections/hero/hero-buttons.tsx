@@ -8,19 +8,19 @@ import { Contact2, StarsIcon } from "lucide-react";
 import { motion } from "framer-motion";
 
 const BUTTONS_MOTION: CustomMotion<"div"> = {
-  initial: { y: -10, opacity: 0 },
+  initial: { x: -10, opacity: 0 },
+  animate: { x: 0, opacity: 1 },
   transition: {
-    type: "spring" as const,
-    stiffness: 500,
-    damping: 35,
-    mass: 0.5,
-    delay: 0.6,
+    type: "spring",
+    stiffness: 100,
+    damping: 15,
+    mass: 1,
+    delay: 0.75,
   },
-  animate: { y: 0, opacity: 1 },
 };
 
 const buttonBaseClasses =
-  "flex cursor-pointer items-center rounded-sm p-2 text-xl font-bold transition-all duration-200 max-md:text-base";
+  "flex cursor-pointer items-center rounded-sm p-2 text-xl font-bold transition-all duration-200 max-md:text-base whitespace-nowrap";
 
 const iconBaseClasses = "mr-2 size-6 max-md:size-6";
 
@@ -38,7 +38,7 @@ export const HeroButtons = () => {
       {...BUTTONS_MOTION}
       className={cn(
         "flex flex-wrap gap-x-6 self-start",
-        "max-lg:self-center max-sm:gap-y-4",
+        "max-lg:self-center max-sm:max-w-[450px] max-sm:gap-y-4 max-sm:self-start",
       )}
     >
       <button

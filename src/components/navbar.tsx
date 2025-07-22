@@ -3,6 +3,7 @@ import type { CustomMotion } from "@/lib/types";
 
 import { cn } from "@/lib/utils";
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 import useNavbar from "@/hooks/use-navbar";
 
 import Link from "next/link";
@@ -52,6 +53,8 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [startingPoint, setStartingPoint] = useState(0);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const t = useTranslations("Navbar");
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent | TouchEvent) => {
@@ -174,7 +177,7 @@ export default function Navbar() {
             onMouseEnter={() => setHoveredLink(link.id)}
             onMouseLeave={() => setHoveredLink(null)}
           >
-            {link.name}
+            {t(link.name)}
           </button>
         ))}
 
@@ -227,7 +230,7 @@ export default function Navbar() {
                       )}
                       onClick={() => handleSectionTravel(link.id)}
                     >
-                      {link.name}
+                      {t(link.name)}
                     </Link>
                   ))}
                 </motion.div>
@@ -240,11 +243,11 @@ export default function Navbar() {
             href="/pdf/cv-ptbr.pdf"
             target="_blank"
             className={cn(
-              "cursor-pointer rounded-md p-2 text-[10px] font-bold transition-all duration-150",
+              "cursor-pointer rounded-md p-2 text-[10px] font-medium transition-all duration-150",
               currentStyles.cv,
             )}
           >
-            View CV
+            {t("cv")}
           </Link>
         </div>
       </div>
