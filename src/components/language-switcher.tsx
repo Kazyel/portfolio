@@ -23,7 +23,7 @@ interface LanguageSwitcherProps {
     mobileNavbar: string;
     mobileLink: string;
   };
-  setIsAnyMenuOpen: (value: SetStateAction<boolean>) => void;
+  setIsAnyMenuOpen?: (value: SetStateAction<boolean>) => void;
 }
 
 const LANGUAGES = {
@@ -67,33 +67,22 @@ const SWITCHER_ANIMATION: CustomMotion<"div"> = {
   },
 } as const;
 
-export default function LanguageSwitcher({
-  currentStyles,
-  setIsAnyMenuOpen,
-}: LanguageSwitcherProps) {
+export default function LanguageSwitcher({ currentStyles }: LanguageSwitcherProps) {
   const [isSwitcherOpen, setIsSwitcherOpen] = useState(false);
   const [isPending, startTransition] = useTransition();
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  useOnClickOutside(dropdownRef, [setIsSwitcherOpen, setIsAnyMenuOpen], isSwitcherOpen);
+  useOnClickOutside(dropdownRef, [setIsSwitcherOpen], isSwitcherOpen);
   const currentLocale = useLocale() as LanguageCode;
   const router = useRouter();
 
-  const handleToggle = () => {
-    setIsSwitcherOpen((prev) => !prev);
-    setIsAnyMenuOpen((prev) => !prev);
-  };
-
   const changeLocale = async (newLocale: LanguageCode) => {
     setIsSwitcherOpen(false);
-    setIsAnyMenuOpen(false);
 
     startTransition(() => {
       document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`;
 
       setIsSwitcherOpen(false);
-      setIsAnyMenuOpen(false);
-
       router.refresh();
     });
   };
@@ -102,7 +91,7 @@ export default function LanguageSwitcher({
     <div className="relative" ref={dropdownRef}>
       {/* Language Switcher Button */}
       <motion.button
-        onClick={handleToggle}
+        onClick={() => setIsSwitcherOpen((prev) => !prev)}
         className={cn(
           "flex items-center transition-all duration-200",
           "disabled:cursor-not-allowed disabled:opacity-50",

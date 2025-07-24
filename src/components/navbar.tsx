@@ -16,7 +16,6 @@ import { Menu, X, FileUser, Download } from "lucide-react";
 import Link from "next/link";
 import LanguageSwitcher from "./language-switcher";
 import { AnimatePresence, motion } from "framer-motion";
-import { useIsMobile } from "@/hooks/use-is-mobile";
 
 const MOBILE_NAV_MOTION: CustomMotion<"div"> = {
   initial: {
@@ -73,23 +72,15 @@ export default function Navbar() {
   } = useNavbarState();
 
   const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
-  const [isAnyMenuOpen, setIsAnyMenuOpen] = useState(false);
   const [startingPoint, setStartingPoint] = useState(0);
 
   const dropdownRef = useRef<HTMLDivElement>(null);
   const currentStyles = useNavbarStyles(hoveredLink!, activeSection, isOverlapping);
   const t = useTranslations("Navbar");
-  const isMobile = useIsMobile();
 
-  useOnClickOutside(
-    dropdownRef,
-    [setIsMobileDropdownOpen, setIsAnyMenuOpen],
-    isMobileDropdownOpen,
-  );
+  useOnClickOutside(dropdownRef, [setIsMobileDropdownOpen], isMobileDropdownOpen);
 
   useEffect(() => {
-    if (isMobile) return;
-
     const activeEl = linkRefs.current[activeSection];
     const container = navbarLinksRef.current;
     if (!activeEl || !container) return;
@@ -105,11 +96,10 @@ export default function Navbar() {
       console.warn(`Section with ID "${linkId}" not found`);
       return;
     }
+
     setActiveSection(linkId);
     currentSection?.scrollIntoView({ behavior: "smooth" });
-
     setIsMobileDropdownOpen(false);
-    setIsAnyMenuOpen(false);
   };
 
   const underlineMotion: CustomMotion<"span"> = {
@@ -129,27 +119,10 @@ export default function Navbar() {
 
   const handleMenuToggle = () => {
     setIsMobileDropdownOpen((prev) => !prev);
-    setIsAnyMenuOpen((prev) => !prev);
   };
 
   return (
     <>
-      {/* Mobile Backdrop */}
-      <AnimatePresence>
-        {isAnyMenuOpen && isMobile && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 bg-black/10 backdrop-blur-sm"
-            onClick={() => {
-              setIsAnyMenuOpen(false);
-              setIsMobileDropdownOpen(false);
-            }}
-          />
-        )}
-      </AnimatePresence>
-
       <nav
         id="navbar"
         ref={navbarRef}
@@ -247,10 +220,7 @@ export default function Navbar() {
           </Link>
 
           {/* Language Switcher */}
-          <LanguageSwitcher
-            currentStyles={currentStyles}
-            setIsAnyMenuOpen={setIsAnyMenuOpen}
-          />
+          <LanguageSwitcher currentStyles={currentStyles} />
 
           {/* Mobile Menu */}
           <div className="flex items-center gap-4 md:gap-6">
