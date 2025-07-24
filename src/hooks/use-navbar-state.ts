@@ -8,16 +8,22 @@ const DEBOUNCE_DELAY = 100;
 export default function useNavbarState() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOverlapping, setIsOverlapping] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("");
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
-  const [underlineProps, setUnderlineProps] = useState({ x: 0, width: 0 });
+
+  const [underlineTargetRef, setUnderlineTargetRef] = useState<HTMLElement | null>(null);
+  const [underlineMotionProps, setUnderlineMotionProps] = useState({
+    x: 0,
+    width: 0,
+    opacity: 0,
+  });
 
   const navbarRef = useRef<HTMLElement>(null);
   const underlineRef = useRef<HTMLSpanElement>(null);
   const navbarLinksRef = useRef<HTMLDivElement>(null);
   const aboutSectionRef = useRef<HTMLDivElement>(null);
   const linkRefs = useRef<Record<string, HTMLElement | null>>({});
+  const isSmoothScrollingRef = useRef(false);
 
   useEffect(() => {
     aboutSectionRef.current = document.querySelector("#about-section");
@@ -26,8 +32,8 @@ export default function useNavbarState() {
   const handleScroll = useCallback(() => {
     const scrollYPosition = window.scrollY;
     const newIsScrolled = scrollYPosition > SCROLL_THRESHOLD;
+    setIsScrolled(newIsScrolled);
 
-    setIsScrolled((prev) => (prev !== newIsScrolled ? newIsScrolled : prev));
     const section = aboutSectionRef.current;
     const navbarEl = navbarRef.current;
 
@@ -38,64 +44,55 @@ export default function useNavbarState() {
 
       const checkOverlap =
         navbarCenterY >= sectionRect.top && navbarCenterY <= sectionRect.bottom;
-      setIsOverlapping((prev) => (prev !== checkOverlap ? checkOverlap : prev));
+      setIsOverlapping(checkOverlap);
     }
   }, []);
 
-  const updateUnderline = useCallback(() => {
+  const updateUnderlinePosition = useCallback(() => {
     requestAnimationFrame(() => {
-      if (activeSection === "hero-section") {
-        setUnderlineProps({ x: 0, width: 0 });
-        return;
+      let targetElement: HTMLElement | null = null;
+
+      if (activeSection && activeSection !== "hero-section") {
+        targetElement = linkRefs.current[activeSection];
       }
-
-      const activeEl = linkRefs.current[activeSection];
-      const container = navbarLinksRef.current;
-      if (!activeEl || !container) return;
-
-      const containerRect = container.getBoundingClientRect();
-      const activeElRect = activeEl.getBoundingClientRect();
-
-      const x = activeElRect.left - containerRect.left + 2;
-      const width = activeElRect.width - 4;
-
-      setUnderlineProps({ x, width });
+      setUnderlineTargetRef(targetElement);
     });
   }, [activeSection]);
 
+  useLayoutEffect(() => {
+    const targetEl = underlineTargetRef;
+    const container = navbarLinksRef.current;
+
+    if (targetEl && container) {
+      const containerRect = container.getBoundingClientRect();
+      const targetElRect = targetEl.getBoundingClientRect();
+
+      const x = targetElRect.left - containerRect.left + 2;
+      const width = targetElRect.width - 4;
+      setUnderlineMotionProps({ x, width, opacity: 1 });
+    } else {
+      setUnderlineMotionProps({ x: 0, width: 0, opacity: 0 });
+    }
+  }, [underlineTargetRef]);
+
   const handleResize = useCallback(() => {
     handleScroll();
-    updateUnderline();
-  }, [handleScroll, updateUnderline]);
+    updateUnderlinePosition();
+  }, [handleScroll, updateUnderlinePosition]);
 
   useEffect(() => {
-    let scrollTicking = false;
-    let resizeTicking = false;
-
     const throttledScroll = () => {
-      if (!scrollTicking) {
-        requestAnimationFrame(() => {
-          handleScroll();
-          scrollTicking = false;
-        });
-        scrollTicking = true;
-      }
+      requestAnimationFrame(() => handleScroll());
+    };
+    const throttledResize = () => {
+      requestAnimationFrame(() => handleResize());
     };
 
-    const throttledResize = () => {
-      if (!resizeTicking) {
-        requestAnimationFrame(() => {
-          handleResize();
-          resizeTicking = false;
-        });
-        resizeTicking = true;
-      }
-    };
+    window.addEventListener("scroll", throttledScroll, { passive: true });
+    window.addEventListener("resize", throttledResize, { passive: true });
 
     handleScroll();
     handleResize();
-    window.addEventListener("scroll", throttledScroll, { passive: true });
-    window.addEventListener("resize", throttledResize, { passive: true });
 
     return () => {
       window.removeEventListener("scroll", throttledScroll);
@@ -105,11 +102,13 @@ export default function useNavbarState() {
 
   const handleIntersection = useCallback(
     debounce((entry: IntersectionObserverEntry) => {
-      if (entry.isIntersecting && !isAnimating) {
-        setActiveSection(entry.target.id);
+      if (!isSmoothScrollingRef.current) {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
       }
     }, DEBOUNCE_DELAY),
-    [isAnimating],
+    [],
   );
 
   useEffect(() => {
@@ -126,40 +125,30 @@ export default function useNavbarState() {
     };
   }, [handleIntersection]);
 
-  useLayoutEffect(() => {
-    if (activeSection && activeSection !== "hero-section") {
-      updateUnderline();
-    }
-  }, [activeSection, updateUnderline]);
+  const startSmoothScroll = useCallback(() => {
+    isSmoothScrollingRef.current = true;
+  }, []);
 
-  useEffect(() => {
-    const underlineEl = underlineRef.current;
-    if (!underlineEl) return;
-
-    const handleAnimationStart = () => setIsAnimating(true);
-    const handleAnimationEnd = () => setIsAnimating(false);
-
-    underlineEl.addEventListener("transitionstart", handleAnimationStart);
-    underlineEl.addEventListener("transitionend", handleAnimationEnd);
-
-    return () => {
-      underlineEl.removeEventListener("transitionstart", handleAnimationStart);
-      underlineEl.removeEventListener("transitionend", handleAnimationEnd);
-    };
+  const endSmoothScroll = useCallback(() => {
+    setTimeout(() => {
+      isSmoothScrollingRef.current = false;
+    }, 150);
   }, []);
 
   return {
     isScrolled,
     isOverlapping,
     activeSection,
-    underlineProps,
     hoveredLink,
     navbarRef,
     underlineRef,
     navbarLinksRef,
     linkRefs,
+    underlineMotionProps,
     setHoveredLink,
     setActiveSection,
-    updateUnderline,
+    updateUnderlinePosition,
+    startSmoothScroll,
+    endSmoothScroll,
   };
 }

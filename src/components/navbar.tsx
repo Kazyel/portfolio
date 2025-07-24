@@ -2,7 +2,7 @@
 
 import type { CustomMotion } from "@/lib/types";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 
 import { cn } from "@/lib/utils";
@@ -61,18 +61,19 @@ export default function Navbar() {
     isScrolled,
     isOverlapping,
     activeSection,
-    underlineProps,
     hoveredLink,
     navbarRef,
     underlineRef,
     navbarLinksRef,
     linkRefs,
+    underlineMotionProps,
     setHoveredLink,
     setActiveSection,
+    startSmoothScroll,
+    endSmoothScroll,
   } = useNavbarState();
 
   const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
-
   const dropdownRef = useRef<HTMLDivElement>(null);
   const currentStyles = useNavbarStyles(hoveredLink!, activeSection, isOverlapping);
   const t = useTranslations("Navbar");
@@ -88,25 +89,24 @@ export default function Navbar() {
       }
 
       setActiveSection(linkId);
-      currentSection?.scrollIntoView({ behavior: "smooth" });
+      startSmoothScroll();
+      currentSection.scrollIntoView({ behavior: "smooth" });
+
+      const onScrollEnd = () => {
+        endSmoothScroll();
+        window.removeEventListener("scrollend", onScrollEnd);
+      };
+      if ("onscrollend" in window) {
+        window.addEventListener("scrollend", onScrollEnd, { once: true });
+      } else {
+        const scrollDurationEstimate = 1000;
+        setTimeout(onScrollEnd, scrollDurationEstimate + 100);
+      }
+
       setIsMobileDropdownOpen(false);
     },
-    [setActiveSection, setIsMobileDropdownOpen],
+    [setActiveSection, startSmoothScroll, endSmoothScroll, setIsMobileDropdownOpen],
   );
-
-  const underlineMotion: CustomMotion<"span"> = {
-    initial: {
-      width: 0,
-      opacity: 0,
-    },
-    transition: UNDERLINE_MOTION_CONFIG,
-    animate: {
-      x: underlineProps.x,
-      width: underlineProps.width,
-      opacity: activeSection ? 1 : 0,
-    },
-    exit: { opacity: 0, width: 0 },
-  };
 
   return (
     <>
@@ -132,7 +132,7 @@ export default function Navbar() {
             "max-md:flex-none md:max-lg:justify-start",
           )}
         >
-          <a
+          <button
             className={cn(
               "relative cursor-pointer border-l-2 px-2 text-lg font-extrabold tracking-tighter transition-colors duration-150",
               "before:font-jp before:absolute before:-left-7 before:text-lg before:transition-all before:duration-150 before:content-['新']",
@@ -142,7 +142,7 @@ export default function Navbar() {
             aria-label="Go to home section"
           >
             Kazyel
-          </a>
+          </button>
         </div>
 
         {/* Desktop Navigation */}
@@ -174,17 +174,20 @@ export default function Navbar() {
 
           {/* Animated Underline */}
           <AnimatePresence mode="sync">
-            {activeSection && activeSection !== "hero-section" && (
+            {(activeSection && activeSection !== "hero-section") || hoveredLink ? (
               <motion.span
                 ref={underlineRef}
-                {...underlineMotion}
+                initial={underlineMotionProps}
+                animate={underlineMotionProps}
+                exit={{ opacity: 0 }}
+                transition={UNDERLINE_MOTION_CONFIG}
                 className={cn(
                   "absolute -bottom-1 left-0 h-px transition-colors duration-150",
                   currentStyles.underline,
                 )}
                 aria-hidden="true"
               />
-            )}
+            ) : null}
           </AnimatePresence>
         </div>
 
