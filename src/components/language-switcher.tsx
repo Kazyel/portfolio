@@ -134,7 +134,7 @@ export default function LanguageSwitcher({
           <motion.div
             {...SWITCHER_ANIMATION}
             className={cn(
-              "absolute top-12 z-50 flex min-w-max flex-col gap-y-3 rounded-sm border border-black/20 p-2.5 shadow-lg",
+              "absolute top-12 z-50 flex min-w-max flex-col gap-y-3 rounded-sm border border-black/20 p-4 shadow-lg",
               "max-md:-right-10 md:max-lg:-left-4",
               currentStyles.mobileNavbar,
             )}

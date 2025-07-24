@@ -16,6 +16,7 @@ import { Menu, X, FileUser, Download } from "lucide-react";
 import Link from "next/link";
 import LanguageSwitcher from "./language-switcher";
 import { AnimatePresence, motion } from "framer-motion";
+import { useIsMobile } from "@/hooks/use-is-mobile";
 
 const MOBILE_NAV_MOTION: CustomMotion<"div"> = {
   initial: {
@@ -76,9 +77,19 @@ export default function Navbar() {
   const [startingPoint, setStartingPoint] = useState(0);
 
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const currentStyles = useNavbarStyles(hoveredLink!, activeSection, isOverlapping);
   const t = useTranslations("Navbar");
+  const isMobile = useIsMobile();
+
+  useOnClickOutside(
+    dropdownRef,
+    [setIsMobileDropdownOpen, setIsAnyMenuOpen],
+    isMobileDropdownOpen,
+  );
 
   useEffect(() => {
+    if (isMobile) return;
+
     const activeEl = linkRefs.current[activeSection];
     const container = navbarLinksRef.current;
     if (!activeEl || !container) return;
@@ -87,13 +98,6 @@ export default function Navbar() {
     const activeElRect = activeEl.getBoundingClientRect();
     setStartingPoint(activeElRect.left - containerRect.left);
   }, [activeSection]);
-
-  const currentStyles = useNavbarStyles(hoveredLink!, activeSection, isOverlapping);
-  useOnClickOutside(
-    dropdownRef,
-    [setIsMobileDropdownOpen, setIsAnyMenuOpen],
-    isMobileDropdownOpen,
-  );
 
   const handleSectionTravel = (linkId: string) => {
     const currentSection = document.querySelector(`#${linkId}`);
@@ -126,34 +130,18 @@ export default function Navbar() {
   const handleMenuToggle = () => {
     setIsMobileDropdownOpen((prev) => !prev);
     setIsAnyMenuOpen((prev) => !prev);
-
-    if (!isMobileDropdownOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
   };
-
-  useEffect(() => {
-    if (!isMobileDropdownOpen) {
-      document.body.style.overflow = "unset";
-    }
-
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [isMobileDropdownOpen]);
 
   return (
     <>
       {/* Mobile Backdrop */}
       <AnimatePresence>
-        {isAnyMenuOpen && (
+        {isAnyMenuOpen && isMobile && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 bg-black/10 backdrop-blur-sm md:hidden"
+            className="fixed inset-0 z-40 bg-black/10 backdrop-blur-sm"
             onClick={() => {
               setIsAnyMenuOpen(false);
               setIsMobileDropdownOpen(false);
@@ -169,7 +157,10 @@ export default function Navbar() {
           "h-navbar-height fixed top-0 z-50 flex w-full items-center transition-all duration-100",
           "max-lg:px-4 max-lg:pl-10 max-md:justify-between",
           "border-b border-transparent backdrop-blur-none",
-          isScrolled && "border-stone-700/40 backdrop-blur-xl",
+          isOverlapping && isScrolled ? "max-lg:bg-off-w" : "max-lg:bg-[#0c0a08]",
+          isScrolled
+            ? "border-stone-700/40 backdrop-blur-xl max-lg:backdrop-blur-none"
+            : "max-lg:bg-transparent",
         )}
         role="navigation"
         aria-label="Main navigation"
@@ -294,7 +285,7 @@ export default function Navbar() {
                   <motion.div
                     {...MOBILE_NAV_MOTION}
                     className={cn(
-                      "absolute top-12 right-0 flex min-w-max flex-col gap-y-5 rounded-md border border-black/25 p-2.5 shadow-md",
+                      "absolute top-12 right-0 flex min-w-max flex-col gap-y-5 rounded-md border border-black/25 p-4 shadow-md",
                       currentStyles.mobileNavbar,
                     )}
                     id="mobile-menu"

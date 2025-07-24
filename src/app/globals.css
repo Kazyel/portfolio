@@ -50,6 +50,12 @@
     --navbar-height: 56px;
     --radius: 0.625rem;
     --unbounded: "Unbounded Variable", sans-serif;
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+      }
+    }
   }
 }
 

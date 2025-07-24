@@ -5,10 +5,7 @@ import { memo } from "react";
 import { useSetAtom } from "jotai";
 import { isProjectOpenAtom, currentProjectAtom } from "@/lib/store/projects";
 
-import { ShineBorder } from "@/components/ui/shine-border";
 import Image from "next/image";
-
-const SHINE_BORDER_COLOR = ["#9f0712cc", "#000000", "#9f071266"];
 
 export const ProjectCard = memo(({ ...props }: ProjectType) => {
   const setCurrentProject = useSetAtom(currentProjectAtom);
@@ -26,7 +23,7 @@ export const ProjectCard = memo(({ ...props }: ProjectType) => {
     <div
       id="project-card"
       className={cn(
-        "group relative grid h-[400px] w-[400px] cursor-pointer grid-cols-1 rounded-lg shadow-xl",
+        "group relative grid h-[400px] w-[400px] cursor-pointer grid-cols-1 rounded-lg border-1 border-red-700/50 shadow-xl",
         "max-2xl:h-[350px] max-2xl:w-[350px]",
         "max-lg:h-[300px] max-lg:w-[300px]",
         "max-md:h-[375px] max-md:w-[375px]",
@@ -81,12 +78,6 @@ export const ProjectCard = memo(({ ...props }: ProjectType) => {
           "group-hover:opacity-90",
         )}
       ></div>
-
-      <ShineBorder
-        borderWidth={2}
-        shineColor={SHINE_BORDER_COLOR}
-        className="rounded-lg"
-      />
     </div>
   );
 });
