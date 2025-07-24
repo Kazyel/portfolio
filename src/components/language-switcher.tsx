@@ -2,13 +2,18 @@
 
 import type { CustomMotion } from "@/lib/types";
 
-import { cn } from "@/lib/utils";
-import { useEffect, useRef, useState } from "react";
+import { SetStateAction, useRef, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
+import { useLocale } from "next-intl";
 
+import { cn } from "@/lib/utils";
+import useOnClickOutside from "@/hooks/use-on-click-outside";
+
+import { AnimatePresence, motion } from "framer-motion";
 import { BrazilFlag } from "./svgs/BrazilFlag";
 import { USFlag } from "./svgs/USFlag";
-import { AnimatePresence, motion } from "framer-motion";
+import { Loader2 } from "lucide-react";
+import { International } from "./svgs/International";
 
 interface LanguageSwitcherProps {
   currentStyles: {
@@ -18,99 +23,150 @@ interface LanguageSwitcherProps {
     mobileNavbar: string;
     mobileLink: string;
   };
+  setIsAnyMenuOpen: (value: SetStateAction<boolean>) => void;
 }
 
-const SWITCHER_ANIMATION: CustomMotion<"div"> = {
-  initial: { opacity: 0, y: -25 },
-  transition: {
-    type: "spring" as const,
-    stiffness: 500,
-    damping: 35,
-    mass: 0.5,
+const LANGUAGES = {
+  en: {
+    code: "en",
+    name: "English",
+    flag: USFlag,
+    nativeName: "English",
   },
-  animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0 },
-};
+  pt: {
+    code: "pt",
+    name: "Português",
+    flag: BrazilFlag,
+    nativeName: "Português",
+  },
+} as const;
 
-export default function LanguageSwitcher({ currentStyles }: LanguageSwitcherProps) {
-  const [isOpen, setIsOpen] = useState(false);
+type LanguageCode = keyof typeof LANGUAGES;
+
+const SWITCHER_ANIMATION: CustomMotion<"div"> = {
+  initial: {
+    opacity: 0,
+    y: -5,
+    filter: "blur(2px)",
+  },
+  animate: {
+    opacity: 1,
+    y: 5,
+    filter: "blur(0px)",
+  },
+  exit: {
+    opacity: 0,
+    y: 0,
+    filter: "blur(2px)",
+  },
+  transition: {
+    type: "spring",
+    stiffness: 400,
+    damping: 30,
+    mass: 0.3,
+  },
+} as const;
+
+export default function LanguageSwitcher({
+  currentStyles,
+  setIsAnyMenuOpen,
+}: LanguageSwitcherProps) {
+  const [isSwitcherOpen, setIsSwitcherOpen] = useState(false);
+  const [isPending, startTransition] = useTransition();
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useOnClickOutside(dropdownRef, [setIsSwitcherOpen, setIsAnyMenuOpen], isSwitcherOpen);
+  const currentLocale = useLocale() as LanguageCode;
   const router = useRouter();
 
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent | TouchEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setIsOpen(false);
-      }
-    };
+  const handleToggle = () => {
+    setIsSwitcherOpen((prev) => !prev);
+    setIsAnyMenuOpen((prev) => !prev);
+  };
 
-    if (isOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-      document.addEventListener("touchstart", handleClickOutside);
-    }
+  const changeLocale = async (newLocale: LanguageCode) => {
+    setIsSwitcherOpen(false);
+    setIsAnyMenuOpen(false);
 
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("touchstart", handleClickOutside);
-    };
-  }, [isOpen]);
+    startTransition(() => {
+      document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`;
 
-  const changeLocale = async (newLocale: string) => {
-    document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=${60 * 60 * 24 * 365}`;
-    router.refresh();
+      setIsSwitcherOpen(false);
+      setIsAnyMenuOpen(false);
+
+      router.refresh();
+    });
   };
 
   return (
     <div className="relative" ref={dropdownRef}>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={1.8}
-        stroke="currentColor"
-        onClick={() => setIsOpen((prev) => !prev)}
+      {/* Language Switcher Button */}
+      <motion.button
+        onClick={handleToggle}
         className={cn(
-          "size-5 cursor-pointer transition-all duration-150",
+          "flex items-center transition-all duration-200",
+          "disabled:cursor-not-allowed disabled:opacity-50",
           currentStyles.icon,
         )}
+        type="button"
+        aria-haspopup="menu"
+        aria-label="Change language"
+        aria-expanded={isSwitcherOpen}
+        disabled={isPending}
       >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802"
-        ></path>
-      </svg>
+        {isPending ? (
+          <Loader2 className={cn("text-off-w size-6 animate-spin", currentStyles.icon)} />
+        ) : (
+          <>
+            <International
+              className={cn(
+                "size-6 cursor-pointer transition-all duration-200 ease-in-out",
+                currentStyles.icon,
+              )}
+            />
+          </>
+        )}
+      </motion.button>
 
+      {/* Language Switcher Menu */}
       <AnimatePresence>
-        {isOpen && (
+        {isSwitcherOpen && (
           <motion.div
             {...SWITCHER_ANIMATION}
             className={cn(
-              "bg-off-w absolute top-12 flex flex-col gap-y-2 rounded-sm border border-black/65 p-2.5 text-sm font-medium",
-              "max-md:p-2",
+              "absolute top-12 z-50 flex min-w-max flex-col gap-y-3 rounded-sm border border-black/20 p-2.5 shadow-lg",
+              "max-md:-right-10 md:max-lg:-left-4",
               currentStyles.mobileNavbar,
             )}
+            role="menu"
+            aria-label="Language selection menu"
           >
-            <button
-              className={cn(
-                "flex cursor-pointer items-center gap-x-1.5",
-                currentStyles.mobileLink,
-              )}
-              onClick={() => changeLocale("en")}
-            >
-              <USFlag />
-              English
-            </button>
-            <button
-              className={cn(
-                "flex cursor-pointer items-center gap-x-1.5",
-                currentStyles.mobileLink,
-              )}
-              onClick={() => changeLocale("pt")}
-            >
-              <BrazilFlag />
-              Português
-            </button>
+            {/* Available Languages */}
+            {Object.entries(LANGUAGES).map(([code, language]) => {
+              const LanguageFlag = language.flag;
+              const isActive = code === currentLocale;
+
+              return (
+                <motion.button
+                  key={code}
+                  onClick={() => changeLocale(code as LanguageCode)}
+                  className={cn(
+                    "flex cursor-pointer text-sm font-medium",
+                    "disabled:cursor-not-allowed disabled:opacity-50",
+                    currentStyles.mobileLink,
+                  )}
+                  role="menuitem"
+                  aria-current={isActive ? "true" : "false"}
+                  disabled={isPending || isActive}
+                >
+                  <div className="flex items-center gap-2">
+                    <LanguageFlag className="size-5 flex-shrink-0" />
+
+                    <span>{language.nativeName}</span>
+                  </div>
+                </motion.button>
+              );
+            })}
           </motion.div>
         )}
       </AnimatePresence>

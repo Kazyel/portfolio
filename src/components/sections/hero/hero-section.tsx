@@ -19,7 +19,7 @@ export default function HeroSection() {
     <section
       id="hero-section"
       className={cn(
-        "min-h-section-height relative flex flex-col items-center justify-center overflow-hidden px-12",
+        "relative flex min-h-dvh flex-col items-center justify-center overflow-hidden px-12",
         "max-xs:px-6 max-sm:px-9",
       )}
     >

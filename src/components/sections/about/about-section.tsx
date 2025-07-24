@@ -90,8 +90,8 @@ export default function AboutSection() {
     <section
       id="about-section"
       className={cn(
-        "min-h-section-height bg-off-w relative flex flex-col items-center justify-center overflow-clip",
-        "max-xl:py-10 max-lg:scroll-mt-[52px]",
+        "bg-off-w relative flex min-h-dvh flex-col items-center justify-center overflow-clip",
+        "max-xl:py-10 max-lg:scroll-mt-[var(--navbar-height)]",
       )}
     >
       <MyInfo />

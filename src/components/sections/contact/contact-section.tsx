@@ -24,8 +24,8 @@ export default function ContactSection() {
     <section
       id="contact-section"
       className={cn(
-        "min-h-section-height relative flex items-center justify-center gap-x-20 gap-y-6 overflow-clip bg-black/75 px-8",
-        "max-xl:py-10 max-lg:scroll-mt-[52px] max-lg:flex-col",
+        "relative flex min-h-dvh items-center justify-center gap-x-20 gap-y-6 overflow-clip bg-black/75 px-8",
+        "max-xl:py-10 max-lg:scroll-mt-[var(--navbar-height)] max-lg:flex-col",
       )}
     >
       {/* Animated Background Overlays */}

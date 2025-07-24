@@ -47,7 +47,7 @@
     --sidebar-ring: oklch(0.708 0 0);
 
     /* My colors */
-    --navbar-height: 0px;
+    --navbar-height: 56px;
     --radius: 0.625rem;
     --unbounded: "Unbounded Variable", sans-serif;
   }
@@ -68,7 +68,7 @@
   --font-jp: "Noto Sans JP, sans-serif";
   --breakpoint-3xl: 1921px;
   --breakpoint-xs: 30rem;
-  --height-section-height: calc(100dvh + var(--navbar-height));
+  --height-navbar-height: var(--navbar-height);
 
   @keyframes marquee {
     from {
@@ -78,7 +78,6 @@
       transform: translateX(calc(-100% - var(--gap)));
     }
   }
-
   @keyframes marquee-vertical {
     from {
       transform: translateY(0);
@@ -88,7 +87,6 @@
     }
   }
 
-  --section-height: calc(100dvh + var(--navbar-height));
   --animate-marquee: marquee var(--duration) infinite linear;
   --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
 

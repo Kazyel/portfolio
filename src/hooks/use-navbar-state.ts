@@ -5,7 +5,7 @@ const SCROLL_THRESHOLD = 0;
 const INTERSECTION_THRESHOLD = 0.75;
 const DEBOUNCE_DELAY = 100;
 
-export default function useNavbar() {
+export default function useNavbarState() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOverlapping, setIsOverlapping] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
