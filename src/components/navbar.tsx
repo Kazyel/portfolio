@@ -2,7 +2,7 @@
 
 import type { CustomMotion } from "@/lib/types";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 
 import { cn } from "@/lib/utils";
@@ -72,7 +72,6 @@ export default function Navbar() {
   } = useNavbarState();
 
   const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
-  const [startingPoint, setStartingPoint] = useState(0);
 
   const dropdownRef = useRef<HTMLDivElement>(null);
   const currentStyles = useNavbarStyles(hoveredLink!, activeSection, isOverlapping);
@@ -80,33 +79,25 @@ export default function Navbar() {
 
   useOnClickOutside(dropdownRef, [setIsMobileDropdownOpen], isMobileDropdownOpen);
 
-  useEffect(() => {
-    const activeEl = linkRefs.current[activeSection];
-    const container = navbarLinksRef.current;
-    if (!activeEl || !container) return;
+  const handleSectionTravel = useCallback(
+    (linkId: string) => {
+      const currentSection = document.querySelector(`#${linkId}`);
+      if (!currentSection) {
+        console.warn(`Section with ID "${linkId}" not found`);
+        return;
+      }
 
-    const containerRect = container.getBoundingClientRect();
-    const activeElRect = activeEl.getBoundingClientRect();
-    setStartingPoint(activeElRect.left - containerRect.left);
-  }, [activeSection]);
-
-  const handleSectionTravel = (linkId: string) => {
-    const currentSection = document.querySelector(`#${linkId}`);
-    if (!currentSection) {
-      console.warn(`Section with ID "${linkId}" not found`);
-      return;
-    }
-
-    setActiveSection(linkId);
-    currentSection?.scrollIntoView({ behavior: "smooth" });
-    setIsMobileDropdownOpen(false);
-  };
+      setActiveSection(linkId);
+      currentSection?.scrollIntoView({ behavior: "smooth" });
+      setIsMobileDropdownOpen(false);
+    },
+    [setActiveSection, setIsMobileDropdownOpen],
+  );
 
   const underlineMotion: CustomMotion<"span"> = {
     initial: {
       width: 0,
       opacity: 0,
-      x: startingPoint,
     },
     transition: UNDERLINE_MOTION_CONFIG,
     animate: {
@@ -114,11 +105,7 @@ export default function Navbar() {
       width: underlineProps.width,
       opacity: activeSection ? 1 : 0,
     },
-    exit: { opacity: 0, x: startingPoint, width: 0 },
-  };
-
-  const handleMenuToggle = () => {
-    setIsMobileDropdownOpen((prev) => !prev);
+    exit: { opacity: 0, width: 0 },
   };
 
   return (
@@ -228,7 +215,7 @@ export default function Navbar() {
               <motion.button
                 {...BUTTON_ANIMATION}
                 className="cursor-pointer"
-                onClick={handleMenuToggle}
+                onClick={() => setIsMobileDropdownOpen((prev) => !prev)}
                 type="button"
                 aria-controls="mobile-menu"
                 aria-haspopup="menu"
@@ -266,7 +253,7 @@ export default function Navbar() {
                       <a
                         key={link.id}
                         className={cn(
-                          "cursor-pointer self-start text-base font-medium transition-colors duration-150",
+                          "cursor-pointer self-start text-sm font-medium transition-colors duration-150",
                           currentStyles.mobileLink,
                         )}
                         onClick={() => handleSectionTravel(link.id)}

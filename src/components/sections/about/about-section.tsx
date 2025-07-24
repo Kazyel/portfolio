@@ -32,24 +32,20 @@ interface LanguageCardProps {
 
 const LanguageCard = ({ src: Icon, name }: LanguageCardProps) => {
   return (
-    <TooltipProvider>
-      <Tooltip delayDuration={500}>
-        <TooltipTrigger asChild>
-          <figure
-            className={cn(
-              "relative ml-3 h-full w-fit cursor-pointer overflow-hidden rounded-lg border-2 p-3 shadow-md",
-              "bg-off-w border-black/35 hover:bg-gray-950/[.05]",
-              "max-xl:w-[4.75rem] max-md:w-[4rem] xl:w-[5.5rem]",
-            )}
-          >
-            <Icon className="size-full" />
-          </figure>
-        </TooltipTrigger>
-        <TooltipContent className="text-[14px] font-bold text-white">
-          {name}
-        </TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
+    <Tooltip delayDuration={500}>
+      <TooltipTrigger asChild>
+        <figure
+          className={cn(
+            "relative ml-3 h-full w-fit cursor-pointer overflow-hidden rounded-lg border-2 p-3 shadow-md",
+            "bg-off-w border-black/35 hover:bg-gray-950/[.05]",
+            "max-xl:w-[4.75rem] max-md:w-[4rem] xl:w-[5.5rem]",
+          )}
+        >
+          <Icon className="size-full" />
+        </figure>
+      </TooltipTrigger>
+      <TooltipContent className="text-[14px] font-bold text-white">{name}</TooltipContent>
+    </Tooltip>
   );
 };
 
@@ -64,7 +60,9 @@ const TechStackMarquee = () => {
       {/* Marquee Tech Stack */}
       <Marquee pauseOnHover className="[--duration:15s]">
         {TECH_STACK.map((tech) => (
-          <LanguageCard key={tech.name} src={tech.src} name={tech.name} />
+          <TooltipProvider key={tech.name}>
+            <LanguageCard key={tech.name} src={tech.src} name={tech.name} />
+          </TooltipProvider>
         ))}
       </Marquee>
 

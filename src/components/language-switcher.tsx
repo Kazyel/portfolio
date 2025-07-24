@@ -78,7 +78,6 @@ export default function LanguageSwitcher({ currentStyles }: LanguageSwitcherProp
 
   const changeLocale = async (newLocale: LanguageCode) => {
     setIsSwitcherOpen(false);
-
     startTransition(() => {
       document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`;
 

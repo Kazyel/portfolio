@@ -14,10 +14,7 @@ const BACKGROUND_MOTION: CustomMotion<"div"> = {
   viewport: { once: true, amount: 0.65 },
 };
 
-const toriiBaseClasses = cn(
-  "pointer-events-none absolute bottom-0 grayscale",
-  "loading-lazy decoding-async",
-);
+const toriiBaseClasses = cn("pointer-events-none absolute bottom-0 grayscale");
 
 export default function ContactSection() {
   return (

@@ -18,6 +18,7 @@ const ProfileImage = () => {
           "pointer-events-none top-0 col-span-full row-span-full opacity-100",
           "max-xl:w-[425px] max-md:w-[350px]",
         )}
+        quality={75}
       />
       <Image
         src="/images/me.jpg"
@@ -28,6 +29,7 @@ const ProfileImage = () => {
         width={400}
         height={400}
         alt="Profile"
+        quality={75}
       />
     </div>
   );
