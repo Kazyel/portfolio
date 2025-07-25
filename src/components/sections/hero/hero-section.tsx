@@ -23,39 +23,10 @@ export default function HeroSection() {
         "max-xs:px-6 max-sm:px-9",
       )}
     >
-      {/* Gradient Background */}
-      <AnimatedGradientBackground
-        gradientStops={[45, 75, 100]}
-        gradientColors={[DARK_COLOR, STATIC_COLOR + "44", STATIC_COLOR]}
-      />
-
-      {/* Background */}
-      <Image
-        src="/images/kanagawa.webp"
-        alt="Kanagawa Wave"
-        className={cn(
-          imageBaseClasses,
-          "kanagawa-animation bottom-0 w-full opacity-20 sepia",
-        )}
-        loading="eager"
-        priority
-        quality={65}
-        width={1900}
-        height={443}
-      />
-      <Image
-        src="/images/pagoda.webp"
-        alt="Pagoda"
-        className={cn(imageBaseClasses, "pagoda-animation -bottom-52", "max-lg:hidden")}
-        loading="eager"
-        priority
-        quality={65}
-        width={1920}
-        height={1080}
-      />
-
       {/* Hero Content */}
-      <div className={cn("relative flex w-full flex-col gap-y-12", "xl:max-w-[1250px]")}>
+      <div
+        className={cn("relative z-10 flex w-full flex-col gap-y-12", "xl:max-w-[1250px]")}
+      >
         <div className="w-full">
           <TextAnimate
             className={cn(
@@ -108,6 +79,37 @@ export default function HeroSection() {
         {/* Call to Action Buttons */}
         <HeroButtons />
       </div>
+
+      {/* Background */}
+      <Image
+        src="/images/kanagawa.webp"
+        alt="Kanagawa Wave"
+        className={cn(
+          imageBaseClasses,
+          "kanagawa-animation bottom-0 w-full opacity-20 sepia",
+        )}
+        loading="eager"
+        priority
+        quality={65}
+        width={1900}
+        height={443}
+      />
+      <Image
+        src="/images/pagoda.webp"
+        alt="Pagoda"
+        className={cn(imageBaseClasses, "pagoda-animation -bottom-52", "max-lg:hidden")}
+        loading="eager"
+        priority
+        quality={65}
+        width={1920}
+        height={1080}
+      />
+
+      {/* Gradient Background */}
+      <AnimatedGradientBackground
+        gradientStops={[45, 75, 100]}
+        gradientColors={[DARK_COLOR, STATIC_COLOR + "44", STATIC_COLOR]}
+      />
     </section>
   );
 }
