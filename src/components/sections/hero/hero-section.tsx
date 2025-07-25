@@ -39,7 +39,7 @@ export default function HeroSection() {
         )}
         loading="eager"
         priority
-        quality={85}
+        quality={65}
         width={1900}
         height={443}
       />
@@ -49,7 +49,7 @@ export default function HeroSection() {
         className={cn(imageBaseClasses, "pagoda-animation -bottom-52", "max-lg:hidden")}
         loading="eager"
         priority
-        quality={85}
+        quality={65}
         width={1920}
         height={1080}
       />
