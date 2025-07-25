@@ -39,7 +39,7 @@ export const Footer = () => {
     >
       {/* Right Dragon */}
       <Image
-        src="/images/dragon.webp"
+        src="/images/dragon.avif"
         alt="Dragon"
         width={360}
         height={160}
@@ -53,7 +53,7 @@ export const Footer = () => {
 
       {/* Left Dragon */}
       <Image
-        src="/images/dragon.webp"
+        src="/images/dragon.avif"
         alt="Dragon"
         width={360}
         height={160}

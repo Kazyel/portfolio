@@ -11,7 +11,7 @@ import Image from "next/image";
 import { LazyMotion, domAnimation } from "motion/react";
 import * as m from "motion/react-m";
 
-const URL_FLOWERS = "/images/higan-flowers.webp";
+const URL_FLOWERS = "/images/higan-flowers.avif";
 
 const KOI_MOTION: CustomMotion<"div"> = {
   initial: { x: 15, opacity: 0 },

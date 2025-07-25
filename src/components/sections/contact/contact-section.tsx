@@ -36,7 +36,7 @@ export default function ContactSection() {
           className="absolute inset-0 max-lg:hidden"
         >
           <Image
-            src="/images/samurai.webp"
+            src="/images/samurai.avif"
             alt="Samurai Background"
             className="mx-auto opacity-15 grayscale"
             width={1000}

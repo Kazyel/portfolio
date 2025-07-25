@@ -14,8 +14,8 @@ import { USFlag } from "./svgs/USFlag";
 import { Loader2 } from "lucide-react";
 import { International } from "./svgs/International";
 
-import * as m from "motion/react-m";
 import { AnimatePresence } from "motion/react";
+import * as m from "motion/react-m";
 
 interface LanguageSwitcherProps {
   currentStyles: {

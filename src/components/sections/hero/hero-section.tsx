@@ -82,7 +82,7 @@ export default function HeroSection() {
 
       {/* Background */}
       <Image
-        src="/images/kanagawa.webp"
+        src="/images/kanagawa.avif"
         alt="Kanagawa Wave"
         className={cn(
           imageBaseClasses,
@@ -93,9 +93,10 @@ export default function HeroSection() {
         quality={65}
         width={1900}
         height={443}
+        sizes="100vw"
       />
       <Image
-        src="/images/pagoda.webp"
+        src="/images/pagoda.avif"
         alt="Pagoda"
         className={cn(imageBaseClasses, "pagoda-animation -bottom-52", "max-lg:hidden")}
         loading="eager"
@@ -103,6 +104,7 @@ export default function HeroSection() {
         quality={65}
         width={1920}
         height={1080}
+        sizes="(max-width: 1024px) 0vw, 100vw"
       />
 
       {/* Gradient Background */}

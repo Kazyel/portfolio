@@ -10,7 +10,7 @@ const ProfileImage = () => {
   return (
     <div className="grid grid-cols-2 grid-rows-2 place-items-center">
       <Image
-        src="/images/dragon-2.webp"
+        src="/images/dragon-2.avif"
         width={550}
         height={550}
         alt="Dragon"
