@@ -1,10 +1,11 @@
 import type { ProjectType } from "@/lib/types";
 
 import { useAtomValue, useSetAtom } from "jotai";
-import { cn } from "@/lib/utils";
 import { currentProjectAtom, isProjectOpenAtom } from "@/lib/store/projects";
+import { cn } from "@/lib/utils";
 
 import { ProjectTemplate } from "@/components/sections/projects/project-template";
+import { ProjectBackButton } from "./project-back-button";
 
 const backButtonIconClasses = cn(
   "size-5 transition-all duration-200",
@@ -19,11 +20,17 @@ export const ProjectView = ({ ...props }: ProjectType) => {
 
   if (!project) return null;
 
-  const handleProjectToggle = () => setIsProjectOpen((prev) => !prev);
+  const handleProjectToggle = () => {
+    const projectsSection = document.querySelector("#projects-section");
+    if (!projectsSection) return;
+
+    setIsProjectOpen((prev) => !prev);
+    projectsSection.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <div className={cn("xl:max-h-[800px] 2xl:max-w-[1600px]")}>
-      <div className={cn("flex flex-col items-center justify-between")}>
+      <div className={cn("flex flex-col items-center justify-between py-4")}>
         <button
           className={cn(
             "group text-off-w/75 mb-2 flex cursor-pointer items-center gap-1 self-start italic",
@@ -48,6 +55,7 @@ export const ProjectView = ({ ...props }: ProjectType) => {
         </button>
 
         <ProjectTemplate {...props} />
+        <ProjectBackButton onClick={handleProjectToggle} />
       </div>
     </div>
   );

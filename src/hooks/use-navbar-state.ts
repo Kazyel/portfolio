@@ -1,9 +1,9 @@
-import { useCallback, useEffect, useLayoutEffect, useState, useRef } from "react";
+import { useCallback, useEffect, useState, useRef } from "react";
 import { debounce } from "lodash";
 
 const SCROLL_THRESHOLD = 0;
 const INTERSECTION_THRESHOLD = 0.75;
-const DEBOUNCE_DELAY = 100;
+const DEBOUNCE_DELAY = 150;
 
 export default function useNavbarState() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -11,7 +11,6 @@ export default function useNavbarState() {
   const [activeSection, setActiveSection] = useState<string>("");
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
 
-  const [underlineTargetRef, setUnderlineTargetRef] = useState<HTMLElement | null>(null);
   const [underlineMotionProps, setUnderlineMotionProps] = useState({
     x: 0,
     scaleX: 0,
@@ -50,35 +49,34 @@ export default function useNavbarState() {
 
   const updateUnderlinePosition = useCallback(() => {
     requestAnimationFrame(() => {
+      const container = navbarLinksRef.current;
+      const underlineEl = underlineRef.current;
+
+      if (!container || !underlineEl) return;
+
       let targetElement: HTMLElement | null = null;
 
       if (activeSection && activeSection !== "hero-section") {
         targetElement = linkRefs.current[activeSection];
       }
-      setUnderlineTargetRef(targetElement);
+
+      if (targetElement) {
+        const containerRect = container.getBoundingClientRect();
+        const targetElRect = targetElement.getBoundingClientRect();
+
+        const UNDERLINE_BASE_WIDTH = underlineEl.offsetWidth;
+        const safeUnderlineBaseWidth =
+          UNDERLINE_BASE_WIDTH > 0 ? UNDERLINE_BASE_WIDTH : 1;
+
+        const x = targetElRect.left - containerRect.left + 2;
+        const scaleX = (targetElRect.width - 4) / safeUnderlineBaseWidth;
+
+        setUnderlineMotionProps({ x, scaleX, opacity: 1 });
+      } else {
+        setUnderlineMotionProps({ x: 0, scaleX: 0, opacity: 0 });
+      }
     });
   }, [activeSection]);
-
-  useLayoutEffect(() => {
-    const targetEl = underlineTargetRef;
-    const container = navbarLinksRef.current;
-    const underlineEl = underlineRef.current;
-
-    if (targetEl && container && underlineEl) {
-      const containerRect = container.getBoundingClientRect();
-      const targetElRect = targetEl.getBoundingClientRect();
-
-      const UNDERLINE_BASE_WIDTH = underlineEl.offsetWidth;
-      const safeUnderlineBaseWidth = UNDERLINE_BASE_WIDTH > 0 ? UNDERLINE_BASE_WIDTH : 1;
-
-      const x = targetElRect.left - containerRect.left + 2;
-      const scaleX = (targetElRect.width - 4) / safeUnderlineBaseWidth;
-
-      setUnderlineMotionProps({ x, scaleX, opacity: 1 });
-    } else {
-      setUnderlineMotionProps({ x: 0, scaleX: 0, opacity: 0 });
-    }
-  }, [underlineTargetRef]);
 
   const handleResize = useCallback(() => {
     handleScroll();
@@ -93,11 +91,11 @@ export default function useNavbarState() {
       requestAnimationFrame(() => handleResize());
     };
 
-    window.addEventListener("scroll", throttledScroll, { passive: true });
-    window.addEventListener("resize", throttledResize, { passive: true });
-
     handleScroll();
     handleResize();
+
+    window.addEventListener("scroll", throttledScroll, { passive: true });
+    window.addEventListener("resize", throttledResize, { passive: true });
 
     return () => {
       window.removeEventListener("scroll", throttledScroll);

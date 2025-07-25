@@ -101,8 +101,8 @@ export default function HeroSection() {
         alt="Pagoda"
         className={cn(
           imageBaseClasses,
-          "pagoda-animation -bottom-52 opacity-30",
-          "max-lg:hidden",
+          "pagoda-animation -bottom-40 opacity-30",
+          "max-md:hidden md:max-2xl:-bottom-0",
         )}
         loading="eager"
         priority

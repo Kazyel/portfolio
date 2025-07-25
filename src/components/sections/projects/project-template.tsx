@@ -15,7 +15,7 @@ export const ProjectTemplate = ({
 }: ProjectType) => {
   return (
     <div className="z-20 flex w-full flex-col items-center">
-      <div className="flex flex-col gap-4 self-start pt-5 pb-10">
+      <div className="mt-4 flex flex-col gap-4 self-start">
         <TextAnimate
           as="h1"
           by="line"

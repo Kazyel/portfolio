@@ -50,6 +50,7 @@ export default function ProjectsSection() {
         )}
 
         <ProjectsBackground />
+
         <div className="absolute bottom-0 left-0 h-full w-full rounded-lg bg-gradient-to-t from-black/25 to-transparent opacity-100" />
       </section>
     </MotionWrapper>

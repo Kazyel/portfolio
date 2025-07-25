@@ -36,9 +36,9 @@ const LanguageCard = ({ src: Icon, name }: LanguageCardProps) => {
       <TooltipTrigger asChild>
         <figure
           className={cn(
-            "relative ml-3 h-full w-fit cursor-pointer overflow-hidden rounded-lg border-2 p-3 shadow-md",
-            "bg-off-w border-black/35 hover:bg-gray-950/[.05]",
-            "max-xl:w-[4.75rem] max-md:w-[4rem] xl:w-[5.5rem]",
+            "relative ml-3 h-full w-fit cursor-pointer overflow-hidden rounded-sm border-2 p-3 shadow-md",
+            "bg-off-w border-black hover:bg-[#e5d8cc]",
+            "max-xl:w-[5rem] max-xl:border-1 max-md:w-[4.5rem] xl:w-[5.5rem]",
           )}
         >
           <Icon className="size-full" />
@@ -89,7 +89,7 @@ export default function AboutSection() {
       id="about-section"
       className={cn(
         "bg-off-w relative flex min-h-dvh flex-col items-center justify-center overflow-clip",
-        "max-xl:py-10 max-lg:scroll-mt-[var(--navbar-height)]",
+        "max-xl:py-16 max-lg:scroll-mt-[var(--navbar-height)]",
       )}
     >
       <MyInfo />
