@@ -14,7 +14,7 @@ export default function useNavbarState() {
   const [underlineTargetRef, setUnderlineTargetRef] = useState<HTMLElement | null>(null);
   const [underlineMotionProps, setUnderlineMotionProps] = useState({
     x: 0,
-    width: 0,
+    scaleX: 0,
     opacity: 0,
   });
 
@@ -62,16 +62,21 @@ export default function useNavbarState() {
   useLayoutEffect(() => {
     const targetEl = underlineTargetRef;
     const container = navbarLinksRef.current;
+    const underlineEl = underlineRef.current;
 
-    if (targetEl && container) {
+    if (targetEl && container && underlineEl) {
       const containerRect = container.getBoundingClientRect();
       const targetElRect = targetEl.getBoundingClientRect();
 
+      const UNDERLINE_BASE_WIDTH = underlineEl.offsetWidth;
+      const safeUnderlineBaseWidth = UNDERLINE_BASE_WIDTH > 0 ? UNDERLINE_BASE_WIDTH : 1;
+
       const x = targetElRect.left - containerRect.left + 2;
-      const width = targetElRect.width - 4;
-      setUnderlineMotionProps({ x, width, opacity: 1 });
+      const scaleX = (targetElRect.width - 4) / safeUnderlineBaseWidth;
+
+      setUnderlineMotionProps({ x, scaleX, opacity: 1 });
     } else {
-      setUnderlineMotionProps({ x: 0, width: 0, opacity: 0 });
+      setUnderlineMotionProps({ x: 0, scaleX: 0, opacity: 0 });
     }
   }, [underlineTargetRef]);
 

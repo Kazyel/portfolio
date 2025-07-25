@@ -22,17 +22,14 @@ const MOBILE_NAV_MOTION: CustomMotion<"div"> = {
   initial: {
     opacity: 0,
     y: -5,
-    filter: "blur(2px)",
   },
   animate: {
     opacity: 1,
     y: 5,
-    filter: "blur(0px)",
   },
   exit: {
     opacity: 0,
     y: 0,
-    filter: "blur(2px)",
   },
   transition: {
     type: "spring",
@@ -178,14 +175,24 @@ export default function Navbar() {
             {(activeSection && activeSection !== "hero-section") || hoveredLink ? (
               <m.span
                 ref={underlineRef}
-                initial={underlineMotionProps}
-                animate={underlineMotionProps}
-                exit={{ opacity: 0 }}
+                initial={{
+                  x: underlineMotionProps.x,
+                  scaleX: underlineMotionProps.scaleX,
+                  opacity: underlineMotionProps.opacity,
+                }}
+                animate={{
+                  x: underlineMotionProps.x,
+                  scaleX: underlineMotionProps.scaleX,
+                  opacity: underlineMotionProps.opacity,
+                }}
+                exit={{ opacity: 0, scaleX: 0 }}
                 transition={UNDERLINE_MOTION_CONFIG}
                 className={cn(
-                  "absolute -bottom-1 left-0 h-px transition-colors duration-150",
+                  "absolute -bottom-1 left-0 h-px rounded-full",
+                  "w-[1px]",
                   currentStyles.underline,
                 )}
+                style={{ originX: 0 }}
                 aria-hidden="true"
               />
             ) : null}

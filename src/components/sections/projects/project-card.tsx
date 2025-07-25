@@ -23,7 +23,7 @@ export const ProjectCard = memo(({ ...props }: ProjectType) => {
     <div
       id="project-card"
       className={cn(
-        "group relative grid h-[400px] w-[400px] cursor-pointer grid-cols-1 rounded-lg border-1 border-red-700/50 shadow-xl",
+        "group relative grid h-[400px] w-[400px] cursor-pointer grid-cols-1 rounded-lg border-1 border-red-700/50 shadow-lg",
         "max-2xl:h-[350px] max-2xl:w-[350px]",
         "max-lg:h-[300px] max-lg:w-[300px]",
         "max-md:h-[375px] max-md:w-[375px]",
@@ -40,7 +40,7 @@ export const ProjectCard = memo(({ ...props }: ProjectType) => {
           height={500}
           loading="lazy"
           decoding="async"
-          className="col-span-full row-span-full rounded-lg brightness-90 sepia"
+          className="col-span-full row-span-full rounded-lg"
         />
       </div>
 
