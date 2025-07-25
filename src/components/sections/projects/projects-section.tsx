@@ -7,7 +7,7 @@ import { useAtomValue } from "jotai";
 import { currentProjectAtom, isProjectOpenAtom } from "@/lib/store/projects";
 import { cn } from "@/lib/utils";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { ProjectsBackground } from "@/components/sections/projects/projects-background";
 
 const DynamicProjectView = dynamic(

@@ -5,7 +5,9 @@ import type { CustomMotion } from "@/lib/types";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 import { Contact2, StarsIcon } from "lucide-react";
-import { motion } from "framer-motion";
+
+import { LazyMotion, domAnimation } from "motion/react";
+import * as m from "motion/react-m";
 
 const BUTTONS_MOTION: CustomMotion<"div"> = {
   initial: { x: -10, opacity: 0 },
@@ -34,41 +36,43 @@ export const HeroButtons = () => {
   };
 
   return (
-    <motion.div
-      {...BUTTONS_MOTION}
-      className={cn(
-        "flex flex-wrap gap-x-6 self-start",
-        "max-lg:self-center max-sm:max-w-[450px] max-sm:gap-y-4 max-sm:self-start",
-      )}
-    >
-      <button
-        onClick={() => handleClick("about-section")}
+    <LazyMotion features={domAnimation}>
+      <m.div
+        {...BUTTONS_MOTION}
         className={cn(
-          buttonBaseClasses,
-          "bg-acc-yellow-2 hover:bg-off-w border-2 border-black font-extrabold text-black",
-          "group",
+          "flex flex-wrap gap-x-6 self-start",
+          "max-lg:self-center max-sm:max-w-[450px] max-sm:gap-y-4 max-sm:self-start",
         )}
       >
-        <StarsIcon
+        <button
+          onClick={() => handleClick("about-section")}
           className={cn(
-            iconBaseClasses,
-            "transition-transform duration-200 group-hover:rotate-90",
+            buttonBaseClasses,
+            "bg-acc-yellow-2 hover:bg-off-w border-2 border-black font-extrabold text-black",
+            "group",
           )}
-        />
-        {t("start")}
-      </button>
+        >
+          <StarsIcon
+            className={cn(
+              iconBaseClasses,
+              "transition-transform duration-200 group-hover:rotate-90",
+            )}
+          />
+          {t("start")}
+        </button>
 
-      <button
-        onClick={() => handleClick("contact-section")}
-        className={cn(
-          buttonBaseClasses,
-          "border-off-w/50 bg-off-w/15 text-off-w/85 border",
-          "hover:border-acc-yellow-2 hover:bg-acc-yellow-2/15 hover:text-acc-yellow-2",
-        )}
-      >
-        <Contact2 className={iconBaseClasses} />
-        {t("contact")}
-      </button>
-    </motion.div>
+        <button
+          onClick={() => handleClick("contact-section")}
+          className={cn(
+            buttonBaseClasses,
+            "border-off-w/50 bg-off-w/15 text-off-w/85 border",
+            "hover:border-acc-yellow-2 hover:bg-acc-yellow-2/15 hover:text-acc-yellow-2",
+          )}
+        >
+          <Contact2 className={iconBaseClasses} />
+          {t("contact")}
+        </button>
+      </m.div>
+    </LazyMotion>
   );
 };

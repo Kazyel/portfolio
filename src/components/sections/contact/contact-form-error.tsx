@@ -1,7 +1,7 @@
 "use client";
 
 import type { CustomMotion } from "@/lib/types";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 const FORM_ERROR_MOTION: CustomMotion<"p"> = {
   initial: { opacity: 0 },

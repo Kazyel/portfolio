@@ -10,12 +10,13 @@ import { NAV_LINKS } from "@/lib/constants/navbar";
 import useNavbarState from "@/hooks/use-navbar-state";
 import useOnClickOutside from "@/hooks/use-on-click-outside";
 import useNavbarStyles from "@/hooks/use-navbar-styles";
+import { AnimatePresence, LazyMotion, domAnimation } from "motion/react";
+import * as m from "motion/react-m";
 
 import { Menu, X, FileUser, Download } from "lucide-react";
 
 import Link from "next/link";
 import LanguageSwitcher from "./language-switcher";
-import { AnimatePresence, motion } from "framer-motion";
 
 const MOBILE_NAV_MOTION: CustomMotion<"div"> = {
   initial: {
@@ -109,7 +110,7 @@ export default function Navbar() {
   );
 
   return (
-    <>
+    <LazyMotion features={domAnimation}>
       <nav
         id="navbar"
         ref={navbarRef}
@@ -175,7 +176,7 @@ export default function Navbar() {
           {/* Animated Underline */}
           <AnimatePresence mode="sync">
             {(activeSection && activeSection !== "hero-section") || hoveredLink ? (
-              <motion.span
+              <m.span
                 ref={underlineRef}
                 initial={underlineMotionProps}
                 animate={underlineMotionProps}
@@ -215,7 +216,7 @@ export default function Navbar() {
           {/* Mobile Menu */}
           <div className="flex items-center gap-4 md:gap-6">
             <div ref={dropdownRef} className="relative flex items-center md:hidden">
-              <motion.button
+              <m.button
                 {...BUTTON_ANIMATION}
                 className="cursor-pointer"
                 onClick={() => setIsMobileDropdownOpen((prev) => !prev)}
@@ -225,7 +226,7 @@ export default function Navbar() {
                 aria-label="Toggle mobile menu"
                 aria-expanded={isMobileDropdownOpen}
               >
-                <motion.div
+                <m.div
                   animate={{
                     rotate: isMobileDropdownOpen ? 90 : 0,
                   }}
@@ -236,13 +237,13 @@ export default function Navbar() {
                   ) : (
                     <Menu className={cn("size-7 cursor-pointer", currentStyles.icon)} />
                   )}
-                </motion.div>
-              </motion.button>
+                </m.div>
+              </m.button>
 
               {/* Mobile Dropdown */}
               <AnimatePresence>
                 {isMobileDropdownOpen && (
-                  <motion.div
+                  <m.div
                     {...MOBILE_NAV_MOTION}
                     className={cn(
                       "absolute top-12 right-0 flex min-w-max flex-col gap-y-5 rounded-md border border-black/25 p-4 shadow-md",
@@ -265,7 +266,7 @@ export default function Navbar() {
                         {t(link.name)}
                       </a>
                     ))}
-                  </motion.div>
+                  </m.div>
                 )}
               </AnimatePresence>
             </div>
@@ -288,6 +289,6 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
-    </>
+    </LazyMotion>
   );
 }

@@ -1,5 +1,5 @@
 import { IconType } from "@icons-pack/react-simple-icons";
-import { HTMLMotionProps } from "framer-motion";
+import { HTMLMotionProps } from "motion/react";
 import { JSX, SVGProps } from "react";
 
 export type Socials<T extends string> = {

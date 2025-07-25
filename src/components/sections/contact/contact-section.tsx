@@ -5,7 +5,7 @@ import type { CustomMotion } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { TextAnimate } from "@/components/ui/text-animate";
 import { ContactForm } from "@/components/sections/contact/contact-form";
 

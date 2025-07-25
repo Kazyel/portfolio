@@ -7,7 +7,7 @@ import { isProjectOpenAtom } from "@/lib/store/projects";
 import { cn } from "@/lib/utils";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 const URL_FLOWERS = "/images/higan-flowers.webp";
 

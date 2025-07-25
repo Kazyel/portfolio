@@ -2,6 +2,7 @@
 
 import type { CustomMotion } from "@/lib/types";
 
+import * as m from "motion/react-m";
 import { SetStateAction, useRef, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { useLocale } from "next-intl";
@@ -9,7 +10,7 @@ import { useLocale } from "next-intl";
 import { cn } from "@/lib/utils";
 import useOnClickOutside from "@/hooks/use-on-click-outside";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { BrazilFlag } from "./svgs/BrazilFlag";
 import { USFlag } from "./svgs/USFlag";
 import { Loader2 } from "lucide-react";
@@ -89,7 +90,7 @@ export default function LanguageSwitcher({ currentStyles }: LanguageSwitcherProp
   return (
     <div className="relative" ref={dropdownRef}>
       {/* Language Switcher Button */}
-      <motion.button
+      <m.button
         onClick={() => setIsSwitcherOpen((prev) => !prev)}
         className={cn(
           "flex items-center transition-all duration-200",
@@ -114,12 +115,12 @@ export default function LanguageSwitcher({ currentStyles }: LanguageSwitcherProp
             />
           </>
         )}
-      </motion.button>
+      </m.button>
 
       {/* Language Switcher Menu */}
       <AnimatePresence>
         {isSwitcherOpen && (
-          <motion.div
+          <m.div
             {...SWITCHER_ANIMATION}
             className={cn(
               "absolute top-12 z-50 flex min-w-max flex-col gap-y-3 rounded-sm border border-black/20 p-4 shadow-lg",
@@ -135,7 +136,7 @@ export default function LanguageSwitcher({ currentStyles }: LanguageSwitcherProp
               const isActive = code === currentLocale;
 
               return (
-                <motion.button
+                <m.button
                   key={code}
                   onClick={() => changeLocale(code as LanguageCode)}
                   className={cn(
@@ -152,10 +153,10 @@ export default function LanguageSwitcher({ currentStyles }: LanguageSwitcherProp
 
                     <span>{language.nativeName}</span>
                   </div>
-                </motion.button>
+                </m.button>
               );
             })}
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </div>

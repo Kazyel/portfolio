@@ -5,7 +5,7 @@ import type { FormEntries } from "@/components/sections/contact/contact-form";
 import { cn } from "@/lib/utils";
 import { Mail, User, MessageSquareText } from "lucide-react";
 
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "motion/react";
 import { ContactFormError } from "@/components/sections/contact/contact-form-error";
 
 const PLACEHOLDERS = {

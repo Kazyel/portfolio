@@ -13,7 +13,7 @@ import { SiGithub } from "@icons-pack/react-simple-icons";
 import { Loader2, Send } from "lucide-react";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { toast } from "sonner";
 import { ShineBorder } from "@/components/ui/shine-border";
 import { ContactFormField } from "@/components/sections/contact/contact-form-field";
