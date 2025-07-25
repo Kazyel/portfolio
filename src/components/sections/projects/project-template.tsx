@@ -4,10 +4,7 @@ import { cn } from "@/lib/utils";
 
 import Image from "next/image";
 import { TextAnimate } from "@/components/ui/text-animate";
-import { ShineBorder } from "@/components/ui/shine-border";
 import { ProjectLink } from "@/components/sections/projects/project-link";
-
-const SHINE_BORDER_COLOR = ["#9f0712cc", "#000000", "#9f071266"];
 
 export const ProjectTemplate = ({
   title,
@@ -42,6 +39,7 @@ export const ProjectTemplate = ({
           url={repoLink}
         />
       </div>
+
       <div
         className={cn(
           "grid w-full grid-cols-3 grid-rows-3 xl:max-h-[700px]",
@@ -72,6 +70,7 @@ export const ProjectTemplate = ({
               </TextAnimate>
             ))}
           </div>
+
           <div
             className={cn(
               "bg-off-w flex items-center gap-8 place-self-start rounded p-3",
@@ -83,9 +82,10 @@ export const ProjectTemplate = ({
             ))}
           </div>
         </div>
+
         <div
           className={cn(
-            "relative col-span-1 row-span-3 aspect-square max-w-[500px] overflow-hidden rounded-lg",
+            "relative col-span-1 row-span-3 aspect-square max-w-[500px] overflow-hidden rounded-lg border border-red-700/50",
             "max-xl:max-w-[300px]",
           )}
         >
@@ -98,11 +98,13 @@ export const ProjectTemplate = ({
             height={1000}
             className="rounded-lg brightness-50 sepia"
           />
-          <ShineBorder
-            borderWidth={2}
-            shineColor={SHINE_BORDER_COLOR}
-            className="rounded-lg"
-          />
+
+          <div
+            className={cn(
+              "absolute bottom-0 left-0 z-10 h-full w-full rounded-lg bg-gradient-to-t from-black/50 to-transparent opacity-100 transition-all duration-300",
+              "group-hover:opacity-90",
+            )}
+          ></div>
         </div>
       </div>
     </div>

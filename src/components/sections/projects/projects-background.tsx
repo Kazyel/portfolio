@@ -20,7 +20,7 @@ const KOI_MOTION: CustomMotion<"div"> = {
   transition: { duration: 0.4 },
 };
 
-const flowerBaseClasses = cn("absolute mix-blend-color-burn transition-all duration-500");
+const flowerBaseClasses = cn("absolute transition-all duration-500");
 
 /* Left side flowers */
 const leftFlower1Classes = cn(
@@ -59,7 +59,7 @@ const rightFlower3Classes = cn(
 );
 
 const koiContainerClasses = cn(
-  "pointer-events-none absolute right-0 bottom-0 mix-blend-multiply grayscale",
+  "pointer-events-none absolute right-0 bottom-0",
   "max-xl:hidden",
 );
 
@@ -125,7 +125,7 @@ export const ProjectsBackground = () => {
         <Image
           src={URL_FLOWERS}
           alt="Decorative floral background"
-          className={cn(rightFlower3Classes, isOpen && "opacity-0")}
+          className={cn(rightFlower3Classes, isOpen && "opacity-40")}
           quality={50}
           height={600}
           width={500}
@@ -137,6 +137,7 @@ export const ProjectsBackground = () => {
         {isOpen && (
           <m.div {...KOI_MOTION} className={koiContainerClasses}>
             <Image
+              className="opacity-65"
               src="/images/fish.webp"
               alt="Fish"
               quality={50}

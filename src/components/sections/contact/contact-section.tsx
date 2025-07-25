@@ -16,7 +16,7 @@ const BACKGROUND_MOTION: CustomMotion<"div"> = {
   viewport: { once: true, amount: 0.65 },
 };
 
-const toriiBaseClasses = cn("pointer-events-none absolute bottom-0 grayscale");
+const toriiBaseClasses = cn("pointer-events-none absolute bottom-0");
 
 export default function ContactSection() {
   return (
@@ -38,7 +38,7 @@ export default function ContactSection() {
           <Image
             src="/images/samurai.avif"
             alt="Samurai Background"
-            className="mx-auto opacity-15 grayscale"
+            className="mx-auto opacity-15"
             width={1000}
             height={1000}
             quality={75}
