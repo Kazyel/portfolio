@@ -191,30 +191,34 @@
 
   @keyframes enter-pagoda {
     0% {
-      opacity: 0.05;
+      opacity: 0;
+      transform: translateY(5px);
     }
 
     100% {
-      opacity: 0.35;
+      opacity: 0.3;
+      transform: translateY(0px);
     }
   }
 
   .pagoda-animation {
-    animation: enter-pagoda 1s ease-in-out;
+    animation: enter-pagoda 5s ease;
   }
 
   @keyframes enter-kanagawa {
     0% {
-      opacity: 0.05;
+      opacity: 0;
+      transform: translateY(10px);
     }
 
     100% {
-      opacity: 0.25;
+      opacity: 0.2;
+      transform: translateY(0px);
     }
   }
 
   .kanagawa-animation {
-    animation: enter-kanagawa 1s ease-in-out;
+    animation: enter-kanagawa 3s ease;
   }
 
   .dark {

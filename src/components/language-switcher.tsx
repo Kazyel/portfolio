@@ -9,13 +9,11 @@ import { useLocale } from "next-intl";
 import { cn } from "@/lib/utils";
 import useOnClickOutside from "@/hooks/use-on-click-outside";
 
-import { BrazilFlag } from "./svgs/BrazilFlag";
-import { USFlag } from "./svgs/USFlag";
 import { Loader2 } from "lucide-react";
-import { International } from "./svgs/International";
-
-import { AnimatePresence } from "motion/react";
-import * as m from "motion/react-m";
+import { BrazilFlag } from "@/components/svgs/BrazilFlag";
+import { USFlag } from "@/components/svgs/USFlag";
+import { International } from "@/components/svgs/International";
+import { m, AnimatePresence } from "@/components/motion-wrapper";
 
 interface LanguageSwitcherProps {
   currentStyles: {

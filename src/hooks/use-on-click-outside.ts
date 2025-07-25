@@ -10,6 +10,7 @@ export default function useOnClickOutside(
 
     const handleClickOutside = (e: MouseEvent | TouchEvent) => {
       if (!ref.current) return;
+
       if (!ref.current.contains(e.target as Node)) {
         callback.forEach((cb) => cb(false));
       }

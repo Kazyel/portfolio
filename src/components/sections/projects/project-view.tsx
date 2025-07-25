@@ -1,7 +1,7 @@
 import type { ProjectType } from "@/lib/types";
 
-import { cn } from "@/lib/utils";
 import { useAtomValue, useSetAtom } from "jotai";
+import { cn } from "@/lib/utils";
 import { currentProjectAtom, isProjectOpenAtom } from "@/lib/store/projects";
 
 import { ProjectTemplate } from "@/components/sections/projects/project-template";

@@ -11,12 +11,10 @@ import useNavbarState from "@/hooks/use-navbar-state";
 import useOnClickOutside from "@/hooks/use-on-click-outside";
 import useNavbarStyles from "@/hooks/use-navbar-styles";
 
-import { Menu, X, FileUser, Download } from "lucide-react";
 import Link from "next/link";
-import LanguageSwitcher from "./language-switcher";
-
-import { AnimatePresence, LazyMotion, domAnimation } from "motion/react";
-import * as m from "motion/react-m";
+import LanguageSwitcher from "@/components/language-switcher";
+import { Menu, X, FileUser, Download } from "lucide-react";
+import { MotionWrapper, m, AnimatePresence } from "@/components/motion-wrapper";
 
 const MOBILE_NAV_MOTION: CustomMotion<"div"> = {
   initial: {
@@ -107,7 +105,7 @@ export default function Navbar() {
   );
 
   return (
-    <LazyMotion features={domAnimation}>
+    <MotionWrapper>
       <nav
         id="navbar"
         ref={navbarRef}
@@ -296,6 +294,6 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
-    </LazyMotion>
+    </MotionWrapper>
   );
 }

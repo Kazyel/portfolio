@@ -1,17 +1,10 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-import {
-  AnimatePresence,
-  motion,
-  type MotionProps,
-  type Variants,
-  LazyMotion,
-  domAnimation,
-} from "motion/react";
-import * as m from "motion/react-m";
-
 import { type ElementType } from "react";
+import { AnimatePresence, motion, type MotionProps, type Variants } from "motion/react";
+import { cn } from "@/lib/utils";
+
+import { MotionWrapper, m } from "@/components/motion-wrapper";
 
 type AnimationType = "text" | "word" | "character" | "line";
 type AnimationVariant =
@@ -385,7 +378,7 @@ export function TextAnimate({
       : { container: defaultContainerVariants, item: defaultItemVariants };
 
   return (
-    <LazyMotion features={domAnimation}>
+    <MotionWrapper>
       <AnimatePresence mode="popLayout">
         <MotionComponent
           variants={finalVariants.container as Variants}
@@ -415,6 +408,6 @@ export function TextAnimate({
           ))}
         </MotionComponent>
       </AnimatePresence>
-    </LazyMotion>
+    </MotionWrapper>
   );
 }

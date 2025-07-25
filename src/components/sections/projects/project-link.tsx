@@ -1,6 +1,7 @@
-import { TextAnimate } from "@/components/ui/text-animate";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
+
+import Link from "next/link";
+import { TextAnimate } from "@/components/ui/text-animate";
 
 interface ProjectLinkProps {
   title: string;

@@ -1,8 +1,8 @@
 import type { ProjectType } from "@/lib/types";
 
-import { cn } from "@/lib/utils";
 import { memo } from "react";
 import { useSetAtom } from "jotai";
+import { cn } from "@/lib/utils";
 import { isProjectOpenAtom, currentProjectAtom } from "@/lib/store/projects";
 
 import Image from "next/image";
@@ -34,12 +34,13 @@ export const ProjectCard = memo(({ ...props }: ProjectType) => {
     >
       <div className="border-off-w/25 col-span-full row-span-full flex flex-col overflow-hidden rounded-lg bg-stone-900">
         <Image
-          src="https://images.unsplash.com/photo-1508504509543-5ca56440e013?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8amFwYW58ZW58MHx8MHx8fDA%3D"
+          src="/images/placeholder.avif"
           alt={`${props.title}-image`}
           width={500}
           height={500}
           loading="lazy"
           decoding="async"
+          quality={65}
           className="col-span-full row-span-full rounded-lg"
         />
       </div>

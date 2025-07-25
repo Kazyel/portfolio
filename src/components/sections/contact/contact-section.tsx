@@ -7,9 +7,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { TextAnimate } from "@/components/ui/text-animate";
 import { ContactForm } from "@/components/sections/contact/contact-form";
-
-import { LazyMotion, domAnimation } from "motion/react";
-import * as m from "motion/react-m";
+import { MotionWrapper, m } from "@/components/motion-wrapper";
 
 const BACKGROUND_MOTION: CustomMotion<"div"> = {
   transition: { duration: 0.5, delay: 1.5 },
@@ -20,7 +18,7 @@ const toriiBaseClasses = cn("pointer-events-none absolute bottom-0");
 
 export default function ContactSection() {
   return (
-    <LazyMotion features={domAnimation}>
+    <MotionWrapper>
       <section
         id="contact-section"
         className={cn(
@@ -123,6 +121,6 @@ export default function ContactSection() {
 
         <ContactForm />
       </section>
-    </LazyMotion>
+    </MotionWrapper>
   );
 }

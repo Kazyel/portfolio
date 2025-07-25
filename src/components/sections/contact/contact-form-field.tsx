@@ -3,10 +3,10 @@ import type { EmailFormSchema } from "@/lib/validations/form";
 import type { FormEntries } from "@/components/sections/contact/contact-form";
 
 import { cn } from "@/lib/utils";
-import { Mail, User, MessageSquareText } from "lucide-react";
-import { ContactFormError } from "@/components/sections/contact/contact-form-error";
 
-import { AnimatePresence, LazyMotion, domAnimation } from "motion/react";
+import { ContactFormError } from "@/components/sections/contact/contact-form-error";
+import { Mail, User, MessageSquareText } from "lucide-react";
+import { MotionWrapper, AnimatePresence } from "@/components/motion-wrapper";
 
 const PLACEHOLDERS = {
   name: "Enter your name...",
@@ -47,7 +47,7 @@ export const ContactFormField = ({
   const errorType = errors[name];
 
   return (
-    <LazyMotion features={domAnimation}>
+    <MotionWrapper>
       <div className="flex flex-col gap-y-2.5">
         <div className="flex items-center gap-2.5">
           <label htmlFor={name} className="flex items-center gap-2.5 font-semibold">
@@ -81,6 +81,6 @@ export const ContactFormField = ({
           />
         )}
       </div>
-    </LazyMotion>
+    </MotionWrapper>
   );
 };

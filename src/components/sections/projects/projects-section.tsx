@@ -7,11 +7,9 @@ import { currentProjectAtom, isProjectOpenAtom } from "@/lib/store/projects";
 import { cn } from "@/lib/utils";
 
 import { ProjectsBackground } from "@/components/sections/projects/projects-background";
-import { ProjectView } from "./project-view";
-import { MainProjects } from "./projects-main";
-
-import { LazyMotion, domAnimation } from "motion/react";
-import * as m from "motion/react-m";
+import { ProjectView } from "@/components/sections/projects/project-view";
+import { MainProjects } from "@/components/sections/projects/projects-main";
+import { MotionWrapper, m } from "@/components/motion-wrapper";
 
 const PROJECT_MOTION: CustomMotion<"div"> = {
   initial: { opacity: 0 },
@@ -25,7 +23,7 @@ export default function ProjectsSection() {
   const isProjectOpen = useAtomValue(isProjectOpenAtom);
 
   return (
-    <LazyMotion features={domAnimation}>
+    <MotionWrapper>
       <section
         id="projects-section"
         className={cn(
@@ -54,6 +52,6 @@ export default function ProjectsSection() {
         <ProjectsBackground />
         <div className="absolute bottom-0 left-0 h-full w-full rounded-lg bg-gradient-to-t from-black/25 to-transparent opacity-100" />
       </section>
-    </LazyMotion>
+    </MotionWrapper>
   );
 }

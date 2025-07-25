@@ -16,9 +16,7 @@ import Link from "next/link";
 import { toast } from "sonner";
 import { ShineBorder } from "@/components/ui/shine-border";
 import { ContactFormField } from "@/components/sections/contact/contact-form-field";
-
-import { LazyMotion, domAnimation } from "motion/react";
-import * as m from "motion/react-m";
+import { MotionWrapper, m } from "@/components/motion-wrapper";
 
 export type FormEntries = keyof EmailFormSchema;
 
@@ -70,7 +68,7 @@ export const ContactForm = () => {
   const formEntries = Object.keys(emailSchema.fields) as FormEntries[];
 
   return (
-    <LazyMotion features={domAnimation}>
+    <MotionWrapper>
       <m.div
         {...CONTACT_MOTION}
         className={cn(
@@ -149,6 +147,6 @@ export const ContactForm = () => {
           ))}
         </div>
       </m.div>
-    </LazyMotion>
+    </MotionWrapper>
   );
 };

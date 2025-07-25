@@ -7,9 +7,7 @@ import { isProjectOpenAtom } from "@/lib/store/projects";
 import { cn } from "@/lib/utils";
 
 import Image from "next/image";
-
-import { LazyMotion, domAnimation } from "motion/react";
-import * as m from "motion/react-m";
+import { MotionWrapper, m } from "@/components/motion-wrapper";
 
 const URL_FLOWERS = "/images/higan-flowers.avif";
 
@@ -67,7 +65,7 @@ export const ProjectsBackground = () => {
   const isOpen = useAtomValue(isProjectOpenAtom);
 
   return (
-    <LazyMotion features={domAnimation}>
+    <MotionWrapper>
       <div>
         {/* Left side flowers */}
         <Image
@@ -147,6 +145,6 @@ export const ProjectsBackground = () => {
           </m.div>
         )}
       </div>
-    </LazyMotion>
+    </MotionWrapper>
   );
 };

@@ -1,14 +1,15 @@
-import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
+import { cn } from "@/lib/utils";
+
+import Image from "next/image";
+import AnimatedGradientBackground from "@/components/ui/animated-gradient-background";
 import { TextAnimate } from "@/components/ui/text-animate";
 import { HeroButtons } from "@/components/sections/hero/hero-buttons";
-import AnimatedGradientBackground from "@/components/ui/animated-gradient-background";
-import Image from "next/image";
 
 const STATIC_COLOR = "#f3e5d7";
 const DARK_COLOR = "#00000033";
 
-const imageBaseClasses = "pointer-events-none absolute opacity-35";
+const imageBaseClasses = "pointer-events-none absolute";
 const textBaseClasses = "tracking-tighter text-pretty max-sm:leading-10";
 const mobileTextDisposition = "max-xs:text-left sm:max-lg:text-center";
 
@@ -25,7 +26,7 @@ export default function HeroSection() {
     >
       {/* Hero Content */}
       <div
-        className={cn("relative z-10 flex w-full flex-col gap-y-12", "xl:max-w-[1250px]")}
+        className={cn("relative z-30 flex w-full flex-col gap-y-12", "xl:max-w-[1250px]")}
       >
         <div className="w-full">
           <TextAnimate
@@ -86,7 +87,7 @@ export default function HeroSection() {
         alt="Kanagawa Wave"
         className={cn(
           imageBaseClasses,
-          "kanagawa-animation bottom-0 w-full opacity-20 sepia",
+          "kanagawa-animation bottom-0 z-20 w-full opacity-20 sepia",
         )}
         loading="eager"
         priority
@@ -98,7 +99,11 @@ export default function HeroSection() {
       <Image
         src="/images/pagoda.avif"
         alt="Pagoda"
-        className={cn(imageBaseClasses, "pagoda-animation -bottom-52", "max-lg:hidden")}
+        className={cn(
+          imageBaseClasses,
+          "pagoda-animation -bottom-52 opacity-30",
+          "max-lg:hidden",
+        )}
         loading="eager"
         priority
         quality={65}

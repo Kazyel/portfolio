@@ -4,10 +4,9 @@ import type { CustomMotion } from "@/lib/types";
 
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
-import { Contact2, StarsIcon } from "lucide-react";
 
-import { LazyMotion, domAnimation } from "motion/react";
-import * as m from "motion/react-m";
+import { Contact2, StarsIcon } from "lucide-react";
+import { MotionWrapper, m } from "@/components/motion-wrapper";
 
 const BUTTONS_MOTION: CustomMotion<"div"> = {
   initial: { x: -10, opacity: 0 },
@@ -36,7 +35,7 @@ export const HeroButtons = () => {
   };
 
   return (
-    <LazyMotion features={domAnimation}>
+    <MotionWrapper>
       <m.div
         {...BUTTONS_MOTION}
         className={cn(
@@ -73,6 +72,6 @@ export const HeroButtons = () => {
           {t("contact")}
         </button>
       </m.div>
-    </LazyMotion>
+    </MotionWrapper>
   );
 };
