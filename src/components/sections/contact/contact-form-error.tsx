@@ -1,7 +1,9 @@
 "use client";
 
 import type { CustomMotion } from "@/lib/types";
-import { motion } from "motion/react";
+
+import { LazyMotion, domAnimation } from "motion/react";
+import * as m from "motion/react-m";
 
 const FORM_ERROR_MOTION: CustomMotion<"p"> = {
   initial: { opacity: 0 },
@@ -16,8 +18,10 @@ interface ContactFormErrorProps {
 
 export const ContactFormError = ({ message }: ContactFormErrorProps) => {
   return (
-    <motion.p {...FORM_ERROR_MOTION} className="text-[10px] text-red-300/75 italic">
-      * {message}.
-    </motion.p>
+    <LazyMotion features={domAnimation}>
+      <m.p {...FORM_ERROR_MOTION} className="text-[10px] text-red-300/75 italic">
+        * {message}.
+      </m.p>
+    </LazyMotion>
   );
 };

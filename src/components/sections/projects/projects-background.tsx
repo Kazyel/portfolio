@@ -7,7 +7,9 @@ import { isProjectOpenAtom } from "@/lib/store/projects";
 import { cn } from "@/lib/utils";
 
 import Image from "next/image";
-import { motion } from "motion/react";
+
+import { LazyMotion, domAnimation } from "motion/react";
+import * as m from "motion/react-m";
 
 const URL_FLOWERS = "/images/higan-flowers.webp";
 
@@ -65,83 +67,85 @@ export const ProjectsBackground = () => {
   const isOpen = useAtomValue(isProjectOpenAtom);
 
   return (
-    <div>
-      {/* Left side flowers */}
-      <Image
-        src={URL_FLOWERS}
-        alt="Decorative floral background"
-        className={cn(leftFlower1Classes, isOpen && "opacity-15")}
-        quality={50}
-        height={1000}
-        width={700}
-        loading="lazy"
-        decoding="async"
-      />
-      <Image
-        src={URL_FLOWERS}
-        alt="Decorative floral background"
-        className={cn(leftFlower2Classes, isOpen && "opacity-30")}
-        quality={50}
-        height={700}
-        width={400}
-        loading="lazy"
-        decoding="async"
-      />
-      <Image
-        src={URL_FLOWERS}
-        alt="Decorative floral background"
-        className={cn(leftFlower3Classes, isOpen && "opacity-35")}
-        quality={50}
-        height={600}
-        width={500}
-        loading="lazy"
-        decoding="async"
-      />
+    <LazyMotion features={domAnimation}>
+      <div>
+        {/* Left side flowers */}
+        <Image
+          src={URL_FLOWERS}
+          alt="Decorative floral background"
+          className={cn(leftFlower1Classes, isOpen && "opacity-15")}
+          quality={50}
+          height={1000}
+          width={700}
+          loading="lazy"
+          decoding="async"
+        />
+        <Image
+          src={URL_FLOWERS}
+          alt="Decorative floral background"
+          className={cn(leftFlower2Classes, isOpen && "opacity-30")}
+          quality={50}
+          height={700}
+          width={400}
+          loading="lazy"
+          decoding="async"
+        />
+        <Image
+          src={URL_FLOWERS}
+          alt="Decorative floral background"
+          className={cn(leftFlower3Classes, isOpen && "opacity-35")}
+          quality={50}
+          height={600}
+          width={500}
+          loading="lazy"
+          decoding="async"
+        />
 
-      {/* Right side flowers */}
-      <Image
-        src={URL_FLOWERS}
-        alt="Decorative floral background"
-        className={cn(rightFlower1Classes, isOpen && "opacity-0")}
-        quality={50}
-        height={1100}
-        width={700}
-        loading="lazy"
-        decoding="async"
-      />
-      <Image
-        src={URL_FLOWERS}
-        alt="Decorative floral background"
-        className={cn(rightFlower2Classes, isOpen && "opacity-0")}
-        quality={50}
-        height={700}
-        width={400}
-        loading="lazy"
-        decoding="async"
-      />
-      <Image
-        src={URL_FLOWERS}
-        alt="Decorative floral background"
-        className={cn(rightFlower3Classes, isOpen && "opacity-0")}
-        quality={50}
-        height={600}
-        width={500}
-        loading="lazy"
-        decoding="async"
-      />
+        {/* Right side flowers */}
+        <Image
+          src={URL_FLOWERS}
+          alt="Decorative floral background"
+          className={cn(rightFlower1Classes, isOpen && "opacity-0")}
+          quality={50}
+          height={1100}
+          width={700}
+          loading="lazy"
+          decoding="async"
+        />
+        <Image
+          src={URL_FLOWERS}
+          alt="Decorative floral background"
+          className={cn(rightFlower2Classes, isOpen && "opacity-0")}
+          quality={50}
+          height={700}
+          width={400}
+          loading="lazy"
+          decoding="async"
+        />
+        <Image
+          src={URL_FLOWERS}
+          alt="Decorative floral background"
+          className={cn(rightFlower3Classes, isOpen && "opacity-0")}
+          quality={50}
+          height={600}
+          width={500}
+          loading="lazy"
+          decoding="async"
+        />
 
-      {/* Koi Fish */}
-      {isOpen && (
-        <motion.div {...KOI_MOTION} className={koiContainerClasses}>
-          <Image
-            src="/images/fish.webp"
-            alt="Fish"
-            quality={50}
-            width={679}
-            height={912}
-          />
-        </motion.div>
-      )}
-    </div>
+        {/* Koi Fish */}
+        {isOpen && (
+          <m.div {...KOI_MOTION} className={koiContainerClasses}>
+            <Image
+              src="/images/fish.webp"
+              alt="Fish"
+              quality={50}
+              width={679}
+              height={912}
+            />
+          </m.div>
+        )}
+      </div>
+    </LazyMotion>
   );
 };

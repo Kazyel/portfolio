@@ -4,9 +4,9 @@ import type { FormEntries } from "@/components/sections/contact/contact-form";
 
 import { cn } from "@/lib/utils";
 import { Mail, User, MessageSquareText } from "lucide-react";
-
-import { AnimatePresence } from "motion/react";
 import { ContactFormError } from "@/components/sections/contact/contact-form-error";
+
+import { AnimatePresence, LazyMotion, domAnimation } from "motion/react";
 
 const PLACEHOLDERS = {
   name: "Enter your name...",
@@ -47,38 +47,40 @@ export const ContactFormField = ({
   const errorType = errors[name];
 
   return (
-    <div className="flex flex-col gap-y-2.5">
-      <div className="flex items-center gap-2.5">
-        <label htmlFor={name} className="flex items-center gap-2.5 font-semibold">
-          <Icon />
-          {label}
-        </label>
-        <AnimatePresence>
-          {errorType && errorType.message && (
-            <ContactFormError message={errorType.message} />
-          )}
-        </AnimatePresence>
-      </div>
+    <LazyMotion features={domAnimation}>
+      <div className="flex flex-col gap-y-2.5">
+        <div className="flex items-center gap-2.5">
+          <label htmlFor={name} className="flex items-center gap-2.5 font-semibold">
+            <Icon />
+            {label}
+          </label>
+          <AnimatePresence>
+            {errorType && errorType.message && (
+              <ContactFormError message={errorType.message} />
+            )}
+          </AnimatePresence>
+        </div>
 
-      {as === "textarea" ? (
-        <textarea
-          {...register(name)}
-          name={name}
-          id={name}
-          placeholder={placeholder}
-          className={cn(inputBaseClasses, "resize-none")}
-          rows={7}
-        />
-      ) : (
-        <input
-          {...register(name)}
-          type={type}
-          name={name}
-          id={name}
-          placeholder={placeholder}
-          className={inputBaseClasses}
-        />
-      )}
-    </div>
+        {as === "textarea" ? (
+          <textarea
+            {...register(name)}
+            name={name}
+            id={name}
+            placeholder={placeholder}
+            className={cn(inputBaseClasses, "resize-none")}
+            rows={7}
+          />
+        ) : (
+          <input
+            {...register(name)}
+            type={type}
+            name={name}
+            id={name}
+            placeholder={placeholder}
+            className={inputBaseClasses}
+          />
+        )}
+      </div>
+    </LazyMotion>
   );
 };

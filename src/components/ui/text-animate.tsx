@@ -1,7 +1,16 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { AnimatePresence, motion, type MotionProps, type Variants } from "motion/react";
+import {
+  AnimatePresence,
+  motion,
+  type MotionProps,
+  type Variants,
+  LazyMotion,
+  domAnimation,
+} from "motion/react";
+import * as m from "motion/react-m";
+
 import { type ElementType } from "react";
 
 type AnimationType = "text" | "word" | "character" | "line";
@@ -376,34 +385,36 @@ export function TextAnimate({
       : { container: defaultContainerVariants, item: defaultItemVariants };
 
   return (
-    <AnimatePresence mode="popLayout">
-      <MotionComponent
-        variants={finalVariants.container as Variants}
-        initial="hidden"
-        whileInView={startOnView ? "show" : undefined}
-        animate={startOnView ? undefined : "show"}
-        exit="exit"
-        className={cn("whitespace-pre-wrap", className)}
-        viewport={{ once }}
-        {...props}
-      >
-        {segments.map((segment, i) => (
-          <motion.span
-            key={`${by}-${segment}-${i}`}
-            variants={finalVariants.item}
-            custom={i * staggerTimings[by]}
-            className={cn(
-              by === "line" ? "block" : "inline-block whitespace-pre",
-              by === "character" && "",
-              by === "text" &&
-                "inline whitespace-pre-wrap max-sm:break-words max-sm:hyphens-auto",
-              segmentClassName,
-            )}
-          >
-            {segment}
-          </motion.span>
-        ))}
-      </MotionComponent>
-    </AnimatePresence>
+    <LazyMotion features={domAnimation}>
+      <AnimatePresence mode="popLayout">
+        <MotionComponent
+          variants={finalVariants.container as Variants}
+          initial="hidden"
+          whileInView={startOnView ? "show" : undefined}
+          animate={startOnView ? undefined : "show"}
+          exit="exit"
+          className={cn("whitespace-pre-wrap", className)}
+          viewport={{ once }}
+          {...props}
+        >
+          {segments.map((segment, i) => (
+            <m.span
+              key={`${by}-${segment}-${i}`}
+              variants={finalVariants.item}
+              custom={i * staggerTimings[by]}
+              className={cn(
+                by === "line" ? "block" : "inline-block whitespace-pre",
+                by === "character" && "",
+                by === "text" &&
+                  "inline whitespace-pre-wrap max-sm:break-words max-sm:hyphens-auto",
+                segmentClassName,
+              )}
+            >
+              {segment}
+            </m.span>
+          ))}
+        </MotionComponent>
+      </AnimatePresence>
+    </LazyMotion>
   );
 }

@@ -5,9 +5,11 @@ import type { CustomMotion } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 import Image from "next/image";
-import { motion } from "motion/react";
 import { TextAnimate } from "@/components/ui/text-animate";
 import { ContactForm } from "@/components/sections/contact/contact-form";
+
+import { LazyMotion, domAnimation } from "motion/react";
+import * as m from "motion/react-m";
 
 const BACKGROUND_MOTION: CustomMotion<"div"> = {
   transition: { duration: 0.5, delay: 1.5 },
@@ -18,104 +20,109 @@ const toriiBaseClasses = cn("pointer-events-none absolute bottom-0 grayscale");
 
 export default function ContactSection() {
   return (
-    <section
-      id="contact-section"
-      className={cn(
-        "relative flex min-h-dvh items-center justify-center gap-x-20 gap-y-6 overflow-clip bg-black/75 px-8",
-        "max-xl:py-10 max-lg:scroll-mt-[var(--navbar-height)] max-lg:flex-col",
-      )}
-    >
-      {/* Animated Background Overlays */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        {...BACKGROUND_MOTION}
-        className="absolute inset-0 max-lg:hidden"
-      >
-        <Image
-          src="/images/samurai.webp"
-          alt="Samurai Background"
-          className="mx-auto opacity-15 grayscale"
-          width={1000}
-          height={1000}
-          quality={75}
-          loading="lazy"
-          decoding="async"
-        />
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0.2 }}
-        whileInView={{ opacity: 0.1 }}
-        {...BACKGROUND_MOTION}
-        className="absolute inset-0 max-xl:hidden"
-      >
-        <Image
-          src="/images/torii.webp"
-          alt="Torii Background"
-          className={cn(toriiBaseClasses, "-right-[300px]")}
-          width={900}
-          height={900}
-          quality={75}
-          loading="lazy"
-          decoding="async"
-        />
-
-        <Image
-          src="/images/torii.webp"
-          alt="Torii Background (Mirrored)"
-          className={cn(toriiBaseClasses, "-left-[300px] -scale-x-[1]")}
-          width={900}
-          height={900}
-          quality={75}
-          loading="lazy"
-          decoding="async"
-        />
-      </motion.div>
-
-      <div
+    <LazyMotion features={domAnimation}>
+      <section
+        id="contact-section"
         className={cn(
-          "z-10 flex w-[600px] flex-col gap-y-6",
-          "max-lg:w-full max-lg:gap-y-4 max-md:gap-y-2 sm:items-center",
+          "relative flex min-h-dvh items-center justify-center gap-x-20 gap-y-6 overflow-clip bg-black/75 px-8",
+          "max-xl:py-10 max-lg:scroll-mt-[var(--navbar-height)] max-lg:flex-col",
         )}
       >
-        <TextAnimate
-          as="h1"
-          className={cn(
-            "text-off-w text-8xl font-extrabold tracking-tighter",
-            "max-lg:text-5xl max-md:text-[2.75rem]",
-          )}
-          delay={0.15}
-          animation="slideRight"
-          once
+        {/* Animated Background Overlays */}
+        <m.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          {...BACKGROUND_MOTION}
+          className="absolute inset-0 max-lg:hidden"
         >
-          This journey ends here.
-        </TextAnimate>
+          <Image
+            src="/images/samurai.webp"
+            alt="Samurai Background"
+            className="mx-auto opacity-15 grayscale"
+            width={1000}
+            height={1000}
+            quality={75}
+            loading="lazy"
+            decoding="async"
+          />
+        </m.div>
 
-        <TextAnimate
-          as="h2"
-          by="line"
-          className={cn("text-acc-yellow-2 text-5xl", "max-lg:text-3xl max-md:text-3xl")}
-          delay={0.75}
-          animation="slideRight"
-          once
+        <m.div
+          initial={{ opacity: 0.2 }}
+          whileInView={{ opacity: 0.1 }}
+          {...BACKGROUND_MOTION}
+          className="absolute inset-0 max-xl:hidden"
         >
-          Yet, ours yearns to begin.
-        </TextAnimate>
+          <Image
+            src="/images/torii.webp"
+            alt="Torii Background"
+            className={cn(toriiBaseClasses, "-right-[300px]")}
+            width={900}
+            height={900}
+            quality={75}
+            loading="lazy"
+            decoding="async"
+          />
+
+          <Image
+            src="/images/torii.webp"
+            alt="Torii Background (Mirrored)"
+            className={cn(toriiBaseClasses, "-left-[300px] -scale-x-[1]")}
+            width={900}
+            height={900}
+            quality={75}
+            loading="lazy"
+            decoding="async"
+          />
+        </m.div>
 
         <div
           className={cn(
-            "text-off-w/60 text-lg font-extralight tracking-wide italic",
-            "max-lg:text-base max-md:text-base",
+            "z-10 flex w-[600px] flex-col gap-y-6",
+            "max-lg:w-full max-lg:gap-y-4 max-md:gap-y-2 sm:items-center",
           )}
         >
-          <TextAnimate delay={1.5} duration={1} by="line" animation="blurIn" once>
-            A blade stays sheathed — until its purpose awakens...
+          <TextAnimate
+            as="h1"
+            className={cn(
+              "text-off-w text-8xl font-extrabold tracking-tighter",
+              "max-lg:text-5xl max-md:text-[2.75rem]",
+            )}
+            delay={0.15}
+            animation="slideRight"
+            once
+          >
+            This journey ends here.
           </TextAnimate>
-        </div>
-      </div>
 
-      <ContactForm />
-    </section>
+          <TextAnimate
+            as="h2"
+            by="line"
+            className={cn(
+              "text-acc-yellow-2 text-5xl",
+              "max-lg:text-3xl max-md:text-3xl",
+            )}
+            delay={0.75}
+            animation="slideRight"
+            once
+          >
+            Yet, ours yearns to begin.
+          </TextAnimate>
+
+          <div
+            className={cn(
+              "text-off-w/60 text-lg font-extralight tracking-wide italic",
+              "max-lg:text-base max-md:text-base",
+            )}
+          >
+            <TextAnimate delay={1.5} duration={1} by="line" animation="blurIn" once>
+              A blade stays sheathed — until its purpose awakens...
+            </TextAnimate>
+          </div>
+        </div>
+
+        <ContactForm />
+      </section>
+    </LazyMotion>
   );
 }

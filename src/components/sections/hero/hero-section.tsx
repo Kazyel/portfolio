@@ -37,7 +37,7 @@ export default function HeroSection() {
             )}
             as="h1"
             animation="slideDown"
-            delay={0.2}
+            delay={0}
             by="text"
             once
           >
@@ -53,7 +53,7 @@ export default function HeroSection() {
             )}
             as="h2"
             by="text"
-            delay={0.4}
+            delay={0.2}
             once
           >
             {t("mateus")}
@@ -67,7 +67,7 @@ export default function HeroSection() {
               "max-xs:text-[2.5rem] xs:max-md:text-[3rem] max-xl:text-[4rem]",
             )}
             as="h2"
-            delay={0.6}
+            delay={0.4}
             animation="fadeIn"
             by="text"
             once

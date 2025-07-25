@@ -10,13 +10,13 @@ import { NAV_LINKS } from "@/lib/constants/navbar";
 import useNavbarState from "@/hooks/use-navbar-state";
 import useOnClickOutside from "@/hooks/use-on-click-outside";
 import useNavbarStyles from "@/hooks/use-navbar-styles";
-import { AnimatePresence, LazyMotion, domAnimation } from "motion/react";
-import * as m from "motion/react-m";
 
 import { Menu, X, FileUser, Download } from "lucide-react";
-
 import Link from "next/link";
 import LanguageSwitcher from "./language-switcher";
+
+import { AnimatePresence, LazyMotion, domAnimation } from "motion/react";
+import * as m from "motion/react-m";
 
 const MOBILE_NAV_MOTION: CustomMotion<"div"> = {
   initial: {

@@ -2,7 +2,6 @@
 
 import type { CustomMotion } from "@/lib/types";
 
-import * as m from "motion/react-m";
 import { SetStateAction, useRef, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { useLocale } from "next-intl";
@@ -10,11 +9,13 @@ import { useLocale } from "next-intl";
 import { cn } from "@/lib/utils";
 import useOnClickOutside from "@/hooks/use-on-click-outside";
 
-import { AnimatePresence, motion } from "motion/react";
 import { BrazilFlag } from "./svgs/BrazilFlag";
 import { USFlag } from "./svgs/USFlag";
 import { Loader2 } from "lucide-react";
 import { International } from "./svgs/International";
+
+import * as m from "motion/react-m";
+import { AnimatePresence } from "motion/react";
 
 interface LanguageSwitcherProps {
   currentStyles: {
