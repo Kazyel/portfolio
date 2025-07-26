@@ -41,9 +41,9 @@ const AboutText = () => {
   return (
     <div
       className={cn(
-        "relative z-10 flex flex-col gap-y-3 border-l-2 border-black/35",
-        "max-xl:bg-off-w border-black max-xl:rounded-sm max-xl:border-none max-xl:p-4 max-xl:[filter:drop-shadow(0px_0px_3px_#00000033)]",
-        "max-xl:p-8 max-lg:w-full xl:ml-4 xl:max-w-[600px] xl:px-4",
+        "relative z-10 flex flex-col gap-y-3 border-l-2 border-black/35 text-pretty",
+        "max-xl:bg-off-w border-black max-xl:rounded-sm max-xl:border-none max-xl:p-4 max-xl:[filter:drop-shadow(0px_0px_3px_#00000022)]",
+        "max-xl:p-6 max-lg:w-full xl:ml-4 xl:max-w-[600px] xl:px-4",
       )}
     >
       {["description-1", "description-2", "description-3"].map((key) => {

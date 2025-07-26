@@ -21,6 +21,7 @@ export const BackgroundInkPaint = () => {
           "max-2xl:w-[800px] max-sm:-left-[0rem]",
         )}
       />
+
       <Image
         src="/images/ink-paint-2.webp"
         alt="Ink Paint 2"
@@ -31,6 +32,13 @@ export const BackgroundInkPaint = () => {
           "w-[1100px] opacity-65",
           "-right-[32rem] bottom-0",
           "max-2xl:-right-96 max-xl:-bottom-8 max-sm:[top:clamp(40px,15vh,160px)] max-sm:right-0",
+        )}
+      />
+
+      <div
+        className={cn(
+          "from-off-w absolute top-[400px] left-0 h-[150px] w-full bg-gradient-to-t to-transparent opacity-100",
+          "xs:hidden",
         )}
       />
     </>

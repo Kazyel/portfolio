@@ -48,7 +48,7 @@ export const ProjectTemplate = ({
       >
         <div
           className={cn(
-            "col-span-2 row-span-3 flex flex-col items-center justify-between gap-y-8 text-pretty",
+            "text-prett col-span-2 row-span-3 flex flex-col items-center justify-between gap-y-8 pt-4",
             "max-xl:mb-10 max-lg:justify-center xl:mr-16",
           )}
         >

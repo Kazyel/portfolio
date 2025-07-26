@@ -23,7 +23,7 @@ export default function ContactSection() {
         id="contact-section"
         className={cn(
           "relative flex min-h-dvh items-center justify-center gap-x-20 gap-y-6 overflow-clip bg-black/75 px-8",
-          "max-xl:py-10 max-lg:scroll-mt-[var(--navbar-height)] max-lg:flex-col",
+          "max-xl:px-12 max-xl:py-16 max-lg:min-h-max max-lg:scroll-mt-[var(--navbar-height)] max-lg:flex-col max-sm:px-8",
         )}
       >
         {/* Animated Background Overlays */}

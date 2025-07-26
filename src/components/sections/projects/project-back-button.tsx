@@ -23,7 +23,7 @@ export const ProjectBackButton = ({ onClick }: ProjectBackButtonProps) => {
           "lg:hidden",
         )}
       >
-        <Undo2 className={cn("size-6", "sm:max-lg:size-8")} />
+        <Undo2 className={cn("size-8", "sm:max-lg:size-10")} />
       </m.div>
     </MotionWrapper>
   );
