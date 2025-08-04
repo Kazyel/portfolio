@@ -1,15 +1,19 @@
 import type { ProjectType } from "@/lib/types";
 
+import { cn } from "@/lib/utils";
 import { memo } from "react";
 import { useSetAtom } from "jotai";
-import { cn } from "@/lib/utils";
+import { useLocale } from "next-intl";
 import { isProjectOpenAtom, currentProjectAtom } from "@/lib/store/projects";
+import { LanguageCode } from "@/lib/constants/langs";
 
 import Image from "next/image";
 
 export const ProjectCard = memo(({ ...props }: ProjectType) => {
   const setCurrentProject = useSetAtom(currentProjectAtom);
   const setIsProjectOpen = useSetAtom(isProjectOpenAtom);
+
+  const currentLocale = useLocale() as LanguageCode;
 
   const openProject = () => {
     setCurrentProject(props);
@@ -41,7 +45,7 @@ export const ProjectCard = memo(({ ...props }: ProjectType) => {
           loading="lazy"
           decoding="async"
           quality={65}
-          className="col-span-full row-span-full rounded-lg"
+          className="size-full rounded-lg"
         />
       </div>
 
@@ -69,7 +73,7 @@ export const ProjectCard = memo(({ ...props }: ProjectType) => {
             "max-2xl:text-sm",
           )}
         >
-          {props.description}
+          {props.description[currentLocale]}
         </p>
       </div>
 

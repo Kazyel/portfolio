@@ -28,7 +28,6 @@ export const ProjectLink = ({ title, url, className }: ProjectLinkProps) => {
         className={cn(
           "text-off-w cursor-pointer tracking-wide transition-all duration-300",
           "group-hover:text-off-w hover:drop-shadow-[0px_0px_12px_#f3e5d766]",
-          "max-md:text-xs",
         )}
       >
         <TextAnimate animation="slideUp" by="line" once>

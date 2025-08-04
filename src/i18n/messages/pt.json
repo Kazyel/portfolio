@@ -17,5 +17,9 @@
     "description-1": "Sou um desenvolvedor de 23 anos, focado principalmente em desenvolvimento front-end, mas ultimamente tenho me aprofundado bastante no back-end também. Estou sempre buscando crescer como desenvolvedor full-stack e gosto de criar coisas que não só tenham uma boa aparência, mas que também funcionem de forma fluida. Programar se tornou mais do que uma habilidade pra mim, é algo que realmente gosto de fazer.",
     "description-2": "Eu diria que sou uma pessoa tranquila e criativa. Gosto de encarar desafios, aprender coisas novas e experimentar diferentes tecnologias. Seja um novo framework ou um conceito de programação, fico empolgado com o processo de descobrir soluções e melhorar cada vez mais.",
     "description-3": "Quando não estou programando, provavelmente estou jogando videogame, ouvindo música ou lendo algum mangá. Esses hobbies me ajudam a relaxar e também mantêm minha criatividade ativa. Eles fazem parte de quem eu sou e muitas vezes influenciam a forma como encaro design e resolução de problemas na tecnologia."
+  },
+  "Projects": {
+    "title": "Projetos",
+    "description": "Aqui estão alguns dos projetos mais interessantes que trabalhei."
   }
 }

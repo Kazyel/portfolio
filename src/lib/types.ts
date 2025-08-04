@@ -12,8 +12,8 @@ export type Socials<T extends string> = {
 
 export type ProjectType = {
   title: string;
-  description: string;
-  body: string[];
+  description: { en: string; pt: string };
+  body: { en: string[]; pt: string[] };
   repoLink: string;
   languages: {
     src: IconType;

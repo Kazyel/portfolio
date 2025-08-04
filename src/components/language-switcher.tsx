@@ -7,11 +7,10 @@ import { useRouter } from "next/navigation";
 import { useLocale } from "next-intl";
 
 import { cn } from "@/lib/utils";
+import { INTL_LANGUAGES, LanguageCode } from "@/lib/constants/langs";
 import useOnClickOutside from "@/hooks/use-on-click-outside";
 
 import { Loader2 } from "lucide-react";
-import { BrazilFlag } from "@/components/svgs/BrazilFlag";
-import { USFlag } from "@/components/svgs/USFlag";
 import { International } from "@/components/svgs/International";
 import { m, AnimatePresence } from "@/components/motion-wrapper";
 
@@ -23,25 +22,7 @@ interface LanguageSwitcherProps {
     mobileNavbar: string;
     mobileLink: string;
   };
-  setIsAnyMenuOpen?: (value: SetStateAction<boolean>) => void;
 }
-
-const LANGUAGES = {
-  en: {
-    code: "en",
-    name: "English",
-    flag: USFlag,
-    nativeName: "English",
-  },
-  pt: {
-    code: "pt",
-    name: "Português",
-    flag: BrazilFlag,
-    nativeName: "Português",
-  },
-} as const;
-
-type LanguageCode = keyof typeof LANGUAGES;
 
 const SWITCHER_ANIMATION: CustomMotion<"div"> = {
   initial: {
@@ -69,9 +50,10 @@ export default function LanguageSwitcher({ currentStyles }: LanguageSwitcherProp
   const [isPending, startTransition] = useTransition();
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  useOnClickOutside(dropdownRef, [setIsSwitcherOpen], isSwitcherOpen);
   const currentLocale = useLocale() as LanguageCode;
   const router = useRouter();
+
+  useOnClickOutside(dropdownRef, [setIsSwitcherOpen], isSwitcherOpen);
 
   const changeLocale = async (newLocale: LanguageCode) => {
     setIsSwitcherOpen(false);
@@ -127,7 +109,7 @@ export default function LanguageSwitcher({ currentStyles }: LanguageSwitcherProp
             aria-label="Language selection menu"
           >
             {/* Available Languages */}
-            {Object.entries(LANGUAGES).map(([code, language]) => {
+            {Object.entries(INTL_LANGUAGES).map(([code, language]) => {
               const LanguageFlag = language.flag;
               const isActive = code === currentLocale;
 

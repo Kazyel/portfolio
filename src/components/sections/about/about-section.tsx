@@ -1,5 +1,5 @@
 import type { IconType } from "@icons-pack/react-simple-icons";
-import LANGUAGES from "@/lib/constants/langs";
+import { TECH_LANGUAGES } from "@/lib/constants/langs";
 
 import { cn } from "@/lib/utils";
 
@@ -14,15 +14,15 @@ import {
 } from "@/components/ui/tooltip";
 
 const TECH_STACK = [
-  { name: "Go", src: LANGUAGES.go.src },
-  { name: "TypeScript", src: LANGUAGES.ts.src },
-  { name: "NodeJS", src: LANGUAGES.node.src },
-  { name: "React", src: LANGUAGES.react.src },
-  { name: "Tailwind", src: LANGUAGES.tailwind.src },
-  { name: "PostgreSQL", src: LANGUAGES.postgresql.src },
-  { name: "Python", src: LANGUAGES.python.src },
-  { name: "NextJS", src: LANGUAGES.nextjs.src },
-  { name: "Git", src: LANGUAGES.git.src },
+  { name: "Go", src: TECH_LANGUAGES.go.src },
+  { name: "TypeScript", src: TECH_LANGUAGES.ts.src },
+  { name: "NodeJS", src: TECH_LANGUAGES.node.src },
+  { name: "React", src: TECH_LANGUAGES.react.src },
+  { name: "Tailwind", src: TECH_LANGUAGES.tailwind.src },
+  { name: "PostgreSQL", src: TECH_LANGUAGES.postgresql.src },
+  { name: "Python", src: TECH_LANGUAGES.python.src },
+  { name: "NextJS", src: TECH_LANGUAGES.nextjs.src },
+  { name: "Git", src: TECH_LANGUAGES.git.src },
 ] as const;
 
 interface LanguageCardProps {

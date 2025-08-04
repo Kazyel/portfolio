@@ -1,3 +1,6 @@
+import { BrazilFlag } from "@/components/svgs/BrazilFlag";
+import { USFlag } from "@/components/svgs/USFlag";
+
 import {
   type IconType,
   SiGo,
@@ -15,7 +18,7 @@ import {
   SiGit,
 } from "@icons-pack/react-simple-icons";
 
-const LANGUAGES = {
+export const TECH_LANGUAGES = {
   go: { src: SiGo, alt: "Go logo" },
   bash: { src: SiGnubash, alt: "Bash logo" },
   react: { src: SiReact, alt: "React logo" },
@@ -37,6 +40,20 @@ const LANGUAGES = {
   }
 >;
 
-export type ImagesData = typeof LANGUAGES;
+export const INTL_LANGUAGES = {
+  en: {
+    code: "en",
+    name: "English",
+    flag: USFlag,
+    nativeName: "English",
+  },
+  pt: {
+    code: "pt",
+    name: "Português",
+    flag: BrazilFlag,
+    nativeName: "Português",
+  },
+} as const;
 
-export default LANGUAGES;
+export type LanguageCode = keyof typeof INTL_LANGUAGES;
+export type ImagesData = typeof TECH_LANGUAGES;

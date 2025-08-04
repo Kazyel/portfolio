@@ -4,8 +4,11 @@ import { projects } from "@/lib/content/projects";
 import { TextAnimate } from "@/components/ui/text-animate";
 import { ProjectLink } from "@/components/sections/projects/project-link";
 import { ProjectCard } from "@/components/sections/projects/project-card";
+import { useTranslations } from "next-intl";
 
 export const MainProjects = () => {
+  const t = useTranslations("Projects");
+
   return (
     <div className="max-xl:p-12 xl:p-20">
       <div
@@ -22,7 +25,7 @@ export const MainProjects = () => {
             )}
             once
           >
-            Projects
+            {t("title")}
           </TextAnimate>
 
           <TextAnimate
@@ -34,15 +37,15 @@ export const MainProjects = () => {
             by="line"
             as="h2"
           >
-            Some projects of mine that I find the most interesting...
+            {t("description")}
           </TextAnimate>
         </div>
 
         <ProjectLink
-          title="For all projects, check out my GitHub"
+          title="Check all projects"
           url="https://github.com/Kazyel"
           className={cn(
-            "font-semibold italic",
+            "font-extralight italic underline underline-offset-4",
             "max-xl:mt-4 max-lg:self-center max-lg:text-center",
           )}
         />

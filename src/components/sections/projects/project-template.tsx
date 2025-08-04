@@ -5,6 +5,9 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { TextAnimate } from "@/components/ui/text-animate";
 import { ProjectLink } from "@/components/sections/projects/project-link";
+import { useLocale, useTranslations } from "next-intl";
+
+type LanguageCode = "en" | "pt";
 
 export const ProjectTemplate = ({
   title,
@@ -13,6 +16,10 @@ export const ProjectTemplate = ({
   body,
   description,
 }: ProjectType) => {
+  const currentLocale = useLocale() as LanguageCode;
+
+  const t = useTranslations("Projects");
+
   return (
     <div className="z-20 flex w-full flex-col items-center">
       <div className="mt-4 flex flex-col gap-4 self-start">
@@ -31,10 +38,10 @@ export const ProjectTemplate = ({
           by="line"
           once
         >
-          {description}
+          {description[currentLocale]}
         </TextAnimate>
         <ProjectLink
-          className="self-start not-italic"
+          className={cn("self-start not-italic", "max-md:font-semibold max-sm:text-xs")}
           title="View this repository on GitHub"
           url={repoLink}
         />
@@ -53,7 +60,7 @@ export const ProjectTemplate = ({
           )}
         >
           <div>
-            {body.map((line, index) => (
+            {body[currentLocale].map((line, index) => (
               <TextAnimate
                 by="line"
                 animation="slideLeft"
@@ -90,13 +97,13 @@ export const ProjectTemplate = ({
           )}
         >
           <Image
-            src="https://images.unsplash.com/photo-1508504509543-5ca56440e013?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8amFwYW58ZW58MHx8MHx8fDA%3D"
+            src="/images/placeholder.avif"
             alt="Project 1"
             loading="lazy"
             decoding="async"
             width={1000}
             height={1000}
-            className="rounded-lg brightness-50 sepia"
+            className="size-full rounded-lg"
           />
 
           <div
