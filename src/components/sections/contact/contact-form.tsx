@@ -17,6 +17,7 @@ import { toast } from "sonner";
 import { ShineBorder } from "@/components/ui/shine-border";
 import { ContactFormField } from "@/components/sections/contact/contact-form-field";
 import { MotionWrapper, m } from "@/components/motion-wrapper";
+import { useTranslations } from "next-intl";
 
 export type FormEntries = keyof EmailFormSchema;
 
@@ -41,6 +42,8 @@ const socialLinks: Socials<"linkedIn" | "github"> = {
 };
 
 export const ContactForm = () => {
+  const t = useTranslations("ContactForm");
+
   const form = useForm<EmailFormSchema>({
     resolver: yupResolver(emailSchema),
     defaultValues: { name: "", message: "", email: "" },
@@ -65,6 +68,7 @@ export const ContactForm = () => {
     toast.error("Something went wrong! Please try sending again.");
   };
 
+  const labels = [t("name"), t("email"), t("message")];
   const formEntries = Object.keys(emailSchema.fields) as FormEntries[];
 
   return (
@@ -85,12 +89,12 @@ export const ContactForm = () => {
           onSubmit={handleSubmit(onSubmitForm)}
         >
           <div className="flex flex-col gap-y-4">
-            {formEntries.map((entry) => (
+            {formEntries.map((entry, index) => (
               <ContactFormField
                 key={entry}
                 register={register}
                 errors={errors}
-                label={entry.charAt(0).toUpperCase() + entry.slice(1)}
+                label={labels[index]}
                 name={entry}
                 type={entry === "email" ? "email" : "text"}
                 as={entry === "message" ? "textarea" : "input"}
@@ -110,7 +114,7 @@ export const ContactForm = () => {
               <Loader2 className="size-6 animate-spin" />
             ) : (
               <>
-                <p>Send Message</p>
+                <p>{t("submit")}</p>
                 <Send className="size-5" />
               </>
             )}

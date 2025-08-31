@@ -17,7 +17,6 @@ export const ProjectTemplate = ({
   description,
 }: ProjectType) => {
   const currentLocale = useLocale() as LanguageCode;
-
   const t = useTranslations("Projects");
 
   return (
@@ -42,7 +41,7 @@ export const ProjectTemplate = ({
         </TextAnimate>
         <ProjectLink
           className={cn("self-start not-italic", "max-md:font-semibold max-sm:text-xs")}
-          title="View this repository on GitHub"
+          title={t("view")}
           url={repoLink}
         />
       </div>

@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 
 import { ProjectTemplate } from "@/components/sections/projects/project-template";
 import { ProjectBackButton } from "./project-back-button";
+import { useTranslations } from "next-intl";
 
 const backButtonIconClasses = cn(
   "size-5 transition-all duration-200",
@@ -17,6 +18,7 @@ const backButtonTextClasses = cn("transition-all duration-200", "group-hover:tex
 export const ProjectView = ({ ...props }: ProjectType) => {
   const project = useAtomValue(currentProjectAtom);
   const setIsProjectOpen = useSetAtom(isProjectOpenAtom);
+  const t = useTranslations("Projects");
 
   if (!project) return null;
 
@@ -51,7 +53,7 @@ export const ProjectView = ({ ...props }: ProjectType) => {
               d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18"
             />
           </svg>
-          <span className={backButtonTextClasses}>Back to Projects</span>
+          <span className={backButtonTextClasses}>{t("back")}</span>
         </button>
 
         <ProjectTemplate {...props} />

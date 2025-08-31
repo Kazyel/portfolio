@@ -8,6 +8,7 @@ import { LoveIcon } from "@/components/svgs/LoveIcon";
 
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 const dragonImageClasses = cn(
   "absolute -top-12 opacity-45 grayscale",
@@ -30,6 +31,8 @@ const socialLinks: Socials<"linkedIn" | "github"> = {
 };
 
 export const Footer = () => {
+  const t = useTranslations("Footer");
+
   return (
     <footer
       className={cn(
@@ -67,9 +70,9 @@ export const Footer = () => {
 
       {/* Built With Section */}
       <div className={cn("text-off-w/85 z-10 flex flex-1 items-center", "max-md:hidden")}>
-        <p className="text-xs">Built with</p>
+        <p className="text-xs">{t("made-with")}</p>
         <LoveIcon className="text-off-w mx-1 size-5" />
-        <p className="text-xs">and</p>
+        <p className="text-xs">{t("and")}</p>
         <Link
           href="https://nextjs.org/"
           target="_blank"
@@ -90,7 +93,7 @@ export const Footer = () => {
         <p className="text-off-w text-xs font-bold tracking-tighter">
           © {new Date().getFullYear()} • Kazyel
         </p>
-        <p className="text-off-w/50 text-[0.65rem]">All rights reserved.</p>
+        <p className="text-off-w/50 text-[0.65rem]">{t("copyright")}</p>
       </div>
 
       {/* Social Links Section */}

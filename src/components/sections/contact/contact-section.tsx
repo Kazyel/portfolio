@@ -8,6 +8,7 @@ import Image from "next/image";
 import { TextAnimate } from "@/components/ui/text-animate";
 import { ContactForm } from "@/components/sections/contact/contact-form";
 import { MotionWrapper, m } from "@/components/motion-wrapper";
+import { useTranslations } from "next-intl";
 
 const BACKGROUND_MOTION: CustomMotion<"div"> = {
   transition: { duration: 0.5, delay: 1.5 },
@@ -17,6 +18,8 @@ const BACKGROUND_MOTION: CustomMotion<"div"> = {
 const toriiBaseClasses = cn("pointer-events-none absolute bottom-0");
 
 export default function ContactSection() {
+  const t = useTranslations("Contact");
+
   return (
     <MotionWrapper>
       <section
@@ -90,7 +93,7 @@ export default function ContactSection() {
             animation="slideRight"
             once
           >
-            This journey ends here.
+            {t("journey")}
           </TextAnimate>
 
           <TextAnimate
@@ -104,7 +107,7 @@ export default function ContactSection() {
             animation="slideRight"
             once
           >
-            Yet, ours yearns to begin.
+            {t("yet")}
           </TextAnimate>
 
           <div
@@ -114,7 +117,7 @@ export default function ContactSection() {
             )}
           >
             <TextAnimate delay={1.5} duration={1} by="line" animation="blurIn" once>
-              A blade stays sheathed — until its purpose awakens...
+              {t("quote")}
             </TextAnimate>
           </div>
         </div>

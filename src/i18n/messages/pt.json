@@ -20,6 +20,28 @@
   },
   "Projects": {
     "title": "Projetos",
-    "description": "Aqui estão alguns dos projetos mais interessantes que trabalhei."
+    "description": "Aqui estão alguns dos projetos mais interessantes que trabalhei.",
+    "view": "Veja este repositório no Github",
+    "back": "Voltar para os projetos",
+    "check": "Ver todos os projetos"
+  },
+  "Contact": {
+    "journey": "Essa jornada acaba aqui.",
+    "yet": "Contudo, a nosso anseia por começar.",
+    "quote": "A lâmina permanece silenciosa — até que seu propósito desperte."
+  },
+  "ContactForm": {
+    "name": "Nome",
+    "email": "Email",
+    "message": "Mensagem",
+    "submit": "Enviar Mensagem",
+    "name-placeholder": "Como eu deveria te chamar?",
+    "email-placeholder": "Como posso te contatar?",
+    "message-placeholder": "O que está pensando? Deixa eu saber!"
+  },
+  "Footer": {
+    "copyright": "Todos os direitos reservados.",
+    "made-with": "Feito com",
+    "and": "e"
   }
 }

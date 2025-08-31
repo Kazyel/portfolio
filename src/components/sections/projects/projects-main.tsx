@@ -42,7 +42,7 @@ export const MainProjects = () => {
         </div>
 
         <ProjectLink
-          title="Check all projects"
+          title={t("check")}
           url="https://github.com/Kazyel"
           className={cn(
             "font-extralight italic underline underline-offset-4",

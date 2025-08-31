@@ -7,12 +7,7 @@ import { cn } from "@/lib/utils";
 import { ContactFormError } from "@/components/sections/contact/contact-form-error";
 import { Mail, User, MessageSquareText } from "lucide-react";
 import { MotionWrapper, AnimatePresence } from "@/components/motion-wrapper";
-
-const PLACEHOLDERS = {
-  name: "Enter your name...",
-  email: "Enter your email...",
-  message: "Please, leave me a message!",
-};
+import { useTranslations } from "next-intl";
 
 const ICONS = {
   name: () => <User className="size-5" />,
@@ -42,8 +37,16 @@ export const ContactFormField = ({
   type = "text",
   as = "input",
 }: ContactFormFieldProps) => {
+  const t = useTranslations("ContactForm");
+
+  const placeholders = {
+    name: `${t("name-placeholder")}`,
+    email: `${t("email-placeholder")}`,
+    message: `${t("message-placeholder")}`,
+  };
+
   const Icon = ICONS[name];
-  const placeholder = PLACEHOLDERS[name];
+  const placeholder = placeholders[name];
   const errorType = errors[name];
 
   return (
