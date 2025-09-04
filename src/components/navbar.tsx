@@ -72,12 +72,20 @@ export default function Navbar() {
 
   const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const currentStyles = useNavbarStyles(hoveredLink!, activeSection, isOverlapping);
+  const currentStyles = useNavbarStyles(
+    hoveredLink!,
+    activeSection,
+    isOverlapping,
+  );
 
   const t = useTranslations("Navbar");
   const currentLocale = useLocale() as LanguageCode;
 
-  useOnClickOutside(dropdownRef, [setIsMobileDropdownOpen], isMobileDropdownOpen);
+  useOnClickOutside(
+    dropdownRef,
+    [setIsMobileDropdownOpen],
+    isMobileDropdownOpen,
+  );
 
   const handleSectionTravel = useCallback(
     (linkId: string) => {
@@ -104,7 +112,12 @@ export default function Navbar() {
 
       setIsMobileDropdownOpen(false);
     },
-    [setActiveSection, startSmoothScroll, endSmoothScroll, setIsMobileDropdownOpen],
+    [
+      setActiveSection,
+      startSmoothScroll,
+      endSmoothScroll,
+      setIsMobileDropdownOpen,
+    ],
   );
 
   return (
@@ -116,7 +129,9 @@ export default function Navbar() {
           "h-navbar-height fixed top-0 z-50 flex w-full items-center transition-all duration-100",
           "max-lg:px-4 max-lg:pl-10 max-md:justify-between",
           "border-b border-transparent backdrop-blur-none",
-          isOverlapping && isScrolled ? "max-lg:bg-off-w" : "max-lg:bg-[#0c0a08]",
+          isOverlapping && isScrolled
+            ? "max-lg:bg-off-w"
+            : "max-lg:bg-[#0c0a08]",
           isScrolled
             ? "border-stone-700/40 backdrop-blur-xl max-lg:backdrop-blur-none"
             : "max-lg:bg-transparent",
@@ -173,7 +188,8 @@ export default function Navbar() {
 
           {/* Animated Underline */}
           <AnimatePresence mode="sync">
-            {(activeSection && activeSection !== "hero-section") || hoveredLink ? (
+            {(activeSection && activeSection !== "hero-section") ||
+            hoveredLink ? (
               <m.span
                 ref={underlineRef}
                 initial={{
@@ -212,7 +228,11 @@ export default function Navbar() {
             href={`/pdf/cv-${currentLocale}.pdf`}
             target="_blank"
             rel="noopener noreferrer"
-            className={cn("cursor-pointer rounded-sm p-1", "md:hidden", currentStyles.cv)}
+            className={cn(
+              "cursor-pointer rounded-sm p-1",
+              "md:hidden",
+              currentStyles.cv,
+            )}
             aria-label="Download CV (opens in new tab)"
           >
             <FileUser className="size-5" />
@@ -223,7 +243,10 @@ export default function Navbar() {
 
           {/* Mobile Menu */}
           <div className="flex items-center gap-4 md:gap-6">
-            <div ref={dropdownRef} className="relative flex items-center md:hidden">
+            <div
+              ref={dropdownRef}
+              className="relative flex items-center md:hidden"
+            >
               <m.button
                 {...BUTTON_ANIMATION}
                 className="cursor-pointer"
@@ -241,9 +264,19 @@ export default function Navbar() {
                   transition={{ duration: 0.2 }}
                 >
                   {isMobileDropdownOpen ? (
-                    <X className={cn("size-7 cursor-pointer", currentStyles.icon)} />
+                    <X
+                      className={cn(
+                        "size-7 cursor-pointer",
+                        currentStyles.icon,
+                      )}
+                    />
                   ) : (
-                    <Menu className={cn("size-7 cursor-pointer", currentStyles.icon)} />
+                    <Menu
+                      className={cn(
+                        "size-7 cursor-pointer",
+                        currentStyles.icon,
+                      )}
+                    />
                   )}
                 </m.div>
               </m.button>

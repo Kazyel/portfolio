@@ -26,7 +26,10 @@ export default function HeroSection() {
     >
       {/* Hero Content */}
       <div
-        className={cn("relative z-30 flex w-full flex-col gap-y-12", "xl:max-w-[1250px]")}
+        className={cn(
+          "relative z-30 flex w-full flex-col gap-y-12",
+          "xl:max-w-[1250px]",
+        )}
       >
         <div className="w-full">
           <TextAnimate

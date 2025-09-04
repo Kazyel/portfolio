@@ -17,7 +17,12 @@ export const MainProjects = () => {
           "max-xl:flex-col xl:items-end xl:justify-between",
         )}
       >
-        <div className={cn("flex flex-col", "max-xl:items-center max-xl:justify-center")}>
+        <div
+          className={cn(
+            "flex flex-col",
+            "max-xl:items-center max-xl:justify-center",
+          )}
+        >
           <TextAnimate
             className={cn(
               "text-7xl font-extrabold tracking-tighter text-red-800",

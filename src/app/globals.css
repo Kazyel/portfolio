@@ -164,7 +164,8 @@
       }
     }
 
-    --animate-background-position-spin: background-position-spin 3000ms infinite alternate;
+    --animate-background-position-spin: background-position-spin 3000ms infinite
+      alternate;
     @keyframes background-position-spin {
       0% {
         backgroundposition: top center;

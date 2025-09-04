@@ -17,7 +17,10 @@ interface ContactFormErrorProps {
 export const ContactFormError = ({ message }: ContactFormErrorProps) => {
   return (
     <MotionWrapper>
-      <m.p {...FORM_ERROR_MOTION} className="text-[10px] text-red-300/75 italic">
+      <m.p
+        {...FORM_ERROR_MOTION}
+        className="text-[10px] text-red-300/75 italic"
+      >
         * {message}.
       </m.p>
     </MotionWrapper>

@@ -13,7 +13,10 @@ const backButtonIconClasses = cn(
   "group-hover:text-off-w group-hover:-translate-x-1",
 );
 
-const backButtonTextClasses = cn("transition-all duration-200", "group-hover:text-off-w");
+const backButtonTextClasses = cn(
+  "transition-all duration-200",
+  "group-hover:text-off-w",
+);
 
 export const ProjectView = ({ ...props }: ProjectType) => {
   const project = useAtomValue(currentProjectAtom);

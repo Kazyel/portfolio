@@ -116,7 +116,13 @@ export default function ContactSection() {
               "max-lg:text-base max-md:text-base",
             )}
           >
-            <TextAnimate delay={1.5} duration={1} by="line" animation="blurIn" once>
+            <TextAnimate
+              delay={1.5}
+              duration={1}
+              by="line"
+              animation="blurIn"
+              once
+            >
               {t("quote")}
             </TextAnimate>
           </div>

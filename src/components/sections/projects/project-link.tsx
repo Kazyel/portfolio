@@ -19,7 +19,9 @@ export const ProjectLink = ({ title, url, className }: ProjectLinkProps) => {
   return (
     <div
       className={
-        className ? cn(containerBaseClasses, className) : defaultContainerClasses
+        className
+          ? cn(containerBaseClasses, className)
+          : defaultContainerClasses
       }
     >
       <Link

@@ -62,7 +62,7 @@ export const projects: ProjectType[] = [
   {
     title: "Kazyani",
     description: {
-      en: "Silly minigames based on anime series. To have fun and pass sometime alone or with friends. .",
+      en: "Silly minigames based on anime series. To have fun and pass sometime alone or with friends.",
       pt: "Joguinhos bobos baseados em séries de anime. Para se divertir e passar o tempo sozinho ou com amigos.",
     },
     body: {

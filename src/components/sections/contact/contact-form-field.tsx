@@ -53,7 +53,10 @@ export const ContactFormField = ({
     <MotionWrapper>
       <div className="flex flex-col gap-y-2.5">
         <div className="flex items-center gap-2.5">
-          <label htmlFor={name} className="flex items-center gap-2.5 font-semibold">
+          <label
+            htmlFor={name}
+            className="flex items-center gap-2.5 font-semibold"
+          >
             <Icon />
             {label}
           </label>

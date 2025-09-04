@@ -44,7 +44,9 @@ const LanguageCard = ({ src: Icon, name }: LanguageCardProps) => {
           <Icon className="size-full" />
         </figure>
       </TooltipTrigger>
-      <TooltipContent className="text-[14px] font-bold text-white">{name}</TooltipContent>
+      <TooltipContent className="text-[14px] font-bold text-white">
+        {name}
+      </TooltipContent>
     </Tooltip>
   );
 };

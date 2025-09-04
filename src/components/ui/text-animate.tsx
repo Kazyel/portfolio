@@ -1,7 +1,12 @@
 "use client";
 
 import { type ElementType } from "react";
-import { AnimatePresence, motion, type MotionProps, type Variants } from "motion/react";
+import {
+  AnimatePresence,
+  motion,
+  type MotionProps,
+  type Variants,
+} from "motion/react";
 import { cn } from "@/lib/utils";
 
 import { MotionWrapper, m } from "@/components/motion-wrapper";

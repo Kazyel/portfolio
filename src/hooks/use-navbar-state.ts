@@ -115,9 +115,12 @@ export default function useNavbarState() {
   );
 
   useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => handleIntersection(entry), {
-      threshold: INTERSECTION_THRESHOLD,
-    });
+    const observer = new IntersectionObserver(
+      ([entry]) => handleIntersection(entry),
+      {
+        threshold: INTERSECTION_THRESHOLD,
+      },
+    );
 
     const sections = document.querySelectorAll("section[id$='-section']");
     sections.forEach((section) => observer.observe(section));

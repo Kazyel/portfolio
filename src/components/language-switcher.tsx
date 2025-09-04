@@ -45,7 +45,9 @@ const SWITCHER_ANIMATION: CustomMotion<"div"> = {
   },
 } as const;
 
-export default function LanguageSwitcher({ currentStyles }: LanguageSwitcherProps) {
+export default function LanguageSwitcher({
+  currentStyles,
+}: LanguageSwitcherProps) {
   const [isSwitcherOpen, setIsSwitcherOpen] = useState(false);
   const [isPending, startTransition] = useTransition();
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -82,7 +84,9 @@ export default function LanguageSwitcher({ currentStyles }: LanguageSwitcherProp
         disabled={isPending}
       >
         {isPending ? (
-          <Loader2 className={cn("text-off-w size-6 animate-spin", currentStyles.icon)} />
+          <Loader2
+            className={cn("text-off-w size-6 animate-spin", currentStyles.icon)}
+          />
         ) : (
           <>
             <International

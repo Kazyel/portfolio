@@ -40,7 +40,10 @@ export const ProjectTemplate = ({
           {description[currentLocale]}
         </TextAnimate>
         <ProjectLink
-          className={cn("self-start not-italic", "max-md:font-semibold max-sm:text-xs")}
+          className={cn(
+            "self-start not-italic",
+            "max-md:font-semibold max-sm:text-xs",
+          )}
           title={t("view")}
           url={repoLink}
         />
@@ -84,7 +87,10 @@ export const ProjectTemplate = ({
             )}
           >
             {languages.map((lang, index) => (
-              <lang.src key={index} className="aspect-square size-12 flex-1 xl:size-16" />
+              <lang.src
+                key={index}
+                className="aspect-square size-12 flex-1 xl:size-16"
+              />
             ))}
           </div>
         </div>

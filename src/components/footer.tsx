@@ -69,7 +69,12 @@ export const Footer = () => {
       />
 
       {/* Built With Section */}
-      <div className={cn("text-off-w/85 z-10 flex flex-1 items-center", "max-md:hidden")}>
+      <div
+        className={cn(
+          "text-off-w/85 z-10 flex flex-1 items-center",
+          "max-md:hidden",
+        )}
+      >
         <p className="text-xs">{t("made-with")}</p>
         <LoveIcon className="text-off-w mx-1 size-5" />
         <p className="text-xs">{t("and")}</p>
