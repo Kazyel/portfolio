@@ -10,7 +10,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Kazyel",
-  description: "My portfolio",
+  description:
+    "Meu portfólio pessoal mostrando meus projetos e minha jornada, com design inspirado na cultura oriental.",
 };
 
 const unbounded = Unbounded({
@@ -27,10 +28,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
-      <meta
-        name="description"
-        content="Meu portfólio pessoal mostrando meus projetos e minha jornada, com design inspirado na cultura oriental."
-      />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon.ico" />
 
       <meta property="og:url" content="https://www.kazyel.dev/" />
       <meta property="og:type" content="site" />
