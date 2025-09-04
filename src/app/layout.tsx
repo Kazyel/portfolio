@@ -28,6 +28,8 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
+      <link rel="icon" href="/favicon.ico" sizes="any" />
+
       <meta property="og:url" content="https://www.kazyel.dev/" />
       <meta property="og:type" content="site" />
       <meta property="og:title" content="Kazyel" />
