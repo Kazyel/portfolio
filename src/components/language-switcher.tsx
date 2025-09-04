@@ -2,7 +2,7 @@
 
 import type { CustomMotion } from "@/lib/types";
 
-import { SetStateAction, useRef, useState, useTransition } from "react";
+import { useRef, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { useLocale } from "next-intl";
 

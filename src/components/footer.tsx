@@ -24,7 +24,7 @@ const socialLinks: Socials<"linkedIn" | "github"> = {
     text: "GitHub",
   },
   linkedIn: {
-    href: "https://www.linkedin.com/in/mateus-mascarelo/",
+    href: "https://www.linkedin.com/in/mateusmascarelo/",
     icon: SiLinkedin,
     text: "LinkedIn",
   },

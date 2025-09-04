@@ -27,8 +27,10 @@
   },
   "Contact": {
     "journey": "Essa jornada acaba aqui.",
-    "yet": "Contudo, a nosso anseia por começar.",
-    "quote": "A lâmina permanece silenciosa — até que seu propósito desperte."
+    "yet": "Contudo, a nossa anseia por começar.",
+    "quote": "A lâmina permanece silenciosa — até que seu propósito desperte.",
+    "success": "Mensagem enviada com sucesso!",
+    "error": "Algo deu errado! Por favor, tente enviar novamente."
   },
   "ContactForm": {
     "name": "Nome",

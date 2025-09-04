@@ -35,7 +35,7 @@ const socialLinks: Socials<"linkedIn" | "github"> = {
     text: "GitHub",
   },
   linkedIn: {
-    href: "https://www.linkedin.com/in/mateus-mascarelo/",
+    href: "https://www.linkedin.com/in/mateusmascarelo/",
     icon: SiLinkedin,
     text: "LinkedIn",
   },
@@ -60,12 +60,12 @@ export const ContactForm = () => {
     const emailResponse = await submitForm(data);
 
     if (emailResponse) {
-      toast.success("Message sent!");
+      toast.success(t("success"));
       reset();
       return;
     }
 
-    toast.error("Something went wrong! Please try sending again.");
+    toast.error(t("error"));
   };
 
   const labels = [t("name"), t("email"), t("message")];

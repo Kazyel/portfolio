@@ -81,7 +81,7 @@ export const projects: ProjectType[] = [
         "Os minigames já estavam prontos e jogáveis, mas precisavam de dados mais refinados que as duas APIs não conseguiam me fornecer. No entanto, lidar corretamente com um banco de dados e preenchê-lo com dados não era algo em que eu tinha muita proficiência, então perdi o interesse. Ainda assim, precisa ser feito, porque os benefícios serão enormes.”",
       ],
     },
-    repoLink: "https://github.com/Kazyel/",
+    repoLink: "https://github.com/Kazyel/kazyani",
     languages: [
       TECH_LANGUAGES.react,
       TECH_LANGUAGES.nextjs,

@@ -1,9 +1,10 @@
 "use client";
 
 import type { CustomMotion } from "@/lib/types";
+import type { LanguageCode } from "@/lib/constants/langs";
 
 import { useCallback, useRef, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 import { cn } from "@/lib/utils";
 import { NAV_LINKS } from "@/lib/constants/navbar";
@@ -72,7 +73,9 @@ export default function Navbar() {
   const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const currentStyles = useNavbarStyles(hoveredLink!, activeSection, isOverlapping);
+
   const t = useTranslations("Navbar");
+  const currentLocale = useLocale() as LanguageCode;
 
   useOnClickOutside(dropdownRef, [setIsMobileDropdownOpen], isMobileDropdownOpen);
 
@@ -278,7 +281,7 @@ export default function Navbar() {
 
             {/* Desktop CV Link */}
             <Link
-              href="/pdf/cv-ptbr.pdf"
+              href={`/pdf/cv-${currentLocale}.pdf`}
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
