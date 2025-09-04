@@ -209,7 +209,7 @@ export default function Navbar() {
         >
           {/* Mobile CV Link */}
           <Link
-            href="/pdf/cv-ptbr.pdf"
+            href={`/pdf/cv-${currentLocale}.pdf`}
             target="_blank"
             rel="noopener noreferrer"
             className={cn("cursor-pointer rounded-sm p-1", "md:hidden", currentStyles.cv)}
