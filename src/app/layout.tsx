@@ -27,6 +27,29 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
+      <meta
+        name="description"
+        content="Meu portfólio pessoal mostrando meus projetos e minha jornada, com design inspirado na cultura oriental."
+      />
+
+      <meta property="og:url" content="https://www.kazyel.dev/" />
+      <meta property="og:type" content="site" />
+      <meta property="og:title" content="Kazyel" />
+      <meta
+        property="og:description"
+        content="Meu portfólio pessoal mostrando meus projetos e minha jornada, com design inspirado na cultura oriental."
+      />
+      {/* <meta property="og:image" content="" /> */}
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta property="twitter:url" content="https://www.kazyel.dev/" />
+      <meta name="twitter:title" content="site" />
+      <meta
+        name="twitter:description"
+        content="Meu portfólio pessoal mostrando meus projetos e minha jornada, com design inspirado na cultura oriental."
+      />
+      {/* <meta name="twitter:image" content=""/> */}
+
       <body className={`${unbounded.className} bg-darkest antialiased`}>
         <JotaiProvider>
           <NextIntlClientProvider locale={locale}>{children}</NextIntlClientProvider>{" "}
