@@ -37,7 +37,7 @@ export const ProjectView = ({ ...props }: ProjectType) => {
     <div
       className={cn(
         "flex flex-col items-center justify-between pt-4",
-        "max-lg:max-h-fit xl:max-h-[800px] 2xl:max-w-[1600px]",
+        "w-[min(100%,1400px)]",
       )}
     >
       <button

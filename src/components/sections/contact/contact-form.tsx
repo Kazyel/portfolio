@@ -1,24 +1,14 @@
 "use client";
 
 import { type CustomMotion } from "@/lib/types";
-import { type EmailFormSchema, emailSchema } from "@/lib/validations/form";
 
-import { SubmitHandler, useForm } from "react-hook-form";
-import { submitForm } from "@/app/actions/email-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { SOCIAL_LINKS } from "@/lib/constants/socials";
 import { cn } from "@/lib/utils";
+import { SOCIAL_LINKS } from "@/lib/constants/socials";
 
-import { Loader2, Send } from "lucide-react";
-
-import Link from "next/link";
-import { toast } from "sonner";
-import { ShineBorder } from "@/components/ui/shine-border";
-import { ContactFormField } from "@/components/sections/contact/contact-form-field";
 import { MotionWrapper, m } from "@/components/motion-wrapper";
-import { useTranslations } from "next-intl";
-
-export type FormEntries = keyof EmailFormSchema;
+import { ShineBorder } from "@/components/ui/shine-border";
+import { Form } from "@/components/sections/contact/form/form";
+import Link from "next/link";
 
 const CONTACT_MOTION: CustomMotion<"div"> = {
   initial: { opacity: 0, y: 35 },
@@ -28,35 +18,6 @@ const CONTACT_MOTION: CustomMotion<"div"> = {
 };
 
 export const ContactForm = () => {
-  const t = useTranslations("ContactForm");
-
-  const form = useForm<EmailFormSchema>({
-    resolver: yupResolver(emailSchema),
-    defaultValues: { name: "", message: "", email: "" },
-  });
-
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors, isSubmitting },
-  } = form;
-
-  const onSubmitForm: SubmitHandler<EmailFormSchema> = async (data) => {
-    const emailResponse = await submitForm(data);
-
-    if (emailResponse) {
-      toast.success(t("success"));
-      reset();
-      return;
-    }
-
-    toast.error(t("error"));
-  };
-
-  const labels = [t("name"), t("email"), t("message")];
-  const formEntries = Object.keys(emailSchema.fields) as FormEntries[];
-
   return (
     <MotionWrapper>
       <m.div
@@ -66,46 +27,8 @@ export const ContactForm = () => {
           "max-sm:w-full",
         )}
       >
-        <ShineBorder shineColor={["#F3E5D7ee", "#F3E5D744", "#F3E5D722"]} />
-
         {/* Form */}
-        <form
-          id="email-form"
-          className="text-off-w flex flex-col gap-y-6"
-          onSubmit={handleSubmit(onSubmitForm)}
-        >
-          <div className="flex flex-col gap-y-4">
-            {formEntries.map((entry, index) => (
-              <ContactFormField
-                key={entry}
-                register={register}
-                errors={errors}
-                label={labels[index]}
-                name={entry}
-                type={entry === "email" ? "email" : "text"}
-                as={entry === "message" ? "textarea" : "input"}
-              />
-            ))}
-          </div>
-
-          <button
-            type="submit"
-            disabled={isSubmitting}
-            className={cn(
-              "border-off-w/50 bg-off-w hover:bg-off-w/40 hover:text-off-w flex w-full cursor-pointer items-center justify-center gap-x-2 rounded-sm border p-2 font-extrabold text-black transition-all duration-300",
-              isSubmitting && "pointer-events-none opacity-50",
-            )}
-          >
-            {isSubmitting ? (
-              <Loader2 className="size-6 animate-spin" />
-            ) : (
-              <>
-                <p>{t("submit")}</p>
-                <Send className="size-5" />
-              </>
-            )}
-          </button>
-        </form>
+        <Form />
 
         {/* Social Links */}
         <div className="flex gap-4">
@@ -136,6 +59,8 @@ export const ContactForm = () => {
             </Link>
           ))}
         </div>
+
+        <ShineBorder shineColor={["#F3E5D7ee", "#F3E5D744", "#F3E5D722"]} />
       </m.div>
     </MotionWrapper>
   );

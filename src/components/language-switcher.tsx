@@ -57,24 +57,24 @@ export default function LanguageSwitcher({
 
   useOnClickOutside(dropdownRef, [setIsSwitcherOpen], isSwitcherOpen);
 
-  const changeLocale = async (newLocale: LanguageCode) => {
-    setIsSwitcherOpen(false);
-    startTransition(() => {
-      document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`;
+  const updateCookies = (newLocale: LanguageCode) => {
+    document.cookie = `NEXT_LOCALE=${encodeURIComponent(newLocale)}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax; Secure`;
+  };
 
-      setIsSwitcherOpen(false);
+  const changeLocale = (newLocale: LanguageCode) => {
+    setIsSwitcherOpen(false);
+    startTransition(async () => {
+      updateCookies(newLocale);
       router.refresh();
     });
   };
 
   return (
     <div className="relative" ref={dropdownRef}>
-      {/* Language Switcher Button */}
       <m.button
         onClick={() => setIsSwitcherOpen((prev) => !prev)}
         className={cn(
-          "flex items-center",
-          "disabled:cursor-not-allowed disabled:opacity-50",
+          "flex items-center disabled:cursor-not-allowed disabled:opacity-50",
           currentStyles.icon,
         )}
         type="button"
@@ -83,15 +83,33 @@ export default function LanguageSwitcher({
         aria-expanded={isSwitcherOpen}
         disabled={isPending}
       >
-        {isPending ? (
-          <Loader2 className={cn("size-6 animate-spin", currentStyles.icon)} />
-        ) : (
-          <>
-            <International
-              className={cn("size-6 cursor-pointer", currentStyles.icon)}
-            />
-          </>
-        )}
+        <AnimatePresence mode="wait" initial={false}>
+          {isPending ? (
+            <m.div
+              key="loader"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.15 }}
+            >
+              <Loader2
+                className={cn("size-6 animate-spin", currentStyles.icon)}
+              />
+            </m.div>
+          ) : (
+            <m.div
+              key="intl"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.15 }}
+            >
+              <International
+                className={cn("size-6 cursor-pointer", currentStyles.icon)}
+              />
+            </m.div>
+          )}
+        </AnimatePresence>
       </m.button>
 
       {/* Language Switcher Menu */}

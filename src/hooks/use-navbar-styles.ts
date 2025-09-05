@@ -9,6 +9,8 @@ import {
   MOBILE_NAVBAR_LIGHT,
 } from "@/lib/constants/navbar";
 
+export type NavbarStyles = ReturnType<typeof useNavbarStyles>;
+
 export default function useNavbarStyles(
   hoveredLink: string,
   activeSection: string,

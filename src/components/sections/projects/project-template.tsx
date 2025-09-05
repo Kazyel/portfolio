@@ -48,13 +48,13 @@ export const ProjectTemplate = ({ ...props }: ProjectType) => {
       <div
         className={cn(
           "grid w-full grid-cols-3 grid-rows-3 xl:max-h-[700px]",
-          "max-xl:flex max-xl:flex-col max-md:items-center max-md:justify-center",
+          "max-lg:flex max-lg:flex-col max-md:items-center max-md:justify-center",
         )}
       >
         <div
           className={cn(
-            "text-prett col-span-2 row-span-3 flex flex-col items-center justify-between gap-y-8 pt-4",
-            "max-xl:mb-10 max-lg:justify-center xl:mr-16",
+            "text-prett col-span-2 row-span-3 flex flex-col items-center justify-between gap-y-8 pt-2",
+            "max-xl:mb-10 max-lg:justify-center lg:pr-8",
           )}
         >
           <div>
@@ -67,8 +67,8 @@ export const ProjectTemplate = ({ ...props }: ProjectType) => {
                 key={index}
                 once
                 className={cn(
-                  "border-off-w/75 pb-4 text-lg leading-7 font-light text-neutral-200/85",
-                  "last:pb-0 max-md:text-base",
+                  "border-off-w/75 pb-4 text-base leading-7 font-light text-neutral-200/85",
+                  "last:pb-0 max-xl:text-[0.9rem]",
                 )}
               >
                 {line}
@@ -95,13 +95,13 @@ export const ProjectTemplate = ({ ...props }: ProjectType) => {
           href={props.repoLink}
           target="_blank"
           className={cn(
-            "relative col-span-1 row-span-3 aspect-square h-full w-full max-w-[500px] cursor-pointer overflow-hidden rounded-lg border-2 border-red-700/50",
+            "relative col-span-1 row-span-3 aspect-square h-full max-h-[450px] w-full max-w-[450px] cursor-pointer overflow-hidden rounded-lg border-2 border-red-700/60",
             "group max-xl:max-w-[400px] max-lg:self-center",
           )}
         >
           <Image
             src={props.repoImage}
-            alt="Project 1"
+            alt={props.title}
             fill
             loading="lazy"
             decoding="async"

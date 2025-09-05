@@ -1,6 +1,7 @@
 "use client";
 
 import type { CustomMotion } from "@/lib/types";
+
 import { MotionWrapper, m } from "@/components/motion-wrapper";
 
 const FORM_ERROR_MOTION: CustomMotion<"p"> = {
@@ -10,11 +11,11 @@ const FORM_ERROR_MOTION: CustomMotion<"p"> = {
   transition: { duration: 0.25, ease: "easeInOut" },
 };
 
-interface ContactFormErrorProps {
+interface FormErrorsProps {
   message: string;
 }
 
-export const ContactFormError = ({ message }: ContactFormErrorProps) => {
+export const FormErrors = ({ message }: FormErrorsProps) => {
   return (
     <MotionWrapper>
       <m.p

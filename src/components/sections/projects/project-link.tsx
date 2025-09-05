@@ -32,7 +32,7 @@ export const ProjectLink = ({ title, url, className }: ProjectLinkProps) => {
         target="_blank"
         className={cn(
           "text-off-w flex cursor-pointer gap-x-1.5 tracking-wide transition-all duration-300",
-          "group-hover:text-off-w group-hover:drop-shadow-[0px_0px_12px_#f3e5d766]",
+          "group-hover:text-off-w group-hover:drop-shadow-[0px_0px_12px_#f3e5d7]",
         )}
       >
         <TextAnimate animation="slideUp" by="line" once>

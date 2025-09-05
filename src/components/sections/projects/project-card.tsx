@@ -27,12 +27,10 @@ export const ProjectCard = memo(({ ...props }: ProjectType) => {
     <div
       id="project-card"
       className={cn(
-        "group relative grid h-[400px] w-[400px] cursor-pointer grid-cols-1 rounded-lg border-1 border-red-700/50 shadow-lg",
-        "max-2xl:h-[350px] max-2xl:w-[350px]",
-        "max-lg:h-[300px] max-lg:w-[300px]",
-        "max-md:h-[375px] max-md:w-[375px]",
-        "max-sm:h-[325px] max-sm:w-[325px]",
-        "max-xs:h-[300px] max-xs:w-[300px]",
+        "group relative grid aspect-square cursor-pointer grid-cols-1 rounded-lg border-1 border-red-700/60",
+        "md:w-[400px]",
+        "sm:w-[375px]",
+        "xs:w-[350px]",
       )}
       onClick={openProject}
     >
