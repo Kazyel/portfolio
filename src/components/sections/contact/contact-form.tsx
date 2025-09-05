@@ -1,15 +1,14 @@
 "use client";
 
-import type { CustomMotion, Socials } from "@/lib/types";
+import { type CustomMotion } from "@/lib/types";
 import { type EmailFormSchema, emailSchema } from "@/lib/validations/form";
 
 import { SubmitHandler, useForm } from "react-hook-form";
 import { submitForm } from "@/app/actions/email-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { SOCIAL_LINKS } from "@/lib/constants/socials";
 import { cn } from "@/lib/utils";
 
-import { SiLinkedin } from "@/components/svgs/SiLinkedIn";
-import { SiGithub } from "@icons-pack/react-simple-icons";
 import { Loader2, Send } from "lucide-react";
 
 import Link from "next/link";
@@ -26,19 +25,6 @@ const CONTACT_MOTION: CustomMotion<"div"> = {
   whileInView: { opacity: 1, y: 0 },
   transition: { duration: 0.75, delay: 0.75 },
   viewport: { once: true, amount: 0.65 },
-};
-
-const socialLinks: Socials<"linkedIn" | "github"> = {
-  github: {
-    href: "https://www.github.com/Kazyel",
-    icon: SiGithub,
-    text: "GitHub",
-  },
-  linkedIn: {
-    href: "https://www.linkedin.com/in/mateusmascarelo/",
-    icon: SiLinkedin,
-    text: "LinkedIn",
-  },
 };
 
 export const ContactForm = () => {
@@ -123,7 +109,7 @@ export const ContactForm = () => {
 
         {/* Social Links */}
         <div className="flex gap-4">
-          {Object.entries(socialLinks).map(([key, social]) => (
+          {Object.entries(SOCIAL_LINKS).map(([key, social]) => (
             <Link
               key={key}
               href={social.href}

@@ -6,7 +6,7 @@
     "cv": "Resume"
   },
   "Hero": {
-    "hello": "Hey, web wanderer!",
+    "hello": "Hey, wandering traveler!",
     "mateus": "I'm Mateus Mascarelo",
     "more": "More than a web developer.",
     "start": "Start this journey!",
@@ -45,5 +45,10 @@
     "copyright": "All rights reserved.",
     "made-with": "Made with",
     "and": "and"
+  },
+  "NotFound": {
+    "title": "The path you seek does not exist.",
+    "message": "Even in endless skies, some stars are illusions. This page is one of them.",
+    "return": "Return back"
   }
 }

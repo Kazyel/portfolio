@@ -26,13 +26,14 @@ export const projects: ProjectType[] = [
       ],
     },
     repoLink: "https://github.com/Kazyel/Kazanto",
+    repoImage: "/images/projects/kazanto.svg",
     languages: [TECH_LANGUAGES.go, TECH_LANGUAGES.bash],
   },
   {
     title: "APSystem API",
     description: {
-      en: "API for fetching and displaying data collected from solar panels in a cool and visual way.",
-      pt: "API para buscar e exibir dados coletados de painéis solares de uma forma agradável e visual.",
+      en: "API for fetching and displaying data collected from solar panels in a cool way.",
+      pt: "API para buscar e exibir dados coletados de painéis solares de uma forma divertida.",
     },
     body: {
       en: [
@@ -51,6 +52,7 @@ export const projects: ProjectType[] = [
       ],
     },
     repoLink: "https://github.com/Kazyel/API_APSystem",
+    repoImage: "/images/projects/api_apsystem.png",
     languages: [
       TECH_LANGUAGES.node,
       TECH_LANGUAGES.js,
@@ -82,6 +84,7 @@ export const projects: ProjectType[] = [
       ],
     },
     repoLink: "https://github.com/Kazyel/kazyani",
+    repoImage: "/images/projects/kazyani.png",
     languages: [
       TECH_LANGUAGES.react,
       TECH_LANGUAGES.nextjs,

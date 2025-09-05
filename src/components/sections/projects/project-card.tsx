@@ -36,19 +36,17 @@ export const ProjectCard = memo(({ ...props }: ProjectType) => {
       )}
       onClick={openProject}
     >
-      <div className="border-off-w/25 col-span-full row-span-full flex flex-col overflow-hidden rounded-lg bg-stone-900">
+      <div className="relative col-span-full row-span-full flex aspect-square h-full w-full overflow-hidden rounded-lg">
         <Image
-          src="/images/placeholder.avif"
+          src={props.repoImage}
           alt={`${props.title}-image`}
-          width={500}
-          height={500}
+          fill
           loading="lazy"
           decoding="async"
           quality={65}
-          className="size-full rounded-lg"
+          className="object-cover object-left transition-transform duration-500 group-hover:scale-105"
         />
       </div>
-
       <div
         className={cn(
           "z-20 col-span-full row-span-full flex flex-col gap-2 self-end rounded-lg px-6 py-8",

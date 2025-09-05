@@ -1,9 +1,7 @@
-import type { Socials } from "@/lib/types";
-
 import { cn } from "@/lib/utils";
+import { SOCIAL_LINKS } from "@/lib/constants/socials";
 
-import { SiGithub, SiNextdotjs } from "@icons-pack/react-simple-icons";
-import { SiLinkedin } from "@/components/svgs/SiLinkedIn";
+import { SiNextdotjs } from "@icons-pack/react-simple-icons";
 import { LoveIcon } from "@/components/svgs/LoveIcon";
 
 import Image from "next/image";
@@ -16,19 +14,6 @@ const dragonImageClasses = cn(
 );
 
 const socialLinkClasses = cn("transition-colors duration-150 hover:text-off-w");
-
-const socialLinks: Socials<"linkedIn" | "github"> = {
-  github: {
-    href: "https://www.github.com/Kazyel",
-    icon: SiGithub,
-    text: "GitHub",
-  },
-  linkedIn: {
-    href: "https://www.linkedin.com/in/mateusmascarelo/",
-    icon: SiLinkedin,
-    text: "LinkedIn",
-  },
-};
 
 export const Footer = () => {
   const t = useTranslations("Footer");
@@ -103,7 +88,7 @@ export const Footer = () => {
 
       {/* Social Links Section */}
       <div className="text-off-w/75 z-10 flex flex-1 items-center justify-end gap-x-3 text-xs">
-        {Object.entries(socialLinks)
+        {Object.entries(SOCIAL_LINKS)
           .flatMap(([key, social], index) => [
             <Link
               key={key}
@@ -115,7 +100,7 @@ export const Footer = () => {
               <social.icon className="size-6" />
             </Link>,
 
-            index < Object.entries(socialLinks).length - 1 && (
+            index < Object.entries(SOCIAL_LINKS).length - 1 && (
               <p key={`separator-${index}`}>●</p>
             ),
           ])

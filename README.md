@@ -30,7 +30,7 @@ A modern, responsive portfolio website inspired by Japanese aesthetics. Built wi
 <div align="center">
   <p>Made with ❤️ and Next.js, inspired by 🇯🇵</p> 
   <p>
-    <a href="https://portfolio-pi-pied-48.vercel.app/ ">Take a look</a> •
+    <a href="https://kazyel.dev/ ">Take a look</a> •
     <a href="mailto:m.mascarelo@gmail.com">Contact</a> •
     <a href="https://twitter.com/MattMascarelo">Twitter</a>
   </p>

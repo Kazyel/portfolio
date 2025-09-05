@@ -228,6 +228,7 @@ export default function Navbar() {
             href={`/pdf/cv-${currentLocale}.pdf`}
             target="_blank"
             rel="noopener noreferrer"
+            prefetch={false}
             className={cn(
               "cursor-pointer rounded-sm p-1",
               "md:hidden",
@@ -317,6 +318,7 @@ export default function Navbar() {
               href={`/pdf/cv-${currentLocale}.pdf`}
               target="_blank"
               rel="noopener noreferrer"
+              prefetch={false}
               className={cn(
                 "flex cursor-pointer items-center gap-x-1 rounded-md p-2 text-[10px] font-medium transition-all duration-150",
                 "max-md:hidden",

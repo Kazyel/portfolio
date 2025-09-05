@@ -45,5 +45,10 @@
     "copyright": "Todos os direitos reservados.",
     "made-with": "Feito com",
     "and": "e"
+  },
+  "NotFound": {
+    "title": "O caminho que você procura não existe.",
+    "message": "Mesmo nos céus infinitos, algumas estrelas são ilusões. Esta página é uma delas.",
+    "return": "Voltar ao Início"
   }
 }

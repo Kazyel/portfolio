@@ -6,16 +6,11 @@ import Image from "next/image";
 import { TextAnimate } from "@/components/ui/text-animate";
 import { ProjectLink } from "@/components/sections/projects/project-link";
 import { useLocale, useTranslations } from "next-intl";
+import Link from "next/link";
 
 type LanguageCode = "en" | "pt";
 
-export const ProjectTemplate = ({
-  title,
-  repoLink,
-  languages,
-  body,
-  description,
-}: ProjectType) => {
+export const ProjectTemplate = ({ ...props }: ProjectType) => {
   const currentLocale = useLocale() as LanguageCode;
   const t = useTranslations("Projects");
 
@@ -28,7 +23,7 @@ export const ProjectTemplate = ({
           className="text-5xl font-extrabold tracking-tighter text-red-800"
           once
         >
-          {title}
+          {props.title}
         </TextAnimate>
         <TextAnimate
           animation="slideUp"
@@ -37,7 +32,7 @@ export const ProjectTemplate = ({
           by="line"
           once
         >
-          {description[currentLocale]}
+          {props.description[currentLocale]}
         </TextAnimate>
         <ProjectLink
           className={cn(
@@ -45,7 +40,7 @@ export const ProjectTemplate = ({
             "max-md:font-semibold max-sm:text-xs",
           )}
           title={t("view")}
-          url={repoLink}
+          url={props.repoLink}
         />
       </div>
 
@@ -62,7 +57,7 @@ export const ProjectTemplate = ({
           )}
         >
           <div>
-            {body[currentLocale].map((line, index) => (
+            {props.body[currentLocale].map((line, index) => (
               <TextAnimate
                 by="line"
                 animation="slideLeft"
@@ -86,7 +81,7 @@ export const ProjectTemplate = ({
               "max-lg:flex-wrap max-sm:place-self-center xl:h-24",
             )}
           >
-            {languages.map((lang, index) => (
+            {props.languages.map((lang, index) => (
               <lang.src
                 key={index}
                 className="aspect-square size-12 flex-1 xl:size-16"
@@ -95,29 +90,31 @@ export const ProjectTemplate = ({
           </div>
         </div>
 
-        <div
+        <Link
+          href={props.repoLink}
+          target="_blank"
           className={cn(
-            "relative col-span-1 row-span-3 aspect-square max-w-[500px] overflow-hidden rounded-lg border border-red-700/50",
-            "max-xl:max-w-[300px]",
+            "relative col-span-1 row-span-3 aspect-square h-full w-full max-w-[500px] cursor-pointer overflow-hidden rounded-lg border-2 border-red-700/50",
+            "group max-xl:max-w-[300px]",
           )}
         >
           <Image
-            src="/images/placeholder.avif"
+            src={props.repoImage}
             alt="Project 1"
+            fill
             loading="lazy"
             decoding="async"
-            width={1000}
-            height={1000}
-            className="size-full rounded-lg"
+            quality={65}
+            className="rounded-lg object-cover object-left"
           />
 
           <div
             className={cn(
-              "absolute bottom-0 left-0 z-10 h-full w-full rounded-lg bg-gradient-to-t from-black/50 to-transparent opacity-100 transition-all duration-300",
-              "group-hover:opacity-90",
+              "absolute bottom-0 left-0 z-10 h-full w-full rounded-lg bg-gradient-to-t from-black/60 to-transparent opacity-100 transition-all duration-300",
+              "group-hover:opacity-50",
             )}
           ></div>
-        </div>
+        </Link>
       </div>
     </div>
   );

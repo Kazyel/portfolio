@@ -73,7 +73,7 @@ export default function LanguageSwitcher({
       <m.button
         onClick={() => setIsSwitcherOpen((prev) => !prev)}
         className={cn(
-          "flex items-center transition-all duration-200",
+          "flex items-center",
           "disabled:cursor-not-allowed disabled:opacity-50",
           currentStyles.icon,
         )}
@@ -84,16 +84,11 @@ export default function LanguageSwitcher({
         disabled={isPending}
       >
         {isPending ? (
-          <Loader2
-            className={cn("text-off-w size-6 animate-spin", currentStyles.icon)}
-          />
+          <Loader2 className={cn("size-6 animate-spin", currentStyles.icon)} />
         ) : (
           <>
             <International
-              className={cn(
-                "size-6 cursor-pointer transition-all duration-200 ease-in-out",
-                currentStyles.icon,
-              )}
+              className={cn("size-6 cursor-pointer", currentStyles.icon)}
             />
           </>
         )}
