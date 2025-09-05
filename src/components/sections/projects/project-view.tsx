@@ -34,34 +34,37 @@ export const ProjectView = ({ ...props }: ProjectType) => {
   };
 
   return (
-    <div className={cn("xl:max-h-[800px] 2xl:max-w-[1600px]")}>
-      <div className={cn("flex flex-col items-center justify-between py-4")}>
-        <button
-          className={cn(
-            "group text-off-w/75 mb-2 flex cursor-pointer items-center gap-1 self-start italic",
-          )}
-          onClick={handleProjectToggle}
+    <div
+      className={cn(
+        "flex flex-col items-center justify-between pt-4",
+        "max-lg:max-h-fit xl:max-h-[800px] 2xl:max-w-[1600px]",
+      )}
+    >
+      <button
+        className={cn(
+          "group text-off-w/75 mb-2 flex cursor-pointer items-center gap-1 self-start italic",
+        )}
+        onClick={handleProjectToggle}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth="1.5"
+          stroke="currentColor"
+          className={backButtonIconClasses}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-            className={backButtonIconClasses}
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18"
-            />
-          </svg>
-          <span className={backButtonTextClasses}>{t("back")}</span>
-        </button>
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18"
+          />
+        </svg>
+        <span className={backButtonTextClasses}>{t("back")}</span>
+      </button>
 
-        <ProjectTemplate {...props} />
-        <ProjectBackButton onClick={handleProjectToggle} />
-      </div>
+      <ProjectTemplate {...props} />
+      <ProjectBackButton onClick={handleProjectToggle} />
     </div>
   );
 };

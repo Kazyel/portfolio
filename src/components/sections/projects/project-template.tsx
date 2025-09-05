@@ -34,10 +34,11 @@ export const ProjectTemplate = ({ ...props }: ProjectType) => {
         >
           {props.description[currentLocale]}
         </TextAnimate>
+
         <ProjectLink
           className={cn(
             "self-start not-italic",
-            "max-md:font-semibold max-sm:text-xs",
+            "mb-4 max-md:font-semibold max-sm:text-xs",
           )}
           title={t("view")}
           url={props.repoLink}
@@ -78,7 +79,7 @@ export const ProjectTemplate = ({ ...props }: ProjectType) => {
           <div
             className={cn(
               "bg-off-w flex items-center gap-8 place-self-start rounded p-3",
-              "max-lg:flex-wrap max-sm:place-self-center xl:h-24",
+              "max-lg:flex-wrap max-lg:self-center xl:h-24",
             )}
           >
             {props.languages.map((lang, index) => (
@@ -95,7 +96,7 @@ export const ProjectTemplate = ({ ...props }: ProjectType) => {
           target="_blank"
           className={cn(
             "relative col-span-1 row-span-3 aspect-square h-full w-full max-w-[500px] cursor-pointer overflow-hidden rounded-lg border-2 border-red-700/50",
-            "group max-xl:max-w-[300px]",
+            "group max-xl:max-w-[400px] max-lg:self-center",
           )}
         >
           <Image

@@ -28,7 +28,7 @@ export default function NotFound() {
         />
 
         <div className="z-10 flex flex-col items-center justify-center gap-y-4">
-          <h2 className="text-off-w text-4xl font-extrabold tracking-tighter max-md:text-center">
+          <h2 className="text-off-w text-4xl font-extrabold tracking-tighter max-lg:text-center">
             {t("title")}
           </h2>
           <p className="text-off-w/50 font-light tracking-tight italic max-md:text-center">

@@ -18,7 +18,7 @@ export const ProjectBackButton = ({ onClick }: ProjectBackButtonProps) => {
         transition={{ duration: 0.25 }}
         onClick={onClick}
         className={cn(
-          "bg-off-w sticky bottom-10 z-20 translate-x-5 translate-y-6 cursor-pointer self-end rounded-full border-2 border-black p-2 shadow-sm",
+          "bg-off-w sticky bottom-12 z-20 translate-x-5 translate-y-5 cursor-pointer self-end rounded-full border-2 border-black p-2 shadow-sm",
           "transition-colors duration-200 hover:bg-[#bfafa4]",
           "lg:hidden",
         )}
