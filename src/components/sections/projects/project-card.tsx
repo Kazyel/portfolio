@@ -20,7 +20,7 @@ export const ProjectCard = memo(({ ...props }: ProjectType) => {
     setIsProjectOpen(true);
 
     const projectSection = document.getElementById("projects-section");
-    projectSection?.scrollIntoView({ behavior: "smooth" });
+    projectSection?.scrollIntoView({ behavior: "instant" });
   };
 
   return (

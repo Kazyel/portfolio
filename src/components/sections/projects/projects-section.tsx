@@ -42,7 +42,7 @@ export default function ProjectsSection() {
         ) : (
           <m.div
             key="main-projects"
-            className="z-10 flex min-h-screen flex-col items-center justify-center py-5"
+            className="z-10 flex flex-col items-center justify-center py-8"
             {...PROJECT_MOTION}
           >
             <MainProjects />

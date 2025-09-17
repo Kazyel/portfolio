@@ -1,6 +1,6 @@
 import { SiGithub } from "@icons-pack/react-simple-icons";
 import { SiLinkedin } from "@/components/svgs/SiLinkedIn";
-import { Socials } from "../types";
+import { Socials } from "@/lib/types";
 
 export const SOCIAL_LINKS: Socials<"linkedIn" | "github"> = {
   github: {
@@ -13,4 +13,4 @@ export const SOCIAL_LINKS: Socials<"linkedIn" | "github"> = {
     icon: SiLinkedin,
     text: "LinkedIn",
   },
-};
+} as const;

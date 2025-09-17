@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import { MotionWrapper, m } from "../motion-wrapper";
+import { MotionWrapper, m } from "@/components/motion-wrapper";
 
 interface AnimatedGradientBackgroundProps {
   /**

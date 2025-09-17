@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { projects } from "@/lib/content/projects";
+import { PROJECTS } from "@/lib/content/projects";
 
 import { TextAnimate } from "@/components/ui/text-animate";
 import { ProjectLink } from "@/components/sections/projects/project-link";
@@ -14,7 +14,7 @@ export const MainProjects = () => {
       <div
         className={cn(
           "flex items-center justify-center",
-          "max-xl:flex-col xl:items-end xl:justify-between",
+          "max-xl:flex-col xl:items-end xl:justify-around",
         )}
       >
         <div
@@ -58,11 +58,11 @@ export const MainProjects = () => {
 
       <div
         className={cn(
-          "flex flex-col flex-wrap items-center justify-center gap-10 pt-20",
+          "flex flex-col flex-wrap items-center justify-center gap-12 pt-20",
           "max-xl:pt-10 md:flex-row",
         )}
       >
-        {projects.map((project, index) => (
+        {PROJECTS.map((project, index) => (
           <ProjectCard key={index} {...project} />
         ))}
       </div>

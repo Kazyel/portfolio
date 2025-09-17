@@ -30,7 +30,7 @@ export const ProjectView = ({ ...props }: ProjectType) => {
     if (!projectsSection) return;
 
     setIsProjectOpen((prev) => !prev);
-    projectsSection.scrollIntoView({ behavior: "smooth" });
+    projectsSection.scrollIntoView({ behavior: "instant" });
   };
 
   return (
