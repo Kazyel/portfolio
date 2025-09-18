@@ -76,7 +76,7 @@ export default function LanguageSwitcher({
 
   return (
     <div className="relative" ref={dropdownRef}>
-      <Tooltip delayDuration={300}>
+      <Tooltip delayDuration={150}>
         <TooltipTrigger asChild>
           <m.button
             onClick={() => setIsSwitcherOpen((prev) => !prev)}
