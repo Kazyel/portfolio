@@ -131,15 +131,15 @@ export default function useNavbarState() {
     };
   }, [handleIntersection]);
 
-  const startSmoothScroll = useCallback(() => {
+  const startSmoothScroll = () => {
     isSmoothScrollingRef.current = true;
-  }, []);
+  };
 
-  const endSmoothScroll = useCallback(() => {
+  const endSmoothScroll = () => {
     setTimeout(() => {
       isSmoothScrollingRef.current = false;
     }, 150);
-  }, []);
+  };
 
   return {
     isScrolled,

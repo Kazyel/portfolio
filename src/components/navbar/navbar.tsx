@@ -7,7 +7,7 @@ import useNavbarState from "@/hooks/use-navbar-state";
 import useOnClickOutside from "@/hooks/use-on-click-outside";
 import useNavbarStyles, { type NavbarStyles } from "@/hooks/use-navbar-styles";
 import { useCallback, useRef, useState } from "react";
-import { useLocale, useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
 import { NAV_LINKS } from "@/lib/constants/navbar";
 import { cn } from "@/lib/utils";
 
