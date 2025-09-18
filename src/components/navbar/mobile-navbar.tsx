@@ -65,7 +65,7 @@ export const MobileNavbar = ({
               currentStyles.mobileNavbar,
             )}
           >
-            {links.map((link: any) => (
+            {links.map((link) => (
               <a
                 key={link.id}
                 role="menuitem"

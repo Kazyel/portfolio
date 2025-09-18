@@ -1,7 +1,8 @@
+import { CurrentStyles } from "@/hooks/use-navbar-styles";
 import { cn } from "@/lib/utils";
 
 interface NavbarLogoProps {
-  currentStyles: any;
+  currentStyles: CurrentStyles;
   onClick: () => void;
 }
 

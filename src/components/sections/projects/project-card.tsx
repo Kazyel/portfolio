@@ -1,7 +1,6 @@
 import type { ProjectType } from "@/lib/types";
 
 import { cn } from "@/lib/utils";
-import { memo } from "react";
 import { useSetAtom } from "jotai";
 import { useLocale } from "next-intl";
 import { isProjectOpenAtom, currentProjectAtom } from "@/lib/store/projects";
@@ -10,7 +9,7 @@ import { LanguageCode } from "@/lib/constants/langs";
 import Image from "next/image";
 import { ProjectTag } from "./project-tag";
 
-export const ProjectCard = memo(({ ...props }: ProjectType) => {
+export const ProjectCard = ({ ...props }: ProjectType) => {
   const setCurrentProject = useSetAtom(currentProjectAtom);
   const setIsProjectOpen = useSetAtom(isProjectOpenAtom);
 
@@ -83,4 +82,4 @@ export const ProjectCard = memo(({ ...props }: ProjectType) => {
       ></div>
     </div>
   );
-});
+};

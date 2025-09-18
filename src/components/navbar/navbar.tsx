@@ -5,7 +5,7 @@ import type { LanguageCode } from "@/lib/constants/langs";
 
 import useNavbarState from "@/hooks/use-navbar-state";
 import useOnClickOutside from "@/hooks/use-on-click-outside";
-import useNavbarStyles from "@/hooks/use-navbar-styles";
+import useNavbarStyles, { type NavbarStyles } from "@/hooks/use-navbar-styles";
 import { useCallback, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { NAV_LINKS } from "@/lib/constants/navbar";
@@ -63,10 +63,9 @@ export default function Navbar() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const t = useTranslations("Navbar");
   const locale = useLocale() as LanguageCode;
 
-  const currentStyles = useNavbarStyles(
+  const currentStyles: NavbarStyles = useNavbarStyles(
     hoveredLink!,
     activeSection,
     isOverlapping,

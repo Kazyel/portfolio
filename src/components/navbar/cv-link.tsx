@@ -1,4 +1,5 @@
 import type { LanguageCode } from "@/lib/constants/langs";
+import type { NavbarStyles } from "@/hooks/use-navbar-styles";
 
 import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
@@ -8,7 +9,7 @@ import { Download, FileUser } from "lucide-react";
 
 interface CVLinkProps {
   locale: LanguageCode;
-  currentStyles: any;
+  currentStyles: NavbarStyles;
   isMobile?: boolean;
 }
 
