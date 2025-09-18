@@ -48,7 +48,7 @@ export const DesktopNavbar = ({
       ref={navbarLinksRef}
       role="desktop-navigation"
     >
-      {links.map((link: any) => (
+      {links.map((link) => (
         <button
           key={link.id}
           ref={(el) => {
