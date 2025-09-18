@@ -67,8 +67,8 @@ export const ProjectTemplate = ({ ...props }: ProjectType) => {
                 key={index}
                 once
                 className={cn(
-                  "border-off-w/75 pb-4 text-base leading-7 font-light text-neutral-200/85",
-                  "last:pb-0 max-xl:text-[0.9rem]",
+                  "border-off-w/75 text-off-w/70 pb-4 text-lg leading-7 font-light tracking-wider text-pretty",
+                  "last:pb-0 max-xl:text-base",
                 )}
               >
                 {line}
@@ -78,14 +78,14 @@ export const ProjectTemplate = ({ ...props }: ProjectType) => {
 
           <div
             className={cn(
-              "bg-off-w flex items-center gap-8 place-self-start rounded p-3",
-              "max-lg:flex-wrap max-lg:self-center xl:h-24",
+              "bg-off-w flex flex-wrap items-center justify-center gap-6 self-start rounded p-2.5",
+              "max-lg:self-center xl:h-24",
             )}
           >
             {props.languages.map((lang, index) => (
               <lang.src
                 key={index}
-                className="aspect-square size-12 flex-1 xl:size-16"
+                className="col-span-1 aspect-square size-14"
               />
             ))}
           </div>
@@ -95,8 +95,8 @@ export const ProjectTemplate = ({ ...props }: ProjectType) => {
           href={props.repoLink}
           target="_blank"
           className={cn(
-            "relative col-span-1 row-span-3 aspect-square h-full max-h-[450px] w-full max-w-[450px] cursor-pointer overflow-hidden rounded-lg border-2 border-red-700/60",
-            "group max-xl:max-w-[400px] max-lg:self-center",
+            "lg:w-[] relative col-span-1 row-span-3 aspect-square w-[clamp(300px,_40vw,_450px)] cursor-pointer overflow-hidden rounded-lg border-2 border-red-700/60 lg:w-[clamp(350px,_30vw,_450px)]",
+            "group max-lg:self-center",
           )}
         >
           <Image

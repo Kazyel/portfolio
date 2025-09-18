@@ -10,7 +10,7 @@ export const MainProjects = () => {
   const t = useTranslations("Projects");
 
   return (
-    <div className="max-xl:p-12 xl:p-20">
+    <div>
       <div
         className={cn(
           "flex items-center justify-center",
@@ -58,7 +58,7 @@ export const MainProjects = () => {
 
       <div
         className={cn(
-          "flex flex-col flex-wrap items-center justify-center gap-12 pt-20",
+          "flex max-w-[1360px] flex-col flex-wrap items-center justify-center gap-8 pt-20 lg:gap-10",
           "max-xl:pt-10 md:flex-row",
         )}
       >

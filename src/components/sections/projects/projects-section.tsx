@@ -34,7 +34,7 @@ export default function ProjectsSection() {
         {isProjectOpen ? (
           <m.div
             key="project-view"
-            className="z-10 flex min-h-screen flex-col items-center justify-center p-10"
+            className="z-10 flex min-h-screen flex-col items-center justify-center px-12 py-16 md:p-20"
             {...PROJECT_MOTION}
           >
             <ProjectView {...currentProject!} />
@@ -42,7 +42,7 @@ export default function ProjectsSection() {
         ) : (
           <m.div
             key="main-projects"
-            className="z-10 flex flex-col items-center justify-center py-8"
+            className="z-10 flex flex-col items-center justify-center p-16 xl:p-24"
             {...PROJECT_MOTION}
           >
             <MainProjects />

@@ -34,7 +34,7 @@ export default function ContactSection() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           {...BACKGROUND_MOTION}
-          className="absolute inset-0 max-lg:hidden"
+          className="absolute bottom-0 max-lg:hidden"
         >
           <Image
             src="/images/samurai.avif"

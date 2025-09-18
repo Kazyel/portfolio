@@ -1,5 +1,6 @@
 import { BrazilFlag } from "@/components/svgs/BrazilFlag";
 import { USFlag } from "@/components/svgs/USFlag";
+import { SiTanstack } from "@/components/svgs/SiTanstack";
 
 import {
   SiGo,
@@ -15,6 +16,8 @@ import {
   SiPython,
   SiNextdotjs,
   SiGit,
+  SiVite,
+  IconType,
 } from "@icons-pack/react-simple-icons";
 
 export const TECH_LANGUAGES = {
@@ -31,6 +34,14 @@ export const TECH_LANGUAGES = {
   python: { src: SiPython, alt: "Python logo" },
   nextjs: { src: SiNextdotjs, alt: "NextJS logo" },
   git: { src: SiGit, alt: "Git logo" },
+  tanstack: {
+    src: SiTanstack as unknown as IconType,
+    alt: "Tanstack logo",
+  },
+  vite: {
+    src: SiVite,
+    alt: "Vite logo",
+  },
 } as const;
 
 export type ImagesData = typeof TECH_LANGUAGES;

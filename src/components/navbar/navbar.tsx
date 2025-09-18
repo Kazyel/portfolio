@@ -11,12 +11,15 @@ import { useLocale, useTranslations } from "next-intl";
 import { NAV_LINKS } from "@/lib/constants/navbar";
 import { cn } from "@/lib/utils";
 
+import Link from "next/link";
 import { MobileNavbar } from "./mobile-navbar";
 import { DesktopNavbar } from "./desktop-navbar";
 import { NavbarLogo } from "./navbar-logo";
 import { CVLink } from "./cv-link";
 import { MotionWrapper } from "@/components/motion-wrapper";
 import LanguageSwitcher from "@/components/language-switcher";
+import { Code2 } from "lucide-react";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 
 export const MOBILE_NAV_MOTION: CustomMotion<"div"> = {
   initial: { opacity: 0, y: -5 },
@@ -135,9 +138,25 @@ export default function Navbar() {
         />
 
         {/* Right Side Controls */}
-        <div className="flex flex-1 items-center justify-start gap-x-4 max-md:flex-none md:max-lg:justify-end">
-          <CVLink locale={locale} currentStyles={currentStyles} isMobile />
+        <div className="flex flex-1 items-center justify-start gap-x-4.5 max-md:flex-none md:max-lg:justify-end">
           <LanguageSwitcher currentStyles={currentStyles} />
+
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Link
+                href={"https://github.com/Kazyel/portfolio"}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Code2 className={currentStyles.icon + " cursor-pointer"} />
+              </Link>
+            </TooltipTrigger>
+            <TooltipContent className="text-off-w text-[0.65rem] font-medium tracking-tighter">
+              Source
+            </TooltipContent>
+          </Tooltip>
+
+          <CVLink locale={locale} currentStyles={currentStyles} isMobile />
 
           <div className="flex items-center gap-4 md:gap-6">
             <MobileNavbar

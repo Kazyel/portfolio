@@ -50,5 +50,11 @@
     "title": "O caminho que você procura não existe.",
     "message": "Mesmo nos céus infinitos, algumas estrelas são ilusões. Esta página é uma delas.",
     "return": "Voltar ao Início"
+  },
+  "ProjectStatus": {
+    "On-hold": "Parado",
+    "Complete": "Concluído",
+    "Current": "Atual",
+    "Abandoned": "Abandonado"
   }
 }

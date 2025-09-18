@@ -20,6 +20,7 @@ export type ProjectType = {
     src: IconType;
     alt: string;
   }[];
+  status: string;
 };
 
 export type CustomMotion<T extends "div" | "span" | "p" | "button"> = Omit<
