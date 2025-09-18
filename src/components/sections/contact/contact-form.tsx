@@ -23,7 +23,7 @@ export const ContactForm = () => {
       <m.div
         {...CONTACT_MOTION}
         className={cn(
-          "border-off-w/30 relative z-10 flex w-[450px] flex-col gap-y-3 overflow-hidden rounded-lg border bg-black p-4",
+          "border-off-w/30 relative z-10 flex w-[450px] flex-col gap-y-3 overflow-hidden rounded-lg border bg-black p-4 drop-shadow-xl",
           "max-sm:w-full",
         )}
       >

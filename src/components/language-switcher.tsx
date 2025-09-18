@@ -10,6 +10,11 @@ import { cn } from "@/lib/utils";
 import { INTL_LANGUAGES, LanguageCode } from "@/lib/constants/langs";
 import useOnClickOutside from "@/hooks/use-on-click-outside";
 
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { Loader2 } from "lucide-react";
 import { International } from "@/components/svgs/International";
 import { m, AnimatePresence } from "@/components/motion-wrapper";
@@ -71,46 +76,53 @@ export default function LanguageSwitcher({
 
   return (
     <div className="relative" ref={dropdownRef}>
-      <m.button
-        onClick={() => setIsSwitcherOpen((prev) => !prev)}
-        className={cn(
-          "flex items-center disabled:cursor-not-allowed disabled:opacity-50",
-          currentStyles.icon,
-        )}
-        type="button"
-        aria-haspopup="menu"
-        aria-label="Change language"
-        aria-expanded={isSwitcherOpen}
-        disabled={isPending}
-      >
-        <AnimatePresence mode="wait" initial={false}>
-          {isPending ? (
-            <m.div
-              key="loader"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.15 }}
-            >
-              <Loader2
-                className={cn("size-6 animate-spin", currentStyles.icon)}
-              />
-            </m.div>
-          ) : (
-            <m.div
-              key="intl"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.15 }}
-            >
-              <International
-                className={cn("size-6 cursor-pointer", currentStyles.icon)}
-              />
-            </m.div>
-          )}
-        </AnimatePresence>
-      </m.button>
+      <Tooltip delayDuration={300}>
+        <TooltipTrigger asChild>
+          <m.button
+            onClick={() => setIsSwitcherOpen((prev) => !prev)}
+            className={cn(
+              "flex items-center disabled:cursor-not-allowed disabled:opacity-50",
+              currentStyles.icon,
+            )}
+            type="button"
+            aria-haspopup="menu"
+            aria-label="Change language"
+            aria-expanded={isSwitcherOpen}
+            disabled={isPending}
+          >
+            <AnimatePresence mode="wait" initial={false}>
+              {isPending ? (
+                <m.div
+                  key="loader"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.15 }}
+                >
+                  <Loader2
+                    className={cn("size-6 animate-spin", currentStyles.icon)}
+                  />
+                </m.div>
+              ) : (
+                <m.div
+                  key="intl"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.15 }}
+                >
+                  <International
+                    className={cn("size-6 cursor-pointer", currentStyles.icon)}
+                  />
+                </m.div>
+              )}
+            </AnimatePresence>
+          </m.button>
+        </TooltipTrigger>
+        <TooltipContent className="text-off-w text-[0.65rem] font-semibold tracking-tighter">
+          i18n
+        </TooltipContent>
+      </Tooltip>
 
       {/* Language Switcher Menu */}
       <AnimatePresence>

@@ -50,5 +50,11 @@
     "title": "The path you seek does not exist.",
     "message": "Even in endless skies, some stars are illusions. This page is one of them.",
     "return": "Return back"
+  },
+  "ProjectStatus": {
+    "On-hold": "On-hold",
+    "Complete": "Complete",
+    "Current": "Current",
+    "Abandoned": "Abandoned"
   }
 }

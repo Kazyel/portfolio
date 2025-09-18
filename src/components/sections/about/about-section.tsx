@@ -23,6 +23,7 @@ const TECH_STACK = [
   { name: "Python", src: TECH_LANGUAGES.python.src },
   { name: "NextJS", src: TECH_LANGUAGES.nextjs.src },
   { name: "Git", src: TECH_LANGUAGES.git.src },
+  { name: "Vite", src: TECH_LANGUAGES.vite.src },
 ] as const;
 
 interface LanguageCardProps {
@@ -44,7 +45,7 @@ const LanguageCard = ({ src: Icon, name }: LanguageCardProps) => {
           <Icon className="size-full" />
         </figure>
       </TooltipTrigger>
-      <TooltipContent className="text-[14px] font-bold text-white">
+      <TooltipContent className="text-off-w text-[14px] font-bold">
         {name}
       </TooltipContent>
     </Tooltip>

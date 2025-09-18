@@ -1,8 +1,8 @@
 import { BrazilFlag } from "@/components/svgs/BrazilFlag";
 import { USFlag } from "@/components/svgs/USFlag";
+import { SiTanstack } from "@/components/svgs/SiTanstack";
 
 import {
-  type IconType,
   SiGo,
   SiGnubash,
   SiReact,
@@ -16,6 +16,8 @@ import {
   SiPython,
   SiNextdotjs,
   SiGit,
+  SiVite,
+  IconType,
 } from "@icons-pack/react-simple-icons";
 
 export const TECH_LANGUAGES = {
@@ -32,13 +34,18 @@ export const TECH_LANGUAGES = {
   python: { src: SiPython, alt: "Python logo" },
   nextjs: { src: SiNextdotjs, alt: "NextJS logo" },
   git: { src: SiGit, alt: "Git logo" },
-} satisfies Record<
-  string,
-  {
-    src: IconType;
-    alt: string;
-  }
->;
+  tanstack: {
+    src: SiTanstack as unknown as IconType,
+    alt: "Tanstack logo",
+  },
+  vite: {
+    src: SiVite,
+    alt: "Vite logo",
+  },
+} as const;
+
+export type ImagesData = typeof TECH_LANGUAGES;
+export type TechCode = keyof typeof TECH_LANGUAGES;
 
 export const INTL_LANGUAGES = {
   en: {
@@ -56,4 +63,3 @@ export const INTL_LANGUAGES = {
 } as const;
 
 export type LanguageCode = keyof typeof INTL_LANGUAGES;
-export type ImagesData = typeof TECH_LANGUAGES;
