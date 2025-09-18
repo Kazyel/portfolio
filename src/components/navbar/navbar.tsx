@@ -140,7 +140,7 @@ export default function Navbar() {
         <div className="flex flex-1 items-center justify-start gap-x-4.5 max-md:flex-none md:max-lg:justify-end">
           <LanguageSwitcher currentStyles={currentStyles} />
 
-          <Tooltip>
+          <Tooltip delayDuration={150}>
             <TooltipTrigger asChild>
               <Link
                 href={"https://github.com/Kazyel/portfolio"}
