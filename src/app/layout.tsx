@@ -1,17 +1,7 @@
 import type { Metadata } from "next";
 
 import JotaiProvider from "@/components/jotai-provider";
-import {
-  Crimson_Pro,
-  Faculty_Glyphic,
-  Lora,
-  Merienda,
-  Merriweather,
-  Noto_Sans_JP,
-  Protest_Revolution,
-  Ubuntu,
-  Unbounded,
-} from "next/font/google";
+import { Crimson_Pro, Noto_Sans_JP, Unbounded } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale } from "next-intl/server";
 import { Toaster } from "@/components/ui/sonner";

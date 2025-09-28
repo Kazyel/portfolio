@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+// import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 
 import Image from "next/image";
@@ -13,7 +13,7 @@ const DARK_COLOR = "#00000033";
 const imageBaseClasses = "pointer-events-none absolute";
 
 export default function HeroSection() {
-  const t = useTranslations("Hero");
+  // const t = useTranslations("Hero");
 
   return (
     <section

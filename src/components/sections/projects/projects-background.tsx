@@ -1,7 +1,5 @@
 "use client";
 
-import type { CustomMotion } from "@/lib/types";
-
 import { useAtomValue } from "jotai";
 import { isProjectOpenAtom } from "@/lib/store/projects";
 import { cn } from "@/lib/utils";
@@ -10,13 +8,6 @@ import Image from "next/image";
 import { MotionWrapper, m } from "@/components/motion-wrapper";
 
 const URL_FLOWERS = "/images/higan-flowers.avif";
-
-const KOI_MOTION: CustomMotion<"div"> = {
-  initial: { x: 15, opacity: 0 },
-  animate: { x: 0, opacity: 0.75 },
-  exit: { x: 15, opacity: 0 },
-  transition: { duration: 0.4 },
-};
 
 const flowerBaseClasses = cn("absolute transition-all duration-500");
 
@@ -54,11 +45,6 @@ const rightFlower3Classes = cn(
   flowerBaseClasses,
   "right-[24rem] -bottom-20 h-[600px] w-[500px] scale-x-[-1] opacity-25 pointer-events-none",
   "max-2xl:hidden",
-);
-
-const koiContainerClasses = cn(
-  "pointer-events-none absolute right-0 bottom-0 pointer-events-none",
-  "max-xl:hidden",
 );
 
 export const ProjectsBackground = () => {

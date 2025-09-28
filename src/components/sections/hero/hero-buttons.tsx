@@ -5,12 +5,7 @@ import type { CustomMotion } from "@/lib/types";
 import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 
-import {
-  Contact2,
-  MessagesSquare,
-  MousePointerClick,
-  StarsIcon,
-} from "lucide-react";
+import { MessagesSquare, MousePointerClick } from "lucide-react";
 import { MotionWrapper, m } from "@/components/motion-wrapper";
 
 const BUTTONS_MOTION: CustomMotion<"div"> = {
