@@ -23,41 +23,41 @@ const flowerBaseClasses = cn("absolute transition-all duration-500");
 /* Left side flowers */
 const leftFlower1Classes = cn(
   flowerBaseClasses,
-  "bottom-0 left-28 aspect-square h-[1000px] w-[700px] opacity-40",
+  "bottom-0 left-28 aspect-square h-[1000px] w-[700px] opacity-40 pointer-events-none",
   "group-hover:opacity-15",
 );
 
 const leftFlower2Classes = cn(
   flowerBaseClasses,
-  "-bottom-12 -left-40 h-[700px] w-[400px] -rotate-45 opacity-20",
+  "-bottom-12 -left-40 h-[700px] w-[400px] -rotate-45 opacity-20 pointer-events-none",
 );
 
 const leftFlower3Classes = cn(
   flowerBaseClasses,
-  "-bottom-20 left-[24rem] h-[600px] w-[500px] opacity-25",
+  "-bottom-20 left-[24rem] h-[600px] w-[500px] opacity-25 pointer-events-none",
 );
 
 /* Right side flowers */
 const rightFlower1Classes = cn(
   flowerBaseClasses,
-  "right-28 bottom-0 h-[1100px] w-[700px] scale-x-[-1] opacity-40",
+  "right-28 bottom-0 h-[1100px] w-[700px] scale-x-[-1] opacity-40 pointer-events-none",
   "max-xl:hidden",
 );
 
 const rightFlower2Classes = cn(
   flowerBaseClasses,
-  "-right-40 -bottom-12 h-[700px] w-[400px] rotate-45 opacity-20",
+  "-right-40 -bottom-12 h-[700px] w-[400px] rotate-45 opacity-20 pointer-events-none",
   "max-xl:hidden",
 );
 
 const rightFlower3Classes = cn(
   flowerBaseClasses,
-  "right-[24rem] -bottom-20 h-[600px] w-[500px] scale-x-[-1] opacity-25",
+  "right-[24rem] -bottom-20 h-[600px] w-[500px] scale-x-[-1] opacity-25 pointer-events-none",
   "max-2xl:hidden",
 );
 
 const koiContainerClasses = cn(
-  "pointer-events-none absolute right-0 bottom-0",
+  "pointer-events-none absolute right-0 bottom-0 pointer-events-none",
   "max-xl:hidden",
 );
 
@@ -103,7 +103,7 @@ export const ProjectsBackground = () => {
         <Image
           src={URL_FLOWERS}
           alt="Decorative floral background"
-          className={cn(rightFlower1Classes, isOpen && "opacity-0")}
+          className={cn(rightFlower1Classes, isOpen && "opacity-20")}
           quality={50}
           height={1100}
           width={700}
@@ -113,7 +113,7 @@ export const ProjectsBackground = () => {
         <Image
           src={URL_FLOWERS}
           alt="Decorative floral background"
-          className={cn(rightFlower2Classes, isOpen && "opacity-0")}
+          className={cn(rightFlower2Classes, isOpen && "opacity-40")}
           quality={50}
           height={700}
           width={400}
@@ -130,20 +130,6 @@ export const ProjectsBackground = () => {
           loading="lazy"
           decoding="async"
         />
-
-        {/* Koi Fish */}
-        {isOpen && (
-          <m.div {...KOI_MOTION} className={koiContainerClasses}>
-            <Image
-              className="opacity-65"
-              src="/images/fish.webp"
-              alt="Fish"
-              quality={50}
-              width={679}
-              height={912}
-            />
-          </m.div>
-        )}
       </div>
     </MotionWrapper>
   );

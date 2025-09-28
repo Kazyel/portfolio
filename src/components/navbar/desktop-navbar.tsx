@@ -18,7 +18,7 @@ type UnderlineAnimationProps = {
 interface DesktopNavbarProps {
   linkRefs: RefObject<Record<string, HTMLElement | null>>;
   underlineRef: RefObject<HTMLSpanElement | null>;
-  navbarLinksRef: RefObject<HTMLDivElement | null>;
+  navbarLinksRef: RefObject<HTMLUListElement | null>;
   underlineMotionProps: UnderlineAnimationProps;
   currentStyles: NavbarStyles;
   activeSection: string;
@@ -43,13 +43,13 @@ export const DesktopNavbar = ({
   const t = useTranslations("Navbar");
 
   return (
-    <div
+    <ul
       className="relative flex flex-1 items-center justify-center gap-x-6.5 max-md:hidden"
       ref={navbarLinksRef}
       role="desktop-navigation"
     >
       {links.map((link) => (
-        <button
+        <li
           key={link.id}
           ref={(el) => {
             if (el && linkRefs.current[link.id] !== el) {
@@ -66,7 +66,7 @@ export const DesktopNavbar = ({
           role="navigation-link"
         >
           {t(link.name)}
-        </button>
+        </li>
       ))}
 
       {/* Animated underline */}
@@ -95,6 +95,6 @@ export const DesktopNavbar = ({
           />
         ) : null}
       </AnimatePresence>
-    </div>
+    </ul>
   );
 };

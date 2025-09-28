@@ -1,12 +1,22 @@
 import type { Metadata } from "next";
 
 import JotaiProvider from "@/components/jotai-provider";
-import { Unbounded } from "next/font/google";
+import {
+  Crimson_Pro,
+  Faculty_Glyphic,
+  Lora,
+  Merienda,
+  Merriweather,
+  Noto_Sans_JP,
+  Protest_Revolution,
+  Ubuntu,
+  Unbounded,
+} from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale } from "next-intl/server";
 import { Toaster } from "@/components/ui/sonner";
 
-import "./globals.css";
+import "@/app/globals.css";
 
 export const metadata: Metadata = {
   title: "Kazyel",
@@ -14,9 +24,28 @@ export const metadata: Metadata = {
     "Meu portfólio pessoal mostrando meus projetos e minha jornada, com design inspirado na cultura oriental.",
 };
 
+const merriweather = Crimson_Pro({
+  preload: true,
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+  variable: "--font-merriweather",
+  display: "swap",
+});
+
+const jp = Noto_Sans_JP({
+  preload: true,
+  weight: ["100", "300", "400", "500", "700", "900"],
+  subsets: ["latin"],
+  variable: "--font-jp",
+  display: "swap",
+});
+
 const unbounded = Unbounded({
+  preload: true,
+  variable: "--font-unbounded",
   weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
+  display: "swap",
 });
 
 export default async function RootLayout({
@@ -54,7 +83,9 @@ export default async function RootLayout({
         content="https://www.kazyel.dev/images/og.png"
       />
 
-      <body className={`${unbounded.className} bg-darkest antialiased`}>
+      <body
+        className={`${jp.variable} ${unbounded.variable} ${merriweather.variable} font-unbounded bg-darkest antialiased`}
+      >
         <JotaiProvider>
           <NextIntlClientProvider locale={locale}>
             {children}

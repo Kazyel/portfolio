@@ -28,7 +28,7 @@ export const CVLink = ({ locale, currentStyles, isMobile }: CVLinkProps) => {
         "cursor-pointer",
         isMobile
           ? "rounded-sm p-1 md:hidden"
-          : "flex items-center gap-x-1 rounded-md p-2 text-[10px] font-medium max-md:hidden",
+          : "flex items-center gap-x-1.5 rounded-md p-1.5 text-[10px] max-md:hidden",
         currentStyles.cv,
       )}
     >

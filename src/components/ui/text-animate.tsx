@@ -403,8 +403,7 @@ export function TextAnimate({
               className={cn(
                 by === "line" ? "block" : "inline-block whitespace-pre",
                 by === "character" && "",
-                by === "text" &&
-                  "inline whitespace-pre-wrap max-sm:break-words max-sm:hyphens-auto",
+                by === "text" && "inline whitespace-pre-wrap",
                 segmentClassName,
               )}
             >

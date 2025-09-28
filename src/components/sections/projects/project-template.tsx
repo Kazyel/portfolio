@@ -36,10 +36,7 @@ export const ProjectTemplate = ({ ...props }: ProjectType) => {
         </TextAnimate>
 
         <ProjectLink
-          className={cn(
-            "self-start not-italic",
-            "mb-4 max-md:font-semibold max-sm:text-xs",
-          )}
+          className={cn("mb-4 self-start", "max-sm:text-xs")}
           title={t("view")}
           url={props.repoLink}
         />
@@ -47,14 +44,14 @@ export const ProjectTemplate = ({ ...props }: ProjectType) => {
 
       <div
         className={cn(
-          "grid w-full grid-cols-3 grid-rows-3 xl:max-h-[700px]",
+          "grid w-full grid-cols-3 grid-rows-3 gap-x-6 xl:max-h-[700px]",
           "max-lg:flex max-lg:flex-col max-md:items-center max-md:justify-center",
         )}
       >
         <div
           className={cn(
-            "text-prett col-span-2 row-span-3 flex flex-col items-center justify-between gap-y-8 pt-2",
-            "max-xl:mb-10 max-lg:justify-center lg:pr-8",
+            "col-span-2 row-span-3 flex flex-col items-center justify-between gap-8 pt-2",
+            "max-xl:mb-10",
           )}
         >
           <div>
@@ -67,8 +64,7 @@ export const ProjectTemplate = ({ ...props }: ProjectType) => {
                 key={index}
                 once
                 className={cn(
-                  "border-off-w/75 text-off-w/70 pb-4 text-lg leading-7 font-light tracking-wider text-pretty",
-                  "last:pb-0 max-xl:text-base",
+                  "border-off-w/50 text-off-w/75 font-merriweather border-l pb-6 pl-6 text-xl text-pretty last:pb-0 xl:text-2xl",
                 )}
               >
                 {line}
@@ -78,7 +74,7 @@ export const ProjectTemplate = ({ ...props }: ProjectType) => {
 
           <div
             className={cn(
-              "bg-off-w flex flex-wrap items-center justify-center gap-6 self-start rounded p-2.5",
+              "bg-off-w flex flex-wrap items-center justify-center gap-6 self-start rounded px-4 py-2",
               "max-lg:self-center xl:h-24",
             )}
           >
@@ -95,7 +91,7 @@ export const ProjectTemplate = ({ ...props }: ProjectType) => {
           href={props.repoLink}
           target="_blank"
           className={cn(
-            "lg:w-[] relative col-span-1 row-span-3 aspect-square w-[clamp(300px,_40vw,_450px)] cursor-pointer overflow-hidden rounded-lg border-2 border-red-700/60 lg:w-[clamp(350px,_30vw,_450px)]",
+            "lg:w-[] relative col-span-1 row-span-3 mx-auto aspect-square w-[clamp(300px,_50vw,_400px)] cursor-pointer overflow-hidden rounded-lg border-2 border-red-700/60 lg:w-[clamp(350px,_30vw,_400px)]",
             "group max-lg:self-center",
           )}
         >

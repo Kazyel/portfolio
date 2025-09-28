@@ -41,9 +41,9 @@ const AboutText = () => {
   return (
     <div
       className={cn(
-        "relative z-10 flex flex-col gap-y-3 border-l-2 border-black/35 text-pretty",
+        "relative z-10 flex w-full flex-col gap-y-4 border-l-2 border-black/35",
         "max-xl:bg-off-w border-black max-xl:rounded-sm max-xl:border-none max-xl:p-4 max-xl:[filter:drop-shadow(0px_0px_3px_#00000022)]",
-        "max-xl:p-6 max-lg:w-full xl:ml-4 xl:max-w-[600px] xl:px-4",
+        "max-xl:p-6 lg:max-w-[clamp(350px,50vw,650px)] xl:ml-4 xl:px-4",
       )}
     >
       {["description-1", "description-2", "description-3"].map((key) => {
@@ -51,11 +51,10 @@ const AboutText = () => {
           <TextAnimate
             key={key}
             className={cn(
-              "font-base leading-7 text-pretty text-black",
-              "max-xl:text-base max-lg:text-sm",
+              "font-merriweather tracking- text-lg text-pretty text-black sm:text-xl lg:text-2xl",
             )}
-            by="line"
-            animation="slideLeft"
+            by="text"
+            animation="slideRight"
             delay={0.25}
             once
           >
@@ -73,21 +72,17 @@ export const MyInfo = () => {
   return (
     <div
       className={cn(
-        "flex items-center justify-center gap-x-8 pb-12",
-        "max-xs:w-full max-xl:max-w-[768px] max-xl:flex-col",
-        "max-lg:max-w-[650px] max-lg:gap-x-10 max-md:max-w-[568px] max-sm:px-6",
-        "xl:w-full xl:flex-row",
+        "flex flex-col items-center justify-center gap-4 px-6",
+        "md:px-12 xl:flex-row",
       )}
     >
-      <div>
-        <ProfileImage />
-      </div>
+      <ProfileImage />
 
-      <div className="flex flex-col gap-y-3">
+      <div>
         <TextAnimate
           className={cn(
             "text-darkest text-4xl font-extrabold tracking-tighter",
-            "max-xl:my-4 max-xl:text-center lg:text-5xl xl:text-4xl",
+            "mb-4 max-xl:text-center",
           )}
           as="h2"
           by="line"

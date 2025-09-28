@@ -57,7 +57,7 @@ const TechStackMarquee = () => {
     <div
       className={cn(
         "relative flex flex-row items-center justify-center overflow-hidden",
-        "max-xl:w-[700px] max-md:w-[400px] xl:w-[1000px]",
+        "w-full lg:w-[800px] xl:w-[1000px]",
       )}
     >
       {/* Marquee Tech Stack */}
@@ -91,12 +91,14 @@ export default function AboutSection() {
     <section
       id="about-section"
       className={cn(
-        "bg-off-w relative flex min-h-dvh flex-col items-center justify-center overflow-clip",
-        "max-xl:py-16 max-lg:scroll-mt-[var(--navbar-height)]",
+        "bg-off-w relative flex min-h-screen flex-col items-center justify-center gap-y-12 overflow-clip",
+        "py-12 max-lg:scroll-mt-[var(--navbar-height)]",
       )}
     >
       <MyInfo />
+
       <BackgroundInkPaint />
+
       <TechStackMarquee />
     </section>
   );

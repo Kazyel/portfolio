@@ -11,15 +11,18 @@ import { useLocale } from "next-intl";
 import { NAV_LINKS } from "@/lib/constants/navbar";
 import { cn } from "@/lib/utils";
 
-import Link from "next/link";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import LanguageSwitcher from "@/components/language-switcher";
 import { MobileNavbar } from "./mobile-navbar";
 import { DesktopNavbar } from "./desktop-navbar";
-import { NavbarLogo } from "./navbar-logo";
 import { CVLink } from "./cv-link";
 import { MotionWrapper } from "@/components/motion-wrapper";
-import LanguageSwitcher from "@/components/language-switcher";
 import { Code2 } from "lucide-react";
-import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
+import Link from "next/link";
 
 export const MOBILE_NAV_MOTION: CustomMotion<"div"> = {
   initial: { opacity: 0, y: -5 },
@@ -107,19 +110,26 @@ export default function Navbar() {
         role="navigation"
         aria-label="Main navigation"
         className={cn(
-          "h-navbar-height fixed top-0 z-50 flex w-full items-center transition-all duration-150",
-          "border-b max-lg:px-4 max-lg:pl-10 max-md:justify-between",
+          "fixed top-0 z-50 flex w-full items-center justify-between py-3.5 pr-10 pl-16 transition-all duration-150",
+          "border-b max-lg:pr-2 max-lg:pl-9",
           isScrolled
             ? "border-stone-700/40 backdrop-blur-xl"
             : "border-transparent max-lg:bg-none",
         )}
       >
         {/* Logo */}
-        <div className="flex flex-1 justify-end max-md:flex-none md:max-lg:justify-start">
-          <NavbarLogo
-            currentStyles={currentStyles}
+        <div className="flex flex-1 max-md:flex-none">
+          <button
             onClick={() => handleSectionTravel("hero-section")}
-          />
+            aria-label="Go to home section"
+            className={cn(
+              "before:font-jp relative cursor-pointer border-l-2 pl-2 font-extrabold tracking-tighter transition-colors duration-150",
+              "before:font-jp before:absolute before:-top-0.5 before:-left-7 before:text-lg before:transition-all before:duration-150 before:content-['新']",
+              currentStyles.link,
+            )}
+          >
+            Kazyel
+          </button>
         </div>
 
         {/* Desktop Nav */}
@@ -137,7 +147,7 @@ export default function Navbar() {
         />
 
         {/* Right Side Controls */}
-        <div className="flex flex-1 items-center justify-start gap-x-4.5 max-md:flex-none md:max-lg:justify-end">
+        <div className="flex flex-1 items-center justify-start gap-x-4.5 max-md:flex-none md:justify-end">
           <LanguageSwitcher currentStyles={currentStyles} />
 
           <Tooltip delayDuration={150}>
@@ -150,7 +160,7 @@ export default function Navbar() {
                 <Code2 className={currentStyles.icon + " cursor-pointer"} />
               </Link>
             </TooltipTrigger>
-            <TooltipContent className="text-off-w text-[0.65rem] font-medium tracking-tighter">
+            <TooltipContent className="text-off-w text-xs font-medium tracking-tight">
               Source
             </TooltipContent>
           </Tooltip>
