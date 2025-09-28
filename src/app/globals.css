@@ -11,6 +11,26 @@
     @apply bg-background text-foreground;
   }
 
+  ::-webkit-scrollbar {
+    width: 6px; /* very thin */
+    height: 6px; /* for horizontal scroll */
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent; /* no track */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.25); /* subtle thumb */
+    border-radius: 999px; /* pill shape */
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin; /* makes it thinner */
+    scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+  }
+
   :root {
     /* Shadcn configs */
     --radius: 0.625rem;

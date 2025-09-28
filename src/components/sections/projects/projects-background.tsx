@@ -5,7 +5,7 @@ import { isProjectOpenAtom } from "@/lib/store/projects";
 import { cn } from "@/lib/utils";
 
 import Image from "next/image";
-import { MotionWrapper, m } from "@/components/motion-wrapper";
+import { MotionWrapper } from "@/components/motion-wrapper";
 
 const URL_FLOWERS = "/images/higan-flowers.avif";
 
