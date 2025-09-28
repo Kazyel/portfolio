@@ -19,7 +19,7 @@ export default function useNavbarState() {
 
   const navbarRef = useRef<HTMLElement>(null);
   const underlineRef = useRef<HTMLSpanElement>(null);
-  const navbarLinksRef = useRef<HTMLDivElement>(null);
+  const navbarLinksRef = useRef<HTMLUListElement>(null);
   const aboutSectionRef = useRef<HTMLDivElement>(null);
   const linkRefs = useRef<Record<string, HTMLElement | null>>({});
   const isSmoothScrollingRef = useRef(false);

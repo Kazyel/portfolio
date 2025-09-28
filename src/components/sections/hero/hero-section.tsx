@@ -1,4 +1,4 @@
-import { useTranslations } from "next-intl";
+// import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 
 import Image from "next/image";
@@ -7,14 +7,13 @@ import { TextAnimate } from "@/components/ui/text-animate";
 import { HeroButtons } from "@/components/sections/hero/hero-buttons";
 
 const STATIC_COLOR = "#f3e5d7";
+const MID_COLOR = "#f3e5d744";
 const DARK_COLOR = "#00000033";
 
 const imageBaseClasses = "pointer-events-none absolute";
-const textBaseClasses = "tracking-tighter text-pretty max-sm:leading-10";
-const mobileTextDisposition = "max-xs:text-left sm:max-lg:text-center";
 
 export default function HeroSection() {
-  const t = useTranslations("Hero");
+  // const t = useTranslations("Hero");
 
   return (
     <section
@@ -27,56 +26,48 @@ export default function HeroSection() {
       {/* Hero Content */}
       <div
         className={cn(
-          "relative z-30 flex w-full flex-col gap-y-12",
-          "xl:max-w-[1250px]",
+          "relative z-30 flex w-full flex-col gap-y-12 text-center",
+          "max-w-[1250px]",
         )}
       >
-        <div className="w-full">
+        <div className="flex w-full flex-col gap-y-10">
           <TextAnimate
             className={cn(
-              textBaseClasses,
-              mobileTextDisposition,
-              "text-acc-yellow hero-shadow-1 mb-4 text-[3.5rem] font-extrabold",
-              "max-xs:text-[2rem] max-xl:text-[3rem] max-md:text-[2.5rem] 2xl:text-[4rem]",
+              "hero-shadow-2 text-acc-red text-3xl font-semibold tracking-tighter lg:text-6xl",
             )}
             as="h1"
             animation="slideDown"
             delay={0}
-            by="text"
+            by="word"
             once
           >
-            {t("hello")}
+            Be at ease, wanderer.
           </TextAnimate>
 
           <TextAnimate
             className={cn(
-              textBaseClasses,
-              mobileTextDisposition,
-              "hero-shadow-2 text-off-w mb-4 text-[4rem] leading-[1em] font-semibold",
-              "max-xs:text-[2.5rem] max-xl:text-[3.75rem] max-md:text-[3rem] 2xl:text-[5rem]",
+              "hero-shadow-1 text-off-w text-5xl font-extrabold tracking-tighter text-balance md:text-6xl lg:text-8xl",
             )}
             as="h2"
-            by="text"
+            by="word"
             delay={0.2}
             once
           >
-            {t("mateus")}
+            I'm a craftsman of the intangible web.
           </TextAnimate>
 
           <TextAnimate
             className={cn(
-              textBaseClasses,
-              mobileTextDisposition,
-              "hero-shadow-3 text-off-w text-7xl font-extrabold",
-              "max-xs:text-[2.5rem] xs:max-md:text-[3rem] max-xl:text-[4rem]",
+              "text-acc-yellow-3 font-merriweather text-xl font-extrabold tracking-tight text-balance lg:text-4xl",
             )}
             as="h2"
             delay={0.4}
             animation="fadeIn"
-            by="text"
+            by="word"
             once
           >
-            {t("more")}
+            Walking the endless road of creation, a path where every line tells
+            a story, I shape ideas into living code.
           </TextAnimate>
         </div>
 
@@ -118,7 +109,7 @@ export default function HeroSection() {
       {/* Gradient Background */}
       <AnimatedGradientBackground
         gradientStops={[45, 75, 100]}
-        gradientColors={[DARK_COLOR, STATIC_COLOR + "44", STATIC_COLOR]}
+        gradientColors={[DARK_COLOR, MID_COLOR, STATIC_COLOR]}
       />
     </section>
   );
