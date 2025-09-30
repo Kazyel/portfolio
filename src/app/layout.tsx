@@ -14,11 +14,11 @@ export const metadata: Metadata = {
     "Meu portfólio pessoal mostrando meus projetos e minha jornada, com design inspirado na cultura oriental.",
 };
 
-const merriweather = Crimson_Pro({
+const crimson = Crimson_Pro({
   preload: true,
-  weight: ["400", "500", "600", "700"],
+  weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
   subsets: ["latin"],
-  variable: "--font-merriweather",
+  variable: "--font-crimson",
   display: "swap",
 });
 
@@ -74,7 +74,7 @@ export default async function RootLayout({
       />
 
       <body
-        className={`${jp.variable} ${unbounded.variable} ${merriweather.variable} font-unbounded bg-darkest antialiased`}
+        className={`${jp.variable} ${unbounded.variable} ${crimson.variable} font-unbounded bg-darkest antialiased`}
       >
         <JotaiProvider>
           <NextIntlClientProvider locale={locale}>

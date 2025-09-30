@@ -41,9 +41,8 @@ const AboutText = () => {
   return (
     <div
       className={cn(
-        "relative z-10 flex w-full flex-col gap-y-4 border-l-2 border-black/35",
-        "max-xl:bg-off-w border-black max-xl:rounded-sm max-xl:border-none max-xl:p-4 max-xl:[filter:drop-shadow(0px_0px_3px_#00000022)]",
-        "max-xl:p-6 lg:max-w-[clamp(350px,50vw,650px)] xl:ml-4 xl:px-4",
+        "bg-off-w/80 relative z-10 max-w-[clamp(450px,50vw,650px)] rounded-sm p-6 shadow-sm",
+        "sm:bg-transparent sm:shadow-none xl:ml-4 xl:rounded-none xl:border-l-2 xl:border-black xl:p-0 xl:px-4 xl:drop-shadow-none",
       )}
     >
       {["description-1", "description-2", "description-3"].map((key) => {
@@ -51,11 +50,13 @@ const AboutText = () => {
           <TextAnimate
             key={key}
             className={cn(
-              "font-merriweather tracking- text-lg text-pretty text-black sm:text-xl lg:text-2xl",
+              "font-crimson mb-4 text-pretty text-black last:mb-0",
+              "text-lg leading-7 sm:text-xl lg:text-2xl",
             )}
             by="text"
             animation="slideRight"
-            delay={0.25}
+            delay={0.2}
+            duration={0.6}
             once
           >
             {t(key)}
@@ -72,23 +73,26 @@ export const MyInfo = () => {
   return (
     <div
       className={cn(
-        "flex flex-col items-center justify-center gap-4 px-6",
-        "md:px-12 xl:flex-row",
+        "flex flex-col items-center justify-center gap-12",
+        "xl:mt-12 xl:flex-row",
       )}
     >
       <ProfileImage />
 
-      <div>
+      <div
+        className={cn(
+          "flex flex-col items-center justify-center gap-4",
+          "xl:items-start xl:justify-start",
+        )}
+      >
         <TextAnimate
           className={cn(
-            "text-darkest text-4xl font-extrabold tracking-tighter",
-            "mb-4 max-xl:text-center",
+            "text-darkest text-center text-4xl font-extrabold tracking-tighter",
           )}
           as="h2"
           by="line"
           animation="slideDown"
-          delay={0.15}
-          duration={0.1}
+          delay={0}
           once
         >
           {t("title")}

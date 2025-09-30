@@ -6,11 +6,12 @@
     "cv": "Currículo"
   },
   "Hero": {
-    "hello": "Olá, andarilho!",
-    "mateus": "Eu sou Mateus Mascarelo",
-    "more": "Mais do que um desenvolvedor web.",
-    "start": "Comece esta jornada!",
-    "contact": "Fale comigo"
+    "greetings": "Saudações, viajante.",
+    "shape": "Eu moldo as correntes do fluxo digital.",
+    "flow": "O código flui como água através da pedra— persistente, paciente, moldando a realidade um commit por vez.",
+    "each": "Cada linha, um mundo. Cada ideia, viva.",
+    "start": "Explore mais",
+    "contact": "Dá um toque"
   },
   "About": {
     "title": "Um pouco sobre mim...",

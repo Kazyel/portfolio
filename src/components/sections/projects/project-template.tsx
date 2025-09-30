@@ -64,7 +64,7 @@ export const ProjectTemplate = ({ ...props }: ProjectType) => {
                 key={index}
                 once
                 className={cn(
-                  "border-off-w/50 text-off-w/75 font-merriweather border-l pb-6 pl-6 text-xl text-pretty last:pb-0 xl:text-2xl",
+                  "border-off-w/50 text-off-w/75 font-crimson border-l pb-6 pl-6 text-xl text-pretty last:pb-0 xl:text-2xl",
                 )}
               >
                 {line}
