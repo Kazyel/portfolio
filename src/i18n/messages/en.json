@@ -6,11 +6,12 @@
     "cv": "Resume"
   },
   "Hero": {
-    "hello": "Hey, wandering traveler!",
-    "mateus": "I'm Mateus Mascarelo",
-    "more": "More than a web developer.",
-    "start": "Start this journey!",
-    "contact": "Let's connect"
+    "greetings": "Greetings, traveler!",
+    "shape": "I shape the currents of the digital stream.",
+    "flow": "Code flows like water through stone— persistent, patient, shaping reality one commit at a time.",
+    "each": "Each line, a world. Each idea, alive.",
+    "start": "Explore more",
+    "contact": "Get in touch"
   },
   "About": {
     "title": "A little bit about me...",

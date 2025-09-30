@@ -21,7 +21,7 @@ const BUTTONS_MOTION: CustomMotion<"div"> = {
 };
 
 const buttonBaseClasses =
-  "flex cursor-pointer items-center rounded-sm p-2.5 text-xl transition-all duration-150 max-md:text-base whitespace-nowrap";
+  "flex cursor-pointer items-center rounded-sm p-1.5 md:p-2.5 text-[0.85rem] shrink-0 md:text-base transition-all duration-150 shadow-md font-medium tracking-tighter";
 
 export const HeroButtons = () => {
   const t = useTranslations("Hero");
@@ -36,35 +36,32 @@ export const HeroButtons = () => {
     <MotionWrapper>
       <m.div
         {...BUTTONS_MOTION}
-        className={cn(
-          "flex flex-wrap justify-center gap-x-6",
-          "max-sm:max-w-[450px] max-sm:gap-y-4",
-        )}
+        className={cn("flex flex-wrap justify-center", "gap-4 sm:gap-6")}
       >
         <button
           onClick={() => handleClick("about-section")}
           className={cn(
             buttonBaseClasses,
-            "bg-acc-yellow-2",
-            "hover:bg-acc-yellow-3 text-darkest hover:-translate-y-1",
+            "bg-acc-yellow-2 text-darkest",
+            "hover:bg-acc-yellow-3 sm:hover:-translate-y-1",
           )}
         >
           {t("start")}
 
-          <MousePointerClick className={cn("ml-2 size-6")} />
+          <MousePointerClick className="ml-2 size-4.5 sm:size-6" />
         </button>
 
         <button
           onClick={() => handleClick("contact-section")}
           className={cn(
             buttonBaseClasses,
-            "border-off-w/35 bg-off-w/15 text-off-w/75 border",
-            "hover:border-acc-red/60 hover:bg-acc-red/15 hover:text-acc-red hover:-translate-y-1",
+            "text-off-w/40 border-off-w/25 bg-off-w/05 border",
+            "hover:border-acc-red/60 hover:bg-acc-red/10 hover:text-acc-red sm:hover:-translate-y-1",
           )}
         >
           {t("contact")}
 
-          <MessagesSquare className={cn("ml-2 size-6")} />
+          <MessagesSquare className="ml-2 size-4.5 sm:size-6" />
         </button>
       </m.div>
     </MotionWrapper>

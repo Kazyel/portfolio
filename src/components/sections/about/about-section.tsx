@@ -1,17 +1,17 @@
 import type { IconType } from "@icons-pack/react-simple-icons";
-import { TECH_LANGUAGES } from "@/lib/constants/langs";
 
+import { TECH_LANGUAGES } from "@/lib/constants/langs";
 import { cn } from "@/lib/utils";
 
-import { Marquee } from "@/components/ui/marquee";
-import { MyInfo } from "@/components/sections/about/my-info";
-import { BackgroundInkPaint } from "@/components/sections/about/background-ink-paint";
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { Marquee } from "@/components/ui/marquee";
+import { MyInfo } from "@/components/sections/about/my-info";
+import { BackgroundInkPaint } from "@/components/sections/about/background-ink-paint";
 
 const TECH_STACK = [
   { name: "Go", src: TECH_LANGUAGES.go.src },
@@ -91,14 +91,12 @@ export default function AboutSection() {
     <section
       id="about-section"
       className={cn(
-        "bg-off-w relative flex min-h-screen flex-col items-center justify-center gap-y-12 overflow-clip",
-        "py-12 max-lg:scroll-mt-[var(--navbar-height)]",
+        "bg-off-w relative flex min-h-screen scroll-mt-[var(--navbar-height)] flex-col items-center justify-center gap-y-8 overflow-clip px-6 pt-16 pb-24",
+        "md:scroll-mt-0 xl:gap-y-16 xl:p-0",
       )}
     >
       <MyInfo />
-
       <BackgroundInkPaint />
-
       <TechStackMarquee />
     </section>
   );

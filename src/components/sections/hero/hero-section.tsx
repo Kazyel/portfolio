@@ -1,10 +1,10 @@
-// import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 
-import Image from "next/image";
 import AnimatedGradientBackground from "@/components/ui/animated-gradient-background";
 import { TextAnimate } from "@/components/ui/text-animate";
 import { HeroButtons } from "@/components/sections/hero/hero-buttons";
+import Image from "next/image";
 
 const STATIC_COLOR = "#f3e5d7";
 const MID_COLOR = "#f3e5d744";
@@ -13,67 +13,82 @@ const DARK_COLOR = "#00000033";
 const imageBaseClasses = "pointer-events-none absolute";
 
 export default function HeroSection() {
-  // const t = useTranslations("Hero");
+  const t = useTranslations("Hero");
 
   return (
-    <section
+    <main
       id="hero-section"
       className={cn(
-        "relative flex min-h-dvh flex-col items-center justify-center overflow-hidden px-12",
-        "max-xs:px-6 max-sm:px-9",
+        "relative flex min-h-dvh flex-col items-center justify-center overflow-hidden",
+        "xs:px-12 px-6",
       )}
     >
       {/* Hero Content */}
-      <div
-        className={cn(
-          "relative z-30 flex w-full flex-col gap-y-12 text-center",
-          "max-w-[1250px]",
-        )}
-      >
-        <div className="flex w-full flex-col gap-y-10">
-          <TextAnimate
-            className={cn(
-              "hero-shadow-2 text-acc-red text-3xl font-semibold tracking-tighter lg:text-6xl",
-            )}
-            as="h1"
-            animation="slideDown"
-            delay={0}
-            by="word"
-            once
-          >
-            Be at ease, wanderer.
-          </TextAnimate>
+      <section className="relative z-30 flex w-full flex-col gap-y-12 text-center">
+        <div className="flex w-full flex-col items-center justify-center gap-8">
+          <div className="flex max-w-[700px] flex-col gap-y-6 lg:max-w-[1000px]">
+            <TextAnimate
+              className={cn(
+                "hero-shadow-2 text-acc-red font-semibold tracking-tighter",
+                "text-xl sm:text-4xl lg:text-5xl",
+              )}
+              as="h1"
+              animation="slideDown"
+              delay={0}
+              by="word"
+              once
+            >
+              {t("greetings")}
+            </TextAnimate>
 
-          <TextAnimate
-            className={cn(
-              "hero-shadow-1 text-off-w text-5xl font-extrabold tracking-tighter text-balance md:text-6xl lg:text-8xl",
-            )}
-            as="h2"
-            by="word"
-            delay={0.2}
-            once
-          >
-            I'm a craftsman of the intangible web.
-          </TextAnimate>
+            <TextAnimate
+              className={cn(
+                "hero-shadow-1 text-off-w font-extrabold tracking-tighter",
+                "xs:text-6xl text-5xl md:text-7xl lg:text-7xl xl:text-8xl",
+              )}
+              as="h2"
+              by="word"
+              delay={0.2}
+              once
+            >
+              {t("shape")}
+            </TextAnimate>
+          </div>
 
-          <TextAnimate
-            className={cn(
-              "text-acc-yellow-3 font-merriweather text-xl font-extrabold tracking-tight text-balance lg:text-4xl",
-            )}
-            as="h2"
-            delay={0.4}
-            animation="fadeIn"
-            by="word"
-            once
-          >
-            Walking the endless road of creation, a path where every line tells
-            a story, I shape ideas into living code.
-          </TextAnimate>
+          <div className="flex max-w-[800px] flex-col gap-y-4">
+            <TextAnimate
+              className={cn(
+                "text-acc-yellow-3/85 font-crimson font-light tracking-tight text-balance",
+                "text-xl sm:text-2xl md:text-3xl",
+              )}
+              as="h2"
+              delay={0.4}
+              animation="fadeIn"
+              by="word"
+              once
+            >
+              {t("flow")}
+            </TextAnimate>
+
+            <TextAnimate
+              className={cn(
+                "text-acc-yellow-3 font-crimson font-bold text-pretty",
+                "text-xl sm:text-2xl md:text-3xl",
+              )}
+              as="h2"
+              delay={0.4}
+              animation="fadeIn"
+              by="line"
+              once
+            >
+              {t("each")}
+            </TextAnimate>
+          </div>
         </div>
 
         {/* Call to Action Buttons */}
         <HeroButtons />
-      </div>
+      </section>
 
       {/* Background */}
       <Image
@@ -111,6 +126,6 @@ export default function HeroSection() {
         gradientStops={[45, 75, 100]}
         gradientColors={[DARK_COLOR, MID_COLOR, STATIC_COLOR]}
       />
-    </section>
+    </main>
   );
 }
