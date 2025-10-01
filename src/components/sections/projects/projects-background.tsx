@@ -1,49 +1,48 @@
 "use client";
 
-import { useAtomValue } from "jotai";
 import { isProjectOpenAtom } from "@/lib/store/projects";
+import { useAtomValue } from "jotai";
 import { cn } from "@/lib/utils";
 
-import Image from "next/image";
 import { MotionWrapper } from "@/components/motion-wrapper";
+import Image from "next/image";
 
 const URL_FLOWERS = "/images/higan-flowers.avif";
-
 const flowerBaseClasses = cn("absolute transition-all duration-500");
 
 /* Left side flowers */
 const leftFlower1Classes = cn(
   flowerBaseClasses,
-  "bottom-0 left-28 aspect-square h-[1000px] w-[700px] opacity-40 pointer-events-none",
+  "bottom-0 left-28 aspect-square h-[1000px] w-[700px] opacity-50 pointer-events-none",
   "group-hover:opacity-15",
 );
 
 const leftFlower2Classes = cn(
   flowerBaseClasses,
-  "-bottom-12 -left-40 h-[700px] w-[400px] -rotate-45 opacity-20 pointer-events-none",
+  "-bottom-12 -left-40 h-[700px] w-[400px] -rotate-45 opacity-30 pointer-events-none",
 );
 
 const leftFlower3Classes = cn(
   flowerBaseClasses,
-  "-bottom-20 left-[24rem] h-[600px] w-[500px] opacity-25 pointer-events-none",
+  "-bottom-20 left-[24rem] h-[600px] w-[500px] opacity-30 pointer-events-none",
 );
 
 /* Right side flowers */
 const rightFlower1Classes = cn(
   flowerBaseClasses,
-  "right-28 bottom-0 h-[1100px] w-[700px] scale-x-[-1] opacity-40 pointer-events-none",
+  "right-28 bottom-0 h-[1100px] w-[700px] scale-x-[-1] opacity-50 pointer-events-none",
   "max-xl:hidden",
 );
 
 const rightFlower2Classes = cn(
   flowerBaseClasses,
-  "-right-40 -bottom-12 h-[700px] w-[400px] rotate-45 opacity-20 pointer-events-none",
+  "-right-40 -bottom-12 h-[700px] w-[400px] rotate-45 opacity-30 pointer-events-none",
   "max-xl:hidden",
 );
 
 const rightFlower3Classes = cn(
   flowerBaseClasses,
-  "right-[24rem] -bottom-20 h-[600px] w-[500px] scale-x-[-1] opacity-25 pointer-events-none",
+  "right-[24rem] -bottom-20 h-[600px] w-[500px] scale-x-[-1] opacity-35 pointer-events-none",
   "max-2xl:hidden",
 );
 
@@ -116,6 +115,8 @@ export const ProjectsBackground = () => {
           loading="lazy"
           decoding="async"
         />
+
+        <div className="via-acc-red-dark/5 to-acc-red-dark/10 absolute inset-0 h-full w-full bg-gradient-to-b from-black/40 via-50%" />
       </div>
     </MotionWrapper>
   );

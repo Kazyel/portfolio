@@ -1,34 +1,38 @@
 import type { ProjectType } from "@/lib/types";
 
+import { useLocale, useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 
 import Image from "next/image";
-import { TextAnimate } from "@/components/ui/text-animate";
-import { ProjectLink } from "@/components/sections/projects/project-link";
-import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
+import { ProjectLink } from "@/components/sections/projects/project-link";
+import { TextAnimate } from "@/components/ui/text-animate";
 
 type LanguageCode = "en" | "pt";
 
 export const ProjectTemplate = ({ ...props }: ProjectType) => {
-  const currentLocale = useLocale() as LanguageCode;
   const t = useTranslations("Projects");
+  const currentLocale = useLocale() as LanguageCode;
 
   return (
-    <div className="z-20 flex w-full flex-col items-center">
+    <section className="z-20 flex w-full flex-col items-center">
       <div className="mt-4 flex flex-col gap-4 self-start">
         <TextAnimate
+          className={cn(
+            "text-acc-red-dark text-4xl font-extrabold tracking-tighter",
+            "sm:text-5xl",
+          )}
           as="h1"
           by="line"
-          className="text-5xl font-extrabold tracking-tighter text-red-800"
           once
         >
           {props.title}
         </TextAnimate>
+
         <TextAnimate
+          className="text-acc-yellow-3 max-w-[800px] text-sm font-semibold text-balance"
           animation="slideUp"
           as="h2"
-          className="text-acc-yellow-2 text-sm font-semibold"
           by="line"
           once
         >
@@ -36,7 +40,10 @@ export const ProjectTemplate = ({ ...props }: ProjectType) => {
         </TextAnimate>
 
         <ProjectLink
-          className={cn("mb-4 self-start", "max-sm:text-xs")}
+          className={cn(
+            "text-acc-yellow/90 mb-4 text-base font-medium",
+            "hover:text-acc-yellow-2",
+          )}
           title={t("view")}
           url={props.repoLink}
         />
@@ -44,28 +51,29 @@ export const ProjectTemplate = ({ ...props }: ProjectType) => {
 
       <div
         className={cn(
-          "grid w-full grid-cols-3 grid-rows-3 gap-x-6 xl:max-h-[700px]",
-          "max-lg:flex max-lg:flex-col max-md:items-center max-md:justify-center",
+          "flex w-full flex-col items-center justify-center xl:max-h-[700px]",
+          "lg:grid lg:grid-cols-3 lg:gap-6",
         )}
       >
         <div
           className={cn(
-            "col-span-2 row-span-3 flex flex-col items-center justify-between gap-8 pt-2",
-            "max-xl:mb-10",
+            "col-span-2 mb-10 flex flex-col items-center justify-between gap-8",
+            "xl:mb-0",
           )}
         >
           <div>
             {props.body[currentLocale].map((line, index) => (
               <TextAnimate
-                by="line"
+                key={index}
+                className={cn(
+                  "text-off-w/85 font-crimson mb-3 text-xl text-pretty last:mb-0 last:pb-0 xl:text-2xl",
+                )}
                 animation="slideLeft"
                 delay={0.15}
                 duration={0.1}
-                key={index}
+                by="line"
+                as="p"
                 once
-                className={cn(
-                  "border-off-w/50 text-off-w/75 font-crimson border-l pb-6 pl-6 text-xl text-pretty last:pb-0 xl:text-2xl",
-                )}
               >
                 {line}
               </TextAnimate>
@@ -74,14 +82,13 @@ export const ProjectTemplate = ({ ...props }: ProjectType) => {
 
           <div
             className={cn(
-              "bg-off-w flex flex-wrap items-center justify-center gap-6 self-start rounded px-4 py-2",
-              "max-lg:self-center xl:h-24",
+              "bg-off-w flex flex-wrap items-center justify-center gap-5 self-start p-4",
             )}
           >
             {props.languages.map((lang, index) => (
               <lang.src
                 key={index}
-                className="col-span-1 aspect-square size-14"
+                className="col-span-1 aspect-square size-12"
               />
             ))}
           </div>
@@ -91,28 +98,28 @@ export const ProjectTemplate = ({ ...props }: ProjectType) => {
           href={props.repoLink}
           target="_blank"
           className={cn(
-            "lg:w-[] relative col-span-1 row-span-3 mx-auto aspect-square w-[clamp(300px,_50vw,_400px)] cursor-pointer overflow-hidden rounded-lg border-2 border-red-700/60 lg:w-[clamp(350px,_30vw,_400px)]",
-            "group max-lg:self-center",
+            "group border-acc-red-dark/40 relative col-span-1 mx-auto aspect-square w-[clamp(300px,_50vw,_400px)] cursor-pointer self-center overflow-hidden border-2",
+            "lg:w-[clamp(350px,_30vw,_400px)] lg:self-start",
           )}
         >
           <Image
             src={props.repoImage}
             alt={props.title}
-            fill
+            quality={50}
             loading="lazy"
             decoding="async"
-            quality={65}
-            className="rounded-lg object-cover object-left"
+            fill
+            className="object-cover object-left"
           />
 
           <div
             className={cn(
-              "absolute bottom-0 left-0 z-10 h-full w-full rounded-lg bg-gradient-to-t from-black/60 to-transparent opacity-100 transition-all duration-300",
-              "group-hover:opacity-50",
+              "absolute bottom-0 left-0 z-10 h-full w-full bg-gradient-to-t from-black/75 to-transparent opacity-100 transition-all duration-250",
+              "group-hover:translate-y-16",
             )}
-          ></div>
+          />
         </Link>
       </div>
-    </div>
+    </section>
   );
 };

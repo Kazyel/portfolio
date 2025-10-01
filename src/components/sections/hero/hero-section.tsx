@@ -24,8 +24,8 @@ export default function HeroSection() {
       )}
     >
       {/* Hero Content */}
-      <section className="relative z-30 flex w-full flex-col gap-y-12 text-center">
-        <div className="flex w-full flex-col items-center justify-center gap-8">
+      <section className="relative z-30 flex w-full flex-col gap-y-14 text-center">
+        <div className="flex w-full flex-col items-center justify-center gap-10">
           <div className="flex max-w-[700px] flex-col gap-y-6 lg:max-w-[1000px]">
             <TextAnimate
               className={cn(

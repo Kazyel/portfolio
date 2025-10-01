@@ -10,31 +10,29 @@ import Image from "next/image";
 import { ProjectTag } from "./project-tag";
 
 export const ProjectCard = ({ ...props }: ProjectType) => {
+  const currentLocale = useLocale() as LanguageCode;
+
   const setCurrentProject = useSetAtom(currentProjectAtom);
   const setIsProjectOpen = useSetAtom(isProjectOpenAtom);
 
-  const currentLocale = useLocale() as LanguageCode;
-
   const openProject = () => {
-    setCurrentProject(props);
-    setIsProjectOpen(true);
+    const projectsSection = document.querySelector("#projects-section");
+    if (!projectsSection) return;
+    projectsSection.scrollIntoView({ behavior: "instant" });
 
-    const projectSection = document.getElementById("projects-section");
-    projectSection?.scrollIntoView({ behavior: "instant" });
+    setIsProjectOpen(true);
+    setCurrentProject(props);
   };
 
   return (
-    <div
+    <article
       id="project-card"
-      className={cn(
-        "group relative grid aspect-square cursor-pointer grid-cols-1 rounded-lg border-2 border-red-700/50 shadow-xl",
-        "w-[clamp(300px,_50vw,_400px)]",
-      )}
+      className="group border-acc-red-dark/40 relative grid aspect-square w-[clamp(325px,_40vw,_400px)] cursor-pointer grid-cols-1 overflow-hidden rounded-none border shadow-lg"
       onClick={openProject}
     >
       <ProjectTag status={props.status} />
 
-      <div className="relative col-span-full row-span-full flex aspect-square h-full w-full overflow-hidden rounded-lg">
+      <figure className="relative col-span-full row-span-full flex aspect-square size-full overflow-hidden">
         <Image
           src={props.repoImage}
           alt={`${props.title}-image`}
@@ -42,32 +40,26 @@ export const ProjectCard = ({ ...props }: ProjectType) => {
           loading="lazy"
           decoding="async"
           quality={65}
-          className="object-cover object-left transition-transform duration-500 group-hover:scale-105"
+          className="object-cover object-left"
         />
-      </div>
+      </figure>
 
-      <div
-        className={cn(
-          "z-20 col-span-full row-span-full flex flex-col gap-2 self-end rounded-lg px-6 py-8",
-          "max-md:px-4 max-md:py-4",
-        )}
-      >
+      <div className="z-20 col-span-full row-span-full flex flex-col gap-1.5 self-end rounded-lg p-7">
         <h3
           id="project-title"
           className={cn(
-            "font-bold tracking-tighter text-red-800 transition-all duration-200",
-            "group-hover:text-red-600",
-            "text-2xl md:text-3xl xl:text-4xl",
+            "text-acc-red-dark text-2xl font-bold tracking-tighter transition-all duration-200",
+            "md:text-3xl",
           )}
         >
           {props.title}
         </h3>
+
         <p
           id="project-text"
           className={cn(
-            "text-off-w/75 transition-all duration-200",
-            "group-hover:text-off-w",
-            "text-pretty max-xl:text-xs",
+            "text-off-w text-xs leading-5 tracking-wide text-pretty transition-all duration-200",
+            "md:text-sm",
           )}
         >
           {props.description[currentLocale]}
@@ -76,10 +68,10 @@ export const ProjectCard = ({ ...props }: ProjectType) => {
 
       <div
         className={cn(
-          "absolute bottom-0 left-0 z-10 h-full w-full rounded-lg bg-gradient-to-t from-black to-transparent opacity-100 transition-all duration-300",
-          "group-hover:opacity-90",
+          "absolute bottom-0 left-0 z-10 h-full w-full bg-gradient-to-t from-black to-transparent opacity-100 transition-all duration-250",
+          "group-hover:translate-y-16",
         )}
-      ></div>
-    </div>
+      />
+    </article>
   );
 };

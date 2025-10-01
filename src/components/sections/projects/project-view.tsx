@@ -1,12 +1,35 @@
 import type { ProjectType } from "@/lib/types";
 
-import { useAtomValue, useSetAtom } from "jotai";
+import { useSetAtom } from "jotai";
 import { currentProjectAtom, isProjectOpenAtom } from "@/lib/store/projects";
 import { cn } from "@/lib/utils";
 
+import { m } from "@/components/motion-wrapper";
 import { ProjectTemplate } from "@/components/sections/projects/project-template";
-import { ProjectBackButton } from "./project-back-button";
 import { useTranslations } from "next-intl";
+import { Undo2 } from "lucide-react";
+
+interface ProjectBackButtonProps {
+  onClick: () => void;
+}
+
+const ProjectBackButton = ({ onClick }: ProjectBackButtonProps) => {
+  return (
+    <m.div
+      initial={{ opacity: 0, y: 5 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.25 }}
+      onClick={onClick}
+      className={cn(
+        "bg-off-w sticky right-5 bottom-5 z-20 translate-x-4.5 cursor-pointer self-end rounded-full border border-black p-2 shadow-sm",
+        "-my-[32px] transition-colors duration-200 hover:bg-[#bfafa4]",
+        "lg:hidden",
+      )}
+    >
+      <Undo2 className={cn("size-7", "sm:max-lg:size-9")} />
+    </m.div>
+  );
+};
 
 const backButtonIconClasses = cn(
   "size-5 transition-all duration-200",
@@ -19,32 +42,34 @@ const backButtonTextClasses = cn(
 );
 
 export const ProjectView = ({ ...props }: ProjectType) => {
-  const project = useAtomValue(currentProjectAtom);
-  const setIsProjectOpen = useSetAtom(isProjectOpenAtom);
   const t = useTranslations("Projects");
 
-  if (!project) return null;
+  const setIsProjectOpen = useSetAtom(isProjectOpenAtom);
+  const setCurrentProject = useSetAtom(currentProjectAtom);
 
-  const handleProjectToggle = () => {
+  const closeProject = () => {
     const projectsSection = document.querySelector("#projects-section");
     if (!projectsSection) return;
-
-    setIsProjectOpen((prev) => !prev);
     projectsSection.scrollIntoView({ behavior: "instant" });
+
+    setIsProjectOpen(false);
+    setCurrentProject(null);
   };
 
   return (
-    <div
-      className={cn(
-        "flex flex-col items-center",
-        "h-full w-[clamp(0px,100%,1400px)]",
-      )}
+    <m.div
+      key="project-view"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.3 }}
+      className="flex flex-col justify-center"
     >
       <button
         className={cn(
-          "group text-off-w/75 mb-2 flex cursor-pointer items-center gap-1 self-start italic",
+          "group text-off-w/90 z-20 mb-2 flex cursor-pointer items-center gap-1 text-sm font-semibold tracking-tight italic",
+          "sm:text-base",
         )}
-        onClick={handleProjectToggle}
+        onClick={closeProject}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -60,11 +85,13 @@ export const ProjectView = ({ ...props }: ProjectType) => {
             d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18"
           />
         </svg>
+
         <span className={backButtonTextClasses}>{t("back")}</span>
       </button>
 
       <ProjectTemplate {...props} />
-      <ProjectBackButton onClick={handleProjectToggle} />
-    </div>
+
+      <ProjectBackButton onClick={closeProject} />
+    </m.div>
   );
 };

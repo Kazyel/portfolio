@@ -1,32 +1,35 @@
-import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 import { PROJECTS } from "@/lib/content/projects";
+import { cn } from "@/lib/utils";
 
 import { TextAnimate } from "@/components/ui/text-animate";
 import { ProjectLink } from "@/components/sections/projects/project-link";
 import { ProjectCard } from "@/components/sections/projects/project-card";
-import { useTranslations } from "next-intl";
+import { m } from "@/components/motion-wrapper";
 
-export const MainProjects = () => {
+export const ProjectsList = () => {
   const t = useTranslations("Projects");
 
   return (
-    <div>
+    <m.div
+      key="main-projects"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.25 }}
+      className="flex flex-col items-center justify-center gap-12"
+    >
       <div
         className={cn(
-          "flex items-center justify-center",
-          "max-xl:flex-col xl:items-end xl:justify-around",
+          "flex w-full flex-col items-start justify-between px-12",
+          "lg:flex-row lg:items-end",
         )}
       >
-        <div
-          className={cn(
-            "flex flex-col",
-            "max-xl:items-center max-xl:justify-center",
-          )}
-        >
+        <div>
           <TextAnimate
             className={cn(
-              "text-7xl font-extrabold tracking-tighter text-red-800",
-              "max-md:text-6xl",
+              "text-acc-red-dark text-6xl font-extrabold tracking-tighter",
+              "md:text-7xl",
             )}
             once
           >
@@ -35,8 +38,7 @@ export const MainProjects = () => {
 
           <TextAnimate
             className={cn(
-              "text-acc-yellow-2 pt-4 text-xl font-medium tracking-tight",
-              "max-lg:text-center max-sm:text-base",
+              "text-acc-yellow-3 pt-4 text-xl font-light text-balance",
             )}
             once
             by="line"
@@ -50,22 +52,22 @@ export const MainProjects = () => {
           title={t("check")}
           url="https://github.com/Kazyel"
           className={cn(
-            "font-extralight italic underline underline-offset-4",
-            "max-xl:mt-4 max-lg:self-center max-lg:text-center",
+            "mt-4 self-start text-base font-light",
+            "sm:text-lg lg:mt-0 lg:self-end",
           )}
         />
       </div>
 
       <div
         className={cn(
-          "flex max-w-[1360px] flex-col flex-wrap items-center justify-center gap-8 pt-20 lg:gap-10",
-          "max-xl:pt-10 md:flex-row",
+          "flex w-full flex-col flex-wrap items-center justify-center gap-6",
+          "md:flex-row lg:gap-10",
         )}
       >
         {PROJECTS.map((project, index) => (
           <ProjectCard key={index} {...project} />
         ))}
       </div>
-    </div>
+    </m.div>
   );
 };

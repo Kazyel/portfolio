@@ -1,35 +1,36 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
+import { cn } from "@/lib/utils";
 
-import Image from "next/image";
 import { TextAnimate } from "@/components/ui/text-animate";
+import Image from "next/image";
 
 const ProfileImage = () => {
   return (
     <div className="grid grid-cols-2 grid-rows-2 place-items-center">
       <Image
         src="/images/dragon-2.avif"
-        width={550}
-        height={550}
-        alt="Dragon"
         className={cn(
-          "pointer-events-none top-0 col-span-full row-span-full opacity-100",
+          "pointer-events-none top-0 z-10 col-span-full row-span-full opacity-100",
           "max-xl:w-[425px] max-md:w-[350px]",
         )}
+        width={550}
+        height={550}
         quality={75}
+        alt="Dragon"
       />
+
       <Image
         src="/images/me.jpg"
         className={cn(
-          "z-10 col-span-full row-span-full aspect-square rounded-full border-8 border-black object-cover",
+          "z-10 col-span-full row-span-full aspect-square rounded-full border-5 border-black object-cover",
           "max-xl:w-[300px] max-lg:w-[275px] max-md:w-[225px] xl:w-[368px]",
         )}
         width={400}
         height={400}
-        alt="Profile"
         quality={75}
+        alt="Profile"
       />
     </div>
   );
@@ -41,7 +42,7 @@ const AboutText = () => {
   return (
     <div
       className={cn(
-        "bg-off-w/80 relative z-10 max-w-[clamp(450px,50vw,650px)] rounded-sm p-6 shadow-sm",
+        "bg-off-w/85 relative z-10 max-w-[clamp(500px,50vw,650px)] p-5 shadow-sm",
         "sm:bg-transparent sm:shadow-none xl:ml-4 xl:rounded-none xl:border-l-2 xl:border-black xl:p-0 xl:px-4 xl:drop-shadow-none",
       )}
     >
