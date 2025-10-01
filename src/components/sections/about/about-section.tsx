@@ -37,15 +37,15 @@ const LanguageCard = ({ src: Icon, name }: LanguageCardProps) => {
       <TooltipTrigger asChild>
         <figure
           className={cn(
-            "relative ml-3 h-full w-fit cursor-pointer overflow-hidden rounded-sm border-2 p-3 shadow-md",
-            "bg-off-w border-black hover:bg-[#e5d8cc]",
-            "max-xl:w-[5rem] max-xl:border-1 max-md:w-[4.5rem] xl:w-[5.5rem]",
+            "relative ml-3 w-[4.5rem] cursor-pointer border-2 border-black/25 p-3 shadow-sm",
+            "bg-off-w hover:bg-[#e5d8cc] lg:w-[5rem] lg:border-black",
           )}
         >
           <Icon className="size-full" />
         </figure>
       </TooltipTrigger>
-      <TooltipContent className="text-off-w text-[14px] font-bold">
+
+      <TooltipContent className="text-off-w text-xs font-extrabold">
         {name}
       </TooltipContent>
     </Tooltip>
@@ -91,7 +91,7 @@ export default function AboutSection() {
     <section
       id="about-section"
       className={cn(
-        "bg-off-w relative flex min-h-screen scroll-mt-[var(--navbar-height)] flex-col items-center justify-center gap-y-8 overflow-clip px-6 pt-16 pb-24",
+        "bg-off-w relative flex min-h-screen scroll-mt-[var(--navbar-height)] flex-col items-center justify-center gap-y-8 overflow-clip px-6 pt-16 pb-18",
         "md:scroll-mt-0 xl:gap-y-16 xl:p-0",
       )}
     >
