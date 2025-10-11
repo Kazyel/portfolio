@@ -2,7 +2,7 @@
 
 import type { CustomMotion } from "@/lib/types";
 
-import { MotionWrapper, m } from "@/components/motion-wrapper";
+import { m } from "@/components/motion-wrapper";
 
 const FORM_ERROR_MOTION: CustomMotion<"p"> = {
   initial: { opacity: 0 },
@@ -17,13 +17,8 @@ interface FormErrorsProps {
 
 export const FormErrors = ({ message }: FormErrorsProps) => {
   return (
-    <MotionWrapper>
-      <m.p
-        {...FORM_ERROR_MOTION}
-        className="text-[10px] text-red-300/75 italic"
-      >
-        * {message}.
-      </m.p>
-    </MotionWrapper>
+    <m.p {...FORM_ERROR_MOTION} className="text-[10px] text-red-300/75 italic">
+      * {message}.
+    </m.p>
   );
 };

@@ -15,7 +15,6 @@ export const ProjectsList = () => {
       key="main-projects"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
       transition={{ duration: 0.25 }}
       className="flex flex-col items-center justify-center gap-12"
     >

@@ -7,6 +7,7 @@ import { getLocale } from "next-intl/server";
 import { Toaster } from "@/components/ui/sonner";
 
 import "@/app/globals.css";
+import { MotionWrapper } from "@/components/motion-wrapper";
 
 export const metadata: Metadata = {
   title: "Kazyel",
@@ -56,10 +57,7 @@ export default async function RootLayout({
         property="og:description"
         content="Meu portfólio pessoal mostrando meus projetos e minha jornada, com design inspirado na cultura oriental."
       />
-      <meta
-        property="og:image"
-        content="https://www.kazyel.dev/images/og.png"
-      />
+      <meta property="og:image" content="https://www.kazyel.dev/images/og.png" />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta property="twitter:url" content="https://www.kazyel.dev/" />
@@ -68,18 +66,15 @@ export default async function RootLayout({
         name="twitter:description"
         content="Meu portfólio pessoal mostrando meus projetos e minha jornada, com design inspirado na cultura oriental."
       />
-      <meta
-        name="twitter:image"
-        content="https://www.kazyel.dev/images/og.png"
-      />
+      <meta name="twitter:image" content="https://www.kazyel.dev/images/og.png" />
 
       <body
         className={`${jp.variable} ${unbounded.variable} ${crimson.variable} font-unbounded bg-darkest antialiased`}
       >
         <JotaiProvider>
-          <NextIntlClientProvider locale={locale}>
-            {children}
-          </NextIntlClientProvider>
+          <MotionWrapper>
+            <NextIntlClientProvider locale={locale}>{children}</NextIntlClientProvider>
+          </MotionWrapper>
         </JotaiProvider>
         <Toaster richColors />
       </body>

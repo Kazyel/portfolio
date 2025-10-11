@@ -4,7 +4,6 @@ import { isProjectOpenAtom } from "@/lib/store/projects";
 import { useAtomValue } from "jotai";
 import { cn } from "@/lib/utils";
 
-import { MotionWrapper } from "@/components/motion-wrapper";
 import Image from "next/image";
 
 const URL_FLOWERS = "/images/higan-flowers.avif";
@@ -50,74 +49,72 @@ export const ProjectsBackground = () => {
   const isOpen = useAtomValue(isProjectOpenAtom);
 
   return (
-    <MotionWrapper>
-      <div>
-        {/* Left side flowers */}
-        <Image
-          src={URL_FLOWERS}
-          alt="Decorative floral background"
-          className={cn(leftFlower1Classes, isOpen && "opacity-15")}
-          quality={50}
-          height={1000}
-          width={700}
-          loading="lazy"
-          decoding="async"
-        />
-        <Image
-          src={URL_FLOWERS}
-          alt="Decorative floral background"
-          className={cn(leftFlower2Classes, isOpen && "opacity-30")}
-          quality={50}
-          height={700}
-          width={400}
-          loading="lazy"
-          decoding="async"
-        />
-        <Image
-          src={URL_FLOWERS}
-          alt="Decorative floral background"
-          className={cn(leftFlower3Classes, isOpen && "opacity-35")}
-          quality={50}
-          height={600}
-          width={500}
-          loading="lazy"
-          decoding="async"
-        />
+    <div>
+      {/* Left side flowers */}
+      <Image
+        src={URL_FLOWERS}
+        alt="Decorative floral background"
+        className={cn(leftFlower1Classes, isOpen && "opacity-15")}
+        quality={50}
+        height={1000}
+        width={700}
+        loading="lazy"
+        decoding="async"
+      />
+      <Image
+        src={URL_FLOWERS}
+        alt="Decorative floral background"
+        className={cn(leftFlower2Classes, isOpen && "opacity-30")}
+        quality={50}
+        height={700}
+        width={400}
+        loading="lazy"
+        decoding="async"
+      />
+      <Image
+        src={URL_FLOWERS}
+        alt="Decorative floral background"
+        className={cn(leftFlower3Classes, isOpen && "opacity-35")}
+        quality={50}
+        height={600}
+        width={500}
+        loading="lazy"
+        decoding="async"
+      />
 
-        {/* Right side flowers */}
-        <Image
-          src={URL_FLOWERS}
-          alt="Decorative floral background"
-          className={cn(rightFlower1Classes, isOpen && "opacity-20")}
-          quality={50}
-          height={1100}
-          width={700}
-          loading="lazy"
-          decoding="async"
-        />
-        <Image
-          src={URL_FLOWERS}
-          alt="Decorative floral background"
-          className={cn(rightFlower2Classes, isOpen && "opacity-40")}
-          quality={50}
-          height={700}
-          width={400}
-          loading="lazy"
-          decoding="async"
-        />
-        <Image
-          src={URL_FLOWERS}
-          alt="Decorative floral background"
-          className={cn(rightFlower3Classes, isOpen && "opacity-40")}
-          quality={50}
-          height={600}
-          width={500}
-          loading="lazy"
-          decoding="async"
-        />
+      {/* Right side flowers */}
+      <Image
+        src={URL_FLOWERS}
+        alt="Decorative floral background"
+        className={cn(rightFlower1Classes, isOpen && "opacity-20")}
+        quality={50}
+        height={1100}
+        width={700}
+        loading="lazy"
+        decoding="async"
+      />
+      <Image
+        src={URL_FLOWERS}
+        alt="Decorative floral background"
+        className={cn(rightFlower2Classes, isOpen && "opacity-40")}
+        quality={50}
+        height={700}
+        width={400}
+        loading="lazy"
+        decoding="async"
+      />
+      <Image
+        src={URL_FLOWERS}
+        alt="Decorative floral background"
+        className={cn(rightFlower3Classes, isOpen && "opacity-40")}
+        quality={50}
+        height={600}
+        width={500}
+        loading="lazy"
+        decoding="async"
+      />
 
-        <div className="via-acc-red-dark/5 to-acc-red-dark/10 absolute inset-0 h-full w-full bg-gradient-to-b from-black/40 via-50%" />
-      </div>
-    </MotionWrapper>
+      <div className="via-acc-red-dark/5 to-acc-red-dark/10 absolute inset-0 h-full w-full bg-gradient-to-b from-black/40 via-50%" />
+    </div>
   );
 };

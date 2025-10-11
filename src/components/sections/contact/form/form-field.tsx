@@ -6,7 +6,7 @@ import { JSX } from "react/jsx-runtime";
 import { useTranslations } from "next-intl";
 
 import { Mail, User, MessageSquareText } from "lucide-react";
-import { MotionWrapper, AnimatePresence } from "@/components/motion-wrapper";
+import { AnimatePresence } from "@/components/motion-wrapper";
 import { FormErrors } from "./form-errors";
 import { FormEntries } from "./form";
 
@@ -51,12 +51,7 @@ interface FormFieldProps {
   name: FormEntries;
 }
 
-export const FormField = ({
-  register,
-  errors,
-  label,
-  name,
-}: FormFieldProps) => {
+export const FormField = ({ register, errors, label, name }: FormFieldProps) => {
   const t = useTranslations("ContactForm");
 
   const { icon, placeholderKey, type, as } = FIELD_META[name];
@@ -64,31 +59,26 @@ export const FormField = ({
   const FieldTag = as;
 
   return (
-    <MotionWrapper>
-      <div className="flex flex-col gap-y-2.5">
-        <div className="flex items-center gap-2.5">
-          <label
-            htmlFor={name}
-            className="flex items-center gap-2.5 font-semibold"
-          >
-            {icon}
-            {label}
-          </label>
+    <div className="flex flex-col gap-y-2.5">
+      <div className="flex items-center gap-2.5">
+        <label htmlFor={name} className="flex items-center gap-2.5 font-semibold">
+          {icon}
+          {label}
+        </label>
 
-          <AnimatePresence>
-            {errorMessage && <FormErrors message={errorMessage} />}
-          </AnimatePresence>
-        </div>
-
-        <FieldTag
-          {...register(name)}
-          id={name}
-          type={as === "input" ? type : undefined}
-          placeholder={t(placeholderKey)}
-          rows={as === "textarea" ? 8 : undefined}
-          className={cn(inputBaseClasses, as === "textarea" && "resize-none")}
-        />
+        <AnimatePresence>
+          {errorMessage && <FormErrors message={errorMessage} />}
+        </AnimatePresence>
       </div>
-    </MotionWrapper>
+
+      <FieldTag
+        {...register(name)}
+        id={name}
+        type={as === "input" ? type : undefined}
+        placeholder={t(placeholderKey)}
+        rows={as === "textarea" ? 8 : undefined}
+        className={cn(inputBaseClasses, as === "textarea" && "resize-none")}
+      />
+    </div>
   );
 };
