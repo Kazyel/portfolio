@@ -1,15 +1,10 @@
 "use client";
 
 import { type ElementType } from "react";
-import {
-  AnimatePresence,
-  motion,
-  type MotionProps,
-  type Variants,
-} from "motion/react";
+import { AnimatePresence, motion, type MotionProps, type Variants } from "motion/react";
 import { cn } from "@/lib/utils";
 
-import { MotionWrapper, m } from "@/components/motion-wrapper";
+import { m } from "@/components/motion-wrapper";
 
 type AnimationType = "text" | "word" | "character" | "line";
 type AnimationVariant =
@@ -383,35 +378,33 @@ export function TextAnimate({
       : { container: defaultContainerVariants, item: defaultItemVariants };
 
   return (
-    <MotionWrapper>
-      <AnimatePresence mode="popLayout">
-        <MotionComponent
-          variants={finalVariants.container as Variants}
-          initial="hidden"
-          whileInView={startOnView ? "show" : undefined}
-          animate={startOnView ? undefined : "show"}
-          exit="exit"
-          className={cn("whitespace-pre-wrap", className)}
-          viewport={{ once }}
-          {...props}
-        >
-          {segments.map((segment, i) => (
-            <m.span
-              key={`${by}-${segment}-${i}`}
-              variants={finalVariants.item}
-              custom={i * staggerTimings[by]}
-              className={cn(
-                by === "line" ? "block" : "inline-block whitespace-pre",
-                by === "character" && "",
-                by === "text" && "inline whitespace-pre-wrap",
-                segmentClassName,
-              )}
-            >
-              {segment}
-            </m.span>
-          ))}
-        </MotionComponent>
-      </AnimatePresence>
-    </MotionWrapper>
+    <AnimatePresence mode="popLayout">
+      <MotionComponent
+        variants={finalVariants.container as Variants}
+        initial="hidden"
+        whileInView={startOnView ? "show" : undefined}
+        animate={startOnView ? undefined : "show"}
+        exit="exit"
+        className={cn("whitespace-pre-wrap", className)}
+        viewport={{ once }}
+        {...props}
+      >
+        {segments.map((segment, i) => (
+          <m.span
+            key={`${by}-${segment}-${i}`}
+            variants={finalVariants.item}
+            custom={i * staggerTimings[by]}
+            className={cn(
+              by === "line" ? "block" : "inline-block whitespace-pre",
+              by === "character" && "",
+              by === "text" && "inline whitespace-pre-wrap",
+              segmentClassName,
+            )}
+          >
+            {segment}
+          </m.span>
+        ))}
+      </MotionComponent>
+    </AnimatePresence>
   );
 }

@@ -10,11 +10,7 @@ import { cn } from "@/lib/utils";
 import { INTL_LANGUAGES, LanguageCode } from "@/lib/constants/langs";
 import useOnClickOutside from "@/hooks/use-on-click-outside";
 
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { Loader2 } from "lucide-react";
 import { International } from "@/components/svgs/International";
 import { m, AnimatePresence } from "@/components/motion-wrapper";
@@ -50,9 +46,7 @@ const SWITCHER_ANIMATION: CustomMotion<"div"> = {
   },
 } as const;
 
-export default function LanguageSwitcher({
-  currentStyles,
-}: LanguageSwitcherProps) {
+export default function LanguageSwitcher({ currentStyles }: LanguageSwitcherProps) {
   const [isSwitcherOpen, setIsSwitcherOpen] = useState(false);
   const [isPending, startTransition] = useTransition();
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -99,9 +93,7 @@ export default function LanguageSwitcher({
                   exit={{ opacity: 0, scale: 0.8 }}
                   transition={{ duration: 0.15 }}
                 >
-                  <Loader2
-                    className={cn("size-6 animate-spin", currentStyles.icon)}
-                  />
+                  <Loader2 className={cn("size-6 animate-spin", currentStyles.icon)} />
                 </m.div>
               ) : (
                 <m.div
@@ -119,6 +111,7 @@ export default function LanguageSwitcher({
             </AnimatePresence>
           </m.button>
         </TooltipTrigger>
+
         <TooltipContent className="text-off-w text-[0.65rem] font-semibold tracking-tighter">
           i18n
         </TooltipContent>

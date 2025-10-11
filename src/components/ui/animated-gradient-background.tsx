@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import { MotionWrapper, m } from "@/components/motion-wrapper";
+import { m } from "@/components/motion-wrapper";
 
 interface AnimatedGradientBackgroundProps {
   /**
@@ -142,30 +142,28 @@ const AnimatedGradientBackground: React.FC<AnimatedGradientBackgroundProps> = ({
   ]);
 
   return (
-    <MotionWrapper>
-      <m.div
-        key="animated-gradient-background"
-        initial={{
-          opacity: 0,
-          scale: 1.5,
-        }}
-        animate={{
-          opacity: 1,
-          scale: 1,
-          transition: {
-            duration: 2,
-            ease: [0.25, 0.1, 0.25, 1], // Cubic bezier easing
-          },
-        }}
-        className={`absolute inset-0 overflow-hidden ${containerClassName}`}
-      >
-        <div
-          ref={containerRef}
-          style={containerStyle}
-          className="absolute inset-0 transition-transform"
-        />
-      </m.div>
-    </MotionWrapper>
+    <m.div
+      key="animated-gradient-background"
+      initial={{
+        opacity: 0,
+        scale: 1.5,
+      }}
+      animate={{
+        opacity: 1,
+        scale: 1,
+        transition: {
+          duration: 2,
+          ease: [0.25, 0.1, 0.25, 1], // Cubic bezier easing
+        },
+      }}
+      className={`absolute inset-0 overflow-hidden ${containerClassName}`}
+    >
+      <div
+        ref={containerRef}
+        style={containerStyle}
+        className="absolute inset-0 transition-transform"
+      />
+    </m.div>
   );
 };
 

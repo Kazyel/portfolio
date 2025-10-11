@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 import { cn } from "@/lib/utils";
 
 import { MessagesSquare, MousePointerClick } from "lucide-react";
-import { MotionWrapper, m } from "@/components/motion-wrapper";
+import { m } from "@/components/motion-wrapper";
 
 const BUTTONS_MOTION: CustomMotion<"div"> = {
   initial: { x: -10, opacity: 0 },
@@ -33,37 +33,35 @@ export const HeroButtons = () => {
   };
 
   return (
-    <MotionWrapper>
-      <m.div
-        {...BUTTONS_MOTION}
-        className={cn("flex flex-wrap justify-center", "gap-4 sm:gap-6")}
+    <m.div
+      {...BUTTONS_MOTION}
+      className={cn("flex flex-wrap justify-center", "gap-4 sm:gap-6")}
+    >
+      <button
+        onClick={() => handleClick("about-section")}
+        className={cn(
+          buttonBaseClasses,
+          "bg-acc-yellow-2 text-darkest",
+          "hover:bg-acc-yellow-3 sm:hover:-translate-y-1",
+        )}
       >
-        <button
-          onClick={() => handleClick("about-section")}
-          className={cn(
-            buttonBaseClasses,
-            "bg-acc-yellow-2 text-darkest",
-            "hover:bg-acc-yellow-3 sm:hover:-translate-y-1",
-          )}
-        >
-          {t("start")}
+        {t("start")}
 
-          <MousePointerClick className="ml-2 size-4.5 sm:size-6" />
-        </button>
+        <MousePointerClick className="ml-2 size-4.5 sm:size-6" />
+      </button>
 
-        <button
-          onClick={() => handleClick("contact-section")}
-          className={cn(
-            buttonBaseClasses,
-            "text-off-w/40 border-off-w/25 bg-off-w/05 border",
-            "hover:border-acc-red/60 hover:bg-acc-red/10 hover:text-acc-red sm:hover:-translate-y-1",
-          )}
-        >
-          {t("contact")}
+      <button
+        onClick={() => handleClick("contact-section")}
+        className={cn(
+          buttonBaseClasses,
+          "text-off-w/40 border-off-w/25 bg-off-w/05 border",
+          "hover:border-acc-red/60 hover:bg-acc-red/10 hover:text-acc-red sm:hover:-translate-y-1",
+        )}
+      >
+        {t("contact")}
 
-          <MessagesSquare className="ml-2 size-4.5 sm:size-6" />
-        </button>
-      </m.div>
-    </MotionWrapper>
+        <MessagesSquare className="ml-2 size-4.5 sm:size-6" />
+      </button>
+    </m.div>
   );
 };

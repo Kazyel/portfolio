@@ -11,16 +11,11 @@ import { useLocale } from "next-intl";
 import { NAV_LINKS } from "@/lib/constants/navbar";
 import { cn } from "@/lib/utils";
 
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import LanguageSwitcher from "@/components/language-switcher";
 import { MobileNavbar } from "./mobile-navbar";
 import { DesktopNavbar } from "./desktop-navbar";
 import { CVLink } from "./cv-link";
-import { MotionWrapper } from "@/components/motion-wrapper";
 import { Code2 } from "lucide-react";
 import Link from "next/link";
 
@@ -79,8 +74,7 @@ export default function Navbar() {
   const handleSectionTravel = useCallback(
     (linkId: string) => {
       const section = document.querySelector(`#${linkId}`);
-      if (!section)
-        return console.warn(`Section with ID "${linkId}" not found`);
+      if (!section) return console.warn(`Section with ID "${linkId}" not found`);
 
       setActiveSection(linkId);
       startSmoothScroll();
@@ -103,84 +97,82 @@ export default function Navbar() {
   );
 
   return (
-    <MotionWrapper>
-      <nav
-        ref={navbarRef}
-        id="navbar"
-        role="navigation"
-        aria-label="Main navigation"
-        className={cn(
-          "fixed top-0 z-50 flex w-full items-center justify-between py-3.5 pr-10 pl-16 transition-all duration-150",
-          "border-b max-lg:pr-2 max-lg:pl-9",
-          isScrolled
-            ? "border-stone-700/40 backdrop-blur-xl"
-            : "border-transparent max-lg:bg-none",
-        )}
-      >
-        {/* Logo */}
-        <div className="flex flex-1 max-md:flex-none">
-          <button
-            onClick={() => handleSectionTravel("hero-section")}
-            aria-label="Go to home section"
-            className={cn(
-              "before:font-jp relative cursor-pointer border-l-2 pl-2 font-extrabold tracking-tighter transition-colors duration-150",
-              "before:font-jp before:absolute before:-top-0.5 before:-left-7 before:text-lg before:transition-all before:duration-150 before:content-['新']",
-              currentStyles.link,
-            )}
-          >
-            Kazyel
-          </button>
+    <nav
+      ref={navbarRef}
+      id="navbar"
+      role="navigation"
+      aria-label="Main navigation"
+      className={cn(
+        "fixed top-0 z-50 flex w-full items-center justify-between py-3.5 pr-10 pl-16 transition-all duration-150",
+        "border-b max-lg:pr-2 max-lg:pl-9",
+        isScrolled
+          ? "border-stone-700/40 backdrop-blur-xl"
+          : "border-transparent max-lg:bg-none",
+      )}
+    >
+      {/* Logo */}
+      <div className="flex flex-1 max-md:flex-none">
+        <button
+          onClick={() => handleSectionTravel("hero-section")}
+          aria-label="Go to home section"
+          className={cn(
+            "before:font-jp relative cursor-pointer border-l-2 pl-2 font-extrabold tracking-tighter transition-colors duration-150",
+            "before:font-jp before:absolute before:-top-0.5 before:-left-7 before:text-lg before:transition-all before:duration-150 before:content-['新']",
+            currentStyles.link,
+          )}
+        >
+          Kazyel
+        </button>
+      </div>
+
+      {/* Desktop Nav */}
+      <DesktopNavbar
+        links={NAV_LINKS}
+        navbarLinksRef={navbarLinksRef}
+        linkRefs={linkRefs}
+        underlineRef={underlineRef}
+        underlineMotionProps={underlineMotionProps}
+        currentStyles={currentStyles}
+        activeSection={activeSection}
+        hoveredLink={hoveredLink}
+        setHoveredLink={setHoveredLink}
+        handleSectionTravel={handleSectionTravel}
+      />
+
+      {/* Right Side Controls */}
+      <div className="flex flex-1 items-center justify-start gap-x-4.5 max-md:flex-none md:justify-end">
+        <LanguageSwitcher currentStyles={currentStyles} />
+
+        <Tooltip delayDuration={150}>
+          <TooltipTrigger asChild>
+            <Link
+              href={"https://github.com/Kazyel/portfolio"}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Code2 className={currentStyles.icon + " cursor-pointer"} />
+            </Link>
+          </TooltipTrigger>
+          <TooltipContent className="text-off-w text-xs font-medium tracking-tight">
+            Source
+          </TooltipContent>
+        </Tooltip>
+
+        <CVLink locale={locale} currentStyles={currentStyles} isMobile />
+
+        <div className="flex items-center gap-4 md:gap-6">
+          <MobileNavbar
+            isOpen={isMobileOpen}
+            toggle={() => setIsMobileOpen((prev) => !prev)}
+            links={NAV_LINKS}
+            handleSectionTravel={handleSectionTravel}
+            currentStyles={currentStyles}
+            dropdownRef={dropdownRef}
+          />
+
+          <CVLink locale={locale} currentStyles={currentStyles} />
         </div>
-
-        {/* Desktop Nav */}
-        <DesktopNavbar
-          links={NAV_LINKS}
-          navbarLinksRef={navbarLinksRef}
-          linkRefs={linkRefs}
-          underlineRef={underlineRef}
-          underlineMotionProps={underlineMotionProps}
-          currentStyles={currentStyles}
-          activeSection={activeSection}
-          hoveredLink={hoveredLink}
-          setHoveredLink={setHoveredLink}
-          handleSectionTravel={handleSectionTravel}
-        />
-
-        {/* Right Side Controls */}
-        <div className="flex flex-1 items-center justify-start gap-x-4.5 max-md:flex-none md:justify-end">
-          <LanguageSwitcher currentStyles={currentStyles} />
-
-          <Tooltip delayDuration={150}>
-            <TooltipTrigger asChild>
-              <Link
-                href={"https://github.com/Kazyel/portfolio"}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Code2 className={currentStyles.icon + " cursor-pointer"} />
-              </Link>
-            </TooltipTrigger>
-            <TooltipContent className="text-off-w text-xs font-medium tracking-tight">
-              Source
-            </TooltipContent>
-          </Tooltip>
-
-          <CVLink locale={locale} currentStyles={currentStyles} isMobile />
-
-          <div className="flex items-center gap-4 md:gap-6">
-            <MobileNavbar
-              isOpen={isMobileOpen}
-              toggle={() => setIsMobileOpen((prev) => !prev)}
-              links={NAV_LINKS}
-              handleSectionTravel={handleSectionTravel}
-              currentStyles={currentStyles}
-              dropdownRef={dropdownRef}
-            />
-
-            <CVLink locale={locale} currentStyles={currentStyles} />
-          </div>
-        </div>
-      </nav>
-    </MotionWrapper>
+      </div>
+    </nav>
   );
 }

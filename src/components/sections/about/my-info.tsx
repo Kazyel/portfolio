@@ -21,17 +21,21 @@ const ProfileImage = () => {
         alt="Dragon"
       />
 
-      <Image
-        src="/images/me.jpg"
+      <div
         className={cn(
-          "z-10 col-span-full row-span-full aspect-square rounded-full border-5 border-black object-cover",
+          "z-10 col-span-full row-span-full aspect-square overflow-hidden rounded-full border-9 border-black",
           "max-xl:w-[300px] max-lg:w-[275px] max-md:w-[225px] xl:w-[368px]",
         )}
-        width={400}
-        height={400}
-        quality={75}
-        alt="Profile"
-      />
+      >
+        <Image
+          src="/images/image.png"
+          width={400}
+          height={400}
+          quality={75}
+          className="size-full scale-120 object-cover object-top"
+          alt="Profile"
+        />
+      </div>
     </div>
   );
 };
