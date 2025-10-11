@@ -1,10 +1,10 @@
 # 🌸 My Portfolio
 
-A modern, responsive portfolio website inspired by Japanese aesthetics. Built with cutting-edge web technologies to showcase my journey, projects and skills with elegance and simplicity.
+A modern, responsive portfolio website inspired by eastern aesthetics. Built with cutting-edge web technologies to showcase my journey, projects and skills with elegance and simplicity.
 
 ## ✨ Key Features
 
-- **🎌 Japanese-Inspired Design** - Clean and minimalist design with a touch of Japanese aesthetics
+- **🎌 Eastern-Inspired Design** - Clean and minimalist design with a touch of eastern aesthetics
 - **📱 Responsive** - Optimized for desktop and mobile devices
 - **🎬 Smooth Animations** - Fluid transitions and interactions using Framer Motion
 - **⚡ Performance Optimized** - Fast loading times and smooth user experience
@@ -15,7 +15,7 @@ A modern, responsive portfolio website inspired by Japanese aesthetics. Built wi
 
 ### Core Framework
 
-- **[Next.js 14](https://nextjs.org/)** - React framework for production
+- **[Next.js 15](https://nextjs.org/)** - React framework for production
 - **[TypeScript](https://www.typescriptlang.org/)** - Type-safe development
 - **[Tailwind CSS](https://tailwindcss.com/)** - Utility-first CSS framework
 
@@ -28,10 +28,10 @@ A modern, responsive portfolio website inspired by Japanese aesthetics. Built wi
 ---
 
 <div align="center">
-  <p>Made with ❤️ and Next.js, inspired by 🇯🇵</p> 
+  <p>Made with ❤️ and Next.js</p> 
   <p>
     <a href="https://kazyel.dev/ ">Take a look</a> •
-    <a href="mailto:m.mascarelo@gmail.com">Contact</a> •
+    <a href="https://linkedin.com/in/mateusmascarelo">Contact</a> •
     <a href="https://twitter.com/MattMascarelo">Twitter</a>
   </p>
 </div>
