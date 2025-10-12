@@ -141,6 +141,8 @@ export default function Navbar() {
 
       {/* Right Side Controls */}
       <div className="flex flex-1 items-center justify-start gap-x-4.5 max-md:flex-none md:justify-end">
+        <CVLink locale={locale} currentStyles={currentStyles} isMobile />
+
         <LanguageSwitcher currentStyles={currentStyles} />
 
         <Tooltip delayDuration={150}>
@@ -149,6 +151,7 @@ export default function Navbar() {
               href={"https://github.com/Kazyel/portfolio"}
               target="_blank"
               rel="noopener noreferrer"
+              className="hidden md:inline-block"
             >
               <Code2 className={currentStyles.icon + " cursor-pointer"} />
             </Link>
@@ -157,8 +160,6 @@ export default function Navbar() {
             Source
           </TooltipContent>
         </Tooltip>
-
-        <CVLink locale={locale} currentStyles={currentStyles} isMobile />
 
         <div className="flex items-center gap-4 md:gap-6">
           <MobileNavbar

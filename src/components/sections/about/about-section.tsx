@@ -37,8 +37,8 @@ const LanguageCard = ({ src: Icon, name }: LanguageCardProps) => {
       <TooltipTrigger asChild>
         <figure
           className={cn(
-            "relative ml-3 w-[4.5rem] cursor-pointer border-2 border-black/25 p-3 shadow-sm",
-            "bg-off-w hover:bg-[#e5d8cc] lg:w-[5rem] lg:border-black",
+            "relative ml-3 w-[4.5rem] cursor-pointer border border-black/15 p-3 shadow-sm",
+            "bg-off-w hover:bg-[#e5d8cc] lg:w-[5rem] lg:border-2 lg:border-black",
           )}
         >
           <Icon className="size-full" />
