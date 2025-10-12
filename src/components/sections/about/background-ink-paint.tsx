@@ -31,16 +31,16 @@ export const BackgroundInkPaint = () => {
           inkPaintBaseClasses,
           "w-[1100px] opacity-65",
           "-right-[32rem] bottom-0",
-          "max-2xl:-right-96 max-xl:-bottom-8 max-sm:[top:clamp(40px,15vh,160px)] max-sm:right-0",
+          "hidden max-2xl:-right-96 max-xl:-bottom-8 max-sm:[top:clamp(40px,15vh,160px)] max-sm:right-0 md:block",
         )}
       />
-
+      {/* 
       <div
         className={cn(
           "from-off-w absolute top-[400px] left-0 h-[150px] w-full bg-gradient-to-t to-transparent opacity-100",
           "xs:hidden",
         )}
-      />
+      /> */}
     </>
   );
 };

@@ -20,7 +20,7 @@ export default function HeroSection() {
       id="hero-section"
       className={cn(
         "relative flex min-h-dvh flex-col items-center justify-center overflow-hidden",
-        "xs:px-12 px-6",
+        "xs:px-12 px-8",
       )}
     >
       {/* Hero Content */}
@@ -30,7 +30,7 @@ export default function HeroSection() {
             <TextAnimate
               className={cn(
                 "hero-shadow-2 text-acc-red font-semibold tracking-tighter",
-                "text-xl sm:text-4xl lg:text-5xl",
+                "text-xl sm:text-3xl md:text-4xl lg:text-5xl",
               )}
               as="h1"
               animation="slideDown"
@@ -44,7 +44,7 @@ export default function HeroSection() {
             <TextAnimate
               className={cn(
                 "hero-shadow-1 text-off-w font-extrabold tracking-tighter",
-                "xs:text-6xl text-5xl md:text-7xl lg:text-7xl xl:text-8xl",
+                "xs:text-5xl text-4xl md:text-7xl lg:text-7xl xl:text-8xl",
               )}
               as="h2"
               by="word"

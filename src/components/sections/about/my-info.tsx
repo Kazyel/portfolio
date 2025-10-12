@@ -78,8 +78,8 @@ export const MyInfo = () => {
   return (
     <div
       className={cn(
-        "flex flex-col items-center justify-center gap-12",
-        "xl:mt-12 xl:flex-row",
+        "flex flex-col items-center justify-center gap-4",
+        "md:gap-12 xl:mt-12 xl:flex-row",
       )}
     >
       <ProfileImage />
