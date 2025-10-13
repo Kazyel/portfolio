@@ -28,11 +28,11 @@ const ProfileImage = () => {
         )}
       >
         <Image
-          src="/images/image.png"
+          src="/images/me.png"
           width={400}
           height={400}
           quality={75}
-          className="size-full scale-120 object-cover object-top"
+          className="size-full object-cover object-top"
           alt="Profile"
         />
       </div>
