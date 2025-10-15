@@ -7,11 +7,13 @@ import { EmailTemplate } from "@/components/email-template";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const VERIFY_ENDPOINT = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
-const SECRET_KEY = process.env.CLOUDFLARE_TURNSTILE_SECRET;
+
+const SECRET_KEY =
+  process.env.NEXT_PUBLIC_NODE_ENV === "dev"
+    ? "1x0000000000000000000000000000000AA"
+    : process.env.CLOUDFLARE_TURNSTILE_SECRET;
 
 export async function submitForm(formData: EmailFormSchema, token: string) {
-  console.log("teste");
-
   try {
     const verifyRes = await fetch(VERIFY_ENDPOINT, {
       method: "POST",

@@ -8,7 +8,7 @@ import { emailSchema, type EmailFormSchema } from "@/lib/validations/form";
 
 import { toast } from "sonner";
 import { FormField } from "@/components/sections/contact/form/form-field";
-import { SubmitButton } from "@/components/sections/contact/form//submit-button";
+import { SubmitButton } from "@/components/sections/contact/form/submit-button";
 
 export type FormEntries = keyof EmailFormSchema;
 
@@ -20,7 +20,10 @@ export function Form() {
   const locale = useLocale() as string;
   const turnstileRef = useRef<TurnstileInstance>(null);
 
-  const siteKey = process.env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE!;
+  const siteKey =
+    process.env.NEXT_PUBLIC_NODE_ENV === "dev"
+      ? "1x00000000000000000000AA"
+      : process.env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE!;
 
   const {
     register,
@@ -33,14 +36,18 @@ export function Form() {
   });
 
   const onSubmit = async (data: EmailFormSchema) => {
-    turnstileRef.current?.execute();
-
     try {
-      const token = (await turnstileRef.current?.getResponsePromise(2000)) || null;
+      turnstileRef.current?.execute();
+      const token = await Promise.race([
+        turnstileRef.current?.getResponsePromise(2000),
+        new Promise<null>((resolve) => setTimeout(() => resolve(null), 2500)),
+      ]);
+
+      if (!token) throw new Error("Captcha timed out");
       await handleSubmitForm(data, token);
-      turnstileRef.current?.reset();
     } catch (error) {
       toast.error(t("captcha-error"));
+    } finally {
       turnstileRef.current?.reset();
     }
   };
