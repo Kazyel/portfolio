@@ -29,9 +29,7 @@
   "Contact": {
     "journey": "Essa jornada acaba aqui.",
     "yet": "Contudo, a nossa anseia por começar.",
-    "quote": "A lâmina permanece silenciosa — até que seu propósito desperte.",
-    "success": "Mensagem enviada com sucesso!",
-    "error": "Algo deu errado! Por favor, tente enviar novamente."
+    "quote": "A lâmina permanece silenciosa, até que seu propósito desperte."
   },
   "ContactForm": {
     "name": "Nome",
@@ -40,7 +38,11 @@
     "submit": "Enviar Mensagem",
     "name-placeholder": "Como eu deveria te chamar?",
     "email-placeholder": "Como posso te contatar?",
-    "message-placeholder": "O que está pensando? Deixa eu saber!"
+    "message-placeholder": "O que está pensando? Deixa eu saber!",
+    "success": "Mensagem enviada com sucesso!",
+    "error": "Algo deu errado! Por favor, tente enviar novamente.",
+    "captcha-error": "Ocorreu um erro com o captcha. Por favor, tente novamente.",
+    "captcha-expired": "O captcha expirou. Por favor, tente novamente."
   },
   "Footer": {
     "copyright": "Todos os direitos reservados.",

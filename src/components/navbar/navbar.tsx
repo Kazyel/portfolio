@@ -1,13 +1,11 @@
 "use client";
 
 import type { CustomMotion } from "@/lib/types";
-import type { LanguageCode } from "@/lib/constants/langs";
 
 import useNavbarState from "@/hooks/use-navbar-state";
 import useOnClickOutside from "@/hooks/use-on-click-outside";
 import useNavbarStyles, { type NavbarStyles } from "@/hooks/use-navbar-styles";
 import { useCallback, useRef, useState } from "react";
-import { useLocale } from "next-intl";
 import { NAV_LINKS } from "@/lib/constants/navbar";
 import { cn } from "@/lib/utils";
 
@@ -15,7 +13,6 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 import LanguageSwitcher from "@/components/language-switcher";
 import { MobileNavbar } from "./mobile-navbar";
 import { DesktopNavbar } from "./desktop-navbar";
-import { CVLink } from "./cv-link";
 import { Code2 } from "lucide-react";
 import Link from "next/link";
 
@@ -61,8 +58,6 @@ export default function Navbar() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const locale = useLocale() as LanguageCode;
-
   const currentStyles: NavbarStyles = useNavbarStyles(
     hoveredLink!,
     activeSection,
@@ -105,9 +100,8 @@ export default function Navbar() {
       className={cn(
         "fixed top-0 z-50 flex w-full items-center justify-between py-3.5 pr-10 pl-16 transition-all duration-150",
         "border-b max-lg:pr-2 max-lg:pl-9",
-        isScrolled
-          ? "border-stone-700/40 backdrop-blur-xl"
-          : "border-transparent max-lg:bg-none",
+        isScrolled ? "border-off-w/20 backdrop-blur-xl" : "border-none max-lg:bg-none",
+        isOverlapping ? "border-black/20" : "border-off-w/20",
       )}
     >
       {/* Logo */}
@@ -117,7 +111,7 @@ export default function Navbar() {
           aria-label="Go to home section"
           className={cn(
             "before:font-jp relative cursor-pointer border-l-2 pl-2 font-extrabold tracking-tighter transition-colors duration-150",
-            "before:font-jp before:absolute before:-top-0.5 before:-left-7 before:text-lg before:transition-all before:duration-150 before:content-['新']",
+            "before:font-jp before:absolute before:top-0 before:-left-6 before:text-base before:transition-all before:duration-150 before:content-['新']",
             currentStyles.link,
           )}
         >
@@ -141,8 +135,6 @@ export default function Navbar() {
 
       {/* Right Side Controls */}
       <div className="flex flex-1 items-center justify-start gap-x-4.5 max-md:flex-none md:justify-end">
-        <CVLink locale={locale} currentStyles={currentStyles} isMobile />
-
         <LanguageSwitcher currentStyles={currentStyles} />
 
         <Tooltip delayDuration={150}>
@@ -170,8 +162,6 @@ export default function Navbar() {
             currentStyles={currentStyles}
             dropdownRef={dropdownRef}
           />
-
-          <CVLink locale={locale} currentStyles={currentStyles} />
         </div>
       </div>
     </nav>
