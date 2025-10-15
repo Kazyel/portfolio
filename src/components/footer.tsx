@@ -21,7 +21,7 @@ export const Footer = () => {
   return (
     <footer
       className={cn(
-        "relative flex h-16 w-full items-center overflow-hidden border-t border-stone-700/75 bg-black/60",
+        "border-off-w/15 relative flex h-20 w-full items-center overflow-hidden border-t bg-gradient-to-t from-black/60 to-black/10 py-4",
         "px-8 xl:px-16",
       )}
     >
@@ -35,7 +35,7 @@ export const Footer = () => {
         className={cn(
           dragonImageClasses,
           "right-0 -rotate-12",
-          "max-lg:-right-24 max-sm:-right-48",
+          "max-lg:-right-24 max-sm:-right-32 sm:translate-y-4",
         )}
       />
 
@@ -48,7 +48,7 @@ export const Footer = () => {
         quality={75}
         className={cn(
           dragonImageClasses,
-          "left-0 -scale-x-100 rotate-[10deg]",
+          "left-0 translate-y-4 -scale-x-100 rotate-[10deg]",
           "max-lg:-left-24 max-sm:hidden",
         )}
       />

@@ -1,32 +1,40 @@
-import { emailSchema, type EmailFormSchema } from "@/lib/validations/form";
-import { useForm, type SubmitHandler } from "react-hook-form";
+import { useRef } from "react";
+import { useForm } from "react-hook-form";
+import { useLocale, useTranslations } from "next-intl";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { submitForm } from "@/app/actions/email-form";
+import { Turnstile, TurnstileInstance } from "@marsidev/react-turnstile";
+import { emailSchema, type EmailFormSchema } from "@/lib/validations/form";
 
-import { useTranslations } from "next-intl";
-import { FormField } from "./form-field";
-import { SubmitButton } from "./submit-button";
 import { toast } from "sonner";
+import { FormField } from "@/components/sections/contact/form/form-field";
+import { SubmitButton } from "@/components/sections/contact/form//submit-button";
 
 export type FormEntries = keyof EmailFormSchema;
+
 type TypeOptions = "text" | "email";
 type AsOptions = "textarea" | "input";
 
 export function Form() {
   const t = useTranslations("ContactForm");
+  const locale = useLocale() as string;
+  const turnstileRef = useRef<TurnstileInstance>(null);
+
+  const siteKey = process.env.NEXT_PUBLIC_CLOUDFLARE_TURNSTILE_SITE!;
 
   const {
     register,
     handleSubmit,
     reset,
+    getValues,
     formState: { errors, isSubmitting },
   } = useForm<EmailFormSchema>({
     resolver: yupResolver(emailSchema),
     defaultValues: { name: "", message: "", email: "" },
   });
 
-  const onSubmitForm: SubmitHandler<EmailFormSchema> = async (data) => {
-    const emailResponse = await submitForm(data);
+  const onSubmitForm = async (data: EmailFormSchema, token: string) => {
+    const emailResponse = await submitForm(data, token);
     if (emailResponse) {
       toast.success(t("success"));
       reset();
@@ -51,11 +59,31 @@ export function Form() {
     <form
       id="email-form"
       className="text-off-w flex flex-col gap-y-5"
-      onSubmit={handleSubmit(onSubmitForm)}
+      onSubmit={handleSubmit(() => turnstileRef.current?.execute())}
     >
       {formEntries.map((entry, index) => (
         <FormField key={entry} {...getFieldProps(entry, index)} />
       ))}
+
+      <Turnstile
+        siteKey={siteKey}
+        options={{
+          theme: "dark",
+          language: locale,
+          size: "invisible",
+          execution: "execute",
+        }}
+        ref={turnstileRef}
+        onSuccess={(token) => {
+          onSubmitForm(getValues(), token);
+        }}
+        onError={() => {
+          toast.error(t("captcha-error"));
+        }}
+        onExpire={() => {
+          toast.error(t("captcha-expired"));
+        }}
+      />
 
       <SubmitButton isSubmitting={isSubmitting} />
     </form>

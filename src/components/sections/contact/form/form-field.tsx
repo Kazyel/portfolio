@@ -4,11 +4,11 @@ import type { EmailFormSchema } from "@/lib/validations/form";
 import { cn } from "@/lib/utils";
 import { JSX } from "react/jsx-runtime";
 import { useTranslations } from "next-intl";
-
 import { Mail, User, MessageSquareText } from "lucide-react";
+
 import { AnimatePresence } from "@/components/motion-wrapper";
-import { FormErrors } from "./form-errors";
-import { FormEntries } from "./form";
+import { FormErrors } from "@/components/sections/contact/form/form-errors";
+import { FormEntries } from "@/components/sections/contact/form/form";
 
 const FIELD_META: Record<
   FormEntries,
@@ -40,7 +40,7 @@ const FIELD_META: Record<
 };
 
 const inputBaseClasses = cn(
-  "border-off-w/30 focus-within:outline-off-w/75 rounded-sm border p-3 text-sm font-light",
+  "border-off-w/40 focus-within:outline-off-w/75 rounded-sm border p-3 text-sm font-light",
   "placeholder:font-light placeholder:tracking-wide focus-within:outline-2",
 );
 
@@ -61,8 +61,8 @@ export const FormField = ({ register, errors, label, name }: FormFieldProps) => 
   return (
     <div className="flex flex-col gap-y-2.5">
       <div className="flex items-center gap-2.5">
-        <label htmlFor={name} className="flex items-center gap-2.5 font-semibold">
-          {icon}
+        <label htmlFor={name} className="flex items-center gap-2 font-semibold">
+          <span className="text-acc-yellow-3">{icon}</span>
           {label}
         </label>
 

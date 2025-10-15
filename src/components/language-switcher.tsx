@@ -123,7 +123,7 @@ export default function LanguageSwitcher({ currentStyles }: LanguageSwitcherProp
           <m.div
             {...SWITCHER_ANIMATION}
             className={cn(
-              "absolute top-12 z-50 flex min-w-max flex-col gap-y-3 rounded-sm border border-black/20 p-4 shadow-lg",
+              "absolute top-12 right-0 z-50 flex min-w-max flex-col gap-y-3 rounded-sm border border-black/20 p-4 shadow-lg",
               "max-md:-right-10 md:max-lg:-left-4",
               currentStyles.mobileNavbar,
             )}

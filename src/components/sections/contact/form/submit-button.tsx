@@ -15,7 +15,7 @@ export const SubmitButton = ({ isSubmitting }: SubmitButtonProps) => {
       type="submit"
       disabled={isSubmitting}
       className={cn(
-        "border-off-w/50 bg-off-w hover:bg-off-w/40 hover:text-off-w flex w-full cursor-pointer items-center justify-center gap-x-2 rounded-sm border p-2 font-extrabold text-black transition-all duration-300",
+        "border-off-w/50 hover:border-acc-yellow-3 bg-off-w hover:bg-acc-yellow-2 flex w-full cursor-pointer items-center justify-center gap-x-2 rounded-sm border p-2 font-semibold text-black transition-all duration-300",
         isSubmitting && "pointer-events-none opacity-50",
       )}
     >
