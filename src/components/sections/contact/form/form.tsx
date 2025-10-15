@@ -26,14 +26,31 @@ export function Form() {
     register,
     handleSubmit,
     reset,
-    getValues,
     formState: { errors, isSubmitting },
   } = useForm<EmailFormSchema>({
     resolver: yupResolver(emailSchema),
     defaultValues: { name: "", message: "", email: "" },
   });
 
-  const onSubmitForm = async (data: EmailFormSchema, token: string) => {
+  const onSubmit = async (data: EmailFormSchema) => {
+    turnstileRef.current?.execute();
+
+    try {
+      const token = (await turnstileRef.current?.getResponsePromise(2000)) || null;
+      await handleSubmitForm(data, token);
+      turnstileRef.current?.reset();
+    } catch (error) {
+      toast.error(t("captcha-error"));
+      turnstileRef.current?.reset();
+    }
+  };
+
+  const handleSubmitForm = async (data: EmailFormSchema, token: string | null) => {
+    if (!token) {
+      toast.error(t("captcha-error"));
+      return;
+    }
+
     const emailResponse = await submitForm(data, token);
     if (emailResponse) {
       toast.success(t("success"));
@@ -59,7 +76,7 @@ export function Form() {
     <form
       id="email-form"
       className="text-off-w flex flex-col gap-y-5"
-      onSubmit={handleSubmit(() => turnstileRef.current?.execute())}
+      onSubmit={handleSubmit(onSubmit)}
     >
       {formEntries.map((entry, index) => (
         <FormField key={entry} {...getFieldProps(entry, index)} />
@@ -72,17 +89,9 @@ export function Form() {
           language: locale,
           size: "invisible",
           execution: "execute",
+          retry: "never",
         }}
         ref={turnstileRef}
-        onSuccess={(token) => {
-          onSubmitForm(getValues(), token);
-        }}
-        onError={() => {
-          toast.error(t("captcha-error"));
-        }}
-        onExpire={() => {
-          toast.error(t("captcha-expired"));
-        }}
       />
 
       <SubmitButton isSubmitting={isSubmitting} />
