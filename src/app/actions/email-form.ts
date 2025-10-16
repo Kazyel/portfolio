@@ -9,9 +9,9 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 const VERIFY_ENDPOINT = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 
 const SECRET_KEY =
-  process.env.NEXT_PUBLIC_NODE_ENV === "dev"
-    ? "1x0000000000000000000000000000000AA"
-    : process.env.CLOUDFLARE_TURNSTILE_SECRET;
+  process.env.NODE_ENV === "production"
+    ? process.env.CLOUDFLARE_TURNSTILE_SECRET
+    : "1x0000000000000000000000000000000AA";
 
 export async function submitForm(formData: EmailFormSchema, token: string) {
   try {
