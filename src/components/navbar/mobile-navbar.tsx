@@ -1,5 +1,5 @@
 import type { RefObject } from "react";
-import type { NavbarStyles } from "@/hooks/use-navbar-styles";
+import type { NavbarStyles } from "@/lib/hooks/use-navbar-styles";
 import type { NavbarLinks } from "@/lib/constants/navbar";
 
 import { cn } from "@/lib/utils";
@@ -41,10 +41,7 @@ export const MobileNavbar = ({
         aria-label="Toggle mobile menu"
         className="cursor-pointer"
       >
-        <m.div
-          animate={{ rotate: isOpen ? 90 : 0 }}
-          transition={{ duration: 0.2 }}
-        >
+        <m.div animate={{ rotate: isOpen ? 90 : 0 }} transition={{ duration: 0.2 }}>
           {isOpen ? (
             <X className={cn("size-7", currentStyles.icon)} />
           ) : (

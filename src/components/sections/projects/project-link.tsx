@@ -35,8 +35,8 @@ export const ProjectLink = ({ title, url, className }: ProjectLinkProps) => {
         viewBox="0 0 20 20"
         fill="currentColor"
         className={cn(
-          "mb-[4px] size-3.5 text-inherit/75 transition-all duration-300",
-          "group-hover:-translate-y-[1.5px] group-hover:text-inherit",
+          "size-4 -translate-y-[4px] text-inherit/75 transition-all duration-300",
+          "group-hover:-translate-y-[5px] group-hover:text-inherit",
         )}
       >
         <path

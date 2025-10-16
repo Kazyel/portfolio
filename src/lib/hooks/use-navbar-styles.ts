@@ -3,8 +3,6 @@ import {
   LINK_LIGHT,
   ICON_DARK,
   ICON_LIGHT,
-  CV_DARK,
-  CV_LIGHT,
   MOBILE_NAVBAR_DARK,
   MOBILE_NAVBAR_LIGHT,
 } from "@/lib/constants/navbar";
@@ -18,7 +16,6 @@ export default function useNavbarStyles(
 ) {
   const isHovered = hoveredLink === activeSection;
   const link = isOverlapping ? LINK_DARK : LINK_LIGHT;
-  const cv = isOverlapping ? CV_DARK : CV_LIGHT;
   const icon = isOverlapping ? ICON_DARK : ICON_LIGHT;
   const mobileNavbar = isOverlapping ? MOBILE_NAVBAR_DARK : MOBILE_NAVBAR_LIGHT;
   const mobileLink = isOverlapping ? LINK_LIGHT : LINK_DARK;
@@ -31,5 +28,5 @@ export default function useNavbarStyles(
       ? "bg-off-w/60"
       : "bg-off-w";
 
-  return { link, cv, icon, mobileNavbar, mobileLink, underline };
+  return { link, icon, mobileNavbar, mobileLink, underline };
 }

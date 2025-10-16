@@ -15,26 +15,9 @@ export const LINK_LIGHT = cn(
 );
 
 // Icons
-export const ICON_DARK = cn(
-  "text-black hover:text-black/50",
-  NAVBAR_TRANSITION,
-);
+export const ICON_DARK = cn("text-black hover:text-black/50", NAVBAR_TRANSITION);
 
-export const ICON_LIGHT = cn(
-  "text-off-w hover:text-off-w/60",
-  NAVBAR_TRANSITION,
-);
-
-// CV Links
-export const CV_DARK = cn(
-  "bg-black hover:bg-black/50 text-off-w",
-  NAVBAR_TRANSITION,
-);
-
-export const CV_LIGHT = cn(
-  "bg-off-w hover:bg-off-w/35 hover:text-off-w text-black",
-  NAVBAR_TRANSITION,
-);
+export const ICON_LIGHT = cn("text-off-w hover:text-off-w/60", NAVBAR_TRANSITION);
 
 // Mobile Navbar backgrounds
 export const MOBILE_NAVBAR_DARK = "bg-black";

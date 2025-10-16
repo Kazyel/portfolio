@@ -13,7 +13,7 @@ const SECRET_KEY =
     ? process.env.CLOUDFLARE_TURNSTILE_SECRET
     : "1x0000000000000000000000000000000AA";
 
-export async function submitForm(formData: EmailFormSchema, token: string) {
+export async function sendEmail(formData: EmailFormSchema, token: string) {
   try {
     const verifyRes = await fetch(VERIFY_ENDPOINT, {
       method: "POST",

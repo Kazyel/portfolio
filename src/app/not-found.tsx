@@ -8,7 +8,7 @@ export default function NotFound() {
   const t = useTranslations("NotFound");
 
   return (
-    <div className="flex min-h-screen items-center justify-center">
+    <div className="flex min-h-dvh items-center justify-center">
       <div className="relative flex flex-col items-center justify-center gap-y-8 px-8">
         <Image
           src={"/images/torii.webp"}

@@ -27,7 +27,7 @@ export default function ContactSection() {
     <section
       id="contact-section"
       className={cn(
-        "relative flex min-h-dvh items-center justify-center gap-x-20 gap-y-6 overflow-clip bg-gradient-to-t from-transparent to-black",
+        "relative flex items-center justify-center gap-x-20 gap-y-6 overflow-clip bg-gradient-to-t from-transparent to-black",
         "min-h-max flex-col px-6 py-12 max-lg:scroll-mt-[var(--navbar-height)] sm:px-12 sm:py-16 lg:min-h-dvh lg:flex-row",
       )}
     >

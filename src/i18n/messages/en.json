@@ -2,8 +2,7 @@
   "Navbar": {
     "about": "About",
     "contact": "Contact",
-    "projects": "Projects",
-    "cv": "Resume"
+    "projects": "Projects"
   },
   "Hero": {
     "greetings": "Greetings, traveler!",
@@ -21,7 +20,7 @@
   },
   "Projects": {
     "title": "Projects",
-    "description": "Here are some of the most interesting projects.",
+    "description": "Here are some of my favorite projects.",
     "view": "View this repository on Github",
     "back": "Back to projects",
     "check": "Check all projects"

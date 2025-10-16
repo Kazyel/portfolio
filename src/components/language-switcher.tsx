@@ -8,17 +8,17 @@ import { useLocale } from "next-intl";
 
 import { cn } from "@/lib/utils";
 import { INTL_LANGUAGES, LanguageCode } from "@/lib/constants/langs";
-import useOnClickOutside from "@/hooks/use-on-click-outside";
+import useOnClickOutside from "@/lib/hooks/use-on-click-outside";
 
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { Loader2 } from "lucide-react";
 import { International } from "@/components/svgs/International";
 import { m, AnimatePresence } from "@/components/motion-wrapper";
+import { useOnScroll } from "@/lib/hooks/use-on-scroll";
 
 interface LanguageSwitcherProps {
   currentStyles: {
     link: string;
-    cv: string;
     icon: string;
     mobileNavbar: string;
     mobileLink: string;
@@ -54,6 +54,7 @@ export default function LanguageSwitcher({ currentStyles }: LanguageSwitcherProp
   const currentLocale = useLocale() as LanguageCode;
   const router = useRouter();
 
+  useOnScroll(() => setIsSwitcherOpen(false));
   useOnClickOutside(dropdownRef, [setIsSwitcherOpen], isSwitcherOpen);
 
   const updateCookies = (newLocale: LanguageCode) => {

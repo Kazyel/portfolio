@@ -16,7 +16,7 @@ export const ProjectTemplate = ({ ...props }: ProjectType) => {
 
   return (
     <section className="z-20 flex w-full flex-col items-center">
-      <div className="mt-4 flex flex-col gap-4 self-start">
+      <div className="mt-6 mb-4 flex flex-col gap-4 self-start rounded">
         <TextAnimate
           className={cn(
             "text-acc-red-dark text-4xl font-extrabold tracking-tighter",
@@ -86,10 +86,7 @@ export const ProjectTemplate = ({ ...props }: ProjectType) => {
             )}
           >
             {props.languages.map((lang, index) => (
-              <lang.src
-                key={index}
-                className="col-span-1 aspect-square size-12"
-              />
+              <lang.src key={index} className="col-span-1 aspect-square size-12" />
             ))}
           </div>
         </div>

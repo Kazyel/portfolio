@@ -2,8 +2,7 @@
   "Navbar": {
     "about": "Sobre",
     "contact": "Contato",
-    "projects": "Projetos",
-    "cv": "Currículo"
+    "projects": "Projetos"
   },
   "Hero": {
     "greetings": "Saudações, viajante.",
@@ -21,7 +20,7 @@
   },
   "Projects": {
     "title": "Projetos",
-    "description": "Aqui estão alguns dos projetos mais interessantes.",
+    "description": "Aqui estão alguns dos meus projetos favoritos.",
     "view": "Veja este repositório no Github",
     "back": "Voltar para os projetos",
     "check": "Ver todos os projetos"

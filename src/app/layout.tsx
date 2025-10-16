@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 
-import JotaiProvider from "@/components/jotai-provider";
-import { Crimson_Pro, Noto_Sans_JP, Unbounded } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale } from "next-intl/server";
+import { Crimson_Pro, Noto_Sans_JP, Unbounded } from "next/font/google";
+
+import JotaiProvider from "@/components/jotai-provider";
 import { Toaster } from "@/components/ui/sonner";
+import { MotionWrapper } from "@/components/motion-wrapper";
 
 import "@/app/globals.css";
-import { MotionWrapper } from "@/components/motion-wrapper";
 
 export const metadata: Metadata = {
   title: "Kazyel",

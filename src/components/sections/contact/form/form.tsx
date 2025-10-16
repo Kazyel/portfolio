@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { useForm } from "react-hook-form";
 import { useLocale, useTranslations } from "next-intl";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { submitForm } from "@/app/actions/email-form";
+import { sendEmail } from "@/app/actions/send-email";
 import { Turnstile, TurnstileInstance } from "@marsidev/react-turnstile";
 import { emailSchema, type EmailFormSchema } from "@/lib/validations/form";
 
@@ -16,9 +16,10 @@ type TypeOptions = "text" | "email";
 type AsOptions = "textarea" | "input";
 
 export function Form() {
+  const turnstileRef = useRef<TurnstileInstance>(null);
+
   const t = useTranslations("ContactForm");
   const locale = useLocale() as string;
-  const turnstileRef = useRef<TurnstileInstance>(null);
 
   const siteKey =
     process.env.NODE_ENV === "production"
@@ -35,17 +36,16 @@ export function Form() {
     defaultValues: { name: "", message: "", email: "" },
   });
 
+  const formEntries: FormEntries[] = ["name", "email", "message"];
+  const labels = [t("name"), t("email"), t("message")];
+
   const onSubmit = async (data: EmailFormSchema) => {
     try {
       turnstileRef.current?.execute();
       const token = await turnstileRef.current?.getResponsePromise();
-
       if (!token) throw new Error("Captcha timed out");
-
-      console.log("Captcha token:", token);
       await handleSubmitForm(data, token);
     } catch (error) {
-      console.log("Captcha error:", error);
       toast.error(t("captcha-error"));
     } finally {
       turnstileRef.current?.reset();
@@ -58,7 +58,7 @@ export function Form() {
       return;
     }
 
-    const emailResponse = await submitForm(data, token);
+    const emailResponse = await sendEmail(data, token);
     if (emailResponse) {
       toast.success(t("success"));
       reset();
@@ -66,9 +66,6 @@ export function Form() {
     }
     toast.error(t("error"));
   };
-
-  const labels = [t("name"), t("email"), t("message")];
-  const formEntries = Object.keys(emailSchema.fields) as FormEntries[];
 
   const getFieldProps = (entry: string, index: number) => ({
     register,
@@ -90,15 +87,15 @@ export function Form() {
       ))}
 
       <Turnstile
+        ref={turnstileRef}
         siteKey={siteKey}
         options={{
-          theme: "dark",
-          language: locale,
-          size: "invisible",
           execution: "execute",
           retry: "never",
+          size: "invisible",
+          theme: "dark",
+          language: locale,
         }}
-        ref={turnstileRef}
       />
 
       <SubmitButton isSubmitting={isSubmitting} />

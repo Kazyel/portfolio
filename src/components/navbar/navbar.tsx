@@ -2,9 +2,9 @@
 
 import type { CustomMotion } from "@/lib/types";
 
-import useNavbarState from "@/hooks/use-navbar-state";
-import useOnClickOutside from "@/hooks/use-on-click-outside";
-import useNavbarStyles, { type NavbarStyles } from "@/hooks/use-navbar-styles";
+import useNavbarState from "@/lib/hooks/use-navbar-state";
+import useOnClickOutside from "@/lib/hooks/use-on-click-outside";
+import useNavbarStyles, { type NavbarStyles } from "@/lib/hooks/use-navbar-styles";
 import { useCallback, useRef, useState } from "react";
 import { NAV_LINKS } from "@/lib/constants/navbar";
 import { cn } from "@/lib/utils";
@@ -15,6 +15,7 @@ import { MobileNavbar } from "./mobile-navbar";
 import { DesktopNavbar } from "./desktop-navbar";
 import { Code2 } from "lucide-react";
 import Link from "next/link";
+import { useOnScroll } from "@/lib/hooks/use-on-scroll";
 
 export const MOBILE_NAV_MOTION: CustomMotion<"div"> = {
   initial: { opacity: 0, y: -5 },
@@ -55,7 +56,11 @@ export default function Navbar() {
     endSmoothScroll,
   } = useNavbarState();
 
+  const [showNavbar, setShowNavbar] = useState(true);
+
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  useOnScroll((bool) => setShowNavbar(bool!));
+
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const currentStyles: NavbarStyles = useNavbarStyles(
@@ -102,6 +107,7 @@ export default function Navbar() {
         "border-b max-lg:pr-2 max-lg:pl-9",
         isScrolled ? "border-off-w/20 backdrop-blur-xl" : "border-none max-lg:bg-none",
         isOverlapping ? "border-black/20" : "border-off-w/20",
+        showNavbar ? "translate-y-0" : "-translate-y-24",
       )}
     >
       {/* Logo */}
