@@ -38,7 +38,7 @@ export function Form() {
   const onSubmit = async (data: EmailFormSchema) => {
     try {
       turnstileRef.current?.execute();
-      const token = await turnstileRef.current?.getResponsePromise(2000);
+      const token = await turnstileRef.current?.getResponsePromise();
 
       if (!token) throw new Error("Captcha timed out");
 
