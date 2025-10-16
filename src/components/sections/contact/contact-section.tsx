@@ -137,6 +137,7 @@ export default function ContactSection() {
             stiffness: 100,
             damping: 15,
           }}
+          viewport={{ once: true, amount: 0.65 }}
           className="text-acc-yellow-3 before:border-acc-yellow-2 after:border-acc-yellow-2 font-crimson xs:after:w-16 xs:before:w-16 z-10 text-lg font-bold tracking-wide text-pretty before:mr-3 before:inline-block before:w-9 before:border-b before:align-middle after:ml-3 after:inline-block after:w-9 after:border-b after:align-middle sm:text-xl sm:before:w-20 sm:after:w-20"
         >
           {t("follow-me")}
