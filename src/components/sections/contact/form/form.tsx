@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useLocale, useTranslations } from "next-intl";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -20,6 +20,12 @@ export function Form() {
   const locale = useLocale() as string;
   const turnstileRef = useRef<TurnstileInstance>(null);
 
+  const [key, setKey] = useState(0);
+
+  const resetCaptcha = () => {
+    setKey((prev) => prev + 1); // forces Turnstile to re-mount
+  };
+
   const siteKey =
     process.env.NEXT_PUBLIC_NODE_ENV === "dev"
       ? "1x00000000000000000000AA"
@@ -38,17 +44,21 @@ export function Form() {
   const onSubmit = async (data: EmailFormSchema) => {
     try {
       turnstileRef.current?.execute();
+
       const token = await Promise.race([
         turnstileRef.current?.getResponsePromise(2000),
         new Promise<null>((resolve) => setTimeout(() => resolve(null), 2500)),
       ]);
 
       if (!token) throw new Error("Captcha timed out");
+
+      console.log("Turnstile token:", token);
       await handleSubmitForm(data, token);
     } catch (error) {
       toast.error(t("captcha-error"));
+      console.error("Captcha error:", error);
     } finally {
-      turnstileRef.current?.reset();
+      resetCaptcha();
     }
   };
 
@@ -98,6 +108,7 @@ export function Form() {
           execution: "execute",
           retry: "never",
         }}
+        key={key}
         ref={turnstileRef}
       />
 
