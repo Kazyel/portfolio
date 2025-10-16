@@ -96,6 +96,7 @@ export function Form() {
           theme: "dark",
           language: locale,
         }}
+        className="-mt-[20px]"
       />
 
       <SubmitButton isSubmitting={isSubmitting} />

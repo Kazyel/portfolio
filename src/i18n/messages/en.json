@@ -28,7 +28,8 @@
   "Contact": {
     "journey": "This journey ends here.",
     "yet": "Yet, ours yearns to begin.",
-    "quote": "A blade stays sheathed, until its purpose awakens."
+    "quote": "A blade stays sheathed, until its purpose awakens.",
+    "follow-me": "Follow my path on"
   },
   "ContactForm": {
     "name": "Name",

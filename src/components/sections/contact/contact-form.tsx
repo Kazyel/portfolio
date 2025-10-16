@@ -9,8 +9,8 @@ import { ShineBorder } from "@/components/ui/shine-border";
 import { Form } from "@/components/sections/contact/form/form";
 
 const CONTACT_MOTION: CustomMotion<"div"> = {
-  initial: { opacity: 0, y: -35 },
-  whileInView: { opacity: 1, y: 0 },
+  initial: { opacity: 0, filter: "blur(5px)", scale: 0.98 },
+  whileInView: { opacity: 1, filter: "blur(0px)", scale: 1 },
   transition: {
     duration: 0.75,
     delay: 0.25,
@@ -27,7 +27,7 @@ export const ContactForm = () => {
       {...CONTACT_MOTION}
       className={cn(
         "border-off-w/40 relative z-10 flex flex-col gap-y-3 overflow-hidden rounded-lg border bg-black p-4",
-        "w-full sm:w-[450px]",
+        "w-full sm:w-[425px]",
       )}
     >
       {/* Form */}

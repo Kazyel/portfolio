@@ -10,7 +10,7 @@ import { AnimatePresence } from "@/components/motion-wrapper";
 import { FormErrors } from "@/components/sections/contact/form/form-errors";
 import { FormEntries } from "@/components/sections/contact/form/form";
 
-const FIELD_META: Record<
+type FieldMeta = Record<
   FormEntries,
   {
     icon: JSX.Element;
@@ -18,7 +18,9 @@ const FIELD_META: Record<
     type: "text" | "email";
     as: "input" | "textarea";
   }
-> = {
+>;
+
+const FIELD_META: FieldMeta = {
   name: {
     icon: <User className="size-5" />,
     placeholderKey: "name-placeholder",
@@ -40,8 +42,8 @@ const FIELD_META: Record<
 };
 
 const inputBaseClasses = cn(
-  "border-off-w/40 focus-within:outline-off-w/75 rounded-sm border p-3 text-sm font-light",
-  "placeholder:font-light placeholder:tracking-wide focus-within:outline-2",
+  "border-off-w/40 focus-within:outline-off-w/75 rounded border p-2.5 text-lg font-crimson font-medium tracking-tight",
+  "placeholder:font-light placeholder:tracking-tight placeholder:font-medium focus-within:outline-2",
 );
 
 interface FormFieldProps {
@@ -61,7 +63,7 @@ export const FormField = ({ register, errors, label, name }: FormFieldProps) => 
   return (
     <div className="flex flex-col gap-y-2.5">
       <div className="flex items-center gap-2.5">
-        <label htmlFor={name} className="flex items-center gap-2 font-semibold">
+        <label htmlFor={name} className="flex items-center gap-2 text-sm font-extrabold">
           <span className="text-acc-yellow-3">{icon}</span>
           {label}
         </label>
@@ -75,8 +77,9 @@ export const FormField = ({ register, errors, label, name }: FormFieldProps) => 
         {...register(name)}
         id={name}
         type={as === "input" ? type : undefined}
+        rows={as === "textarea" ? 5 : undefined}
+        maxLength={as === "textarea" ? 500 : undefined}
         placeholder={t(placeholderKey)}
-        rows={as === "textarea" ? 8 : undefined}
         className={cn(inputBaseClasses, as === "textarea" && "resize-none")}
       />
     </div>
