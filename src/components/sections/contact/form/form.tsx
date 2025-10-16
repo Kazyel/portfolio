@@ -38,14 +38,14 @@ export function Form() {
   const onSubmit = async (data: EmailFormSchema) => {
     try {
       turnstileRef.current?.execute();
-      const token = await Promise.race([
-        turnstileRef.current?.getResponsePromise(2000),
-        new Promise<null>((resolve) => setTimeout(() => resolve(null), 2500)),
-      ]);
+      const token = await turnstileRef.current?.getResponsePromise(2000);
 
       if (!token) throw new Error("Captcha timed out");
+
+      console.log("Captcha token:", token);
       await handleSubmitForm(data, token);
     } catch (error) {
+      console.log("Captcha error:", error);
       toast.error(t("captcha-error"));
     } finally {
       turnstileRef.current?.reset();
