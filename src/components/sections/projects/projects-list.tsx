@@ -27,7 +27,7 @@ export const ProjectsList = () => {
         <div>
           <TextAnimate
             className={cn(
-              "text-acc-red-dark text-6xl font-extrabold tracking-tighter",
+              "text-acc-red-dark text-6xl font-extrabold tracking-tight",
               "md:text-7xl",
             )}
             once
@@ -36,9 +36,7 @@ export const ProjectsList = () => {
           </TextAnimate>
 
           <TextAnimate
-            className={cn(
-              "text-acc-yellow-3 pt-4 text-xl font-light text-balance",
-            )}
+            className={cn("text-acc-yellow-3 pt-4 text-xl font-light text-balance")}
             once
             by="line"
             as="h2"

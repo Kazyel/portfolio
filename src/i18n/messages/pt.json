@@ -6,17 +6,17 @@
   },
   "Hero": {
     "greetings": "Saudações, viajante.",
-    "shape": "Eu moldo as correntes do fluxo digital.",
-    "flow": "O código flui como água através da pedra— persistente, paciente, moldando a realidade um commit por vez.",
-    "each": "Cada linha, um mundo. Cada ideia, viva.",
-    "start": "Explore mais",
+    "mateus": "Sou Mateus,",
+    "front": "Focado em front-end,",
+    "fullstack": "Movido pelo full-stack.",
+    "begin": "Comece a jornada",
     "contact": "Dá um toque"
   },
   "About": {
     "title": "Um pouco sobre mim...",
-    "description-1": "Sou um desenvolvedor de 23 anos, focado principalmente em desenvolvimento front-end, mas ultimamente tenho me aprofundado bastante no back-end também. Estou sempre buscando crescer como desenvolvedor full-stack e gosto de criar coisas que não só tenham uma boa aparência, mas que também funcionem de forma fluida. Programar se tornou mais do que uma habilidade pra mim, é algo que realmente gosto de fazer.",
-    "description-2": "Eu diria que sou uma pessoa tranquila e criativa. Gosto de encarar desafios, aprender coisas novas e experimentar diferentes tecnologias. Seja um novo framework ou um conceito de programação, fico empolgado com o processo de descobrir soluções e melhorar cada vez mais.",
-    "description-3": "Quando não estou programando, provavelmente estou jogando videogame, ouvindo música ou lendo algum mangá. Esses hobbies me ajudam a relaxar e também mantêm minha criatividade ativa. Eles fazem parte de quem eu sou e muitas vezes influenciam a forma como encaro design e resolução de problemas na tecnologia."
+    "description-1": "Sou um desenvolvedor de 23 anos, focado principalmente no front-end, mas ultimamente tenho me aprofundado muito no back-end. Adoro entender projetos end-to-end e criar soluções que não só têm boa aparência, mas também funcionam de forma fluida e eficiente, sempre buscando crescer como full-stack.",
+    "description-2": "Me considero uma pessoa tranquila e criativa, o que me ajuda a encarar desafios, aprender coisas novas e experimentar diferentes tecnologias. Seja um novo framework ou conceito de programação, fico empolgado em expandir meus horizontes — é isso que me motiva como desenvolvedor.",
+    "description-3": "Fora do editor de código, provavelmente estarei jogando, ouvindo música ou lendo algum livro. Esses hobbies me ajudam a relaxar e fazem parte de quem eu sou, muitas vezes influenciando a forma como encaro design e resolução de problemas."
   },
   "Projects": {
     "title": "Projetos",
@@ -28,8 +28,7 @@
   "Contact": {
     "journey": "Essa jornada acaba aqui.",
     "yet": "Contudo, a nossa anseia por começar.",
-    "quote": "A lâmina permanece silenciosa, até que seu propósito desperte.",
-    "follow-me": "Siga meu caminho em"
+    "follow-me": "Me encontre em"
   },
   "ContactForm": {
     "name": "Nome",
@@ -38,7 +37,7 @@
     "submit": "Enviar Mensagem",
     "name-placeholder": "Como eu deveria te chamar?",
     "email-placeholder": "Como posso te contatar?",
-    "message-placeholder": "O que está pensando? Deixa eu saber!",
+    "message-placeholder": "O que você gostaria de dizer?",
     "success": "Mensagem enviada com sucesso!",
     "error": "Algo deu errado! Por favor, tente enviar novamente.",
     "captcha-error": "Ocorreu um erro com o captcha. Por favor, tente novamente.",

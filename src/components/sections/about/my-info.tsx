@@ -92,7 +92,7 @@ export const MyInfo = () => {
       >
         <TextAnimate
           className={cn(
-            "text-darkest text-center text-4xl font-extrabold tracking-tighter",
+            "text-darkest text-center text-4xl font-extrabold tracking-tight",
           )}
           as="h2"
           by="line"

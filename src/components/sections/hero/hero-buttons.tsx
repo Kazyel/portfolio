@@ -9,19 +9,14 @@ import { MessagesSquare, MousePointerClick } from "lucide-react";
 import { m } from "@/components/motion-wrapper";
 
 const BUTTONS_MOTION: CustomMotion<"div"> = {
-  initial: { x: -10, opacity: 0 },
-  animate: { x: 0, opacity: 1 },
-  transition: {
-    type: "spring",
-    stiffness: 100,
-    damping: 15,
-    mass: 1,
-    delay: 0.75,
-  },
+  initial: { y: 10, opacity: 0 },
+  animate: { y: 0, opacity: 1 },
+  viewport: { once: true },
+  transition: { duration: 0.45, delay: 1.85 },
 };
 
 const buttonBaseClasses =
-  "flex cursor-pointer items-center rounded-sm p-1.5 md:p-2.5 text-[0.85rem] shrink-0 md:text-base transition-all duration-150 shadow-md font-medium tracking-tighter";
+  "flex cursor-pointer items-center rounded-sm p-2 sm:p-3 text-base shrink-0 lg:text-lg transition-all duration-150 shadow-md font-medium";
 
 export const HeroButtons = () => {
   const t = useTranslations("Hero");
@@ -33,10 +28,7 @@ export const HeroButtons = () => {
   };
 
   return (
-    <m.div
-      {...BUTTONS_MOTION}
-      className={cn("flex flex-wrap justify-center", "gap-4 sm:gap-6")}
-    >
+    <m.div {...BUTTONS_MOTION} className={cn("flex flex-wrap", "gap-4 sm:gap-6")}>
       <button
         onClick={() => handleClick("about-section")}
         className={cn(
@@ -45,22 +37,21 @@ export const HeroButtons = () => {
           "hover:bg-acc-yellow-3 sm:hover:-translate-y-1",
         )}
       >
-        {t("start")}
-
-        <MousePointerClick className="ml-2 size-4.5 sm:size-6" />
+        {t("begin")}
+        <MousePointerClick className="ml-2 size-5 sm:size-7" />
       </button>
 
       <button
         onClick={() => handleClick("contact-section")}
         className={cn(
           buttonBaseClasses,
-          "text-off-w/40 border-off-w/25 bg-off-w/05 border",
+          "text-off-w/60 border-off-w/45 bg-off-w/05 border",
           "hover:border-acc-red/60 hover:bg-acc-red/10 hover:text-acc-red sm:hover:-translate-y-1",
         )}
       >
         {t("contact")}
 
-        <MessagesSquare className="ml-2 size-4.5 sm:size-6" />
+        <MessagesSquare className="ml-2 size-5 sm:size-7" />
       </button>
     </m.div>
   );

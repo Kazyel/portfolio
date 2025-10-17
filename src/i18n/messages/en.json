@@ -6,17 +6,17 @@
   },
   "Hero": {
     "greetings": "Greetings, traveler!",
-    "shape": "I shape the currents of the digital stream.",
-    "flow": "Code flows like water through stone— persistent, patient, shaping reality one commit at a time.",
-    "each": "Each line, a world. Each idea, alive.",
-    "start": "Explore more",
+    "mateus": "I'm Mateus,",
+    "front": "Front-end focused,",
+    "fullstack": "Full-stack driven.",
+    "begin": "Begin the journey",
     "contact": "Get in touch"
   },
   "About": {
-    "title": "A little bit about me...",
-    "description-1": "I'm a 23-year-old developer from Brazil, mainly focused on front-end development, but lately I’ve been diving deeper into back-end as well. I'm always looking to grow as a full-stack developer, and I enjoy building things that not only look good but also work seamlessly. Coding has become more than just a skill to me and it's something I genuinely enjoy.",
-    "description-2": "I'd say I'm a pretty chill and creative person. I love facing challenges, learning new things, and experimenting with different technologies. Whether it's a new framework, a programming concept, I get excited about the process of figuring things out and improving along the way.",
-    "description-3": "When I'm not coding, you'll probably find me playing video games, listening to music, or reading some manga. These hobbies help me unwind and also keep my creativity flowing. They've been a big part of who I am and often inspire the way I approach design and problem-solving in tech."
+    "title": "A little about me...",
+    "description-1": "I'm a 23-year-old developer, mainly focused on front-end, but recently I've been diving a lot into back-end. I love understanding projects end-to-end and creating solutions that not only look good but also work smoothly and efficiently, always aiming to grow as a full-stack developer.",
+    "description-2": "I consider myself calm and creative, which helps me tackle challenges, learn new things, and experiment with different technologies. Whether it's a new framework or a programming concept, I'm excited to expand my horizons — that's what motivates me as a developer.",
+    "description-3": "Outside of the code editor, you'll probably find me gaming, listening to music, or reading a book. These hobbies help me relax and are part of who I am, often influencing how I approach design and problem-solving."
   },
   "Projects": {
     "title": "Projects",
@@ -28,8 +28,7 @@
   "Contact": {
     "journey": "This journey ends here.",
     "yet": "Yet, ours yearns to begin.",
-    "quote": "A blade stays sheathed, until its purpose awakens.",
-    "follow-me": "Follow my path on"
+    "follow-me": "Find me on"
   },
   "ContactForm": {
     "name": "Name",
@@ -38,7 +37,7 @@
     "submit": "Send Message",
     "name-placeholder": "How should I address you?",
     "email-placeholder": "How should I get in touch?",
-    "message-placeholder": "What's on your mind? Let me know!",
+    "message-placeholder": "What would you like to say?",
     "success": "Message sent successfully!",
     "error": "Something went wrong! Please try sending again.",
     "captcha-error": "There was an error with the captcha. Please try again.",

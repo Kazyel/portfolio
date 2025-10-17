@@ -48,7 +48,7 @@ export const ProjectCard = ({ ...props }: ProjectType) => {
         <h3
           id="project-title"
           className={cn(
-            "text-acc-red-dark text-2xl font-bold tracking-tighter transition-all duration-200",
+            "text-acc-red-dark text-2xl font-bold tracking-tight transition-all duration-200",
             "md:text-3xl",
           )}
         >

@@ -113,7 +113,7 @@ export default function LanguageSwitcher({ currentStyles }: LanguageSwitcherProp
           </m.button>
         </TooltipTrigger>
 
-        <TooltipContent className="text-off-w text-[0.65rem] font-semibold tracking-tighter">
+        <TooltipContent className="text-off-w text-[0.65rem] font-semibold tracking-tight">
           i18n
         </TooltipContent>
       </Tooltip>
@@ -124,8 +124,7 @@ export default function LanguageSwitcher({ currentStyles }: LanguageSwitcherProp
           <m.div
             {...SWITCHER_ANIMATION}
             className={cn(
-              "absolute top-12 right-0 z-50 flex min-w-max flex-col gap-y-3 rounded-sm border border-black/20 p-4 shadow-lg",
-              "max-md:-right-10 md:max-lg:-left-4",
+              "absolute top-12 -right-10 z-50 flex min-w-max flex-col gap-y-3 rounded-sm border border-black/20 p-4 shadow-lg lg:right-0",
               currentStyles.mobileNavbar,
             )}
             role="menu"

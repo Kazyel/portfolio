@@ -19,7 +19,7 @@ export const ProjectTemplate = ({ ...props }: ProjectType) => {
       <div className="mt-6 mb-4 flex flex-col gap-4 self-start rounded">
         <TextAnimate
           className={cn(
-            "text-acc-red-dark text-4xl font-extrabold tracking-tighter",
+            "text-acc-red-dark text-4xl font-extrabold tracking-tight",
             "sm:text-5xl",
           )}
           as="h1"

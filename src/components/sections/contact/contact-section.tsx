@@ -32,7 +32,7 @@ export default function ContactSection() {
       )}
     >
       {/* Samurai Background */}
-      <m.div
+      {/* <m.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         {...BACKGROUND_MOTION}
@@ -48,11 +48,11 @@ export default function ContactSection() {
           loading="lazy"
           decoding="async"
         />
-      </m.div>
+      </m.div> */}
 
       {/* Torii Backgrounds */}
       <m.div
-        initial={{ opacity: 0.2 }}
+        initial={{ opacity: 0.3 }}
         whileInView={{ opacity: 0.1 }}
         {...BACKGROUND_MOTION}
         className="absolute inset-0 hidden 2xl:block"
@@ -89,7 +89,7 @@ export default function ContactSection() {
         <TextAnimate
           as="h1"
           className={cn(
-            "text-off-w text-center font-extrabold tracking-tighter text-balance lg:text-left lg:text-pretty",
+            "text-off-w text-center font-extrabold tracking-tight text-balance lg:text-left lg:text-pretty",
             "text-4xl md:text-6xl lg:text-8xl",
           )}
           animation="slideRight"
@@ -111,23 +111,12 @@ export default function ContactSection() {
         >
           {t("yet")}
         </TextAnimate>
-
-        <div
-          className={cn(
-            "text-off-w/60 font-crimson text-center font-light tracking-wide text-balance lg:text-left",
-            "text-lg md:text-xl lg:text-2xl",
-          )}
-        >
-          <TextAnimate delay={2.75} by="line" animation="blurIn" once>
-            {t("quote")}
-          </TextAnimate>
-        </div>
       </div>
 
-      <div className="flex w-full flex-col items-center justify-center gap-y-4 sm:w-fit">
+      <div className="flex w-full flex-col items-center justify-center sm:w-fit">
         <ContactForm />
 
-        <m.p
+        <m.div
           initial={{ opacity: 0, y: -5 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{
@@ -138,15 +127,21 @@ export default function ContactSection() {
             damping: 15,
           }}
           viewport={{ once: true, amount: 0.65 }}
-          className="text-acc-yellow-3 before:border-acc-yellow-2 after:border-acc-yellow-2 font-crimson xs:after:w-16 xs:before:w-16 z-10 text-lg font-bold tracking-wide text-pretty before:mr-3 before:inline-block before:w-9 before:border-b before:align-middle after:ml-3 after:inline-block after:w-9 after:border-b after:align-middle sm:text-xl sm:before:w-20 sm:after:w-20"
+          className="relative flex w-full items-center justify-center"
         >
-          {t("follow-me")}
-        </m.p>
+          <div className="bg-acc-yellow-2 h-px w-full translate-y-0.5" />
+
+          <p className="text-acc-yellow-3 flex-auto shrink-0 bg-transparent px-6 py-4 text-center text-sm font-bold text-pretty sm:text-base">
+            {t("follow-me")}
+          </p>
+
+          <div className="bg-acc-yellow-2 h-px w-full translate-y-0.5" />
+        </m.div>
 
         {/* Social Links */}
         <m.div
-          initial={{ opacity: 0, filter: "blur(3px)", scale: 0.98 }}
-          whileInView={{ opacity: 1, filter: "blur(0px)", scale: 1 }}
+          initial={{ opacity: 0, scale: 0.98 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           transition={{
             duration: 1,
             delay: 1,

@@ -42,8 +42,8 @@ const FIELD_META: FieldMeta = {
 };
 
 const inputBaseClasses = cn(
-  "border-off-w/40 focus-within:outline-off-w/75 rounded border p-2.5 text-lg font-crimson font-medium tracking-tight",
-  "placeholder:font-light placeholder:tracking-tight placeholder:font-medium focus-within:outline-2",
+  "border-off-w/40 focus-within:outline-off-w/75 rounded border p-2.5 text-lg font-crimson font-medium",
+  "placeholder:font-light placeholder:font-medium focus-within:outline-2",
 );
 
 interface FormFieldProps {
