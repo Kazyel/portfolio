@@ -13,7 +13,7 @@ const imageBaseClasses = "pointer-events-none absolute";
 
 export default function HeroSection() {
   return (
-    <main
+    <section
       id="hero-section"
       className={cn(
         "relative flex min-h-dvh flex-col items-center justify-center overflow-hidden",
@@ -65,6 +65,6 @@ export default function HeroSection() {
         gradientStops={[45, 75, 100]}
         gradientColors={[DARK_COLOR, MID_COLOR, STATIC_COLOR]}
       />
-    </main>
+    </section>
   );
 }

@@ -32,7 +32,7 @@ const ProfileImage = () => {
           width={400}
           height={400}
           quality={75}
-          className="size-full object-cover object-top"
+          className="size-full object-cover object-center"
           alt="Profile"
         />
       </div>

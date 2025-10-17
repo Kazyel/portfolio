@@ -12,8 +12,8 @@ import "@/app/globals.css";
 
 export const metadata: Metadata = {
   title: "Kazyel",
-  description:
-    "Meu portfólio pessoal mostrando meus projetos e minha jornada, com design inspirado na cultura oriental.",
+  description: `Meu portfólio pessoal para mostraro ao mundo meus projetos e a minha jornada como desenvolvedor,
+    com design limpo e ilustrado com elementos da cultura oriental.`,
 };
 
 const crimson = Crimson_Pro({
@@ -51,23 +51,26 @@ export default async function RootLayout({
     <html lang={locale}>
       <link rel="icon" href="/favicon.ico" sizes="any" />
 
-      <meta property="og:url" content="https://www.kazyel.dev/" />
+      <meta property="og:url" content="https://kazyel.dev/" />
       <meta property="og:type" content="site" />
-      <meta property="og:title" content="Kazyel" />
+      <meta property="og:title" content="Kazyel | Portfolio" />
       <meta
         property="og:description"
-        content="Meu portfólio pessoal mostrando meus projetos e minha jornada, com design inspirado na cultura oriental."
+        content="Meu portfólio pessoal para mostraro ao mundo meus projetos e a minha jornada como desenvolvedor,
+          com design limpo e ilustrado com elementos da cultura oriental."
       />
+
       <meta property="og:image" content="https://www.kazyel.dev/images/og.png" />
 
       <meta name="twitter:card" content="summary_large_image" />
-      <meta property="twitter:url" content="https://www.kazyel.dev/" />
+      <meta property="twitter:url" content="https://kazyel.dev/" />
       <meta name="twitter:title" content="site" />
       <meta
         name="twitter:description"
-        content="Meu portfólio pessoal mostrando meus projetos e minha jornada, com design inspirado na cultura oriental."
+        content="Meu portfólio pessoal para mostraro ao mundo meus projetos e a minha jornada como desenvolvedor,
+          com design limpo e ilustrado com elementos da cultura oriental."
       />
-      <meta name="twitter:image" content="https://www.kazyel.dev/images/og.png" />
+      <meta name="twitter:image" content="https://kazyel.dev/images/og.png" />
 
       <body
         className={`${jp.variable} ${unbounded.variable} ${crimson.variable} font-unbounded bg-darkest antialiased`}

@@ -51,7 +51,6 @@ export default function useNavbarState() {
     requestAnimationFrame(() => {
       const container = navbarLinksRef.current;
       const underlineEl = underlineRef.current;
-
       if (!container || !underlineEl) return;
 
       let targetElement: HTMLElement | null = null;
@@ -115,12 +114,9 @@ export default function useNavbarState() {
   );
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => handleIntersection(entry),
-      {
-        threshold: INTERSECTION_THRESHOLD,
-      },
-    );
+    const observer = new IntersectionObserver(([entry]) => handleIntersection(entry), {
+      threshold: INTERSECTION_THRESHOLD,
+    });
 
     const sections = document.querySelectorAll("section[id$='-section']");
     sections.forEach((section) => observer.observe(section));
